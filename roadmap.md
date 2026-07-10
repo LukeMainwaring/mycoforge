@@ -37,6 +37,10 @@ Now / Next / Later / Done. Items move down as they land; prune Done occasionally
 
 ## Done
 
+- Template v0.3: production `/transcript` + `/snippet` (two-phase carve, clip
+  ranges, speaker-turn cleaning) backported from the hand-built KBs; linter
+  hardened for Obsidian conventions (wikilink-form `raw:` refs, table-escaped
+  pipes). (2026-07-10)
 - Template v0.2: `insight` feature — `/research` source discovery and
   `/connect` novel-connection syntheses. (2026-07-10)
 - Template v0.1: wiki core, four cuttable features, deterministic onboarding,

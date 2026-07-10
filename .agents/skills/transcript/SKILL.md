@@ -1,35 +1,74 @@
 ---
 name: transcript
-description: Fetch a YouTube or podcast transcript into raw/podcasts/ as a dated markdown file with timestamp anchors. Use when the user shares a video/podcast URL, or says "grab this podcast", "get the transcript", or "/transcript <url>". Capture only — never ingests into the wiki.
+description: Fetch a podcast transcript from a YouTube URL and save it to raw/podcasts/. Supports full episodes and time-range snippets. Wraps yt-dlp; falls back to a whisper.cpp hint when captions aren't available.
 ---
 
-# Fetch a transcript into raw/
+# /transcript
 
-You are capturing a spoken-word source into this knowledge base's immutable raw
-layer. The helper script does the mechanical work; you run it and report.
+Fetch a podcast transcript from a YouTube URL (or anything yt-dlp supports) and save it as a Markdown file in `raw/podcasts/` per the wiki schema. Supports both full episodes and time-range snippets.
 
-## Steps
+## Usage
 
-1. Get the URL from the user (it's usually in their message). Anything yt-dlp
-   understands is fine.
-2. Run the helper:
+- `/transcript <url>` — full episode
+- `/transcript <url> --clip MM:SS-MM:SS --topic "<topic>"` — snippet
+- `/transcript <url> --clip HH:MM:SS-HH:MM:SS --topic "<topic>"` — snippet (long episodes)
+- `/transcript <url> --show "<override>"` — override the show name when the YouTube channel doesn't quite match (e.g. uploads from a guest's channel)
+- `/transcript <url> --lang es` — non-English captions (defaults to `en`)
 
-   ```bash
-   python3 .agents/skills/transcript/fetch.py "<url>"
-   ```
+## Workflow
 
-   It fetches metadata + English (auto-)subtitles via yt-dlp and writes
-   `raw/podcasts/YYYY-MM-DD <Title>.md` — publication-dated name, source
-   frontmatter (title, channel, published, retrieved, url, duration), and the
-   transcript as paragraphs anchored with `[MM:SS]` timestamps.
-3. Report the file path and a one-line description of what was captured.
+1. **Verify yt-dlp is installed.** Run `which yt-dlp`. If missing, tell the user to install with `brew install yt-dlp` (or `pip install -U yt-dlp`) and stop. Do not auto-install.
+2. **Run the script:** `python3 .agents/skills/transcript/fetch.py <args-passed-to-skill>`. The script handles metadata, caption fetching, VTT cleanup, frontmatter, naming, and writing the file.
+3. **On success:** Report the saved path and a one-line summary (show · title · duration · caption source). Do not auto-ingest into the wiki — that's a separate step the user invokes by saying "ingest this".
+4. **On "no captions available":** The script exits with a hint pointing at whisper.cpp. Surface that to the user verbatim; do not run whisper unless they explicitly ask.
+5. **On any other error:** Print the script's stderr and stop. Don't retry without instruction.
 
-## Guardrails
+## What the script writes
 
-- **Capture only.** This skill populates `raw/` and never creates or edits wiki
-  pages. If the user wants the source *ingested*, that's the separate Ingest
-  workflow in `AGENTS.md` — offer it, don't assume it.
-- Don't edit the transcript content by hand; it's now an immutable raw source.
-  (ASR errors get corrected later, at carve time, by `/snippet`'s glossary.)
-- If yt-dlp is missing, tell the user to install it (`brew install yt-dlp` or
-  `pipx install yt-dlp`) rather than improvising another fetch path.
+Naming follows the schema in `AGENTS.md` (File Naming):
+
+- Full episode: `<YYYY-MM-DD> <Show> - <Episode title>.md`
+- Snippet: `<YYYY-MM-DD> <Show> - <Episode title> (clip - <topic>).md`
+
+Trimmed to ~80 chars; strips path-breakers (`/`, `:`, `?`, `#`, `|`, `[`, `]`) per the schema.
+
+Frontmatter mirrors the `raw/` provenance convention:
+
+```yaml
+---
+title: "<Episode title>"
+source: <YouTube URL>
+show: "<Channel / show name>"
+published: YYYY-MM-DD
+created: YYYY-MM-DD              # date the transcript was captured
+duration: "H:MM:SS"
+captions_source: youtube-manual  # or youtube-auto, youtube-unknown
+tags:
+  - podcast
+---
+```
+
+Snippets add `clip: "MM:SS-MM:SS"`, `clip_topic: "<topic>"`, and a `podcast-clip` tag.
+
+The body has visible `[MM:SS]` (or `[H:MM:SS]` for ≥1-hour episodes) timestamp anchors at paragraph starts. These let downstream tools (notably `/snippet`) compute clip ranges from highlighted positions in the prose. Manual-caption episodes that emit `>>` speaker-change markers are split into turns separated by `\n\n` with turns 2+ prefixed `— ` (em-dash) — anchors fall *after* the em-dash (form: `— [12:34] text...`).
+
+## Caption source quality (state this in your summary)
+
+- `youtube-manual` — uploader-provided. *In principle* the highest quality (sometimes hand-edited; sometimes includes `>>` speaker-turn markers, which the script splits on and prefixes with `— ` for readability). *In practice* some shows upload raw auto-generated transcripts as if they were manual, so quality varies — treat the label as "the show uploaded this caption file" rather than "this is hand-edited prose." Skim the first paragraph at ingest time to gauge actual quality.
+- `youtube-auto` — auto-generated by YouTube. Decent prose, no speaker labels, ASR errors on names and jargon (proper nouns and domain terms arrive garbled). Fine for ingest where you'll be summarizing anyway; less fine for verbatim quotes.
+- `youtube-unknown` — caption file written but source label couldn't be inferred from yt-dlp's logs. Treat as auto.
+
+## Provenance: title vs. body come from different sources
+
+The frontmatter `title` is pulled from YouTube's video-title metadata field — typically clean, properly cased, and trustworthy for proper nouns. The body prose is the caption file, which may contain ASR errors on names and jargon **even when `captions_source: youtube-manual`**. When ingesting into the wiki, treat the frontmatter `title` as the canonical source for the episode title and guest names; the body is the verbatim text of what was uploaded as captions, errors and all.
+
+## Re-running on a highlighted file is destructive
+
+If you've already started marking up a full-episode file with Obsidian `==highlights==` (in preparation for `/snippet`), do **not** re-run `/transcript` on the same URL — the script overwrites `out_path.write_text(...)` unconditionally and your highlights will be lost. Back the file up first, or carve the snippets you have before re-fetching.
+
+## Out of scope
+
+- Does **not** auto-ingest into `wiki/`. After this skill runs, the user can say "ingest this" to trigger the standard ingest workflow.
+- Does **not** run whisper.cpp. When captions are missing, the script prints the fallback command; the user runs it themselves.
+- Does **not** handle Spotify, Apple Podcasts, or other DRM-protected sources. For those, find the YouTube version of the same episode (most non-exclusive shows cross-post).
+- Does **not** add speaker labels to auto-caption transcripts. If speaker turns matter, use the show's official transcript page or run WhisperX manually.

@@ -32,8 +32,11 @@ from pathlib import Path
 
 FENCE_RE = re.compile(r"```.*?```", re.DOTALL)
 INLINE_CODE_RE = re.compile(r"`[^`\n]+`")
-# [[Target]], [[Target|shown]], [[Target#Heading]], ![[embed.png]] — group 1 = target
-WIKILINK_RE = re.compile(r"!?\[\[([^\[\]|#]+?)(?:#[^\[\]|]*)?(?:\|[^\[\]]*)?\]\]")
+# [[Target]], [[Target|shown]], [[Target#Heading]], ![[embed.png]] — group 1 = target.
+# The target class permits a trailing backslash so Obsidian's table-escaped pipe
+# — [[Target\|Display]], required inside markdown table cells — is captured as
+# `Target\`; wikilinks() strips that escaping backslash back off.
+WIKILINK_RE = re.compile(r"!?\[\[([^\[\]|#]+?)(?:#[^\[\]|]*)?(?:\\?\|[^\[\]]*)?\]\]")
 
 # Directories never scanned (not KB content).
 SKIP_DIRS = {".git", ".obsidian", ".template", ".agents", ".claude", "__pycache__",
@@ -141,7 +144,10 @@ def rel(root: Path, p: Path) -> str:
 
 
 def wikilinks(text: str) -> list[str]:
-    return [m.group(1).strip() for m in WIKILINK_RE.finditer(strip_code(text))]
+    # rstrip("\\") drops a table-escaped-pipe backslash the regex may leave on the
+    # target (see WIKILINK_RE); page names never legitimately end in a backslash.
+    return [m.group(1).strip().rstrip("\\").strip()
+            for m in WIKILINK_RE.finditer(strip_code(text))]
 
 
 # sf:begin(orchestrator)
@@ -201,22 +207,34 @@ def check_index(root: Path, targets: set[str], issues: Issues) -> None:
     indexed = set(wikilinks(index.read_text(encoding="utf-8")))
     for page in iter_md(root):
         parts = page.relative_to(root).parts
-        if parts[0] != "wiki" or page.name in {"index.md", "log.md"}:
-            continue
+        if parts[0] != "wiki" or page.name in {"index.md", "log.md", "overview.md"}:
+            continue  # overview.md is a structural meta page, not a catalog entry
         if page.stem not in indexed:
             issues.error(rel(root, page), "missing from wiki/index.md")
     # Ghost entries (index links to nowhere) surface via check_wikilinks, since
     # index.md is part of the scannable set.
 
 
-def check_raw_refs(root: Path, issues: Issues) -> None:
+def check_raw_refs(root: Path, targets: set[str], issues: Issues) -> None:
+    """Resolve `raw:` frontmatter references in either supported form:
+
+    - a repo-relative **path** (`raw/articles/x.md`) — checked for existence
+    - an Obsidian **wikilink** (`[[x]]`, `[[x.pdf]]`) — resolved by file
+      name/stem, the same way body wikilinks are (this is the vault-native form
+      the hand-built KBs use)
+    """
     for page in scannable(root):
         meta = parse_frontmatter(page.read_text(encoding="utf-8"))
         refs = meta.get("raw", [])
         if isinstance(refs, str):
             refs = [refs]
         for ref in refs:
-            if not (root / ref).exists():
+            link = WIKILINK_RE.match(ref)
+            if link:
+                name = Path(link.group(1).strip()).name
+                if name not in targets and Path(name).stem not in targets:
+                    issues.error(rel(root, page), f"raw: reference not found: {ref}")
+            elif not (root / ref).exists():
                 issues.error(rel(root, page), f"raw: reference not found: {ref}")
 
 
@@ -287,7 +305,7 @@ def run(root: Path) -> Issues:
 
     check_index(root, targets, issues)
     check_wikilinks(root, config, targets, issues)
-    check_raw_refs(root, issues)
+    check_raw_refs(root, targets, issues)
     check_orphans(root, issues)
     check_stale(root, config, issues)
     check_concept_candidates(root, config, targets, issues)

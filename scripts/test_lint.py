@@ -64,6 +64,18 @@ def test_piped_links_and_anchors_resolve(tmp_path):
     assert issues.errors == []
 
 
+def test_table_escaped_pipe_resolves(tmp_path):
+    """Obsidian requires \\| inside table cells: [[Page\\|Display]] must resolve."""
+    make_kb(tmp_path, pages={
+        "wiki/index.md": "- [[Alpha]]\n- [[Endovascular BCI]]\n- [[overview]]\n",
+        "wiki/overview.md": "hub [[Alpha]] [[Endovascular BCI]]\n",
+        "wiki/Alpha.md": "| col | [[Endovascular BCI\\|Endovascular]] cell |\n",
+        "wiki/Endovascular BCI.md": "content, linked from [[Alpha]]\n",
+    })
+    issues = lint.run(tmp_path)
+    assert not any("Endovascular" in e for e in issues.errors), issues.errors
+
+
 def test_intentional_forward_links_suppressed(tmp_path):
     make_kb(
         tmp_path,
@@ -82,12 +94,13 @@ def test_index_audit_missing_and_ghost(tmp_path):
     make_kb(tmp_path, pages={
         "wiki/index.md": "- [[Ghost Page]]\n",
         "wiki/Alpha.md": "Some page. [[Alpha]] inbound comes from overview.\n",
-        "wiki/overview.md": "hub [[Alpha]]\n",
+        "wiki/Beta.md": "Another. [[Beta]] inbound comes from overview.\n",
+        "wiki/overview.md": "hub [[Alpha]] [[Beta]]\n",
     })
     issues = lint.run(tmp_path)
     assert any("wiki/Alpha.md: missing from wiki/index.md" in e for e in issues.errors)
+    assert any("wiki/Beta.md: missing from wiki/index.md" in e for e in issues.errors)
     assert any("broken wikilink [[Ghost Page]]" in e for e in issues.errors)
-    assert any("wiki/overview.md: missing from" in e for e in issues.errors)
 
 
 def test_raw_frontmatter_refs(tmp_path):
@@ -106,6 +119,39 @@ def test_raw_frontmatter_refs(tmp_path):
     issues = lint.run(tmp_path)
     assert not any("Alpha" in e and "raw:" in e for e in issues.errors)
     assert any("Beta" in e and "raw: reference not found" in e for e in issues.errors)
+
+
+def test_raw_wikilink_form_refs(tmp_path):
+    """raw: entries may be Obsidian wikilinks (the vault-native form), incl. PDFs."""
+    (tmp_path / "raw/papers").mkdir(parents=True)
+    (tmp_path / "raw/papers/2020-01-01 Real Paper.pdf").write_bytes(b"%PDF-1.4\n")
+    (tmp_path / "raw/articles/2020-02-02 A Talk.md").parent.mkdir(parents=True)
+    (tmp_path / "raw/articles/2020-02-02 A Talk.md").write_text("t\n", encoding="utf-8")
+    make_kb(tmp_path, pages={
+        "wiki/index.md": "- [[Alpha]] - [[Beta]]\n- [[overview]]\n",
+        "wiki/overview.md": "hub [[Alpha]] [[Beta]]\n",
+        "wiki/Alpha.md": (
+            "---\ntype: concept\nraw:\n"
+            '  - "[[2020-01-01 Real Paper.pdf]]"\n'
+            '  - "[[2020-02-02 A Talk]]"\n---\nok\n'
+        ),
+        "wiki/Beta.md": (
+            '---\ntype: concept\nraw:\n  - "[[Nonexistent Source]]"\n---\nbad\n'
+        ),
+    })
+    issues = lint.run(tmp_path)
+    assert not any("Alpha" in e and "raw:" in e for e in issues.errors)
+    assert any("Beta" in e and "Nonexistent Source" in e for e in issues.errors)
+
+
+def test_overview_not_required_in_index(tmp_path):
+    make_kb(tmp_path, pages={
+        "wiki/index.md": "- [[Alpha]]\n",       # overview.md deliberately absent
+        "wiki/overview.md": "hub [[Alpha]]\n",
+        "wiki/Alpha.md": "content [[overview]]\n",
+    })
+    issues = lint.run(tmp_path)
+    assert not any("overview" in e for e in issues.errors)
 
 
 def test_orphan_detection(tmp_path):

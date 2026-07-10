@@ -11,7 +11,7 @@ brand = "MycoForge"
 description = "The LLM-wiki pattern itself: architecture, workflows, and the design of this template"
 
 [template]
-version = "0.2.0"                          # bumped by /sync-upstream
+version = "0.3.0"                          # bumped by /sync-upstream
 repo = "https://github.com/LukeMainwaring/mycoforge"
 
 [lint]
