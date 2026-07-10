@@ -1,0 +1,45 @@
+# kb.toml — instance identity and per-instance configuration.
+#
+# This file is the ONLY home for per-instance data. The tooling (scripts/lint.py,
+# the skills) reads everything it needs from here so the code stays byte-identical
+# across KB instances and /sync-upstream can port template updates cleanly.
+# Unlike .template/features.toml, this file persists after onboarding.
+
+[kb]
+slug = "mycoforge"
+brand = "MycoForge"
+description = "The LLM-wiki pattern itself: architecture, workflows, and the design of this template"
+
+[template]
+version = "0.1.0"                          # bumped by /sync-upstream
+repo = "https://github.com/LukeMainwaring/mycoforge"
+
+[lint]
+# Terms that recur across the wiki without a page of their own get flagged as
+# concept candidates ("promote on recurrence"). A term is satisfied by any page
+# whose title contains it (case-insensitive).
+concept_candidate_terms = ["schema", "provenance"]
+# Pages you know you'll write but haven't yet — suppresses broken-link errors.
+intentional_forward_links = ["Query Workflow", "Lint Workflow"]
+# Warn when a page's file mtime is more than N days newer than its `updated:`
+# frontmatter (the maintainer forgot to bump it). 0 disables the check.
+stale_after_days = 0
+
+# sf:begin(media-capture)
+[snippet]
+# ASR-correction glossary applied by /snippet when carving transcript clips:
+# "what the transcriber heard" = "what was actually said".
+glossary = { "carpathy" = "Karpathy", "my co forge" = "MycoForge" }
+# sf:end(media-capture)
+
+# sf:begin(orchestrator)
+[orchestrator]
+# Optional back-pointer to a parent KB (relative path, "" for none).
+parent = ""
+
+# Zero or more child KBs — independent git repos nested inside this folder.
+# Uncomment and repeat per child:
+# [[orchestrator.children]]
+# path = "relative/path/to/child"
+# scope = "one-line description used for routing"
+# sf:end(orchestrator)

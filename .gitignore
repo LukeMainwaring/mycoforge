@@ -1,0 +1,23 @@
+# Local build artifact — never commit this.
+BUILD_SPEC.md
+
+# OS noise
+.DS_Store
+
+# Obsidian workspace state (per-user; plugin/theme config may be committed if you want)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# sf:begin(orchestrator)
+# Child KBs are independent git repos physically nested inside this folder.
+# Ignore each child directory here so the parent never tracks their files.
+# One line per child, matching [[orchestrator.children]] in kb.toml, e.g.:
+# my-child-kb/
+# sf:end(orchestrator)
