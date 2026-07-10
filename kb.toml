@@ -18,7 +18,7 @@ repo = "https://github.com/LukeMainwaring/mycoforge"
 # Terms that recur across the wiki without a page of their own get flagged as
 # concept candidates ("promote on recurrence"). A term is satisfied by any page
 # whose title contains it (case-insensitive).
-concept_candidate_terms = ["schema", "provenance"]
+concept_candidate_terms = ["federation", "onboarding"]
 # Pages you know you'll write but haven't yet — suppresses broken-link errors.
 intentional_forward_links = ["Query Workflow", "Lint Workflow"]
 # Warn when a page's file mtime is more than N days newer than its `updated:`
