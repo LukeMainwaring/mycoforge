@@ -31,8 +31,13 @@ Now / Next / Later / Done. Items move down as they land; prune Done occasionally
 - **Embeddings / semantic search** — if index-first navigation stops scaling.
 - **Installable `kb-lint` package** — only if `/sync-upstream` proves
   insufficient for keeping vendored tooling current.
+- **Podcast/briefing generation** — script-first: a markdown dialogue or
+  briefing built from a topic's wiki pages, filed as a query artifact; audio
+  rendering (TTS, config in `kb.toml`) only if the script version earns it.
 
 ## Done
 
+- Template v0.2: `insight` feature — `/research` source discovery and
+  `/connect` novel-connection syntheses. (2026-07-10)
 - Template v0.1: wiki core, four cuttable features, deterministic onboarding,
   verify matrix, read-only MCP server. (2026-07-10)

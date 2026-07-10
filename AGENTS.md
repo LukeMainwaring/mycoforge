@@ -87,6 +87,8 @@ note the conflict in the ingest's log entry.
 | "lint", "health check", "clean up the wiki" | **Lint** |
 | "grab this podcast/video", `/transcript <url>` | **Transcript** — fetch into `raw/podcasts/` | <!-- sf:keep-if(media-capture) -->
 | "carve the highlights", `/snippet <file>` | **Snippet** — carve `==highlights==` into a clip | <!-- sf:keep-if(media-capture) -->
+| "research \<topic\>", "find sources on…", `/research` | **Research** — source discovery into `raw/` | <!-- sf:keep-if(insight) -->
+| "what connects…", "find novel links", `/connect` | **Connect** — bridge weakly-linked pages | <!-- sf:keep-if(insight) -->
 | "we decided…", "new ADR", "update the roadmap" | **Product ops** | <!-- sf:keep-if(product) -->
 | a question belonging to a child KB | **Routing** | <!-- sf:keep-if(orchestrator) -->
 
@@ -131,6 +133,22 @@ mechanical; ingestion stays a separate, deliberate step):
   with `==highlight==` out of a transcript into a structured clip file, applying
   the ASR-correction glossary from `kb.toml` `[snippet]`.
 <!-- sf:end(media-capture) -->
+
+<!-- sf:begin(insight) -->
+### Research and Connect
+
+Two knowledge-work skills that bracket the ingest pipeline:
+
+- **`/research`** (`.agents/skills/research/`) — the sourcing arm: web-search a
+  question, vet candidates with the user, and land approved sources in `raw/`
+  with full provenance frontmatter. Capture-only — it ends by *offering* Ingest,
+  never running it.
+- **`/connect`** (`.agents/skills/connect/`) — the compounding arm: find pages
+  that should reference each other but don't, propose at most three candidate
+  bridges, and file only user-approved ones as `syntheses/` pages whose claims
+  are marked `status: speculative` with confirm/refute lines. Logs a
+  `discovered |` entry.
+<!-- sf:end(insight) -->
 
 <!-- sf:begin(product) -->
 ### Product ops

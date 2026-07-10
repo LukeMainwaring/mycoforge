@@ -7,8 +7,8 @@ it by hand. **Delete this whole directory once you've onboarded.**
 ## Files
 
 - **`features.toml`** — declares the cuttable features (`product`,
-  `orchestrator`, `media-capture`, `mcp-server`; all independent), and the
-  paths each wholly owns.
+  `orchestrator`, `media-capture`, `insight`, `mcp-server`; all independent),
+  and the paths each wholly owns.
 - **`onboard.py`** — deterministic prune + rename (pure stdlib, dry-run by
   default, idempotent).
 - **`verify_matrix.sh`** — copies the tree, prunes it for representative

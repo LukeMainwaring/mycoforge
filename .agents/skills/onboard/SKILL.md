@@ -17,8 +17,9 @@ lists — read them from the manifest.
 1. Check `.template/features.toml` exists. If `.template/` is gone, this repo is
    already onboarded — stop and tell the user.
 2. Run `python3 .template/onboard.py --list` to see the cuttable features
-   (currently `product`, `orchestrator`, `media-capture`, `mcp-server` — all
-   independent). Read `.template/README.md` if you need the marker/prune details.
+   (currently `product`, `orchestrator`, `media-capture`, `insight`,
+   `mcp-server` — all independent). Read `.template/README.md` if you need the
+   marker/prune details.
 3. Confirm git state is clean (or warn the user) so onboarding is a reviewable diff.
 
 ## Phase 1 — Interview
@@ -37,6 +38,8 @@ conversationally. Skip anything the user already answered.
    - `orchestrator` — children manifest, routing workflow, child-aware lint.
      Keep only for a parent KB with nested child KBs.
    - `media-capture` — `/transcript` + `/snippet` for podcast/video sources.
+   - `insight` — `/research` (web source discovery into `raw/`) + `/connect`
+     (novel-connection syntheses). Keep for KBs that grow by exploration.
    - `mcp-server` — read-only search/read/index for other repos' agent sessions.
 4. **Page-type taxonomy** (AskUserQuestion): propose domain-appropriate types —
    `concepts/people/syntheses` for a research KB, `books/authors/themes` for a

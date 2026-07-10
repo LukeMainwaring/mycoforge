@@ -45,6 +45,14 @@ paths = [
   ".agents/skills/snippet",
 ]
 
+[features.insight]
+description = "Knowledge-work skills: /research (web source discovery into raw/, capture-only) and /connect (novel-connection syntheses between weakly-linked pages, approval-gated)."
+requires = []
+paths = [
+  ".agents/skills/research",
+  ".agents/skills/connect",
+]
+
 [features.mcp-server]
 description = "Read-only MCP server (search_kb, read_page, get_index) so product repos and other agent sessions can consult this KB."
 requires = []

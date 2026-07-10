@@ -114,9 +114,9 @@ run_case() {
   echo
 }
 
-run_case "full + rename"  --keep product,orchestrator,media-capture,mcp-server --slug testkb --brand TestKB
+run_case "full + rename"  --keep product,orchestrator,media-capture,mcp-server,insight --slug testkb --brand TestKB
 run_case "research-only"  --keep orchestrator,media-capture,mcp-server
-run_case "leaf"           --keep product,media-capture,mcp-server
+run_case "leaf"           --keep product,media-capture,mcp-server,insight
 run_case "minimal"        --keep ""
 
 if [ $fail -eq 0 ]; then echo "ALL CASES PASSED"; else echo "SOME CASES FAILED"; fi

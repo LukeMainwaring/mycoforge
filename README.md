@@ -46,8 +46,10 @@ What you keep is the meta-layer:
   resolution, provenance checks, orphan/stale detection, concept-candidate
   promotion hints. Every knob reads from `kb.toml`.
 - **Skills** (`.agents/skills/`) — `/transcript` and `/snippet` capture
-  spoken-word sources into `raw/`; `/sync-upstream` ports template updates;
-  `/onboard` runs the whole setup interview.
+  spoken-word sources into `raw/`; `/research` finds and lands new sources;
+  `/connect` files novel bridges between weakly-linked pages;
+  `/sync-upstream` ports template updates; `/onboard` runs the whole setup
+  interview.
 - **The MCP server** (`mcp/server.py`) — read-only `search_kb` / `read_page` /
   `get_index` so other repos' agent sessions can consult the KB.
 
@@ -83,6 +85,7 @@ pruning is subtractive, deterministic, and verified. The four cuttable features
 | `product` | Spec pages, ADRs in `decisions/`, roadmap, Home dashboard — for KBs that feed software |
 | `orchestrator` | Parent-KB federation: children manifest, routing workflow, child-aware lint |
 | `media-capture` | `/transcript` + `/snippet` skills for podcast/video sources |
+| `insight` | `/research` (web source discovery into `raw/`) + `/connect` (novel-connection syntheses) |
 | `mcp-server` | The read-only MCP feed |
 
 The raw CLI underneath the skill lives in [`.template/`](.template/README.md):

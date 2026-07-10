@@ -14,9 +14,9 @@ What v0.1 of the template ships (this repo):
 - **The wiki core** (never cuttable): `raw/` + `wiki/` + `AGENTS.md` schema,
   self-referential example content, `scripts/lint.py` with its checks driven from
   `kb.toml`.
-- **Four cuttable features**: `product` (this layer), `orchestrator` (federation),
-  `media-capture` (`/transcript` + `/snippet`), `mcp-server` (read-only
-  search/read/index).
+- **Five cuttable features**: `product` (this layer), `orchestrator`
+  (federation), `media-capture` (`/transcript` + `/snippet`), `insight`
+  (`/research` + `/connect`), `mcp-server` (read-only search/read/index).
 - **Template machinery**: `.template/features.toml`, deterministic
   `onboard.py` prune+rename, `verify_matrix.sh` proving all four representative
   combos stay green, and the `/onboard` interview skill.
