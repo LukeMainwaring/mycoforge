@@ -161,6 +161,7 @@ def test_concept_candidate_fires_and_is_satisfied_by_title(tmp_path):
     assert not any("'gravity'" in w for w in issues.warnings)
 
 
+# sf:begin(orchestrator)
 def test_child_kb_checks(tmp_path):
     (tmp_path / "kids/real").mkdir(parents=True)
     (tmp_path / "kids/real/kb.toml").write_text("[kb]\nslug='child'\n", encoding="utf-8")
@@ -201,6 +202,7 @@ def test_cross_kb_link_is_warning_not_error(tmp_path):
     issues = lint.run(tmp_path)
     assert not any("Child Page" in e for e in issues.errors)
     assert any("cross-KB link [[Child Page]]" in w for w in issues.warnings)
+# sf:end(orchestrator)
 
 
 def test_exit_codes(tmp_path):

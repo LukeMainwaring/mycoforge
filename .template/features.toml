@@ -1,0 +1,54 @@
+# MycoForge feature manifest.
+#
+# Declares the optional, cuttable features of this KB scaffold. The onboarding
+# helper (.template/onboard.py) reads this to prune features you don't keep and
+# to rename the instance. The deterministic prune covers code + config + marked
+# prose blocks; whole docs (README.md, AGENTS.md domain prose) are refreshed by
+# the /onboard skill, not here. The wiki core (raw/, wiki/, AGENTS.md, kb.toml,
+# scripts/lint.py) is the trunk and is never cuttable.
+#
+# How a feature is pruned:
+#   * every path in `paths` is deleted
+#   * its marker blocks and keep-if lines are stripped from source and markdown
+#     (see .template/README.md for the marker syntax in each file type)
+#   * symlinks and skill references are verified afterwards
+# Disabling a feature also disables anything that `requires` it.
+#
+# To add a new cuttable feature: add a [features.<id>] block here, wrap its
+# code/prose in markers or list its wholly-owned files under `paths`, and add a
+# case to verify_matrix.sh.
+
+[project]
+slug = "mycoforge"    # identity token; `--slug` renames it
+brand = "MycoForge"   # display name; `--brand` renames it
+
+[features.product]
+description = "The product layer: Home dashboard, roadmap, product/ spec pages, decisions/ ADRs, and the product-ops workflow. Spec pages only — real software lives in separate repos."
+requires = []
+paths = [
+  "Home.md",
+  "roadmap.md",
+  "product",
+  "decisions",
+]
+
+[features.orchestrator]
+description = "Parent-KB federation: children manifest in kb.toml, routing workflow in the schema, child-aware lint, warn-only cross-KB links. Owns no whole files — it lives in marked blocks."
+requires = []
+paths = []
+
+[features.media-capture]
+description = "Spoken-word capture into raw/: the /transcript (yt-dlp fetch) and /snippet (highlight carving with ASR glossary) skills."
+requires = []
+paths = [
+  ".agents/skills/transcript",
+  ".agents/skills/snippet",
+]
+
+[features.mcp-server]
+description = "Read-only MCP server (search_kb, read_page, get_index) so product repos and other agent sessions can consult this KB."
+requires = []
+paths = [
+  "mcp",
+  ".mcp.json",
+]
