@@ -161,9 +161,10 @@ this KB over MCP.
   (Context / Decision / Consequences / Alternatives, `type: decision` frontmatter
   with `status:`). Supersede rather than rewrite: new decision page, old one gets
   `status: superseded` and a link. Log a `decision |` entry.
-- **Roadmap upkeep**: `roadmap.md` holds Now / Next / Later / Done. Move items as
-  they progress; prune Done occasionally. `Home.md` is the dashboard — keep its
-  links current.
+- **Roadmap upkeep**: `roadmap.md` holds Next / Later only — no Done section.
+  Remove items when they ship (the log and git history are the record); promote
+  Later items to Next as they become active. `Home.md` is the dashboard — keep
+  its links current.
 - **Embedded-prompt convention**: each external software artifact gets one page in
   `product/software/` containing the full build prompt (a fenced block ready to
   paste into a coding agent) plus a link to the resulting repo. The prompt *is*

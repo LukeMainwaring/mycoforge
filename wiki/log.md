@@ -31,3 +31,11 @@ Filed the four decisions from the template design session:
 [[ADR-003 Copy-and-Own with Config-Code Split]],
 [[ADR-004 Read-Only MCP in v1]]. All `status: accepted`.
 <!-- sf:end(product) -->
+
+<!-- sf:begin(product) -->
+## [2026-07-17] schema | Roadmap drops Now and Done sections
+
+`roadmap.md` now holds Next / Later only — shipped items are removed rather
+than archived (the log and git history are the record). Cleared the completed
+v0.1–v0.3 items and updated the Roadmap-upkeep rule in AGENTS.md.
+<!-- sf:end(product) -->
