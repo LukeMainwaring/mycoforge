@@ -1,6 +1,12 @@
 <div align="center">
+  <img src="images/mycoforge-logo.png" alt="MycoForge" width="140" />
   <h1>MycoForge</h1>
-  <p>A template for LLM knowledge bases — a Karpathy-pattern "LLM wiki" scaffold with a schema, deterministic lint and prune tooling, capture skills, and a read-only MCP feed. Create a repo from the template and grow a knowledge base that compounds.</p>
+  <p>Grow a knowledge base that compounds. A template for Karpathy-pattern LLM wikis — an AI agent tends a markdown knowledge base over your curated sources, with a schema, deterministic lint, capture skills, and a read-only MCP feed.</p>
+
+  [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+  [![Python: stdlib only](https://img.shields.io/badge/Python-stdlib_only-3776AB.svg)](scripts/lint.py)
+  [![Obsidian](https://img.shields.io/badge/Obsidian-compatible-7C3AED.svg)](https://obsidian.md)
+  [![MCP](https://img.shields.io/badge/MCP-read--only_server-black.svg)](mcp/server.py)
 </div>
 
 ## What is MycoForge?
