@@ -39,3 +39,42 @@ Filed the four decisions from the template design session:
 than archived (the log and git history are the record). Cleared the completed
 v0.1–v0.3 items and updated the Roadmap-upkeep rule in AGENTS.md.
 <!-- sf:end(product) -->
+
+## [2026-07-23] ingest | Two YC talks on AI-native companies (paired)
+
+Paired ingest of [[2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up]]
+(Diana Hu) and [[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]
+(Tom Blomfield) — deliberately together, as the second talk builds on the first.
+Created concepts [[AI-Native Company]], [[Self-Improving AI Loop]],
+[[Organizational Legibility]], [[Company Brain]], [[AI Software Factory]] and
+people [[Diana Hu]], [[Tom Blomfield]], [[Jack Dorsey]] (stub, secondhand).
+Updated [[Why LLM Wikis Beat RAG]]: Blomfield's diarization argument and the
+regenerated YC user manual independently corroborate the compounding claim at
+organizational scale. Two Anthropic articles remain captured-but-uningested in
+raw/articles/.
+
+## [2026-07-23] ingest | Running an AI-native Engineering Org (Anthropic)
+
+Ingested [[2026-06-03 Running an AI-native Engineering Org (Anthropic)]] — the
+AI-native cluster's first first-party practitioner source. Created
+[[AI-Native Role Archetypes]] (anchor for the onboarding-archetypes plan;
+Dorsey's accountability modes vs Claude Code's hiring filters),
+[[Verification Bottleneck]], and [[Just-in-Time Planning]]. Updated
+[[AI-Native Company]] (middleware claim low→medium on partial first-party
+corroboration of the routing half; archetypes moved out; rollout/metrics
+section added) and [[AI Software Factory]] (every-commit-Claude-assisted
+evidence). One Anthropic PDF (The Founders Playbook) still awaits ingest.
+
+## [2026-07-23] ingest | The Founders Playbook (Anthropic)
+
+Ingested [[2026-05-06 The Founders Playbook (Anthropic)]] — Anthropic's vendor
+prescription to founders (marketing ebook; provenance caveat noted on every
+page). Created [[AI-Native Startup Lifecycle]] (four stages with exit criteria
+and AI-specific failure modes) and [[Founder as Orchestrator]] (third axis for
+the onboarding-archetypes plan). Updated [[AI-Native Role Archetypes]] (two
+sets → three), [[Verification Bottleneck]] (founder-level analog: choose/
+validate, not build), [[Company Brain]] (context-as-moat claim), and
+[[AI-Native Company]] (lean-by-design corroboration). Marked the
+prototypes-replace-design-docs claim in [[Just-in-Time Planning]] **contested**:
+the playbook mandates architecture + scope docs before MVP code — reconciled
+as durable context docs up front, feature planning JIT.

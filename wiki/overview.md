@@ -1,7 +1,7 @@
 ---
 type: overview
 created: 2026-07-10
-updated: 2026-07-10
+updated: 2026-07-23
 tags: [meta]
 ---
 
@@ -21,7 +21,12 @@ Start here:
 - [[Fractal Federation]] — how KBs nest without a special "parent" repo type
 - [[Andrej Karpathy]] — author of the source pattern
 - [[Why LLM Wikis Beat RAG]] — the synthesis, with its claims marked
+- [[AI-Native Company]] — the AI-native cluster: the pattern applied at company
+  scale (loops, legibility, company brain, software factories)
 
-The single raw source so far is Karpathy's gist:
-[[2026-04-04 LLM Wiki (Karpathy)]]. The catalog lives in [[index]]; the history in
-[[log]].
+Raw sources so far: Karpathy's founding gist
+[[2026-04-04 LLM Wiki (Karpathy)]], two YC talks on AI-native companies
+(Diana Hu, Tom Blomfield), and the Claude Code team's first-party account
+[[2026-06-03 Running an AI-native Engineering Org (Anthropic)]]. One Anthropic
+PDF (The Founders Playbook) remains captured in `raw/articles/` awaiting
+ingest. The catalog lives in [[index]]; the history in [[log]].

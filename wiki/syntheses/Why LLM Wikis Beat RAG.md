@@ -1,11 +1,13 @@
 ---
 type: synthesis
 created: 2026-07-10
-updated: 2026-07-10
+updated: 2026-07-23
 sources:
   - "[[2026-04-04 LLM Wiki (Karpathy)]]"
+  - "[[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]"
 raw:
   - raw/articles/2026-04-04 LLM Wiki (Karpathy).md
+  - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
 related:
   - "[[Three-Layer Architecture]]"
   - "[[Ingest Workflow]]"
@@ -26,7 +28,12 @@ why that trade wins for a personal, curated corpus.
 > evidence: "the wiki is a persistent, compounding artifact… the contradictions
 > have already been flagged" — [[2026-04-04 LLM Wiki (Karpathy)]]. A question
 > spanning five sources costs RAG a five-way synthesis per query; the wiki paid
-> that cost once, at ingest.
+> that cost once, at ingest. Independently corroborated at organizational scale:
+> "you cannot pump in 100,000 hours worth of recordings into a context window…
+> synthesize it into the important parts, and give the AI breadcrumbs" —
+> [[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]];
+> YC's regenerated, monthly-refreshed user manual (see
+> [[Organizational Legibility]]) is this pattern running live.
 
 > [!claim] Index-first navigation makes embeddings unnecessary at personal scale
 > confidence: medium · status: supported
