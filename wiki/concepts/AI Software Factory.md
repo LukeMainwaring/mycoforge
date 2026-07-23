@@ -50,7 +50,10 @@ the constraint moves to judging output — see [[Verification Bottleneck]].
 
 The complement is [[Tom Blomfield]]'s ephemeral-software point (see
 [[Company Brain]]): if agents regenerate implementations cheaply, the spec is
-the asset and the code is disposable. This KB's embedded-prompt convention —
+the asset and the code is disposable.
+<!-- sf:begin(product) -->
+This KB's embedded-prompt convention —
 product spec pages holding a full build prompt, per
 [[ADR-001 Separate Repo with Product as Seam]] — is a small-scale instance of
 the same inversion.
+<!-- sf:end(product) -->

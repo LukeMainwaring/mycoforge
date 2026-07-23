@@ -83,7 +83,7 @@ and cleans up after itself.
 ## Onboarding
 
 The scaffold ships every feature on, then you **cut down** to what you want —
-pruning is subtractive, deterministic, and verified. The four cuttable features
+pruning is subtractive, deterministic, and verified. The five cuttable features
 (the wiki core is the trunk and always stays):
 
 | Feature | What it is |
@@ -113,6 +113,25 @@ Instances **vendor** their tooling (copy-and-own). All per-instance data lives
 in `kb.toml`, so the code stays byte-identical across instances and the
 `/sync-upstream` skill can port template updates against the pinned
 `template.version`.
+
+### Two archetypes, one substrate
+
+The template's identity is the substrate — a compounding LLM wiki, whatever the
+domain. But two instance shapes recur, so `/onboard` offers them as **presets**:
+its first question is *personal second-brain / company playbook / custom*, and a
+preset pre-fills the feature keep-set, taxonomy, and seed pages — every answer
+still overridable, and "custom" is the plain interview.
+
+- **Personal second-brain** — an individual's compounding research/reading KB.
+  Keeps `media-capture` + `insight` (`mcp-server` optional); default taxonomy
+  and seeds.
+- **Company playbook** — a venture's durable context layer: the decisions,
+  playbooks, and roles that outlive any feature plan. Keeps `product` +
+  `mcp-server` + `insight` (`orchestrator` optional, for multi-venture
+  federation); a `concepts/decisions/playbooks/roles` taxonomy; seed
+  scaffolding — a lifecycle-stage frame with exit criteria, a loop-anatomy
+  playbook template, and role pages on three axes (what it owns, why a human,
+  how it reshapes around orchestration).
 
 ## Feeding a product repo over MCP
 

@@ -60,3 +60,19 @@ paths = [
   "mcp",
   ".mcp.json",
 ]
+
+# Onboarding archetype presets (ADR-005). Not features: each is a template-time
+# interview default that pre-fills the /onboard keep-set. `keep` is the preset's
+# default keep-set; `optional` features are still asked explicitly. Data only —
+# onboard.py ignores this table; the /onboard skill reads it, and
+# verify_matrix.sh tests each preset's default combo.
+
+[archetypes.second-brain]
+description = "Personal second-brain: an individual's compounding research/reading KB."
+keep = ["media-capture", "insight"]
+optional = ["mcp-server"]
+
+[archetypes.playbook]
+description = "AI-native company playbook: a venture's durable context layer (decisions, playbooks, roles)."
+keep = ["product", "mcp-server", "insight"]
+optional = ["orchestrator"]

@@ -58,6 +58,6 @@ human being in the room for the next 20 years."
 The structural rhyme with this KB: the brain/edge split mirrors the
 [[Three-Layer Architecture]] — durable curated knowledge at the center
 (`raw/` + wiki), regenerable consumers at the edge (product repos reading over
-MCP, per [[ADR-001 Separate Repo with Product as Seam]]). A MycoForge instance
-is a candidate implementation of a company brain; noted here as an observation,
-not yet a filed synthesis.
+MCP). A MycoForge instance is a candidate implementation of a company brain;
+noted here as an observation, not yet a filed synthesis.
+The center/edge seam is decided in [[ADR-001 Separate Repo with Product as Seam]]. <!-- sf:keep-if(product) -->

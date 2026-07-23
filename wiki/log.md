@@ -79,9 +79,21 @@ prototypes-replace-design-docs claim in [[Just-in-Time Planning]] **contested**:
 the playbook mandates architecture + scope docs before MVP code — reconciled
 as durable context docs up front, feature planning JIT.
 
+<!-- sf:begin(product) -->
 ## [2026-07-23] decision | ADR-005 Onboarding Archetypes as Presets
 Filed [[ADR-005 Onboarding Archetypes as Presets]] (status: proposed): personal
 second-brain and company playbook become `/onboard` interview presets (feature
 keep-set + taxonomy + seed pages), no new template machinery; substrate framing
 keeps the README lead. Implementation deferred — three Next items added to
 [[roadmap]]. Planning handoff file deleted.
+<!-- sf:end(product) -->
+
+<!-- sf:begin(product) -->
+## [2026-07-23] decision | ADR-005 accepted — archetype presets shipped
+Implemented [[ADR-005 Onboarding Archetypes as Presets]] and flipped it to
+accepted: archetype question + playbook seed scaffolding in the /onboard skill,
+`[archetypes]` preset data in `.template/features.toml`, both preset combos in
+`verify_matrix.sh`, and a "two archetypes" entry-paths section in the README
+(substrate framing still leads). Shipped items removed from roadmap Next;
+dogfooding the playbook preset remains.
+<!-- sf:end(product) -->
