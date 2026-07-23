@@ -78,3 +78,10 @@ validate, not build), [[Company Brain]] (context-as-moat claim), and
 prototypes-replace-design-docs claim in [[Just-in-Time Planning]] **contested**:
 the playbook mandates architecture + scope docs before MVP code — reconciled
 as durable context docs up front, feature planning JIT.
+
+## [2026-07-23] decision | ADR-005 Onboarding Archetypes as Presets
+Filed [[ADR-005 Onboarding Archetypes as Presets]] (status: proposed): personal
+second-brain and company playbook become `/onboard` interview presets (feature
+keep-set + taxonomy + seed pages), no new template machinery; substrate framing
+keeps the README lead. Implementation deferred — three Next items added to
+[[roadmap]]. Planning handoff file deleted.

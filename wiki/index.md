@@ -49,4 +49,5 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[ADR-002 Fractal Federation for Nested KBs]] — orchestrator as a cuttable feature
 - [[ADR-003 Copy-and-Own with Config-Code Split]] — vendored tooling, instance data in kb.toml
 - [[ADR-004 Read-Only MCP in v1]] — search/read/index only; writes stay interactive
+- [[ADR-005 Onboarding Archetypes as Presets]] — second-brain and playbook as /onboard presets, no new machinery
 <!-- sf:end(product) -->
