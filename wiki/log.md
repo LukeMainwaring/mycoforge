@@ -97,3 +97,12 @@ accepted: archetype question + playbook seed scaffolding in the /onboard skill,
 (substrate framing still leads). Shipped items removed from roadmap Next;
 dogfooding the playbook preset remains.
 <!-- sf:end(product) -->
+
+## [2026-08-08] schema | Skill sync from sporeforge v1.2.3 upstream
+Ported the sibling template's skill-pack conventions: vendored three new skills
+(`writing-for-agents` + SKILL-MECHANICS, `grilling` rounds/frontier interview,
+`wait-what`), added `disable-model-invocation: true` to `/onboard` and
+`/sync-upstream`, gave every skill an `agents/openai.yaml` companion for
+portability, and rewrote the onboard Phase 1 interview to the rounds format
+with tool-agnostic phrasing. New skills are core (unmarked); no workflow-table
+rows added — their descriptions are the context pointers.

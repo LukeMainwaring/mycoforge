@@ -1,0 +1,3 @@
+interface:
+  display_name: "Transcript"
+  short_description: "Fetch a podcast transcript into raw/podcasts/"

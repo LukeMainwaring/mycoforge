@@ -1,0 +1,3 @@
+interface:
+  display_name: "Connect"
+  short_description: "Bridge weakly-linked wiki pages into syntheses"

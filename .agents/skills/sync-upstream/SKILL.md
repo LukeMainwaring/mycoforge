@@ -1,6 +1,7 @@
 ---
 name: sync-upstream
 description: Port MycoForge template updates into this KB instance — diff the vendored tooling against the template repo at HEAD, apply what's wanted, bump the pinned template version. Use when the user says "sync upstream", "update the template tooling", or "pull template updates".
+disable-model-invocation: true
 ---
 
 # Sync this instance with the upstream template

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Snippet"
+  short_description: "Carve highlighted transcript passages into clips"

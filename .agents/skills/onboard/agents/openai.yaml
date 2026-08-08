@@ -1,0 +1,5 @@
+interface:
+  display_name: "Onboard"
+  short_description: "Turn this template clone into your knowledge base"
+policy:
+  allow_implicit_invocation: false

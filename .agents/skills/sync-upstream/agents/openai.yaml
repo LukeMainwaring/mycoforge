@@ -1,0 +1,5 @@
+interface:
+  display_name: "Sync Upstream"
+  short_description: "Port template updates into this KB instance"
+policy:
+  allow_implicit_invocation: false

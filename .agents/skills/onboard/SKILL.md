@@ -1,6 +1,7 @@
 ---
 name: onboard
 description: Turn this MycoForge template clone into your own knowledge base — interview for domain, identity, features, and page-type taxonomy; run the deterministic prune+rename; generate the seed pages; verify with lint. Use when starting a new KB from this template, or when the user says "onboard", "set up this KB", or "make this mine".
+disable-model-invocation: true
 ---
 
 # Onboard a MycoForge clone
@@ -24,10 +25,15 @@ lists — read them from the manifest.
 
 ## Phase 1 — Interview
 
-Use **AskUserQuestion** for the discrete choices; ask free-text items
-conversationally. Skip anything the user already answered.
+Run the interview in **rounds** (the `/grilling` format): each round, ask every
+question whose prerequisites are already settled — numbered, each with your
+recommended answer — then wait for the user's answers before recomputing what's
+askable. Question 1 gates the pre-fills of questions 4–5, and question 3's
+defaults derive from question 2, so a typical run is two rounds. Facts are your
+job, never the user's: read the feature list and git state yourself. Skip
+anything the user already answered (e.g. via an argument).
 
-1. **Archetype** (AskUserQuestion, single-select) — the first question:
+1. **Archetype** (single-select) — the first question:
    - **Personal second-brain** — an individual's compounding research/reading KB.
    - **Company playbook** — a venture's durable context layer: the decisions,
      playbooks, and roles that outlive any feature plan.
@@ -42,7 +48,7 @@ conversationally. Skip anything the user already answered.
    papers? articles? podcasts? a book? Use the answer everywhere below.
 3. **Identity** (free text): slug (lowercase, `^[a-z][a-z0-9_]*$`) and display
    brand. Offer defaults derived from the domain; validate the slug.
-4. **Feature keep-set** (AskUserQuestion, multi-select — one per feature, read
+4. **Feature keep-set** (multi-select — one per feature, read
    from `--list`; with an archetype, present the preset's `keep` list as the
    pre-selected answer and ask its `optional` features individually):
    - `product` — spec pages, decisions/ADRs, roadmap, Home dashboard. Keep if
@@ -53,7 +59,7 @@ conversationally. Skip anything the user already answered.
    - `insight` — `/research` (web source discovery into `raw/`) + `/connect`
      (novel-connection syntheses). Keep for KBs that grow by exploration.
    - `mcp-server` — read-only search/read/index for other repos' agent sessions.
-5. **Page-type taxonomy** (AskUserQuestion): propose domain-appropriate types —
+5. **Page-type taxonomy**: propose domain-appropriate types —
    `concepts/people/syntheses` for a research KB, `books/authors/themes` for a
    reading library, `projects/experiments/notes` for a lab KB — plus "keep the
    default". The chosen types become the `wiki/` subfolders and the `type:`
