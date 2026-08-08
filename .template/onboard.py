@@ -214,7 +214,9 @@ def do_rename(project: dict, slug: str, brand: str | None, apply: bool,
     """Pure text substitution of slug/brand across non-binary files.
 
     kb.toml's `[template]` repo pin must keep pointing at the *template* repo,
-    so its `repo = ...` line is restored after substitution.
+    so its `repo = ...` line is restored after substitution. The sync-upstream
+    skill is skipped entirely: its "MycoForge" references name the template,
+    not the instance.
     """
     old_slug = project.get("slug", "mycoforge")
     old_brand = project.get("brand", "MycoForge")
@@ -222,9 +224,12 @@ def do_rename(project: dict, slug: str, brand: str | None, apply: bool,
     log(f"rename: {old_slug} -> {slug} | {old_brand} -> {brand}")
 
     repo_line_re = re.compile(r"(?m)^(repo\s*=\s*.*)$")
+    sync_upstream_dir = root / ".agents" / "skills" / "sync-upstream"
     n = 0
     for p in iter_walk_files(root):
         if p.suffix in BINARY_SUFFIXES:
+            continue
+        if p.is_relative_to(sync_upstream_dir):
             continue
         try:
             text = p.read_text(encoding="utf-8")

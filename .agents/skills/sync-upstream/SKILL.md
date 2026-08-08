@@ -14,8 +14,10 @@ someone hard-coded instance data where it doesn't belong.
 
 ## Steps
 
-1. **Read the pin.** From `kb.toml` `[template]`: the `repo` URL and the pinned
-   `version` this instance last synced to.
+1. **Read the pin.** From `kb.toml` `[template]`: the `repo` URL, the pinned
+   `version`, and the `commit` SHA this instance last synced to (the SHA is the
+   diff base; if it's empty, this instance predates commit pinning — diff
+   against upstream HEAD and note it).
 2. **Fetch upstream.** Clone the template repo at HEAD into a temp directory
    (`git clone --depth 1 <repo> <tmpdir>`). If the clone fails, stop and tell
    the user.
@@ -34,8 +36,9 @@ someone hard-coded instance data where it doesn't belong.
    copy-and-own), show the conflict and let the user pick.
 6. **Verify.** Run `python3 scripts/lint.py` and the tooling tests
    (`pytest scripts/` if pytest is available). Fix or revert anything red.
-7. **Record it.** Bump `[template].version` in `kb.toml` to upstream's version,
-   and append a `schema |` entry to `wiki/log.md` naming what was ported.
+7. **Record it.** In `kb.toml`, bump `[template].version` to upstream's version
+   and set `[template].commit` to the upstream HEAD SHA you synced from, then
+   append a `schema |` entry to `wiki/log.md` naming what was ported.
 
 ## Guardrails
 

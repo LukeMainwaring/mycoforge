@@ -153,6 +153,20 @@ def test_rename_preserves_template_repo_pin(tmp_path):
     assert page.read_text(encoding="utf-8") == "TestKB is a testkb instance.\n"
 
 
+def test_rename_skips_sync_upstream_skill(tmp_path):
+    skill = tmp_path / ".agents/skills/sync-upstream/SKILL.md"
+    skill.parent.mkdir(parents=True)
+    skill.write_text("Port MycoForge template updates into this KB instance.\n",
+                     encoding="utf-8")
+    other = tmp_path / ".agents/skills/research/SKILL.md"
+    other.parent.mkdir(parents=True)
+    other.write_text("Land sources in the MycoForge wiki.\n", encoding="utf-8")
+    onboard.do_rename({"slug": "mycoforge", "brand": "MycoForge"},
+                      "testkb", "TestKB", apply=True, root=tmp_path)
+    assert "MycoForge" in skill.read_text(encoding="utf-8")
+    assert "TestKB" in other.read_text(encoding="utf-8")
+
+
 def test_rename_defaults_brand_from_slug(tmp_path):
     page = tmp_path / "page.md"
     page.write_text("MycoForge / mycoforge\n", encoding="utf-8")

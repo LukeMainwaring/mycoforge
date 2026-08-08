@@ -106,3 +106,10 @@ Ported the sibling template's skill-pack conventions: vendored three new skills
 portability, and rewrote the onboard Phase 1 interview to the rounds format
 with tool-agnostic phrasing. New skills are core (unmarked); no workflow-table
 rows added — their descriptions are the context pointers.
+
+## [2026-08-08] schema | Commit pinning + onboard rename fix, v0.4.0
+Bumped the template to 0.4.0. `kb.toml` `[template]` gains a `commit` key so
+instances pin the exact template SHA they synced from; `/sync-upstream` now reads
+and records it. Fixed `do_rename` in `.template/onboard.py` to skip the
+sync-upstream skill — its "MycoForge" references name the template, and
+onboarding was rewriting them to the instance brand.

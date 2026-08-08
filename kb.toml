@@ -11,8 +11,9 @@ brand = "MycoForge"
 description = "The LLM-wiki pattern itself: architecture, workflows, and the design of this template"
 
 [template]
-version = "0.3.0"                          # bumped by /sync-upstream
+version = "0.4.0"                          # bumped by /sync-upstream
 repo = "https://github.com/LukeMainwaring/mycoforge"
+commit = ""                                # template commit last synced from; set by /sync-upstream (empty in the template itself)
 
 [lint]
 # Terms that recur across the wiki without a page of their own get flagged as
