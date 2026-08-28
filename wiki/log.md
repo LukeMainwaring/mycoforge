@@ -113,3 +113,6 @@ instances pin the exact template SHA they synced from; `/sync-upstream` now read
 and records it. Fixed `do_rename` in `.template/onboard.py` to skip the
 sync-upstream skill — its "MycoForge" references name the template, and
 onboarding was rewriting them to the instance brand.
+
+## [2026-08-28] schema | Skill sync from mattpocock/skills main (post-v1.2.3)
+Audited the three vendored Pocock skills against upstream main at `6654f6b` (no new tag yet; sporeforge already ported the same in `951f011`). Ported: grilling round template now separates questions with `---`; `wait-what` description quoted (unquoted colon broke YAML discovery upstream); repo-wide em-dash removal in all three; grilling `openai.yaml` short description fixed to "a round of questions" (was stale). Kept our wiki-vocabulary rewrite of `wait-what`, so upstream's `CONTEXT-MAP.md` addition doesn't apply. `connect`, `research`, `snippet`, `transcript`, `onboard`, `sync-upstream` are MycoForge-native and weren't compared.
