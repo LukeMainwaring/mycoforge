@@ -6,16 +6,19 @@ sources:
   - "[[2026-06-03 Running an AI-native Engineering Org (Anthropic)]]"
   - "[[2026-05-06 The Founders Playbook (Anthropic)]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
+  - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
 raw:
   - raw/articles/2026-06-03 Running an AI-native Engineering Org (Anthropic).md
   - raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
+  - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
 related:
   - "[[AI-Native Company]]"
   - "[[Verification Bottleneck]]"
   - "[[AI Software Factory]]"
   - "[[Build for Rebuilding]]"
   - "[[Everyone Ships]]"
+  - "[[AI-Native SDLC]]"
 confidence: medium
 tags: [ai-native, planning]
 ---
@@ -44,6 +47,15 @@ JIT, by analogy with JIT compilation: just the right amount, at the right time.
 > mode for "non-trivial rewrites" on one side; Zingage's "567 lines of how
 > this team thinks" and the rule "put what can't change in CLAUDE.md at the
 > root of your repo" on the other.
+> fourth source: [[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]] is the
+> heaviest write-it-down source yet — "Nothing is implemented without an
+> accepted plan", with `plan.md` committed and checked against the diff at
+> review — but it kills the rituals: `intent.md` replaces "backlog entries,
+> user stories, story points, and refinement meetings", and PRDs and
+> estimation rituals "existed to force alignment during what could be weeks,
+> months, or quarters of development work." Its audience is regulated
+> enterprise, which explains the weight. Status stays contested; the
+> reconciliation below gets stronger.
 
 The two Anthropic sources pull in opposite directions, and the reconciliation
 is probably about *which* documents die: feature-level design docs give way to
@@ -61,6 +73,16 @@ files as long as the agent can quickly verify and course correct." The
 invariants must be written; the rest of the context can lag. Zingage's
 drift story ([[Verification Bottleneck]]) is what happens when the invariants
 aren't written.
+
+The [[AI-Native SDLC]] playbook draws the tolerance line differently: when
+implementation departs from the plan, "update `plan.md` in the same commit.
+Consider using a hook to enforce synchronization between the two," and its
+lagging indicator is how often the merged diff still matches the committed
+plan. Startups tolerate drift the agent can correct; regulated enterprises
+enforce sync because the plan is part of the audit trail. The tolerance
+rule is a function of who has to read the artifact later, not a universal.
+What survives in both is the same: documents that an agent drafts in hours
+and a human corrects, in place of rituals that took weeks.
 
 The companion discipline is killing obsolete process: team members have
 explicit permission to question and kill rituals that no longer close a gap

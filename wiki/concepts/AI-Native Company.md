@@ -8,12 +8,14 @@ sources:
   - "[[2026-06-03 Running an AI-native Engineering Org (Anthropic)]]"
   - "[[2026-05-06 The Founders Playbook (Anthropic)]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
+  - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
 raw:
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
   - raw/articles/2026-06-03 Running an AI-native Engineering Org (Anthropic).md
   - raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
+  - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
 related:
   - "[[AI-Native Startup Lifecycle]]"
   - "[[Founder as Orchestrator]]"
@@ -28,6 +30,9 @@ related:
   - "[[Build for Rebuilding]]"
   - "[[Prototype, Dogfood, Productionize]]"
   - "[[Fix the Principle, Not the Example]]"
+  - "[[AI-Native SDLC]]"
+  - "[[Advisory and Deterministic Controls]]"
+  - "[[Tiered Autonomy]]"
 confidence: medium
 tags: [ai-native, org-design]
 ---
@@ -39,7 +44,8 @@ The umbrella concept for the cluster: [[Self-Improving AI Loop]],
 [[Organizational Legibility]], [[Company Brain]], [[AI Software Factory]],
 [[AI-Native Role Archetypes]], [[Verification Bottleneck]],
 [[Just-in-Time Planning]], [[Everyone Ships]], [[Build for Rebuilding]],
-[[Prototype, Dogfood, Productionize]], [[Fix the Principle, Not the Example]].
+[[Prototype, Dogfood, Productionize]], [[Fix the Principle, Not the Example]],
+[[AI-Native SDLC]], [[Advisory and Deterministic Controls]], [[Tiered Autonomy]].
 
 The cluster now has its first first-party practitioner source: the Claude Code
 team's own account of running this way
@@ -56,7 +62,14 @@ automate the tedium (filed under [[AI Software Factory]] and
 [[Build for Rebuilding]]; [[Prototype, Dogfood, Productionize]]. The
 testimonials are vendor-selected, so they corroborate the vendor's own
 prescription rather than test it independently, but it is the first source
-in the KB with several companies' actual practice in it.
+in the KB with several companies' actual practice in it. A sixth,
+[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]], is the first
+aimed at incumbents: Anthropic's Applied AI team's stage-by-stage playbook
+for a regulated enterprise, where the goal is to keep the old control
+objectives and change the enforcement. It lives in [[AI-Native SDLC]], with
+its control model in [[Advisory and Deterministic Controls]] and its
+autonomy model in [[Tiered Autonomy]]. Vendor prescription without named
+cases, so it corroborates the cluster's shape rather than testing it.
 
 Both sources reject the **productivity framing** (copilots making engineers 20%
 faster) as "a more powerful engine bolted onto the old way of working"
@@ -127,6 +140,12 @@ AI-assisted commits up — "don't confuse throughput with success"
 > more features, Omni 2–3x engineering productivity, Clay 100% of bug triage
 > automated, Artemis Security 6,000+ PRs a week — [[2026-08-20 The Claude Code Guide For Startups]]. Self-reported and
 > vendor-selected; no baseline or method given.
+> The incumbent side of the same claim, from [[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]:
+> legacy systems "are hard to displace because auditors and regulators
+> already accept them and other teams depend on them, so the AI-native SDLC
+> has to fit around what exists" — the prescribed floor is "linkage as the
+> minimum bar," accepting two sources of truth. Wrapping instead of
+> unwinding is the concession that the incumbent path is slower.
 
 Blomfield's closing test: *"If you were building your company today, would you
 start it in this shape?"*

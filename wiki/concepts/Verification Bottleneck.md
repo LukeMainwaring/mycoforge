@@ -6,10 +6,12 @@ sources:
   - "[[2026-06-03 Running an AI-native Engineering Org (Anthropic)]]"
   - "[[2026-05-06 The Founders Playbook (Anthropic)]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
+  - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
 raw:
   - raw/articles/2026-06-03 Running an AI-native Engineering Org (Anthropic).md
   - raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
+  - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
 related:
   - "[[AI Software Factory]]"
   - "[[AI-Native Role Archetypes]]"
@@ -17,6 +19,9 @@ related:
   - "[[Founder as Orchestrator]]"
   - "[[Fix the Principle, Not the Example]]"
   - "[[Build for Rebuilding]]"
+  - "[[AI-Native SDLC]]"
+  - "[[Advisory and Deterministic Controls]]"
+  - "[[Tiered Autonomy]]"
 confidence: medium
 tags: [ai-native, software-engineering]
 ---
@@ -36,6 +41,11 @@ When agents write the code, the constraint moves downstream.
 > process unless you have a reliable means of monitoring and verifying the
 > outcome" — and states that none of the dozen startups "are having agents
 > merge to main and hoping for the best." Vendor-collected testimonials.
+> Enterprise restatement in [[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]: the
+> bottleneck moves "to the steps to the left and right of the build phase…
+> which still run at human speed", per-line review "can't keep up once
+> agents write most of the diff", and governance cost rises because
+> exceptions still route through weekly committees — see [[AI-Native SDLC]].
 
 The team's response is **trust-but-verify review**: Claude handles style,
 linting, bug-catching, and tests; humans review only where domain expertise
@@ -53,6 +63,11 @@ of the [[AI Software Factory]]: humans judge output rather than produce it.
 > deployment" and Claude Code "compressed that cycle from days to hours"
 > (Alex Mashrabov); the guide's eval advice is explicitly to "prevent drift
 > and evaluate future models" — [[2026-08-20 The Claude Code Guide For Startups]].
+> Applied to security in the SDLC playbook: a scan "is a point-in-time
+> statement about a codebase under a particular model, and both halves go
+> stale… each model generation finds vulnerabilities the previous one
+> missed", so scans run on a schedule and coverage is dated from the last
+> run — [[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]].
 
 ## What verification is made of
 
@@ -91,6 +106,33 @@ every contribution compounds" (Dan Shiebler). Verification infrastructure is
 the precondition for speed, not a tax on it — which is also why rebuilding is
 cheap for these teams ([[Build for Rebuilding]]: run evals against v1 and v2,
 merge the winner).
+
+## The enterprise version
+
+[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]] prescribes each of the four for a regulated
+enterprise, and adds two more (detail in [[AI-Native SDLC]]):
+
+- **Invariants** become `CLAUDE.md` plus skills with a named policy owner;
+  the review pass re-checks the diff against `spec.md` and `plan.md`.
+- **Evals** become stage-gate QA: a suite of 20–50 real tasks that runs on
+  any change to `CLAUDE.md`, skills, or hooks, "since that configuration
+  steers the agent and deserves the regression testing that code gets,"
+  with every production incident added as a permanent case.
+- **Deterministic gates** are hooks, with the skill/hook split made
+  explicit — [[Advisory and Deterministic Controls]].
+- **Review agents** run fixed `REVIEW.md` passes on every PR, findings
+  ranked by severity, and "findings do not approve or block a PR on their
+  own"; branch protection keeps approval human.
+- **The feedback loop**: every session verifies its own work (tests, build,
+  screenshot diff) before a person sees it, and pastes the literal output,
+  so "the evidence comes from the toolchain." Bug fixes start from a
+  committed failing test the agent may not edit.
+- **A verifier subagent** runs the final check in a fresh context window
+  "so the verdict is not colored by the assumptions that produced the code."
+
+The playbook's own measure of the bottleneck is review time per PR, which
+"should fall once the tests catch what reviewers used to catch." How far the
+agent may go before a human gate is the subject of [[Tiered Autonomy]].
 
 ## The founder-level analog
 

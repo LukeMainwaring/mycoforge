@@ -30,5 +30,7 @@ Raw sources so far: Karpathy's founding gist
 [[2026-06-03 Running an AI-native Engineering Org (Anthropic)]], and two
 Anthropic PDFs: the vendor's prescription to founders
 ([[2026-05-06 The Founders Playbook (Anthropic)]]) and its multi-company case
-collection ([[2026-08-20 The Claude Code Guide For Startups]]). The catalog
-lives in [[index]]; the history in [[log]].
+collection ([[2026-08-20 The Claude Code Guide For Startups]]), plus its
+enterprise SDLC playbook ([[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]),
+filed under [[AI-Native SDLC]]. The catalog lives in [[index]]; the history
+in [[log]].

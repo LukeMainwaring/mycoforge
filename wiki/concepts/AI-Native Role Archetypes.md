@@ -8,18 +8,21 @@ sources:
   - "[[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]"
   - "[[2026-05-06 The Founders Playbook (Anthropic)]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
+  - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
 raw:
   - raw/articles/2026-06-03 Running an AI-native Engineering Org (Anthropic).md
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
   - raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
+  - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
 related:
   - "[[AI-Native Company]]"
   - "[[Founder as Orchestrator]]"
   - "[[Verification Bottleneck]]"
   - "[[AI Software Factory]]"
   - "[[Everyone Ships]]"
+  - "[[AI-Native SDLC]]"
 confidence: medium
 tags: [ai-native, org-design, hiring]
 ---
@@ -68,6 +71,13 @@ backgrounds because AI dissolved the builder/ideas wall.
 > becoming an engineering role" — with the limit that the division of labor
 > survives past the 0→1 prototype. See [[Everyone Ships]]. Vendor-collected,
 > so held at medium.
+
+The [[AI-Native SDLC]] playbook ([[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]])
+adds the enterprise trajectory for the engineer's role: from one task at a
+time, to steering several worktree sessions, "and eventually, to building
+and monitoring loops" — the [[Founder as Orchestrator]] shift, one level
+down. The product owner gains authorship of `intent.md` and `spec.md`
+without an analyst or designer in between ([[Everyone Ships]]).
 
 Adjacent norms from the same source: managers start as ICs and ship before
 managing (flat-team principle), and onboarding ramp time is a headline metric —

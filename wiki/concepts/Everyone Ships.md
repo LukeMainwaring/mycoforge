@@ -4,13 +4,16 @@ created: 2026-09-02
 updated: 2026-09-02
 sources:
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
+  - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
 raw:
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
+  - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
 related:
   - "[[AI-Native Role Archetypes]]"
   - "[[Founder as Orchestrator]]"
   - "[[Company Brain]]"
   - "[[Prototype, Dogfood, Productionize]]"
+  - "[[AI-Native SDLC]]"
 confidence: medium
 tags: [ai-native, org-design]
 ---
@@ -34,6 +37,17 @@ wall in [[Founder as Orchestrator]].
 > from about a dozen startups: more organizations than the single first-party
 > account behind the role-blur claim in [[AI-Native Role Archetypes]], but
 > selected by the vendor.
+
+The enterprise version in [[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]
+hands the first two SDLC stages to non-engineers outright: the originator
+brainstorms with Claude in claude.ai or Cowork and a version-control
+connector commits `intent.md` on their behalf, "so contributors without git
+experience don't need to use git directly"; the product owner then produces
+`spec.md` in one session with the org's skills loaded — "No engineering
+skill is required" — and mocks the front end in Claude Design before
+exporting it to Claude Code. The same limit holds: build stays with
+engineers, and higher-risk specs go past a technical lead. See
+[[AI-Native SDLC]].
 
 The problem it solves is Heidi's **broken telephone**: idea → PM → designer →
 engineer, "and inevitably the essence of the idea gets lost in that chain." The

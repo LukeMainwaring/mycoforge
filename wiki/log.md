@@ -141,3 +141,37 @@ tolerance rule; claim stays contested), [[AI-Native Role Archetypes]],
 [[Why LLM Wikis Beat RAG]] (Omni chose files over a RAG pipeline),
 [[Organizational Legibility]], and [[Founder as Orchestrator]]. Fixed a stale
 line in [[overview]] that still said the Founders Playbook awaited ingest.
+
+## [2026-09-02] ingest | The AI-Native SDLC playbook (Anthropic)
+
+Ingested [[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]] —
+Anthropic's Applied AI team's stage-by-stage playbook for rebuilding the
+six-stage SDLC around agents in a regulated enterprise. First incumbent-facing
+source in the cluster; vendor prescription with no named cases, so every claim
+it touches stays at medium. Created [[AI-Native SDLC]] (loop of stages, the
+committed-artifact chain intent → spec → plan → diff → PR → incident, plays
+table with indicators, legacy source-of-truth sidebar),
+[[Advisory and Deterministic Controls]] (skills advise, hooks enforce; the five
+control layers and placement rules), and [[Tiered Autonomy]] (autonomy by
+σ-band, environment, change size, and guardrail maturity; production gate as
+the ceiling). Updated [[Verification Bottleneck]] (enterprise restatement of the
+bottleneck claim; "enterprise version" section: feedback loop, verifier
+subagent, config-as-code evals; scans stale per model generation),
+[[Just-in-Time Planning]] (fourth source on the contested claim: heaviest
+write-it-down source yet but it kills the rituals; drift-tolerance divergence
+startup vs enterprise; claim stays contested), [[Self-Improving AI Loop]]
+(closing-the-loop mapped onto Blomfield's five layers), [[Company Brain]]
+(CLAUDE.md/skills as owned institutional knowledge; under-a-page rule vs
+Zingage's 567 lines noted as tension), [[Everyone Ships]] (plan and design
+stages handed to non-engineers), [[AI-Native Company]] (sixth source; incumbent
+side of the startup-advantage claim), [[Organizational Legibility]] (commit
+chain and Slack channel as audit trail), [[Fix the Principle, Not the Example]]
+(mistake-twice rule, review drift diagnostic), [[AI-Native Role Archetypes]]
+(engineer → orchestrator → loop builder), [[overview]], and [[index]].
+Source notes: the clipping's frontmatter says `published: 2001-08-21` (a
+clipper typo; the URL and filename date it 2026-08-21), left as-is since
+raw/ content is immutable. The clipper's filename carried a double space where
+the "|" was stripped from the page title; renamed at the user's request to
+`2026-08-21 The AI-Native SDLC Playbook (Anthropic).md` (rename only, content
+untouched) and every link updated. Contributors credited (Jim Blackhurst,
+Will Steuk, Jamal Arif) have no attributed content, so no person pages.

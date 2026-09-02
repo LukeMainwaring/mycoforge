@@ -6,16 +6,20 @@ sources:
   - "[[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]"
   - "[[2026-05-06 The Founders Playbook (Anthropic)]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
+  - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
 raw:
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
   - raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
+  - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
 related:
   - "[[AI-Native Company]]"
   - "[[Organizational Legibility]]"
   - "[[Three-Layer Architecture]]"
   - "[[Build for Rebuilding]]"
   - "[[Everyone Ships]]"
+  - "[[AI-Native SDLC]]"
+  - "[[Advisory and Deterministic Controls]]"
 confidence: medium
 tags: [ai-native, knowledge-capture]
 ---
@@ -73,6 +77,23 @@ organized by role; Anthropic keeps Claude Tag's standing on-call instructions
 as skills in a repo "so multiple teammates can iterate on them." All of these
 are the shared-skills mechanism in [[Everyone Ships]], and the same substrate
 as this KB.
+
+The enterprise prescription in [[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]
+is the same substrate with owners attached. `CLAUDE.md` is what "used to
+sit in people's heads and on wikis" turned into a file read at the start of
+every session, with a working rule — "When Claude makes a mistake twice, the
+correction goes into `CLAUDE.md`" — and a size rule: under a page, because
+"anything stale is taking up context for no benefit." Skills are "how an
+organization makes its institutional knowledge operational": one policy,
+one named owner, one written source of truth, distributed org-wide through
+plugins, with the rule of thumb to write a skill for knowledge that must be
+applied consistently and leave the rest to `CLAUDE.md` or the prompt.
+Incident post-mortems go to "a version-controlled lessons file that future
+investigations can read." Note the tension with Zingage's 567-line
+`CLAUDE.md` ([[Verification Bottleneck]]): the playbook would push most of
+that into skills. How much of the brain the agent is *forced* to obey is
+the subject of [[Advisory and Deterministic Controls]]; the full artifact
+chain is in [[AI-Native SDLC]].
 
 ## Where humans still matter
 

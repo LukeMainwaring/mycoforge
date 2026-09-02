@@ -6,15 +6,20 @@ sources:
   - "[[2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up]]"
   - "[[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
+  - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
 raw:
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
+  - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
 related:
   - "[[AI-Native Company]]"
   - "[[Organizational Legibility]]"
   - "[[Fix the Principle, Not the Example]]"
   - "[[Build for Rebuilding]]"
+  - "[[AI-Native SDLC]]"
+  - "[[Tiered Autonomy]]"
+  - "[[Advisory and Deterministic Controls]]"
 confidence: medium
 tags: [ai-native, feedback-loops]
 ---
@@ -75,6 +80,30 @@ definition of a loop — an agent that repeats cycles of work until a stop
 condition is met — comes with a design constraint: the stop condition must
 be clear and self-contained, which is why flaky-test agents are the common
 first loop (the agent verifies its own fix by rerunning the test).
+
+## The loop, written as a runbook
+
+The closing-the-loop play in [[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]
+is the first source to give the whole anatomy as an implementable recipe,
+and it maps one-to-one onto Blomfield's layers:
+
+| Layer | Playbook component |
+|---|---|
+| Sensor | a metrics store plus a deterministic, unit-tested detection script (rolling mean and σ, Western Electric rules) — "no model involved" |
+| Policy | `bands.yaml`: 1σ log, 2σ diagnose read-only, 3σ propose via PR or pre-approved runbook ([[Tiered Autonomy]]) |
+| Tools | deploy, status, and rollback exposed as per-environment MCP tools; `gh run view` for diagnosis |
+| Quality gate | the PR review gate plus a service owner triaging fix-now / schedule / dismiss ([[Advisory and Deterministic Controls]]) |
+| Learning | every shipped fix adds an eval; every dismissal tunes the bands |
+
+The agent's output is an `intent.md`, so the finding re-enters the
+[[AI-Native SDLC]] at Plan and the loop closes without a person starting it.
+Worked examples: a 3σ CI failure-rate breach quarantines the flaky test or
+opens a revert PR; a post-deploy 5xx breach with a deployment in the window
+triggers the rehearsed rollback; a PR cycle-time drift writes a report for
+engineering leadership, "which shows the harness works for process metrics
+as well as production ones." Vendor recipe rather than a case, but it is
+the deterministic-detection design that ClickHouse's flaky-test agents
+already embody.
 
 [[Kareem Amin]]'s practitioner version of the thesis: "the moat for any
 company right now is that it needs to be self-improving. So Clay is a

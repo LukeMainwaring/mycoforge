@@ -6,16 +6,19 @@ sources:
   - "[[2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up]]"
   - "[[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
+  - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
 raw:
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
+  - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
 related:
   - "[[AI-Native Company]]"
   - "[[Company Brain]]"
   - "[[Ingest Workflow]]"
   - "[[Why LLM Wikis Beat RAG]]"
   - "[[Fix the Principle, Not the Example]]"
+  - "[[AI-Native SDLC]]"
 confidence: medium
 tags: [ai-native, knowledge-capture]
 ---
@@ -39,6 +42,17 @@ the model's reasoning alongside its answers, comment on both, and "everything
 is versioned and auditable"; the tagged corrections are what the loop learns
 from — [[2026-08-20 The Claude Code Guide For Startups]], filed under
 [[Fix the Principle, Not the Example]].
+
+The governance form of the same rule, from [[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]:
+in the [[AI-Native SDLC]] "the chain of commits is also the audit trail: who
+asked for what, what the agent produced, and who approved it"; session
+transcripts go to the observability stack through the OpenTelemetry export;
+every hook decision is logged with a timestamp and verdict; skill
+invocations appear in session traces; a scan finding can only be dismissed
+with a reason; and for incidents handled in Slack, "the channel is the audit
+trail." The artifact the loop learns from and the artifact the auditor reads
+are the same file, which is why legibility survives the move from startup
+to regulated enterprise.
 
 ## Diarization: raw capture is necessary but not sufficient
 

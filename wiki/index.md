@@ -26,6 +26,9 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[Fix the Principle, Not the Example]] — how a self-improving loop learns from corrections without overfitting; Cainex's back-tested loop
 - [[Build for Rebuilding]] — software as disposable per model generation; a rebuild is done when the old path is gone
 - [[Prototype, Dogfood, Productionize]] — internal agents that earn it become product; building with AI teaches harness design
+- [[AI-Native SDLC]] — six stages as a loop; the committed-artifact chain (intent → spec → plan → diff → PR → incident) as handoff and audit trail
+- [[Advisory and Deterministic Controls]] — skills advise, hooks enforce; the layered control model and where each layer runs
+- [[Tiered Autonomy]] — autonomy scaled by deviation, environment, change size, and guardrail maturity; stops at the production gate
 
 ## People
 
@@ -48,6 +51,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[2026-05-06 The Founders Playbook (Anthropic)]] — Anthropic's AI-native startup lifecycle ebook (article/PDF, 2026-05-06)
 - [[2026-06-03 Running an AI-native Engineering Org (Anthropic)]] — Claude Code team's first-party account (article, 2026-06-03)
 - [[2026-08-20 The Claude Code Guide For Startups]] — five rules from a dozen Claude Code startups (article/PDF, 2026-08-20)
+- [[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]] — Anthropic's enterprise SDLC playbook: plays per stage with governance and metrics (article, 2026-08-21)
 
 <!-- sf:begin(product) -->
 ## Decisions
