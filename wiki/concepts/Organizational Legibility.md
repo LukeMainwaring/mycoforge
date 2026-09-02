@@ -1,18 +1,21 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-07-23
+updated: 2026-09-02
 sources:
   - "[[2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up]]"
   - "[[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]"
+  - "[[2026-08-20 The Claude Code Guide For Startups]]"
 raw:
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
+  - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
 related:
   - "[[AI-Native Company]]"
   - "[[Company Brain]]"
   - "[[Ingest Workflow]]"
   - "[[Why LLM Wikis Beat RAG]]"
+  - "[[Fix the Principle, Not the Example]]"
 confidence: medium
 tags: [ai-native, knowledge-capture]
 ---
@@ -30,6 +33,12 @@ artifact the intelligence layer can learn from. The precondition for every
 > Practices from both talks: AI note-takers in every meeting, minimize DMs and
 > email (they're illegible silos), record office hours and sales calls, pipe
 > everything into one queryable store.
+
+Applied to agent output, not just human activity: Cainex's auditors review
+the model's reasoning alongside its answers, comment on both, and "everything
+is versioned and auditable"; the tagged corrections are what the loop learns
+from — [[2026-08-20 The Claude Code Guide For Startups]], filed under
+[[Fix the Principle, Not the Example]].
 
 ## Diarization: raw capture is necessary but not sufficient
 

@@ -116,3 +116,28 @@ onboarding was rewriting them to the instance brand.
 
 ## [2026-08-28] schema | Skill sync from mattpocock/skills main (post-v1.2.3)
 Audited the three vendored Pocock skills against upstream main at `6654f6b` (no new tag yet; sporeforge already ported the same in `951f011`). Ported: grilling round template now separates questions with `---`; `wait-what` description quoted (unquoted colon broke YAML discovery upstream); repo-wide em-dash removal in all three; grilling `openai.yaml` short description fixed to "a round of questions" (was stale). Kept our wiki-vocabulary rewrite of `wait-what`, so upstream's `CONTEXT-MAP.md` addition doesn't apply. `connect`, `research`, `snippet`, `transcript`, `onboard`, `sync-upstream` are MycoForge-native and weren't compared.
+
+## [2026-09-02] ingest | The Claude Code Guide For Startups (Anthropic)
+
+Ingested [[2026-08-20 The Claude Code Guide For Startups]] — Anthropic's
+interviews with about a dozen Claude Code startups (Artemis, Cainex, Clay,
+ClickHouse, Commure, Crosby, Emergent, Harvey, Heidi, Higgsfield, Omni,
+Parahelp, Translucent, Zingage), distilled into five rules. First
+multi-company practice source in the KB; vendor-selected testimonials, so
+every claim it touches stays at medium. Created [[Everyone Ships]] (Rule 1),
+[[Fix the Principle, Not the Example]] (Cainex's back-tested correction loop
+and its overfitting failure), [[Build for Rebuilding]] (Rule 4), and
+[[Prototype, Dogfood, Productionize]] (Rule 5); person pages for
+[[Kareem Amin]] and [[Uriah Israel]]. Updated [[AI-Native Company]] (fifth
+source, headline numbers, Artemis echo of the OS claim),
+[[Self-Improving AI Loop]] (multi-company corroboration incl. ClickHouse agents
+as #2/#3 contributors; learning-mechanism section), [[Verification Bottleneck]]
+(new "what verification is made of" section: invariants, evals, hooks, review
+agents; Higgsfield on per-model recalibration), [[AI Software Factory]]
+(10x claim raised low→medium; mechanical-80% section), [[Just-in-Time Planning]]
+(guide sits on both sides of the contested claim; Emergent's stale-context
+tolerance rule; claim stays contested), [[AI-Native Role Archetypes]],
+[[Company Brain]] (practitioner-brain section; moat claim echoes),
+[[Why LLM Wikis Beat RAG]] (Omni chose files over a RAG pipeline),
+[[Organizational Legibility]], and [[Founder as Orchestrator]]. Fixed a stale
+line in [[overview]] that still said the Founders Playbook awaited ingest.

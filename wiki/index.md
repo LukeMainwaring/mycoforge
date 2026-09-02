@@ -22,6 +22,10 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[Founder as Orchestrator]] — founder as director of agents; the inverted failure modes of effortless building
 - [[Verification Bottleneck]] — the constraint moves from writing code to judging it
 - [[Just-in-Time Planning]] — prototypes replace design docs when building is cheap
+- [[Everyone Ships]] — non-technical staff ship the 0→1 prototype; the mechanisms that make it systemic
+- [[Fix the Principle, Not the Example]] — how a self-improving loop learns from corrections without overfitting; Cainex's back-tested loop
+- [[Build for Rebuilding]] — software as disposable per model generation; a rebuild is done when the old path is gone
+- [[Prototype, Dogfood, Productionize]] — internal agents that earn it become product; building with AI teaches harness design
 
 ## People
 
@@ -29,6 +33,8 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[Diana Hu]] — YC GP; the founding AI-native-company talk
 - [[Tom Blomfield]] — YC GP; self-improving loops, company brain, legibility
 - [[Jack Dorsey]] — cited secondhand: intelligence-layer org, IC/DRI/AI-founder archetypes
+- [[Kareem Amin]] — Clay CEO: hire tinkerers, build it four times, the moat is self-improvement
+- [[Uriah Israel]] — Cainex CTO: the medical-coding loop behind fix-the-principle
 
 ## Syntheses
 
@@ -41,6 +47,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]] — Tom Blomfield talk (podcast, 2026-05-21)
 - [[2026-05-06 The Founders Playbook (Anthropic)]] — Anthropic's AI-native startup lifecycle ebook (article/PDF, 2026-05-06)
 - [[2026-06-03 Running an AI-native Engineering Org (Anthropic)]] — Claude Code team's first-party account (article, 2026-06-03)
+- [[2026-08-20 The Claude Code Guide For Startups]] — five rules from a dozen Claude Code startups (article/PDF, 2026-08-20)
 
 <!-- sf:begin(product) -->
 ## Decisions

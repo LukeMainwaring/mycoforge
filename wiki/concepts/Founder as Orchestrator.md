@@ -1,16 +1,19 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-07-23
+updated: 2026-09-02
 sources:
   - "[[2026-05-06 The Founders Playbook (Anthropic)]]"
+  - "[[2026-08-20 The Claude Code Guide For Startups]]"
 raw:
   - raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf
+  - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
 related:
   - "[[AI-Native Role Archetypes]]"
   - "[[AI-Native Startup Lifecycle]]"
   - "[[Verification Bottleneck]]"
   - "[[AI Software Factory]]"
+  - "[[Everyone Ships]]"
 confidence: medium
 tags: [ai-native, org-design, founders]
 ---
@@ -40,7 +43,10 @@ happens to the *founder's own* job.
 > traditional tech-founder pipeline never prioritized" —
 > [[2026-05-06 The Founders Playbook (Anthropic)]]. Vendor prescription;
 > the Resources section's founder stories (Anything, Kindora, Wordsmith) are
-> the ebook's own supporting anecdotes, not independent evidence.
+> the ebook's own supporting anecdotes, not independent evidence. Team-level
+> corroboration, again vendor-collected: lawyers at Crosby and a non-technical
+> co-founder at Parahelp shipping product — [[2026-08-20 The Claude Code Guide For Startups]],
+> see [[Everyone Ships]].
 
 The orchestrated system has three leverage areas, each substituting for an
 early hire: **research** (on-call expert for every domain), **agentic coding**

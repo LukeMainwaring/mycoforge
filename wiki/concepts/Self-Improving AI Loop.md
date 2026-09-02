@@ -1,16 +1,20 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-07-23
+updated: 2026-09-02
 sources:
   - "[[2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up]]"
   - "[[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]"
+  - "[[2026-08-20 The Claude Code Guide For Startups]]"
 raw:
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
+  - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
 related:
   - "[[AI-Native Company]]"
   - "[[Organizational Legibility]]"
+  - "[[Fix the Principle, Not the Example]]"
+  - "[[Build for Rebuilding]]"
 confidence: medium
 tags: [ai-native, feedback-loops]
 ---
@@ -42,13 +46,40 @@ Blomfield's loop anatomy:
 > writes the fix, opens a merge request, has an agent review, merge, and deploy it
 > — "when a human comes the next day to ask the same query, it will now succeed"
 > — [[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]].
-> Single first-party anecdote; no external replication cited.
+> Corroborated across companies in [[2026-08-20 The Claude Code Guide For Startups]]:
+> ClickHouse turned "nearly every SDLC stage into an autonomous loop", and two
+> purpose-built agents that fix flaky tests and find missing coverage are the
+> #2 and #3 contributors to its repo; Clay automated bug triage "from first
+> pass to suggesting code changes"; Emergent's onboarding doc is self-healing
+> ("If Claude hits anything broken or out of date during onboarding, it
+> updates that file"); at Anthropic, Claude Tag is the CI/CD first responder
+> and "authored the first situation report in every recent incident", usually
+> within 15 minutes. Still vendor-collected, but the contributor ranking is the
+> first quantitative signal; a non-vendor source would move this to high.
 
 Other proposed loops: a product loop (agent mines analytics for funnel friction,
 researches fixes, runs an A/B test, deploys the winner, repeats) and a support
 loop (agent triages suggestions against the roadmap, ships accepted ones
 overnight). The precondition for all of them is [[Organizational Legibility]] —
 a loop can only learn from what got recorded.
+
+## The learning mechanism, worked out
+
+The anatomy's fifth step is the one the YC talks leave vaguest. Cainex's
+medical-coding loop in [[2026-08-20 The Claude Code Guide For Startups]] is the
+first source to describe it end to end: tagged human corrections → revise the
+governing instruction, not the case → back-test against a golden set → a
+short list for engineers. Its rule, and its overfitting failure mode, have
+their own page: [[Fix the Principle, Not the Example]]. The guide's general
+definition of a loop — an agent that repeats cycles of work until a stop
+condition is met — comes with a design constraint: the stop condition must
+be clear and self-contained, which is why flaky-test agents are the common
+first loop (the agent verifies its own fix by rerunning the test).
+
+[[Kareem Amin]]'s practitioner version of the thesis: "the moat for any
+company right now is that it needs to be self-improving. So Clay is a
+self-learning revenue engine" — and the willingness to rebuild is part of it
+([[Build for Rebuilding]]).
 
 The sidekick-vs-loop distinction is the load-bearing idea: an agent that answers
 questions is "last year's version… making me 20 or 30% more effective"; the loop

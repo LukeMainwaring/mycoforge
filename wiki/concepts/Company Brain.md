@@ -1,17 +1,21 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-07-23
+updated: 2026-09-02
 sources:
   - "[[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]"
   - "[[2026-05-06 The Founders Playbook (Anthropic)]]"
+  - "[[2026-08-20 The Claude Code Guide For Startups]]"
 raw:
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
   - raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf
+  - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
 related:
   - "[[AI-Native Company]]"
   - "[[Organizational Legibility]]"
   - "[[Three-Layer Architecture]]"
+  - "[[Build for Rebuilding]]"
+  - "[[Everyone Ships]]"
 confidence: medium
 tags: [ai-native, knowledge-capture]
 ---
@@ -31,6 +35,8 @@ where the intelligence makes contact with reality.
 > Internal dashboards and workflow tools become on-demand, one-shot,
 > regenerable; the instructions that produce them are what you keep. See
 > [[AI Software Factory]] for the same inversion applied to product code.
+> Practitioner corroboration: Clay's "build it four times" and Harvey's
+> per-model-wave re-architecture — [[Build for Rebuilding]].
 
 ## From efficiency asset to moat
 
@@ -47,6 +53,26 @@ is what keeps AI a force multiplier instead of a source of entropy."
 > Vendor prescription, no independent case data yet — but note it inverts the
 > usual moat story: the durable asset is the context layer, not the software
 > (Blomfield's ephemeral-software point, above, from the other direction).
+> Practitioner echoes in [[2026-08-20 The Claude Code Guide For Startups]]:
+> "the moat for any company right now is that it needs to be self-improving…
+> the more you use this, the more we know who your best customers are"
+> ([[Kareem Amin]], Clay); "structure your codebase, knowledge base, and team
+> the right way, and every contribution compounds" (Dan Shiebler, Artemis
+> Security). Still vendor-collected; held at medium.
+
+## What a practitioner's brain looks like
+
+The startup guide shows the substrate: markdown in a repo. Emergent keeps "a
+GitHub repo of Claude Code skills which works as a shared knowledge base to
+quickly bootstrap a Claude Code session" — database and warehouse locations,
+schema, company context — and a new hire's day-one setup doc that Claude
+updates when it finds something broken. Its tolerance rule: "it is ok to live
+with slightly outdated context files as long as the agent can quickly verify
+and course correct." Translucent runs an internal marketplace of agents
+organized by role; Anthropic keeps Claude Tag's standing on-call instructions
+as skills in a repo "so multiple teammates can iterate on them." All of these
+are the shared-skills mechanism in [[Everyone Ships]], and the same substrate
+as this KB.
 
 ## Where humans still matter
 

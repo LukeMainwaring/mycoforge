@@ -1,16 +1,19 @@
 ---
 type: synthesis
 created: 2026-07-10
-updated: 2026-07-23
+updated: 2026-09-02
 sources:
   - "[[2026-04-04 LLM Wiki (Karpathy)]]"
   - "[[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]"
+  - "[[2026-08-20 The Claude Code Guide For Startups]]"
 raw:
   - raw/articles/2026-04-04 LLM Wiki (Karpathy).md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
+  - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
 related:
   - "[[Three-Layer Architecture]]"
   - "[[Ingest Workflow]]"
+  - "[[Prototype, Dogfood, Productionize]]"
 confidence: medium
 tags: [synthesis, rag]
 ---
@@ -41,6 +44,13 @@ why that trade wins for a personal, curated corpus.
 > scale (~100 sources, ~hundreds of pages)" — [[2026-04-04 LLM Wiki (Karpathy)]].
 > Untested here beyond that scale; embeddings remain the documented graduation
 > path (see `roadmap.md` in instances that keep the product layer).
+> Practitioner corroboration in product, not personal, context: Omni "took
+> inspiration from [Anthropic's] file vs embedding approach, which emboldened
+> us to keep things simple in our own product. We avoided a lot of complexity
+> that would have come from a RAG pipeline" (Chris Merrick) —
+> [[2026-08-20 The Claude Code Guide For Startups]]. No scale figure given, so
+> it widens the claim's plausible range without pinning it; see
+> [[Prototype, Dogfood, Productionize]].
 
 > [!claim] The economics are about maintenance, not retrieval
 > confidence: high · status: supported

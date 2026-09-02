@@ -1,22 +1,25 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-07-23
+updated: 2026-09-02
 sources:
   - "[[2026-06-03 Running an AI-native Engineering Org (Anthropic)]]"
   - "[[2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up]]"
   - "[[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]"
   - "[[2026-05-06 The Founders Playbook (Anthropic)]]"
+  - "[[2026-08-20 The Claude Code Guide For Startups]]"
 raw:
   - raw/articles/2026-06-03 Running an AI-native Engineering Org (Anthropic).md
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
   - raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf
+  - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
 related:
   - "[[AI-Native Company]]"
   - "[[Founder as Orchestrator]]"
   - "[[Verification Bottleneck]]"
   - "[[AI Software Factory]]"
+  - "[[Everyone Ships]]"
 confidence: medium
 tags: [ai-native, org-design, hiring]
 ---
@@ -59,6 +62,12 @@ backgrounds because AI dissolved the builder/ideas wall.
 > more engineering, and you have engineers who take on things like content and
 > design" — [[2026-06-03 Running an AI-native Engineering Org (Anthropic)]].
 > First-party corroboration of the IC archetype: everyone builds.
+> Multi-company corroboration in [[2026-08-20 The Claude Code Guide For Startups]]:
+> lawyers at Crosby shipping product, Parahelp's non-technical co-founder
+> shipping UI changes, Clay hiring "tinkerers" because "every role is
+> becoming an engineering role" — with the limit that the division of labor
+> survives past the 0→1 prototype. See [[Everyone Ships]]. Vendor-collected,
+> so held at medium.
 
 Adjacent norms from the same source: managers start as ICs and ship before
 managing (flat-team principle), and onboarding ramp time is a headline metric —

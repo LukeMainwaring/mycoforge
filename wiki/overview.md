@@ -1,7 +1,7 @@
 ---
 type: overview
 created: 2026-07-10
-updated: 2026-07-23
+updated: 2026-09-02
 tags: [meta]
 ---
 
@@ -27,6 +27,8 @@ Start here:
 Raw sources so far: Karpathy's founding gist
 [[2026-04-04 LLM Wiki (Karpathy)]], two YC talks on AI-native companies
 (Diana Hu, Tom Blomfield), and the Claude Code team's first-party account
-[[2026-06-03 Running an AI-native Engineering Org (Anthropic)]]. One Anthropic
-PDF (The Founders Playbook) remains captured in `raw/articles/` awaiting
-ingest. The catalog lives in [[index]]; the history in [[log]].
+[[2026-06-03 Running an AI-native Engineering Org (Anthropic)]], and two
+Anthropic PDFs: the vendor's prescription to founders
+([[2026-05-06 The Founders Playbook (Anthropic)]]) and its multi-company case
+collection ([[2026-08-20 The Claude Code Guide For Startups]]). The catalog
+lives in [[index]]; the history in [[log]].

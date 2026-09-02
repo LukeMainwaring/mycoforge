@@ -1,17 +1,19 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-07-23
+updated: 2026-09-02
 sources:
   - "[[2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up]]"
   - "[[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]"
   - "[[2026-06-03 Running an AI-native Engineering Org (Anthropic)]]"
   - "[[2026-05-06 The Founders Playbook (Anthropic)]]"
+  - "[[2026-08-20 The Claude Code Guide For Startups]]"
 raw:
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
   - raw/articles/2026-06-03 Running an AI-native Engineering Org (Anthropic).md
   - raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf
+  - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
 related:
   - "[[AI-Native Startup Lifecycle]]"
   - "[[Founder as Orchestrator]]"
@@ -22,6 +24,10 @@ related:
   - "[[AI-Native Role Archetypes]]"
   - "[[Verification Bottleneck]]"
   - "[[Just-in-Time Planning]]"
+  - "[[Everyone Ships]]"
+  - "[[Build for Rebuilding]]"
+  - "[[Prototype, Dogfood, Productionize]]"
+  - "[[Fix the Principle, Not the Example]]"
 confidence: medium
 tags: [ai-native, org-design]
 ---
@@ -32,7 +38,8 @@ A company designed around AI from day one, rather than a company that *uses* AI.
 The umbrella concept for the cluster: [[Self-Improving AI Loop]],
 [[Organizational Legibility]], [[Company Brain]], [[AI Software Factory]],
 [[AI-Native Role Archetypes]], [[Verification Bottleneck]],
-[[Just-in-Time Planning]].
+[[Just-in-Time Planning]], [[Everyone Ships]], [[Build for Rebuilding]],
+[[Prototype, Dogfood, Productionize]], [[Fix the Principle, Not the Example]].
 
 The cluster now has its first first-party practitioner source: the Claude Code
 team's own account of running this way
@@ -41,6 +48,15 @@ check on the two YC talks, which are VC prescription. A fourth source,
 [[2026-05-06 The Founders Playbook (Anthropic)]], adds the vendor's
 prescription *to founders*: the stage-by-stage version lives in
 [[AI-Native Startup Lifecycle]], the role shift in [[Founder as Orchestrator]].
+A fifth, [[2026-08-20 The Claude Code Guide For Startups]], is the first
+multi-company case collection: Anthropic's interviews with about a dozen
+startups on Claude Code, distilled into five rules — [[Everyone Ships]];
+automate the tedium (filed under [[AI Software Factory]] and
+[[Self-Improving AI Loop]]); trust but verify ([[Verification Bottleneck]]);
+[[Build for Rebuilding]]; [[Prototype, Dogfood, Productionize]]. The
+testimonials are vendor-selected, so they corroborate the vendor's own
+prescription rather than test it independently, but it is the first source
+in the KB with several companies' actual practice in it.
 
 Both sources reject the **productivity framing** (copilots making engineers 20%
 faster) as "a more powerful engine bolted onto the old way of working"
@@ -53,7 +69,10 @@ what previously took a team ([[Diana Hu]]).
 > workflow, every decision, and every process should flow through an intelligent
 > layer that is constantly learning and improving" — [[2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up]].
 > Blomfield's version: reimagine the company "as a set of recursive self-improving
-> AI loops."
+> AI loops." Practitioner echo: "Everyone's racing to build AI products. Far
+> fewer are rebuilding how their company actually runs. The second one is the
+> bigger unlock. Artemis Security runs as an AI-native company, not a company
+> that happens to use AI" (Shachar Hirshberg) — [[2026-08-20 The Claude Code Guide For Startups]].
 
 ## Token maxing
 
@@ -103,7 +122,11 @@ AI-assisted commits up — "don't confuse throughput with success"
 > gone from scrappy underdog story to deliberate plan of action"; early-stage
 > startups are "extremely lean by design, often just the founder alone",
 > reaching validation or profitability before scaling the team —
-> [[2026-05-06 The Founders Playbook (Anthropic)]].
+> [[2026-05-06 The Founders Playbook (Anthropic)]]. The startup guide's headline
+> numbers ("shipping like organizations ten times their size"): ClickHouse 30%
+> more features, Omni 2–3x engineering productivity, Clay 100% of bug triage
+> automated, Artemis Security 6,000+ PRs a week — [[2026-08-20 The Claude Code Guide For Startups]]. Self-reported and
+> vendor-selected; no baseline or method given.
 
 Blomfield's closing test: *"If you were building your company today, would you
 start it in this shape?"*
