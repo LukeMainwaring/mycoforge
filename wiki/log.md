@@ -175,3 +175,46 @@ the "|" was stripped from the page title; renamed at the user's request to
 `2026-08-21 The AI-Native SDLC Playbook (Anthropic).md` (rename only, content
 untouched) and every link updated. Contributors credited (Jim Blackhurst,
 Will Steuk, Jamal Arif) have no attributed content, so no person pages.
+
+## [2026-09-06] ingest | The AI Daily Brief - How to Build an AI-Native Company Today
+Podcast (24 min, YouTube captions labeled manual but reading as raw ASR): the
+host walks [[Alex Lieberman]]'s "30 features of an AI native company" X post
+one by one with qualifications. First non-Anthropic, non-YC source in the
+cluster; an aggregator's checklist from a consultant who sells the
+transformation, so it mostly corroborates existing pages as prescription and
+every claim it touches stays at medium. Created [[Token Efficiency]] (cost per
+successful task; routing, plan/execute model split, cost per accepted PR,
+fine-tuned open models; tension with YC's token maxing noted),
+[[Progressive Disclosure]] (metadata at the top of knowledge files so agents
+load only a slice; the section "This KB is one" records that MycoForge's
+frontmatter, index, and MCP split implement it), [[Alex Lieberman]], and
+[[Nathaniel Whittemore]] (host; not named in the transcript, attributed from
+the show byline, medium). Updated [[AI-Native Company]] (seventh source; full
+30-feature table mapped to pages, numbering as heard skips 14; daily-driver
+harness gloss; marketing-barbell aside), [[Company Brain]] (new contested
+low-confidence claim: one intelligence layer vs the host's mesh of sources of
+truth; context as code; skills not prompts), [[Organizational Legibility]]
+(record-everything corroborated; new claim: a process map is context for
+redesign, not a template for agents; feature 30 traceability),
+[[Self-Improving AI Loop]] (loops need an objective success metric; SEO loop
+example), [[Tiered Autonomy]] (first non-Anthropic corroboration; new
+by-trust-earned axis: observe → suggest → act with approval → act alone; human
+sandwich section with the middle left open),
+[[Advisory and Deterministic Controls]] (governance-as-unlock section: permissions inherited and enforced
+in the data layer, legal/HR/IT in lockstep), [[Everyone Ships]] (third source
+on the claim; intent vs implementation, citizen-developer SDLC, Claude Tag
+Slack anecdote), [[AI Software Factory]] (feature 10 as checklist; cost line),
+[[Build for Rebuilding]] (every-three-months policy; disrupt yourself),
+[[Just-in-Time Planning]] (fifth source on the contested claim, status
+unchanged), [[Verification Bottleneck]] (evals as core infrastructure; "everyone
+is in the eval business"), [[AI-Native SDLC]] (intent/implementation split and
+traceability restated independently), [[AI-Native Role Archetypes]] (new claim:
+every agent workflow needs a named owner, the DRI arrived at independently;
+"everyone becomes a manager of agents"), [[Three-Layer Architecture]]
+(cross-reference only), [[overview]], and [[index]]. Not filed: features 13,
+17, 18, 20 (continuous finance, ROI framework, ad-creative swarms, agentic
+cybersecurity) have no second source; listed in the table only. Source
+notes: Lieberman's X post is not in `raw/` and would be the upstream
+reference; the transcript's proper nouns are ASR-garbled ("Grockbot",
+"codecs and GBT image 2", "Benti Jal" for the quoted commenter) and were not
+relied on.

@@ -1,17 +1,19 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-09-02
+updated: 2026-09-06
 sources:
   - "[[2026-06-03 Running an AI-native Engineering Org (Anthropic)]]"
   - "[[2026-05-06 The Founders Playbook (Anthropic)]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
+  - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
 raw:
   - raw/articles/2026-06-03 Running an AI-native Engineering Org (Anthropic).md
   - raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
+  - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
 related:
   - "[[AI-Native Company]]"
   - "[[Verification Bottleneck]]"
@@ -56,6 +58,12 @@ JIT, by analogy with JIT compilation: just the right amount, at the right time.
 > months, or quarters of development work." Its audience is regulated
 > enterprise, which explains the weight. Status stays contested; the
 > reconciliation below gets stronger.
+> fifth source: [[Alex Lieberman]]'s feature 5, context as code, puts
+> "diligent upfront planning" and kept-current architecture documents on the
+> write-it-down side, while his feature 6 throws the workflows away every
+> three months ([[Build for Rebuilding]]) — [[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]].
+> Plan the frame, discard the features: the reconciliation again, from a
+> consultant. Status unchanged.
 
 The two Anthropic sources pull in opposite directions, and the reconciliation
 is probably about *which* documents die: feature-level design docs give way to

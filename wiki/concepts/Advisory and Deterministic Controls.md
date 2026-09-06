@@ -1,13 +1,15 @@
 ---
 type: concept
 created: 2026-09-02
-updated: 2026-09-02
+updated: 2026-09-06
 sources:
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
+  - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
 raw:
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
+  - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
 related:
   - "[[AI-Native SDLC]]"
   - "[[Verification Bottleneck]]"
@@ -86,6 +88,24 @@ capability."
   able to weaken the check on that code," so a fix task cannot edit test
   files; the fallback is rejecting any review diff that touches a test
   ([[Verification Bottleneck]]).
+
+## Governance as unlock
+
+Two of [[Alex Lieberman]]'s features restate layers 4 and 5 from outside
+Anthropic ([[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]).
+Feature 28, "guardrails before features": agents "inherit the permissions of
+whoever is asking and those permissions are enforced in the data layer. You
+build the guardrails in, you don't have to relitigate it every time." That is
+the deterministic layer as the host reads it, and the reason it is worth
+building first: a permission enforced below the model is decided once.
+Feature 26 is its organizational twin: governance "so frequently seen as a
+blocker of innovation" is treated instead as "a transformation partner… a way
+to unlock innovation," which "is only going to work if you have legal, HR,
+and IT work in lockstep with the owners of the AI agenda, helping to design
+the enabling policies." The host calls this "a key hallmark of truly great AI
+native organizations versus those that are still kind of bolting AI on."
+Consultant prescription; the playbook's managed-settings owner (the platform
+or IT admin) is the role it describes.
 
 ## Diagnosing drift between the layers
 

@@ -1,17 +1,19 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-09-02
+updated: 2026-09-06
 sources:
   - "[[2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up]]"
   - "[[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
+  - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
 raw:
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
+  - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
 related:
   - "[[AI-Native Company]]"
   - "[[Organizational Legibility]]"
@@ -80,6 +82,22 @@ definition of a loop — an agent that repeats cycles of work until a stop
 condition is met — comes with a design constraint: the stop condition must
 be clear and self-contained, which is why flaky-test agents are the common
 first loop (the agent verifies its own fix by rerunning the test).
+
+The host of [[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]
+states the same constraint for loops outside engineering ([[Alex Lieberman]]'s
+feature 16, "make non-engineering workflows self-improving by learning from
+previous runs through external performance metrics and internal
+evaluations"): a loop is "a goal and bumpers around what they can do and a
+process that they can loop through over and over again until they achieve
+that goal," and its precondition is "some verifiable success metric that is
+objective rather than subjective… achieve an X percentage result on this
+test is a lot more definable than our interface needs to look good." The
+organizational skill, then, is inventing clear success metrics "for the
+broader array of knowledge work tasks that don't necessarily have that sort
+of success criteria built in natively." His example of the pattern applied to
+marketing (feature 19): rewrite and generate SEO/AEO content weekly, then
+measure whether any of it worked — "not just going to do the thing, but to
+build learning systems around the thing."
 
 ## The loop, written as a runbook
 

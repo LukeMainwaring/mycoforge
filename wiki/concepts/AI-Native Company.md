@@ -1,7 +1,7 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-09-02
+updated: 2026-09-06
 sources:
   - "[[2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up]]"
   - "[[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]"
@@ -9,6 +9,7 @@ sources:
   - "[[2026-05-06 The Founders Playbook (Anthropic)]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
+  - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
 raw:
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
@@ -16,6 +17,7 @@ raw:
   - raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
+  - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
 related:
   - "[[AI-Native Startup Lifecycle]]"
   - "[[Founder as Orchestrator]]"
@@ -33,6 +35,8 @@ related:
   - "[[AI-Native SDLC]]"
   - "[[Advisory and Deterministic Controls]]"
   - "[[Tiered Autonomy]]"
+  - "[[Token Efficiency]]"
+  - "[[Progressive Disclosure]]"
 confidence: medium
 tags: [ai-native, org-design]
 ---
@@ -45,7 +49,8 @@ The umbrella concept for the cluster: [[Self-Improving AI Loop]],
 [[AI-Native Role Archetypes]], [[Verification Bottleneck]],
 [[Just-in-Time Planning]], [[Everyone Ships]], [[Build for Rebuilding]],
 [[Prototype, Dogfood, Productionize]], [[Fix the Principle, Not the Example]],
-[[AI-Native SDLC]], [[Advisory and Deterministic Controls]], [[Tiered Autonomy]].
+[[AI-Native SDLC]], [[Advisory and Deterministic Controls]], [[Tiered Autonomy]],
+[[Token Efficiency]], [[Progressive Disclosure]].
 
 The cluster now has its first first-party practitioner source: the Claude Code
 team's own account of running this way
@@ -70,11 +75,24 @@ objectives and change the enforcement. It lives in [[AI-Native SDLC]], with
 its control model in [[Advisory and Deterministic Controls]] and its
 autonomy model in [[Tiered Autonomy]]. Vendor prescription without named
 cases, so it corroborates the cluster's shape rather than testing it.
+A seventh, [[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]],
+is the first non-Anthropic, non-YC source: a podcast host
+([[Nathaniel Whittemore]]) reading [[Alex Lieberman]]'s "30 features of an
+AI native company" X post feature by feature and adding qualifications. It is
+an aggregator's checklist (Lieberman's firm sells the transformation), so it
+mostly corroborates pages that already exist; the table below maps each
+feature to where it lives. Two ideas were new enough to get pages:
+[[Token Efficiency]] and [[Progressive Disclosure]]. The host's framing of the
+year: in 2025 companies counted AI use cases; in 2026 "everything, it turns
+out, is a use case for AI" and the shift to agentic AI "actually began."
 
 Both sources reject the **productivity framing** (copilots making engineers 20%
 faster) as "a more powerful engine bolted onto the old way of working"
 ([[Tom Blomfield]]). The claimed shift is *new capabilities*: one person building
-what previously took a team ([[Diana Hu]]).
+what previously took a team ([[Diana Hu]]). The podcast's version of the same
+cut: companies "glomming AI and agents onto old processes" versus those
+"redesigning from the ground up" — the term AI-native exists to separate the
+two ([[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]).
 
 > [!claim] AI should be the operating system a company runs on, not a tool it uses
 > confidence: medium · status: supported
@@ -96,6 +114,10 @@ what previously took a team ([[Diana Hu]]).
 > Hu: "you should be willing to run an uncomfortably high API bill." Blomfield
 > concedes token-usage leaderboards are "gameable at the extreme, but
 > directionally correct."
+
+The other side of the same coin, cost per successful task, is
+[[Token Efficiency]]; the two prescriptions are compatible but come from
+different stages of company.
 
 ## Org structure: humans at the edge, no middleware
 
@@ -146,6 +168,58 @@ AI-assisted commits up — "don't confuse throughput with success"
 > has to fit around what exists" — the prescribed floor is "linkage as the
 > minimum bar," accepting two sources of truth. Wrapping instead of
 > unwinding is the concession that the incumbent path is slower.
+
+## The thirty features
+
+[[Alex Lieberman]]'s list as read on [[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]],
+numbered as heard (the host skips from 13 to 15). The wording is the host's
+paraphrase unless quoted on the target page.
+
+| # | Feature | Where it lives |
+|---|---|---|
+| 1 | Blueprint every process, function by function | [[Organizational Legibility]] |
+| 2 | Everyone gets a daily-driver work harness | below |
+| 3 | One intelligence layer as a queryable single source of truth | [[Company Brain]] |
+| 4 | Model routing to optimize cost per successful task | [[Token Efficiency]] |
+| 5 | Context as code: architecture docs and conventions kept current | [[Company Brain]], [[Just-in-Time Planning]] |
+| 6 | Throw everything away every three months, reimagine from first principles | [[Build for Rebuilding]] |
+| 7 | A skills distribution system, not shared prompts | [[Company Brain]] |
+| 8 | Separate intent from implementation | [[AI-Native SDLC]], [[Everyone Ships]] |
+| 9 | Cost per accepted pull request as a key metric | [[Token Efficiency]] |
+| 10 | Agent-native development: fleets plan, write, test, review, ship; humans set intent and acceptance criteria | [[AI Software Factory]] |
+| 11 | Planning phases on heavy models, execution on cheap ones | [[Token Efficiency]] |
+| 12 | CLI tools over markdown metadata so agents load only the slice they need | [[Progressive Disclosure]] |
+| 13 | Continuous finance: accounting and forecasts on a tight cadence, models exposed to the agentic OS (Sarah Friar at OpenAI cited) | no page |
+| 15 | Citizen-developer SDLC | [[Everyone Ships]] |
+| 16 | Self-improving non-engineering workflows | [[Self-Improving AI Loop]] |
+| 17 | An AI ROI framework with experiment, scale, optimize phases and bets across infrastructure, innovation, efficiency | no page |
+| 18 | Agent swarms generating hundreds of ad-creative variations before spend | no page |
+| 19 | Weekly SEO/AEO content loop, measured | [[Self-Improving AI Loop]] |
+| 20 | Agentic cybersecurity, "fight AI with AI" | no page |
+| 21 | RL gym plus first-party data to fine-tune open-weight models | [[Token Efficiency]] |
+| 22 | The human sandwich: people at the first and final mile | [[Tiered Autonomy]] |
+| 23 | Evals as core infrastructure | [[Verification Bottleneck]] |
+| 24 | Everyone is a builder, executives included | [[Everyone Ships]] |
+| 25 | Record everything worth learning from | [[Organizational Legibility]] |
+| 26 | Governance as a transformation partner | [[Advisory and Deterministic Controls]] |
+| 27 | Disrupt the company before someone else does | [[Build for Rebuilding]] |
+| 28 | Guardrails before features; agents inherit the requester's permissions, enforced in the data layer | [[Advisory and Deterministic Controls]] |
+| 29 | Autonomy must be earned: observe, suggest, act with approval, act alone | [[Tiered Autonomy]] |
+| 30 | Trace every output to its prompt, model, data, and approver | [[Organizational Legibility]] |
+| + | Missing, per the comments: clear ownership of every AI workflow's outcome | [[AI-Native Role Archetypes]] |
+
+The items with no page (13, 17, 18, 20) are function-specific applications
+the KB has no second source for; the host's own aside on 18, a "marketing
+barbell" of agent swarms at one end and "utter number-denying human taste" for
+brand at the other, is recorded here and nowhere else.
+
+Feature 2 is the one the host calls "highly uncontroversial" but worth a
+gloss: a daily driver used to mean access to a frontier model; now it means a
+*work harness* (Claude Cowork, ChatGPT at work, or an open-source base an
+organization rolls itself), and "getting comfortable with a harness means
+getting comfortable with context" — organizing skills and provisioning tool
+access. The host expects more organizations to build on an open-source
+harness for flexibility and to avoid lock-in to a vendor that may be sold.
 
 Blomfield's closing test: *"If you were building your company today, would you
 start it in this shape?"*

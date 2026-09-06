@@ -1,7 +1,7 @@
 ---
 type: concept
 created: 2026-07-10
-updated: 2026-07-10
+updated: 2026-09-06
 sources:
   - "[[2026-04-04 LLM Wiki (Karpathy)]]"
 raw:
@@ -9,6 +9,7 @@ raw:
 related:
   - "[[Ingest Workflow]]"
   - "[[Why LLM Wikis Beat RAG]]"
+  - "[[Progressive Disclosure]]"
 confidence: high
 tags: [architecture]
 ---
@@ -31,3 +32,6 @@ The analogy from the source: *Obsidian is the IDE; the LLM is the programmer; th
 wiki is the codebase.* The ownership boundary is what makes the pattern safe — the
 LLM can rewrite fifteen wiki pages in one [[Ingest Workflow|ingest]] pass precisely
 because it can never damage the sources underneath.
+
+The read side of the layering, frontmatter and `index.md` as metadata an agent
+routes on before opening a page, is [[Progressive Disclosure]].

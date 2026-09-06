@@ -1,7 +1,7 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-09-02
+updated: 2026-09-06
 sources:
   - "[[2026-06-03 Running an AI-native Engineering Org (Anthropic)]]"
   - "[[2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up]]"
@@ -9,6 +9,7 @@ sources:
   - "[[2026-05-06 The Founders Playbook (Anthropic)]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
+  - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
 raw:
   - raw/articles/2026-06-03 Running an AI-native Engineering Org (Anthropic).md
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
@@ -16,6 +17,7 @@ raw:
   - raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
+  - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
 related:
   - "[[AI-Native Company]]"
   - "[[Founder as Orchestrator]]"
@@ -83,6 +85,30 @@ Adjacent norms from the same source: managers start as ICs and ship before
 managing (flat-team principle), and onboarding ramp time is a headline metric —
 "engineers ship real code now within their first week." Context gathering also
 stops being a people-question: ask Claude, not the code's author.
+
+## Ownership
+
+> [!claim] Every agent workflow needs a named human owner of the outcome
+> confidence: medium · status: supported
+> evidence: the feature the host says is missing from [[Alex Lieberman]]'s
+> list, summed up by a commenter: "Clear ownership and accountability. AI can
+> automate a lot, but someone still needs to own the outcome. Every AI
+> workflow should have a clear owner, measurable goal, and someone
+> responsible when things go wrong… The best AI native companies won't just
+> ask 'Can AI do this?' They'll also ask 'Who owns the result?'" —
+> [[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]. This is
+> [[Jack Dorsey]]'s DRI archetype arrived at independently, and the playbook's
+> one-policy-one-owner rule for skills ([[AI-Native SDLC]]) applied to every
+> workflow. Held at medium: it is the one archetype every source agrees on,
+> but none reports what happens when it is absent.
+
+The host's conclusion from it is a fourth framing to add to the three below:
+"everyone is becoming a manager of agents as well as an implementer of their
+own work," which he calls "nothing short of a new management discipline" that
+"applies not just to the current managers but to everyone" and will be
+learned "through experience and failure." Note his own hedge on
+[[Everyone Ships]]: everyone can build; not everyone will spend their day
+managing agents.
 
 The three sets don't map cleanly onto each other — Dorsey's are *modes of
 accountability* (who owns what), the Claude Code profiles are *hiring filters*

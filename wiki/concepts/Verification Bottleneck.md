@@ -1,17 +1,19 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-09-02
+updated: 2026-09-06
 sources:
   - "[[2026-06-03 Running an AI-native Engineering Org (Anthropic)]]"
   - "[[2026-05-06 The Founders Playbook (Anthropic)]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
+  - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
 raw:
   - raw/articles/2026-06-03 Running an AI-native Engineering Org (Anthropic).md
   - raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
+  - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
 related:
   - "[[AI Software Factory]]"
   - "[[AI-Native Role Archetypes]]"
@@ -22,6 +24,7 @@ related:
   - "[[AI-Native SDLC]]"
   - "[[Advisory and Deterministic Controls]]"
   - "[[Tiered Autonomy]]"
+  - "[[Token Efficiency]]"
 confidence: medium
 tags: [ai-native, software-engineering]
 ---
@@ -68,6 +71,13 @@ of the [[AI Software Factory]]: humans judge output rather than produce it.
 > stale… each model generation finds vulnerabilities the previous one
 > missed", so scans run on a schedule and coverage is dated from the last
 > run — [[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]].
+> Non-Anthropic corroboration as prescription: [[Alex Lieberman]]'s feature
+> 23, "make eval core infrastructure… whenever new models arrive, use a
+> standing apparatus to test their cost and performance against the
+> company's core processes." The host generalizes: "everyone is now in the
+> eval business… you have to build in evaluation against some standard or
+> else the loops don't work" — [[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]].
+> The cost half of that apparatus is [[Token Efficiency]].
 
 ## What verification is made of
 

@@ -1,11 +1,13 @@
 ---
 type: concept
 created: 2026-09-02
-updated: 2026-09-02
+updated: 2026-09-06
 sources:
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
+  - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
 raw:
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
+  - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
 related:
   - "[[AI-Native Company]]"
   - "[[Verification Bottleneck]]"
@@ -16,6 +18,7 @@ related:
   - "[[Everyone Ships]]"
   - "[[Organizational Legibility]]"
   - "[[Three-Layer Architecture]]"
+  - "[[Progressive Disclosure]]"
 confidence: medium
 tags: [ai-native, software-engineering, governance]
 ---
@@ -70,6 +73,13 @@ the artifacts and the gates.
 > conversation to a committed `intent.md`, `spec.md` commits dated after the
 > first `plan.md`, share of merged diffs that still match `plan.md`), so the
 > chain is also the instrumentation. Vendor design, not observed practice.
+> Independent restatement of both halves in [[Alex Lieberman]]'s list:
+> feature 8 separates intent from implementation so non-technical staff
+> contribute "in a format agents can turn into implementation plans" (the
+> `intent.md` → `plan.md` handoff), and feature 30 traces "every output to
+> its prompt, model, data, and approver" (the audit trail) —
+> [[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]. Consultant
+> prescription, so it corroborates the design rather than reports its use.
 
 Adoption order: prompt each step by hand first; the end state is a loop in
 which each accepted artifact fires the next gate and "human attention

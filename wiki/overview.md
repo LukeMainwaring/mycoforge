@@ -1,7 +1,7 @@
 ---
 type: overview
 created: 2026-07-10
-updated: 2026-09-02
+updated: 2026-09-06
 tags: [meta]
 ---
 
@@ -32,5 +32,8 @@ Anthropic PDFs: the vendor's prescription to founders
 ([[2026-05-06 The Founders Playbook (Anthropic)]]) and its multi-company case
 collection ([[2026-08-20 The Claude Code Guide For Startups]]), plus its
 enterprise SDLC playbook ([[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]),
-filed under [[AI-Native SDLC]]. The catalog lives in [[index]]; the history
-in [[log]].
+filed under [[AI-Native SDLC]], and a first non-Anthropic, non-YC source, a
+podcast walking [[Alex Lieberman]]'s thirty AI-native features
+([[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]), which added
+[[Token Efficiency]] and [[Progressive Disclosure]]. The catalog lives in
+[[index]]; the history in [[log]].

@@ -1,17 +1,19 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-09-02
+updated: 2026-09-06
 sources:
   - "[[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]"
   - "[[2026-05-06 The Founders Playbook (Anthropic)]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
+  - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
 raw:
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
   - raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
+  - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
 related:
   - "[[AI-Native Company]]"
   - "[[Organizational Legibility]]"
@@ -20,6 +22,8 @@ related:
   - "[[Everyone Ships]]"
   - "[[AI-Native SDLC]]"
   - "[[Advisory and Deterministic Controls]]"
+  - "[[Progressive Disclosure]]"
+  - "[[Token Efficiency]]"
 confidence: medium
 tags: [ai-native, knowledge-capture]
 ---
@@ -63,6 +67,38 @@ is what keeps AI a force multiplier instead of a source of entropy."
 > ([[Kareem Amin]], Clay); "structure your codebase, knowledge base, and team
 > the right way, and every contribution compounds" (Dan Shiebler, Artemis
 > Security). Still vendor-collected; held at medium.
+
+## One layer or a mesh
+
+> [!claim] Large organizations get a mesh of sources of truth that agents traverse and reconcile, not one intelligence layer
+> confidence: low · status: contested
+> evidence: [[Alex Lieberman]]'s feature 3, which commenters called
+> load-bearing for the rest of his list: "build one intelligence layer to
+> aggregate structured and unstructured data, documents, and business logic
+> into a single source of truth that is queryable and that agentic work can
+> be built on top of." The host's dissent: "I kind of like the metaphor of a
+> mesh or lattice rather than a single layer… sources of truth that can
+> interface with one another and that agents can traverse, perhaps even
+> uncovering and trying to reconcile with human support differences in
+> sources of truth" — [[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]].
+> Both agree on the substance (organizing context for agents is "a major
+> discipline"); the disagreement is topology at scale. The
+> [[AI-Native SDLC]] playbook's "for every artifact, name one source of
+> truth" with linkage as the minimum bar is the mesh position stated as
+> policy. Two opinions, no cases; low.
+
+Lieberman's feature 5 restates the durable-asset claim above as a mindset,
+**context as code**: keep architecture documents and conventions updated and
+make "diligent upfront planning part of the operating discipline," treating
+context "not just as the background info that is required, but as the actual
+foundations upon which agents are building." Feature 7 is the distribution
+half: "organizations will distribute skills, not just prompts," a skills
+distribution system that manages agent behavior org-wide, which the host
+reads as "the discipline of agent management coming to the fore." Both are
+the enterprise skills play below, said by a non-Anthropic source. The brain
+also has to be *shaped* for agents, not just filled: metadata at the top of
+every file so an agent loads only what it needs ([[Progressive Disclosure]],
+the [[Token Efficiency]] side of the brain).
 
 ## What a practitioner's brain looks like
 

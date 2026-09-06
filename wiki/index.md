@@ -29,6 +29,8 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[AI-Native SDLC]] — six stages as a loop; the committed-artifact chain (intent → spec → plan → diff → PR → incident) as handoff and audit trail
 - [[Advisory and Deterministic Controls]] — skills advise, hooks enforce; the layered control model and where each layer runs
 - [[Tiered Autonomy]] — autonomy scaled by deviation, environment, change size, and guardrail maturity; stops at the production gate
+- [[Token Efficiency]] — cost per successful task as the unit; routing, plan/execute model split, cost per accepted PR, fine-tuned open models
+- [[Progressive Disclosure]] — metadata at the top of knowledge files so agents load only the slice they need; this KB is one
 
 ## People
 
@@ -38,6 +40,8 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[Jack Dorsey]] — cited secondhand: intelligence-layer org, IC/DRI/AI-founder archetypes
 - [[Kareem Amin]] — Clay CEO: hire tinkerers, build it four times, the moat is self-improvement
 - [[Uriah Israel]] — Cainex CTO: the medical-coding loop behind fix-the-principle
+- [[Alex Lieberman]] — 10X Labs founder, ex-Morning Brew: author of the 30-features list, cited secondhand
+- [[Nathaniel Whittemore]] — AI Daily Brief host: the dissents and additions to the 30-features list
 
 ## Syntheses
 
@@ -52,6 +56,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[2026-06-03 Running an AI-native Engineering Org (Anthropic)]] — Claude Code team's first-party account (article, 2026-06-03)
 - [[2026-08-20 The Claude Code Guide For Startups]] — five rules from a dozen Claude Code startups (article/PDF, 2026-08-20)
 - [[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]] — Anthropic's enterprise SDLC playbook: plays per stage with governance and metrics (article, 2026-08-21)
+- [[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]] — host walks Lieberman's 30 features with commentary (podcast, 2026-09-06)
 
 <!-- sf:begin(product) -->
 ## Decisions

@@ -1,21 +1,24 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-09-02
+updated: 2026-09-06
 sources:
   - "[[2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up]]"
   - "[[2026-06-03 Running an AI-native Engineering Org (Anthropic)]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
+  - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
 raw:
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
   - raw/articles/2026-06-03 Running an AI-native Engineering Org (Anthropic).md
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
+  - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
 related:
   - "[[AI-Native Company]]"
   - "[[Company Brain]]"
   - "[[Verification Bottleneck]]"
   - "[[Self-Improving AI Loop]]"
   - "[[Prototype, Dogfood, Productionize]]"
+  - "[[Token Efficiency]]"
 confidence: medium
 tags: [ai-native, software-engineering]
 ---
@@ -57,6 +60,13 @@ Claude-assisted. I don't think I've seen a non-Claude-assisted commit in the
 last four months" — [[2026-06-03 Running an AI-native Engineering Org (Anthropic)]].
 The same source supplies the factory's missing half: when generation is free,
 the constraint moves to judging output — see [[Verification Bottleneck]].
+[[Alex Lieberman]]'s feature 10 is the factory as a checklist item: "letting
+fleets of coding agents plan, write, test, review, and ship code while humans
+define intent and acceptance criteria," which the host calls "a lot less
+controversial than it would have been a year ago" and the feature most
+organizations are furthest along with
+([[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]). His feature
+9 gives the factory a cost line, cost per accepted PR ([[Token Efficiency]]).
 
 ## The mechanical 80%
 

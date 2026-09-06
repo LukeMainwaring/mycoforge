@@ -1,17 +1,19 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-09-02
+updated: 2026-09-06
 sources:
   - "[[2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up]]"
   - "[[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
+  - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
 raw:
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
+  - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
 related:
   - "[[AI-Native Company]]"
   - "[[Company Brain]]"
@@ -19,6 +21,8 @@ related:
   - "[[Why LLM Wikis Beat RAG]]"
   - "[[Fix the Principle, Not the Example]]"
   - "[[AI-Native SDLC]]"
+  - "[[Progressive Disclosure]]"
+  - "[[Tiered Autonomy]]"
 confidence: medium
 tags: [ai-native, knowledge-capture]
 ---
@@ -35,7 +39,24 @@ artifact the intelligence layer can learn from. The precondition for every
 > recorded, it did not happen to your intelligence" — [[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]].
 > Practices from both talks: AI note-takers in every meeting, minimize DMs and
 > email (they're illegible silos), record office hours and sales calls, pipe
-> everything into one queryable store.
+> everything into one queryable store. Restated by [[Alex Lieberman]] as
+> feature 25, "record everything worth learning from, because what the
+> organization does not capture cannot be turned into AI enabled work," and
+> as feature 1, blueprint every process, because the nuances and edge cases
+> "live locked inside people's heads" and reach agents only if written down
+> — [[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]. First non-YC, non-Anthropic source for the claim.
+
+> [!claim] A process map is context for redesign, not a template the agent should follow
+> confidence: medium · status: supported
+> evidence: the host's caveat on blueprinting: "the assumption is that agents
+> are going to do things the same way that humans do. I think that that's
+> very unlikely to be true… artificially constraining agents to do things
+> along the pattern of an old workflow is in many cases the wrong approach,
+> as opposed to giving them the goal and articulating the guardrails of what
+> they can and can't do and letting them figure it out from there" —
+> [[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]. Single commentator's opinion, but it names a failure mode
+> the record-everything sources don't: mapping the old way and then
+> automating it. The goal-plus-guardrails alternative is [[Tiered Autonomy]].
 
 Applied to agent output, not just human activity: Cainex's auditors review
 the model's reasoning alongside its answers, comment on both, and "everything
@@ -52,7 +73,11 @@ invocations appear in session traces; a scan finding can only be dismissed
 with a reason; and for incidents handled in Slack, "the channel is the audit
 trail." The artifact the loop learns from and the artifact the auditor reads
 are the same file, which is why legibility survives the move from startup
-to regulated enterprise.
+to regulated enterprise. Lieberman's feature 30 is the same artifact as a
+requirement: trace "every output to its prompt, model, data, and approver, so
+human feedback attaches to something specific, not to a vague sense that
+something is off" ([[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]), which is
+also what makes [[Fix the Principle, Not the Example]] possible.
 
 ## Diarization: raw capture is necessary but not sufficient
 

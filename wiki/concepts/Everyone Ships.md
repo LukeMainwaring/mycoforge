@@ -1,19 +1,22 @@
 ---
 type: concept
 created: 2026-09-02
-updated: 2026-09-02
+updated: 2026-09-06
 sources:
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
+  - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
 raw:
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
+  - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
 related:
   - "[[AI-Native Role Archetypes]]"
   - "[[Founder as Orchestrator]]"
   - "[[Company Brain]]"
   - "[[Prototype, Dogfood, Productionize]]"
   - "[[AI-Native SDLC]]"
+  - "[[AI Software Factory]]"
 confidence: medium
 tags: [ai-native, org-design]
 ---
@@ -36,7 +39,13 @@ wall in [[Founder as Orchestrator]].
 > [[2026-08-20 The Claude Code Guide For Startups]]. Vendor-curated testimonials
 > from about a dozen startups: more organizations than the single first-party
 > account behind the role-blur claim in [[AI-Native Role Archetypes]], but
-> selected by the vendor.
+> selected by the vendor. Third source, as prescription:
+> [[Alex Lieberman]]'s feature 24, "everyone is a builder," including
+> executives; the host draws the same limit from the other direction: "I am
+> not sure that every single knowledge worker goes from doing their work to
+> managing agents that do their work… What I feel much more confident saying
+> is that the capacity to build, to use code, to develop prototypes… is now a
+> critical capability" — [[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]].
 
 The enterprise version in [[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]
 hands the first two SDLC stages to non-engineers outright: the originator
@@ -48,6 +57,21 @@ skill is required" — and mocks the front end in Claude Design before
 exporting it to Claude Code. The same limit holds: build stays with
 engineers, and higher-risk specs go past a technical lead. See
 [[AI-Native SDLC]].
+
+Lieberman's list has the same two-part shape. Feature 8, "separate intent
+from implementation": keep technical implementation apart from high-level
+specifications "so non-technical staff can contribute in a format agents can
+turn into implementation plans," which is `intent.md` under another name. The
+host's mechanism for it is agents triggered from shared spaces: when Claude
+Tag launched, Anthropic engineers said a large share of their builds started
+in Slack (the host recalls "like 60%," hedged), and a shared channel is where
+non-engineers can shape the intent. Feature 15, the **citizen developer
+SDLC**, is the productionizing half: a path that takes a non-engineer's
+solution "from idea to production with the company's governance, access,
+versioning, and software conventions built into it" — "reconciling the things
+that the non-engineers are making with the way that engineers build," not
+replacing engineering ([[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]).
+The division of labor survives in every source so far.
 
 The problem it solves is Heidi's **broken telephone**: idea → PM → designer →
 engineer, "and inevitably the essence of the idea gets lost in that chain." The

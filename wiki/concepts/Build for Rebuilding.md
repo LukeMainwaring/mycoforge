@@ -1,16 +1,19 @@
 ---
 type: concept
 created: 2026-09-02
-updated: 2026-09-02
+updated: 2026-09-06
 sources:
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
+  - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
 raw:
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
+  - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
 related:
   - "[[Company Brain]]"
   - "[[Just-in-Time Planning]]"
   - "[[AI Software Factory]]"
   - "[[Self-Improving AI Loop]]"
+  - "[[AI-Native Company]]"
 confidence: medium
 tags: [ai-native, software-engineering]
 ---
@@ -33,6 +36,14 @@ and the startups count the rebuilding itself as competitive advantage.
 > [[2026-08-20 The Claude Code Guide For Startups]]. Practitioner corroboration
 > of [[Tom Blomfield]]'s ephemeral-software prescription in [[Company Brain]]:
 > the durable asset is what you learned across the four builds, not the code.
+> Stated as policy by [[Alex Lieberman]] (feature 6): "be willing to throw
+> away everything you've built every 3 months and reimagine the workflows
+> from first principles." The host softens the cadence and keeps the point:
+> "design these new systems for assumptions of change rather than assumptions
+> of stasis… not getting attached to the exciting way that you figured out to
+> do something just a couple of months ago" —
+> [[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]. Consultant
+> prescription; first non-Anthropic source for the claim.
 
 Commure's completion rule, from Tanay Tandon: "A rebuild isn't done when the
 new path ships. It's done when the old path is gone." Teardown "always lost the
@@ -46,6 +57,12 @@ paths.
 Tooling the guide attaches: git worktrees so v2 runs beside v1 and evals decide
 which one merges ("what makes 'build it four times' cheap"), and plan mode for
 any rewrite big enough to drift from the architecture.
+
+Lieberman's feature 27 widens the rule from workflows to the business itself:
+"maintain a bias towards disrupting the company before someone else does it
+for you," which the host reads as reaching "all the way to what work you
+should be doing," not just how today's tasks get done
+([[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]).
 
 Clay's moat argument follows from this: "the moat for any company right now is
 that it needs to be self-improving" — see [[Self-Improving AI Loop]].
