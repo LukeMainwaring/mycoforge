@@ -203,8 +203,9 @@ ingestion stays an interactive workflow here, never an API call.
 Content work (`ingest | query | lint | decision | discovered`) commits straight to
 `main`, one commit per workflow run, with the log prefix as the commit prefix
 (`ingest: <source>`). Schema, tooling, and skill changes go on a branch and open a
-draft PR whose body comes from the `pr` skill; Evidence is the `scripts/lint.py` and
-`.template/verify_matrix.sh` output. Merge only on the user's explicit approval.
+draft PR whose body comes from the `pr` skill; Evidence is the `scripts/lint.py` output,
+plus `.template/verify_matrix.sh` output while `.template/` still exists (onboarding
+deletes it). Merge only on the user's explicit approval.
 
 ## Log conventions
 

@@ -21,21 +21,29 @@ skipped. This KB is the template, so changes land here first and reach instances
 
    It clones upstream, prints the upstream head, and lists **Changed since pin** and
    **New upstream skills**. `up to date` means stop here.
-2. **Port each changed skill.** Read the upstream commits it lists. A skill without the
-   `(customized)` suffix is copied whole from the upstream clone over `.agents/skills/<name>/`.
+2. **Clone upstream at the head the check printed.** The check deletes its own clone on
+   exit, so make one to copy from:
+
+   ```bash
+   tmp=$(mktemp -d) && git clone -q https://github.com/mattpocock/skills "$tmp" && git -C "$tmp" checkout -q <head>
+   ```
+
+3. **Port each changed skill.** Read the upstream commits the check listed. A skill without
+   the `(customized)` suffix is copied whole from `$tmp/skills/<bucket>/<name>/` over
+   `.agents/skills/<name>/`.
    A `(customized)` skill gets the upstream change applied by hand so the local edits named in
    the manifest survive; show the user the resulting diff.
-3. **Decide each new skill.** Ask the user vendor or skip, one line each with the upstream
-   description. Vendor: copy the directory in and add it under **Vendored**. Skip: add it under
+4. **Decide each new skill.** Ask the user vendor or skip, one line each with the upstream
+   description. Vendor: copy the directory in from `$tmp` and add it under **Vendored**. Skip: add it under
    **Not vendored**. Either way it never shows as new again.
-4. **Audit invocation on everything touched.** A skill that only ever fires by hand carries
+5. **Audit invocation on everything touched.** A skill that only ever fires by hand carries
    `disable-model-invocation: true` in `SKILL.md`, `policy.allow_implicit_invocation: false` in
    `agents/openai.yaml`, and a one-line human-facing description. A model-invoked skill carries
    neither flag and a description with its triggers. Every skill has an `agents/openai.yaml`.
-5. **Pin.** Set `Upstream commit:` in the manifest to the head the check printed. Rerun the
+6. **Pin.** Set `Upstream commit:` in the manifest to the head the check printed. Rerun the
    check: it must print `up to date`.
-6. **Verify.** `python3 scripts/lint.py` is clean.
-7. **Record.** Append a `schema |` entry to `wiki/log.md` naming the skills ported, vendored,
+7. **Verify.** `python3 scripts/lint.py` is clean. Remove `$tmp`.
+8. **Record.** Append a `schema |` entry to `wiki/log.md` naming the skills ported, vendored,
    and skipped, and the new pin.
 
 ## Guardrails
