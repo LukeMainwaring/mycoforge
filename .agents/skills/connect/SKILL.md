@@ -1,6 +1,7 @@
 ---
 name: connect
-description: Find novel connections between weakly-linked pages in the wiki and file the good ones as speculative synthesis pages. Use when the user says "what connects", "find novel links", "draw connections", "muse on the wiki", or "/connect". The one skill that exploits compounding — use sparingly and file only what survives discussion.
+description: Find novel connections between weakly-linked wiki pages and file the ones that survive discussion as speculative syntheses.
+disable-model-invocation: true
 ---
 
 # Draw novel connections across the wiki

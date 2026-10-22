@@ -85,12 +85,18 @@ note the conflict in the ingest's log entry.
 | "ingest this", "process \<file\>", drops a file in `raw/` | **Ingest** |
 | any question about the domain | **Query** |
 | "lint", "health check", "clean up the wiki" | **Lint** |
-| "grab this podcast/video", `/transcript <url>` | **Transcript** — fetch into `raw/podcasts/` | <!-- sf:keep-if(media-capture) -->
-| "carve the highlights", `/snippet <file>` | **Snippet** — carve `==highlights==` into a clip | <!-- sf:keep-if(media-capture) -->
-| "research \<topic\>", "find sources on…", `/research` | **Research** — source discovery into `raw/` | <!-- sf:keep-if(insight) -->
-| "what connects…", "find novel links", `/connect` | **Connect** — bridge weakly-linked pages | <!-- sf:keep-if(insight) -->
+| `/transcript <url>` | **Transcript** — fetch into `raw/podcasts/` | <!-- sf:keep-if(media-capture) -->
+| `/snippet <file>` | **Snippet** — carve `==highlights==` into a clip | <!-- sf:keep-if(media-capture) -->
+| `/research <topic>` | **Research** — source discovery into `raw/` | <!-- sf:keep-if(insight) -->
+| `/connect` | **Connect** — bridge weakly-linked pages | <!-- sf:keep-if(insight) -->
 | "we decided…", "new ADR", "update the roadmap" | **Product ops** | <!-- sf:keep-if(product) -->
 | a question belonging to a child KB | **Routing** | <!-- sf:keep-if(orchestrator) -->
+| `/sync-skills` | **Sync skills** — port upstream changes to the vendored Pocock skills |
+
+The slash-only rows are user-invoked: the agent never fires them on its own, the
+user types the command. Utility skills outside the KB workflows: `/grill-me` (stress-
+test a plan), `/handoff` (compact a session for the next agent), `/teach` (learn a
+concept in `learning/<topic>/`), `/pr` (PR body template).
 
 ### Ingest
 
@@ -192,6 +198,14 @@ repos attach it with one config line (see README). It is deliberately read-only 
 ingestion stays an interactive workflow here, never an API call.
 <!-- sf:end(mcp-server) -->
 
+## Version control
+
+Content work (`ingest | query | lint | decision | discovered`) commits straight to
+`main`, one commit per workflow run, with the log prefix as the commit prefix
+(`ingest: <source>`). Schema, tooling, and skill changes go on a branch and open a
+draft PR whose body comes from the `pr` skill; Evidence is the `scripts/lint.py` and
+`.template/verify_matrix.sh` output. Merge only on the user's explicit approval.
+
 ## Log conventions
 
 `wiki/log.md` is **append-only**, most recent at the bottom. Every entry:
@@ -229,6 +243,9 @@ This repo is a MycoForge-template instance. The template machinery lives in
 - If you add content that belongs to a single feature, mark it and update
   `.template/features.toml`.
 - After touching any feature seam, re-run `bash .template/verify_matrix.sh`.
+- Skills copied from mattpocock/skills are listed in `.agents/skills/VENDORED.md`
+  with the pinned upstream commit; `/sync-skills` owns them, `/sync-upstream` owns
+  everything else vendored from the template.
 - All per-instance data (lint terms, link allowlists, glossaries, children) lives
   in `kb.toml`, **never hard-coded in Python** — that's what keeps the vendored
   code byte-identical across instances and lets `/sync-upstream` port template

@@ -1,6 +1,8 @@
 ---
 name: snippet
-description: Carve podcast snippets from Obsidian ==highlights== in a full-episode transcript, or regenerate the Summary + Cleaned Transcript of an existing snippet. Operates on raw/podcasts/ files; reads the [MM:SS] anchors emitted by /transcript to compute clip ranges.
+description: Carve ==highlights== in a full-episode transcript into snippet files in raw/podcasts/, or regenerate an existing snippet.
+argument-hint: "<path to raw/podcasts/ file>"
+disable-model-invocation: true
 ---
 
 # /snippet

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Sync Skills"
+  short_description: "Port upstream changes to the vendored skills"
+policy:
+  allow_implicit_invocation: false
