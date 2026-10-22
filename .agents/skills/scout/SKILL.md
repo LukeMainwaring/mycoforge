@@ -13,8 +13,8 @@ disable-model-invocation: true
 **ledger**. The ledger is the review stage, the skip list, and the "since when"
 all at once, so there is no other state.
 
-Capture only: this skill writes to `staging/scout.md`, `raw/`, and (on approval)
-`kb.toml`. It never touches `wiki/`, the index, or the log, and it never commits.
+Capture only: this skill writes to `staging/scout.md`, `staging/ingest.md`,
+`raw/`, and (on approval) `kb.toml`. It never touches `wiki/`, the index, or the log, and it never commits.
 
 ## Steps
 
@@ -65,7 +65,9 @@ Capture only: this skill writes to `staging/scout.md`, `raw/`, and (on approval)
    sub-agents reported watch candidates, list them once; append the ones the
    user approves to `[scout].watch` in `kb.toml` with a `why`.
 
-6. **Hand off.** List what landed in `raw/`, then offer the Ingest workflow,
+6. **Hand off.** Append each captured source to `staging/ingest.md` as an
+   unticked row, in the order you would ingest them, with one line on what to
+   look out for. List what landed in `raw/`, then offer the Ingest workflow,
    one source per session. Do not ingest here.
 
 ## Ledger format
