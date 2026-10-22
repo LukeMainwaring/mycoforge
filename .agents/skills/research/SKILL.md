@@ -1,6 +1,8 @@
 ---
 name: research
-description: Deep-research a topic and land vetted web sources in raw/ with proper dated naming and provenance frontmatter. Use when the user says "research <topic>", "find sources on", "go deep on", or "/research <topic>". Capture only — sourcing ends where ingest begins.
+description: Deep-research a topic and land vetted web sources in raw/ with dated naming and provenance frontmatter. Capture only.
+argument-hint: "<topic to research>"
+disable-model-invocation: true
 ---
 
 # Research a topic into raw/
@@ -19,7 +21,8 @@ user already found; this skill finds.
 2. **Search broadly.** Use whatever web search and page-fetch capability your
    harness provides. Cast wide first (surveys, primary sources, contrarian
    takes), then go deep on the strongest threads. Prefer primary sources and
-   named authors over aggregators; note publication dates.
+   named authors over aggregators; note publication dates. Offer to run this
+   phase as a background agent so the user keeps working while it reads.
 3. **Vet and shortlist.** Present 3–7 candidates in conversation, one line each:
    what it is, why it earns a place in `raw/`, and what it would add that the
    wiki lacks. Let the user cut the list.

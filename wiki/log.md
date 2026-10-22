@@ -218,3 +218,7 @@ notes: Lieberman's X post is not in `raw/` and would be the upstream
 reference; the transcript's proper nouns are ASR-garbled ("Grockbot",
 "codecs and GBT image 2", "Benti Jal" for the quoted commenter) and were not
 relied on.
+
+## [2026-10-22] schema | Skills audit: sync to mattpocock/skills v1.3.1, vendoring manifest, invocation pass
+Synced `grilling` to upstream `5beb35b` ("Grill" description, "yes accepts the recommendation" line). Removed `wait-what` (unused). Vendored `grill-me`, `handoff`, `teach` (workspace scoped to `learning/<topic>/`), `pr` (wiki vocabulary in place of `GLOSSARY.md`). Added `.agents/skills/VENDORED.md` + `scripts/check-vendored-skills.sh` (from sporeforge) and a `/sync-skills` skill that runs them; upstream `engineering/research` deliberately skipped in favour of the native `/research`. Made `connect`, `research`, `transcript`, `snippet` user-invoked (`disable-model-invocation`, `allow_implicit_invocation: false`, argument hints) so the agent never reaches for capture or connection skills unprompted; `/research` now offers to run its search phase as a background agent. AGENTS.md: workflow table shows slash forms, new Version control section (content to `main`, tooling via branch + `pr`-skill PR), template contract names the manifest.
+

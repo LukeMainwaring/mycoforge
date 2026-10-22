@@ -1,6 +1,8 @@
 ---
 name: transcript
-description: Fetch a podcast transcript from a YouTube URL and save it to raw/podcasts/. Supports full episodes and time-range snippets. Wraps yt-dlp; falls back to a whisper.cpp hint when captions aren't available.
+description: Fetch a podcast transcript from a YouTube URL into raw/podcasts/ (full episode or time-range clip).
+argument-hint: "<youtube-url> [--clip MM:SS-MM:SS --topic \"<topic>\"]"
+disable-model-invocation: true
 ---
 
 # /transcript

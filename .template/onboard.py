@@ -188,7 +188,7 @@ def check_links(root: Path = ROOT) -> list[str]:
             problems.append(f"symlink broken or missing: {link}")
         elif expect_dir and not p.resolve().is_dir():
             problems.append(f"symlink does not resolve to a directory: {link}")
-    ref_re = re.compile(r"\.agents/skills/([\w-]+)")
+    ref_re = re.compile(r"\.agents/skills/([\w-]+)(?![\w.-])")
     for p in iter_walk_files(root):
         if p.suffix not in {".md", ".toml", ".json"}:
             continue

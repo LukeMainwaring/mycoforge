@@ -35,7 +35,7 @@ for link, target in (("CLAUDE.md", "AGENTS.md"), (".claude/skills", ".agents/ski
     if not p.is_symlink() or not p.exists():
         problems.append(f"symlink broken: {link}")
 
-ref_re = re.compile(r"\.agents/skills/([\w-]+)")
+ref_re = re.compile(r"\.agents/skills/([\w-]+)(?![\w.-])")
 skip = {".git", ".template", "raw", ".obsidian", "__pycache__"}
 for p in root.rglob("*"):
     parts = p.relative_to(root).parts
