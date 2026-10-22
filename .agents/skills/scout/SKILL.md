@@ -25,11 +25,15 @@ Capture only: this skill writes to `staging/scout.md`, `raw/`, and (on approval)
 
 2. **Build the skip set.** From `raw/`: every filename and every `url:` in
    frontmatter. From the wiki: every `sources:` entry in `wiki/` frontmatter.
-   From the ledger: every row whose status is `captured`, and every `rejected`
-   row unless the source shows an update date later than the row's run date.
+   From the ledger: every `captured` and `rejected` row, unless the source
+   shows an update later than the row's run date. For a repo or a rolling page,
+   "an update" means one that would change what the wiki says (a release, an
+   architecture change), not commit count; a re-capture lands as a new dated
+   snapshot, never an overwrite of the earlier raw file.
 
 3. **Fan out.** Launch one background sub-agent per `watch` entry and one per
-   `topics` entry, all in parallel, each briefed with: the window, the freshness
+   `topics` entry, in parallel up to whatever concurrency the harness allows
+   (queue the rest), each briefed with: the window, the freshness
    rules below, the skip set, and the KB description from `kb.toml` `[kb]`. Each
    returns at most three candidates as `url · title · kind · date · one line on
    what it adds that the wiki lacks`, plus any site or org it kept hitting that
@@ -46,14 +50,18 @@ Capture only: this skill writes to `staging/scout.md`, `raw/`, and (on approval)
 4. **Merge and stage.** Dedupe across agents, drop anything in the skip set,
    rank by what it adds to the wiki, and keep **at most five**. Append a run
    section to the ledger (format below) with every kept candidate as a
-   `candidate` row. Zero candidates is a normal result: write the run header
-   with `nothing new` and say so. Then stop and point the user at the ledger,
-   with the candidates listed in conversation as clickable links. Done when the
-   user has answered, by editing status cells or by replying.
+   `candidate` row, and list any `candidate` rows still open from earlier runs
+   under a `still awaiting review` line rather than searching them again. Zero
+   new candidates is a normal result: write the run header with `nothing new`
+   and say so. Then stop and point the user at the ledger, with the candidates
+   listed in conversation as clickable links. Done when the user has answered,
+   by editing status cells or by replying.
 
 5. **Capture approved rows** following
    [`../research/capture.md`](../research/capture.md). Set each row to
-   `captured` with its `raw/` path, and the rest to `rejected`. If the
+   `captured` with its `raw/` path. Only a row the user explicitly declined
+   becomes `rejected`; rows they didn't mention stay `candidate` and carry
+   forward to the next run. If the
    sub-agents reported watch candidates, list them once; append the ones the
    user approves to `[scout].watch` in `kb.toml` with a `why`.
 
@@ -62,7 +70,8 @@ Capture only: this skill writes to `staging/scout.md`, `raw/`, and (on approval)
 
 ## Ledger format
 
-`staging/scout.md` is append-only, most recent run at the bottom:
+`staging/scout.md` is append-only at the run level (most recent run at the
+bottom); status cells inside a run are edited in place:
 
 ```markdown
 ## [2026-10-22] window 2026-07-24 → 2026-10-22
