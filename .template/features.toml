@@ -46,11 +46,13 @@ paths = [
 ]
 
 [features.insight]
-description = "Knowledge-work skills: /research (web source discovery into raw/, capture-only) and /connect (novel-connection syntheses between weakly-linked pages, approval-gated)."
+description = "Knowledge-work skills: /research (web source discovery into raw/, capture-only), /scout (standing watch for fresh sources, staged in staging/scout.md, capture-only) and /connect (novel-connection syntheses between weakly-linked pages, approval-gated)."
 requires = []
 paths = [
   ".agents/skills/research",
+  ".agents/skills/scout",
   ".agents/skills/connect",
+  "staging",
 ]
 
 [features.mcp-server]
