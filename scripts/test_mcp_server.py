@@ -1,7 +1,9 @@
 """Smoke test for mcp/server.py: connect in-process and call all three tools.
 
-Needs the mcp SDK in the test env — run as the template's verify_matrix does:
-    uvx --with pytest --with 'mcp>=2.3,<3' pytest -q scripts
+Needs the mcp SDK in the test env. Run it against the server's locked deps, as
+the template's verify_matrix does:
+    uv export --script mcp/server.py --no-hashes --quiet > /tmp/mcp-reqs.txt
+    uvx --with pytest --with-requirements /tmp/mcp-reqs.txt pytest -q scripts
 """
 
 import importlib.util

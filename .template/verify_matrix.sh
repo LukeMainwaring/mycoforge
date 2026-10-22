@@ -95,7 +95,13 @@ run_case() {
   if ! (cd "$tmp" && uvx ruff check --quiet scripts .template $([ -d mcp ] && echo mcp)); then
     echo "  ❌ ${name}: ruff FAILED"; case_fail=1
   fi
-  if ! (cd "$tmp" && uvx --with pytest --with 'mcp>=2.3,<3' pytest -q scripts .template >/dev/null); then
+  # Test the MCP server against its locked deps (server.py.lock), not a fresh resolve.
+  with_mcp=()
+  if [ -f "$tmp/mcp/server.py.lock" ]; then
+    (cd "$tmp" && uv export --script mcp/server.py --no-hashes --quiet > "$tmp.mcp-reqs.txt")
+    with_mcp=(--with-requirements "$tmp.mcp-reqs.txt")
+  fi
+  if ! (cd "$tmp" && uvx --with pytest ${with_mcp[@]+"${with_mcp[@]}"} pytest -q scripts .template >/dev/null); then
     echo "  ❌ ${name}: pytest FAILED"; case_fail=1
   fi
 
@@ -110,7 +116,7 @@ run_case() {
   else
     fail=1
   fi
-  rm -rf "$tmp"
+  rm -rf "$tmp" "$tmp.mcp-reqs.txt"
   echo
 }
 

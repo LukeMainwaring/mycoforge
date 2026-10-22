@@ -12,7 +12,7 @@ ingestion stays an interactive workflow inside the KB (see ADR-004).
 Run:      uv run mcp/server.py
 Register: .mcp.json in this repo; for a product repo, point the same command at
           this file by absolute path (see README).
-Deps:     pinned in mcp/server.py.lock; `uv lock --script mcp/server.py` to bump.
+Deps:     pinned in mcp/server.py.lock; `uv lock --script mcp/server.py --upgrade` to bump.
 """
 
 import argparse

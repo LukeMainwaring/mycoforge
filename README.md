@@ -152,7 +152,7 @@ never write: ingestion stays an interactive workflow inside the KB, by design
 (see `decisions/ADR-004 Read-Only MCP in v1.md`).
 
 The server's dependencies are pinned in `mcp/server.py.lock`; run
-`uv lock --script mcp/server.py` to upgrade them.
+`uv lock --script mcp/server.py --upgrade` to bump them.
 
 ## Operating the KB
 
