@@ -1,7 +1,7 @@
 #!/usr/bin/env -S uv run --script
 # /// script
-# requires-python = ">=3.11"
-# dependencies = ["mcp"]
+# requires-python = ">=3.14"
+# dependencies = ["mcp>=2.3,<3"]
 # ///
 """Read-only MCP server for this MycoForge knowledge base.
 
@@ -12,30 +12,49 @@ ingestion stays an interactive workflow inside the KB (see ADR-004).
 Run:      uv run mcp/server.py
 Register: .mcp.json in this repo; for a product repo, point the same command at
           this file by absolute path (see README).
+Deps:     pinned in mcp/server.py.lock; `uv lock --script mcp/server.py --upgrade` to bump.
 """
-
-from __future__ import annotations
 
 import argparse
 import shutil
 import subprocess
-import sys
+import tomllib
 from pathlib import Path
 
-from mcp.server.fastmcp import FastMCP
+from mcp.server.mcpserver import MCPServer
+from mcp.server.mcpserver.exceptions import ToolError
 
 KB_ROOT = Path(__file__).resolve().parent.parent
 SEARCH_DIRS = ("wiki", "raw")
 MAX_HITS = 50
 
-mcp = FastMCP("mycoforge")
+
+def _kb_identity() -> tuple[str, str, str]:
+    """(slug, version, instructions) from kb.toml; safe defaults if it's missing."""
+    try:
+        cfg = tomllib.loads((KB_ROOT / "kb.toml").read_text(encoding="utf-8"))
+    except (OSError, tomllib.TOMLDecodeError):
+        cfg = {}
+    kb = cfg.get("kb", {})
+    slug = kb.get("slug", KB_ROOT.name)
+    brand = kb.get("brand", slug)
+    description = kb.get("description", "")
+    version = cfg.get("template", {}).get("version", "0")
+    instructions = (
+        f"{brand} knowledge base — {description}. " if description else f"{brand} knowledge base. "
+    ) + "Read-only: start with get_index for the page catalog, search_kb for full-text hits, read_page for a page."
+    return slug, version, instructions
+
+
+_SLUG, _VERSION, _INSTRUCTIONS = _kb_identity()
+mcp = MCPServer(_SLUG, version=_VERSION, instructions=_INSTRUCTIONS)
 
 
 def _search_dirs(scope: str | None) -> list[Path]:
     names = SEARCH_DIRS if scope in (None, "", "all") else (scope,)
     dirs = [KB_ROOT / n for n in names if (KB_ROOT / n).is_dir()]
     if not dirs:
-        raise ValueError(f"scope must be one of {('all', *SEARCH_DIRS)}, got {scope!r}")
+        raise ToolError(f"scope must be one of {('all', *SEARCH_DIRS)}, got {scope!r}")
     return dirs
 
 
@@ -43,7 +62,7 @@ def _rg_search(query: str, dirs: list[Path]) -> list[str]:
     proc = subprocess.run(
         ["rg", "--no-heading", "--line-number", "--ignore-case",
          "--fixed-strings", "--max-count", "5", query, *(str(d) for d in dirs)],
-        capture_output=True, text=True, cwd=KB_ROOT,
+        check=False, capture_output=True, text=True, cwd=KB_ROOT,
     )
     if proc.returncode not in (0, 1):  # 1 = no matches; anything else is an error
         raise RuntimeError(proc.stderr.strip())
@@ -92,8 +111,8 @@ def read_page(name: str) -> str:
     candidates = [p for d in _search_dirs("all")
                   for p in sorted(d.rglob("*.md")) if p.stem.lower() == stem]
     if not candidates:
-        return (f"no page named {name!r} — try search_kb, or get_index for the "
-                "catalog of page names")
+        raise ToolError(f"no page named {name!r} — try search_kb, or get_index for the "
+                        "catalog of page names")
     best = min(candidates,
                key=lambda p: 0 if p.relative_to(KB_ROOT).parts[0] == "wiki" else 1)
     header = f"<!-- {best.relative_to(KB_ROOT)} -->\n"
@@ -114,4 +133,4 @@ if __name__ == "__main__":
         description="Read-only MCP server (stdio) for this knowledge base: "
                     "search_kb, read_page, get_index.",
     ).parse_args()
-    sys.exit(mcp.run())
+    mcp.run()

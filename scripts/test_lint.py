@@ -261,10 +261,10 @@ def test_exit_codes(tmp_path):
         "wiki/Alpha.md": "fine\n",
     })
     ok = subprocess.run([_sys.executable, str(script), "--root", str(tmp_path)],
-                        capture_output=True, text=True)
+                        check=False, capture_output=True, text=True)
     assert ok.returncode == 0, ok.stdout
     (tmp_path / "wiki/Alpha.md").write_text("See [[Nowhere]].\n", encoding="utf-8")
     bad = subprocess.run([_sys.executable, str(script), "--root", str(tmp_path)],
-                         capture_output=True, text=True)
+                         check=False, capture_output=True, text=True)
     assert bad.returncode == 1, bad.stdout
     assert "broken wikilink" in bad.stdout
