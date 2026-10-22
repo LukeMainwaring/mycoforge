@@ -225,3 +225,6 @@ Synced `grilling` to upstream `5beb35b` ("Grill" description, "yes accepts the r
 
 ## [2026-10-22] schema | /scout skill, shared capture rules, staging ledger
 Added `/scout` (user-invoked, `insight` feature): a standing watch that reads `[scout]` from `kb.toml` (topics, watch list, `max_age_days = 60`, `repo_active_days = 30`, `lookback_days = 90`), fans out background sub-agents, and stages at most five fresh candidates in a new `staging/scout.md` ledger that doubles as review stage, skip list, and run history. Factored `/research` step 4 into a `capture.md` beside it (adds `type: repo` and `updated:`), which both skills now point at. AGENTS.md: workflow-table row, insight section renamed "Research, Scout, and Connect". gbrain seeded as a watch target rather than a design input.
+
+## [2026-10-22] schema | Ingest step 5 and the ingest queue
+Ingest now ends by routing any implication for the KB's own schema, claims, lint, or skills to a branch instead of changing them mid-session. Added `staging/ingest.md` (ordered queue with watch-outs; /scout appends to it on hand-off) and seeded it with the five sources from today's scout run.

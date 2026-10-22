@@ -109,8 +109,18 @@ One source per session — ingestion is judgment-heavy and the user stays involv
    A single source may touch many pages — that's the point.
 3. Update `wiki/index.md` (every page has exactly one entry).
 4. Append an `ingest |` entry to `wiki/log.md`.
+5. If the source bears on how *this KB* works — its schema, claim conventions,
+   lint rules, or skills — do not change them in the ingest session. Record the
+   implication as a line in the ingest's log entry, then make the change on its
+   own branch (see Version control), with the PR citing the source. Knowledge
+   lands on `main` now; structure changes with review and provenance.
 
 Never modify anything under `raw/` during ingest.
+
+<!-- sf:begin(insight) -->
+Pending sources, in recommended order with per-source watch-outs, live in
+`staging/ingest.md`; tick a row once its ingest is logged.
+<!-- sf:end(insight) -->
 
 ### Query
 
