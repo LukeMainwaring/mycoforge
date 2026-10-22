@@ -26,16 +26,9 @@ user already found; this skill finds.
 3. **Vet and shortlist.** Present 3–7 candidates in conversation, one line each:
    what it is, why it earns a place in `raw/`, and what it would add that the
    wiki lacks. Let the user cut the list.
-4. **Capture the approved sources.** For each, save a markdown copy into the
-   right `raw/` subfolder (`articles/`, `papers/`) following the schema's
-   conventions:
-   - filename `YYYY-MM-DD <Title>.md` — publication date if known, else
-     retrieval date; never use `[ ] # ^ | : / \` in the name
-   - frontmatter: `type` (article/paper), `title`, `author`, `published`,
-     `retrieved`, `url`
-   - body: the source content converted to clean markdown. If the full text
-     isn't accessible (paywall, login), save the abstract/summary you *can*
-     access plus the link, and say so in the frontmatter (`access: partial`).
+4. **Capture the approved sources.** Save each one into `raw/` following
+   [`capture.md`](capture.md) (folder, dated filename, provenance frontmatter,
+   `access: partial` when the full text is out of reach).
 5. **Report and hand off.** List what landed in `raw/`, then offer the Ingest
    workflow — **one source per session**, per the schema. Do not ingest as part
    of this skill.
@@ -44,8 +37,6 @@ user already found; this skill finds.
 
 - **Capture only.** This skill populates `raw/` and never creates or edits wiki
   pages, the index, or the log. Ingestion is a separate, deliberate step.
-- Provenance frontmatter is mandatory — a raw file without `url` and dates is a
-  future mystery.
 - Quality over volume: a run that lands two strong sources beats one that lands
   ten thin ones. Never pad the shortlist.
 - If the user's question is really a *query against existing knowledge*, say so

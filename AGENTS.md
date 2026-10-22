@@ -88,6 +88,7 @@ note the conflict in the ingest's log entry.
 | `/transcript <url>` | **Transcript** — fetch into `raw/podcasts/` | <!-- sf:keep-if(media-capture) -->
 | `/snippet <file>` | **Snippet** — carve `==highlights==` into a clip | <!-- sf:keep-if(media-capture) -->
 | `/research <topic>` | **Research** — source discovery into `raw/` | <!-- sf:keep-if(insight) -->
+| `/scout [Nd]` | **Scout** — standing watch for fresh sources, staged in `staging/scout.md` | <!-- sf:keep-if(insight) -->
 | `/connect` | **Connect** — bridge weakly-linked pages | <!-- sf:keep-if(insight) -->
 | "we decided…", "new ADR", "update the roadmap" | **Product ops** | <!-- sf:keep-if(product) -->
 | a question belonging to a child KB | **Routing** | <!-- sf:keep-if(orchestrator) -->
@@ -141,14 +142,21 @@ mechanical; ingestion stays a separate, deliberate step):
 <!-- sf:end(media-capture) -->
 
 <!-- sf:begin(insight) -->
-### Research and Connect
+### Research, Scout, and Connect
 
-Two knowledge-work skills that bracket the ingest pipeline:
+Three knowledge-work skills that bracket the ingest pipeline:
 
 - **`/research`** (`.agents/skills/research/`) — the sourcing arm: web-search a
   question, vet candidates with the user, and land approved sources in `raw/`
   with full provenance frontmatter. Capture-only — it ends by *offering* Ingest,
   never running it.
+- **`/scout`** (`.agents/skills/scout/`) — the standing watch: searches the
+  `topics` and `watch` list in `kb.toml` `[scout]` for sources fresher than
+  `max_age_days` / `repo_active_days`, stages at most five candidates in
+  `staging/scout.md` (the **ledger**: review stage, skip list, and "since when"
+  in one file), and captures only approved rows. Capture-only, same hand-off
+  as `/research`. The capture rules both skills follow live in
+  `.agents/skills/research/capture.md`.
 - **`/connect`** (`.agents/skills/connect/`) — the compounding arm: find pages
   that should reference each other but don't, propose at most three candidate
   bridges, and file only user-approved ones as `syntheses/` pages whose claims

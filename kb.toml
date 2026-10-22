@@ -33,6 +33,35 @@ stale_after_days = 0
 glossary = { "carpathy" = "Karpathy", "my co forge" = "MycoForge" }
 # sf:end(media-capture)
 
+# sf:begin(insight)
+[scout]
+# /scout reads this table; state between runs lives in staging/scout.md, not here.
+# Free-text queries, searched broadly each run.
+topics = [
+  "LLM wiki agent-maintained markdown knowledge base",
+  "AI-native company operating model",
+  "self-improving AI systems closed feedback loop",
+  "coding agent harness design skills hooks",
+]
+# Named sites and orgs checked every run. `why` is for the human reading this file.
+watch = [
+  { url = "https://www.anthropic.com/engineering", why = "Anthropic engineering blog: harness and agent design posts" },
+  { url = "https://www.anthropic.com/news", why = "Anthropic news: Claude Code releases and playbooks" },
+  { url = "https://openai.com/news/", why = "OpenAI blog: Codex and agent announcements" },
+  { url = "https://developers.openai.com/codex/changelog", why = "Codex changelog: harness features as they ship" },
+  { url = "https://www.ycombinator.com/blog", why = "YC blog and Lightcone: AI-native company practice" },
+  { url = "https://www.youtube.com/@ycombinator", why = "YC YouTube: founder interviews on building with AI" },
+  { url = "https://karpathy.bearblog.dev/", why = "Karpathy: origin of the LLM-wiki pattern" },
+  { url = "https://github.com/garrytan/gbrain", why = "gbrain: agent memory layer that overlaps the wiki layer; watch releases" },
+  { url = "https://github.com/search?q=llm+wiki+obsidian+claude+code&type=repositories&s=updated", why = "GitHub: new LLM-wiki and harness repos, most recently updated first" },
+]
+# Freshness filters. Articles count as fresh by published or visibly-updated date.
+max_age_days = 60
+repo_active_days = 30
+# Window for a first run or when no ledger entry exists; `/scout 30d` overrides.
+lookback_days = 90
+# sf:end(insight)
+
 # sf:begin(orchestrator)
 [orchestrator]
 # Optional back-pointer to a parent KB (relative path, "" for none).
