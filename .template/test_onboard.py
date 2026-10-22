@@ -4,7 +4,6 @@ from pathlib import Path
 
 import onboard
 
-
 # --- resolve_disabled -------------------------------------------------------
 
 FEATURES = {

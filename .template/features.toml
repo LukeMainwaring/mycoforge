@@ -59,6 +59,7 @@ requires = []
 paths = [
   "mcp",
   ".mcp.json",
+  "scripts/test_mcp_server.py",
 ]
 
 # Onboarding archetype presets (ADR-005). Not features: each is a template-time

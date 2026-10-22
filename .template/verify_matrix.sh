@@ -92,10 +92,10 @@ run_case() {
     echo "  ❌ ${name}: config consistency FAILED"; case_fail=1
   fi
 
-  if ! (cd "$tmp" && uvx ruff check --quiet scripts .template); then
+  if ! (cd "$tmp" && uvx ruff check --quiet scripts .template $([ -d mcp ] && echo mcp)); then
     echo "  ❌ ${name}: ruff FAILED"; case_fail=1
   fi
-  if ! (cd "$tmp" && uvx --with pytest pytest -q scripts .template >/dev/null); then
+  if ! (cd "$tmp" && uvx --with pytest --with 'mcp>=2.3,<3' pytest -q scripts .template >/dev/null); then
     echo "  ❌ ${name}: pytest FAILED"; case_fail=1
   fi
 

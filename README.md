@@ -151,6 +151,9 @@ The product session can then `search_kb`, `read_page`, and `get_index` — and
 never write: ingestion stays an interactive workflow inside the KB, by design
 (see `decisions/ADR-004 Read-Only MCP in v1.md`).
 
+The server's dependencies are pinned in `mcp/server.py.lock`; run
+`uv lock --script mcp/server.py` to upgrade them.
+
 ## Operating the KB
 
 Day to day, everything runs through the schema's workflows — drop a source in
