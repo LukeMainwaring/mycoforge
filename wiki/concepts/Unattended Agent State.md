@@ -135,7 +135,7 @@ in the control model is in
 > evidence: this KB's inference. Premises: `/scout` already matches four of
 > the six rules (bookmark from the last run header, ledger as the only state,
 > read-only preferences re-read each run, capture only after the user
-> confirms) per `.agents/skills/scout/SKILL.md`; the two it lacks are
+> confirms) per the scout skill; the two it lacks are
 > distinguishing an unreachable `watch` entry from nothing new, and routing
 > its own `watch` additions through a proposal the user applies rather than
 > an in-conversation yes — [[2026-10-08 Building Effective Agent Automations (Anthropic)]].
