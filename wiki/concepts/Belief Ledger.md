@@ -3,9 +3,9 @@ type: concept
 created: 2026-10-23
 updated: 2026-10-23
 sources:
-  - "[[2026-10-16 gbrain Belief Ledger Design (Garry Tan)]]"
+  - "[[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]]"
 raw:
-  - raw/articles/2026-10-16 gbrain Belief Ledger Design (Garry Tan).md
+  - raw/articles/2026-10-15 gbrain Belief Ledger Design (Garry Tan).md
 related:
   - "[[Three-Layer Architecture]]"
   - "[[Company Brain]]"
@@ -20,7 +20,7 @@ tags: [architecture, memory, provenance]
 
 gbrain's answer to a question this KB's `log.md` only half answers: **what did
 this brain believe, and when did it come to believe it?** The ledger
-([[2026-10-16 gbrain Belief Ledger Design (Garry Tan)]]) is one append-only
+([[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]]) is one append-only
 table of *canonical transitions*: a page published, a fact asserted or
 retracted, a take resolved, a link added. Each row is written in the same
 transaction as the change it records, so on managed sources the record cannot
@@ -37,7 +37,7 @@ agent-maintained knowledge base, including a markdown one.
 > confidence: medium · status: supported
 > evidence: measured on gbrain's write path: a prose-only edit to a typical
 > page rewrites 27 rows and changes 0 beliefs; on a large page, 258 rows and
-> 0 beliefs; one changed fact is 1 belief against 26 rows — [[2026-10-16 gbrain Belief Ledger Design (Garry Tan)]], section 9.
+> 0 beliefs; one changed fact is 1 belief against 26 rows — [[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]], section 9.
 > Row triggers or a post-commit diff would record projection churn as belief
 > change, miss renames and cascades, and never see a contested write. The
 > stronger support is the code reading in section 2; the numbers come from
@@ -130,7 +130,7 @@ stores claim text, so it is itself a purge target, swept field by field.
 > confidence: medium · status: supported
 > evidence: on four seeded synthetic weeks (37 gold changes) the cited diff
 > costs 258, 233, 215 and 273 tokens against 227, 182, 307 and 281 for the
-> uncited list, with set-F1 1.0 on both engines — [[2026-10-16 gbrain Belief Ledger Design (Garry Tan)]], section 15.
+> uncited list, with set-F1 1.0 on both engines — [[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]], section 15.
 > Synthetic data, the authors' own probe, one brain. The mechanism is the
 > point: because events net per subject (an edit and its revert report
 > nothing), the weekly diff is a list of *beliefs that ended the window

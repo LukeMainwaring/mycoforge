@@ -2,7 +2,7 @@
 title: "The AI-Native SDLC playbook | Claude by Anthropic"
 source: "https://claude.com/blog/the-ai-native-sdlc-playbook"
 author:
-published: 2001-08-21
+published: 2026-08-21
 created: 2026-09-02
 description: "Anthropic's stage-by-stage playbook for the AI-native SDLC: how teams plan, design, build, test, deploy, and maintain software with Claude."
 tags:

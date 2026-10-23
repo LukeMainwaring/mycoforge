@@ -5,11 +5,11 @@ updated: 2026-10-23
 sources:
   - "[[2026-04-04 LLM Wiki (Karpathy)]]"
   - "[[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]"
-  - "[[2026-10-16 gbrain Belief Ledger Design (Garry Tan)]]"
+  - "[[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]]"
 raw:
   - raw/articles/2026-04-04 LLM Wiki (Karpathy).md
   - raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md
-  - raw/articles/2026-10-16 gbrain Belief Ledger Design (Garry Tan).md
+  - raw/articles/2026-10-15 gbrain Belief Ledger Design (Garry Tan).md
 related:
   - "[[Skill Evolution]]"
   - "[[Belief Ledger]]"
@@ -70,7 +70,7 @@ the wiki is only ever patched, never reset.
 
 ## What the wiki layer does not record
 
-gbrain's [[Belief Ledger]] design ([[2026-10-16 gbrain Belief Ledger Design (Garry Tan)]])
+gbrain's [[Belief Ledger]] design ([[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]])
 argues that, for its own synced sources, markdown plus git cannot answer
 "what did this brain believe at time T": "a fence carries what is true now,
 git carries file history without observation time, and a fence format change
@@ -81,7 +81,7 @@ specific to its fence parser; the first two are the ones to test here.
 > [!claim] Markdown plus git records file history, not belief history: it has no stable join for a claim across renames and rewordings, and commit time is recorded time only for agent writes
 > confidence: medium · status: supported
 > evidence: the failure cases named above, plus the measurement that a prose
-> edit rewrites 27 to 258 storage rows for 0 belief changes — [[2026-10-16 gbrain Belief Ledger Design (Garry Tan)]].
+> edit rewrites 27 to 258 storage rows for 0 belief changes — [[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]].
 > Holds only in part for this KB. Time: this KB commits once per workflow
 > run, so commit time is recorded time *for agent writes*; the user's hand
 > edits in Obsidian are swept into the next run's commit with the wrong time

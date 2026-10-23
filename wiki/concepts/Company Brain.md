@@ -8,14 +8,14 @@ sources:
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
-  - "[[2026-10-16 gbrain Belief Ledger Design (Garry Tan)]]"
+  - "[[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]]"
 raw:
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
   - raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
-  - raw/articles/2026-10-16 gbrain Belief Ledger Design (Garry Tan).md
+  - raw/articles/2026-10-15 gbrain Belief Ledger Design (Garry Tan).md
 related:
   - "[[AI-Native Company]]"
   - "[[Organizational Legibility]]"
@@ -139,7 +139,7 @@ chain is in [[AI-Native SDLC]].
 The first implementation on this KB's shelf that is not markdown:
 [[Garry Tan]]'s gbrain, an agent memory layer built as a database with
 facts, takes, typed links, trust tiers and purge. Its [[Belief Ledger]]
-([[2026-10-16 gbrain Belief Ledger Design (Garry Tan)]]) adds what none of the
+([[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]]) adds what none of the
 brains above have: a certified record of *when the brain came to believe
 each thing*, kept apart from when the thing was true, with a weekly diff of
 beliefs that changed, each cited to its evidence. Two rules carry back to any

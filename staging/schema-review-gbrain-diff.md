@@ -58,7 +58,7 @@ One only:
 
 ## Checkable
 - Convention predates all content (Q2): `git show 2833df0 --stat` and whether `AGENTS.md` had a Claims section there; compare to the earliest `wiki/` page `created:` dates.
-- Raw date drift (Q3): frontmatter of `raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md` (`published:` line) and of `raw/articles/2026-10-16 gbrain Belief Ledger Design (Garry Tan).md` (`published:` vs `updated:`); `grep -L "retrieved:" raw/**/*.md` for the mixed-field claim.
+- Raw date drift (Q3): frontmatter of `raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md` (`published:` line) and of `raw/articles/2026-10-15 gbrain Belief Ledger Design (Garry Tan).md` (`published:` vs `updated:`); `grep -L "retrieved:" raw/**/*.md` for the mixed-field claim.
 - Lint parses callouts or not (Q5, GPT-6): `scripts/lint.py`, search for `[!claim]`.
 - Status vocabulary mismatch (Q5, GPT-6): `AGENTS.md` Claims section vs. the Connect paragraph under Research, Scout, and Connect.
 - `/connect` cap rule (Q4, Opus): `.agents/skills/connect/` for how `speculative` is promoted.

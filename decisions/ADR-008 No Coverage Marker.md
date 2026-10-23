@@ -4,9 +4,9 @@ status: accepted
 created: 2026-10-23
 updated: 2026-10-23
 sources:
-  - "[[2026-10-16 gbrain Belief Ledger Design (Garry Tan)]]"
+  - "[[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]]"
 raw:
-  - raw/articles/2026-10-16 gbrain Belief Ledger Design (Garry Tan).md
+  - raw/articles/2026-10-15 gbrain Belief Ledger Design (Garry Tan).md
 related:
   - "[[Belief Ledger]]"
   - "[[Subtractive Onboarding]]"

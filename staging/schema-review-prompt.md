@@ -12,7 +12,7 @@ unanchored read.
 1. `AGENTS.md` — the schema of this KB. Note the Frontmatter, Claims, Ingest,
    Lint and Version control sections.
 2. `scripts/lint.py` — what the linter enforces today.
-3. `raw/articles/2026-10-16 gbrain Belief Ledger Design (Garry Tan).md` — the
+3. `raw/articles/2026-10-15 gbrain Belief Ledger Design (Garry Tan).md` — the
    source. Sections 1–4, 5.4, 6, 7 and 13–15 carry the argument; 5.1–5.3 and
    8–12 are database mechanics you may skim.
 4. `wiki/concepts/Belief Ledger.md` and the section "What the wiki layer does
