@@ -33,7 +33,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[Progressive Disclosure]] — metadata at the top of knowledge files so agents load only the slice they need; this KB is one
 - [[Skill Evolution]] — agents improving their own skills from traces; WikiSkill's persistent wiki between raw and skills, gated and rolled back
 - [[Belief Ledger]] — gbrain's append-only record of what a brain believed and when: diff beliefs not rows, logical identity, two clocks, trust per event, disclosed coverage
-- [[Provenance Tags]] — obsidian-wiki's extracted / inferred / ambiguous mark on every claim, with lint for speculative drift; origin vs standing against this KB's callouts
+- [[Provenance Tags]] — obsidian-wiki's extracted / inferred / ambiguous mark on every claim, with lint for speculative drift; origin vs standing against this KB's callouts; why the lint does not transfer
 
 ## People
 
@@ -78,3 +78,4 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[ADR-008 No Coverage Marker]] — no page marker; one onboarding log line for imported vaults
 - [[ADR-009 Hand Edits Are the Unmanaged Writer]] — `hand-edit:` commits at session start; never supersede a user-written claim
 - [[ADR-010 Lint the Claim Contract]] — lint callout shape; status vocabulary in kb.toml, adds `speculative`
+- [[ADR-011 Speculative Drift Lint]] — proposed: no origin tags or drift lint; `speculative` widened to the agent's own inferences, judged in the lint pass

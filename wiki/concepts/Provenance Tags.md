@@ -7,6 +7,7 @@ sources:
 raw:
   - raw/articles/2026-10-22 ar9av obsidian-wiki (repo).md
 related:
+  - "[[ADR-011 Speculative Drift Lint]]"
   - "[[Belief Ledger]]"
   - "[[Three-Layer Architecture]]"
   - "[[Ingest Workflow]]"
@@ -19,48 +20,57 @@ tags: [provenance, claims, lint]
 # Provenance Tags
 
 obsidian-wiki ([[2026-10-22 ar9av obsidian-wiki (repo)]]) marks **every claim**
-in a page with one of three tags, `extracted`, `^[inferred]` or
-`^[ambiguous]`, and its lint flags pages "drifting into speculation" from the
-tag mix, with an `undated_claims` rule beside it. The tag answers one
-question per sentence: did a source say this, did the agent work it out, or
-is the source itself unclear? The README's own gloss is "you can tell
-knowledge from guessing" and "Not an oracle. Pages are as good as their
-sources."
+in a page as `extracted`, `^[inferred]` or `^[ambiguous]`, and its lint
+"flags pages drifting into speculation". The README does not say how drift is
+computed or what a claim's boundaries are; `extracted` is written bare and
+the other two as footnote marks, so extracted prose may carry no visible mark
+at all. The capturer's repo notes add an `undated_claims` lint rule, not
+described in the README; the repo's `docs/` were not captured. The README's
+own gloss is "you can tell knowledge from guessing" and "Not an oracle. Pages
+are as good as their sources."
 
 ## Three ways to mark the same thing
 
-Three implementations in `raw/` now carry provenance at the claim level,
-and they split the work differently:
+Two implementations in `raw/` and this KB carry provenance at the claim
+level, and they split the work differently:
 
 | | obsidian-wiki | this KB (`[!claim]`) | gbrain ([[Belief Ledger]]) |
 |---|---|---|---|
-| Unit | every claim-shaped sentence | contestable assertions only | every fact, take and link |
+| Unit | every claim (granularity unspecified) | contestable assertions only | every fact, take and link |
 | Marks | origin: extracted / inferred / ambiguous | `confidence` + `status` + an evidence wikilink | trust tier of the writer, plus status over time |
 | Lint | page-level drift into speculation; undated claims | callout shape and a resolving evidence link ([[ADR-010 Lint the Claim Contract]]) | coverage and completeness, in the database |
 
 The tags answer *origin*; the callouts answer *standing*. This KB's nearest
-equivalent to `^[inferred]` is `status: speculative`, which only `/connect`
-files, and the nearest equivalent to `^[ambiguous]` is an evidence line that
-says the source is unclear. Neither is enforced on ordinary prose: a sentence
-the agent inferred while writing a page carries no mark here unless it was
-promoted to a callout.
+equivalent to `^[inferred]` is `status: speculative`, which in practice only
+`/connect` has used (0 of 48 callouts at the time of writing), and the nearest
+equivalent to `^[ambiguous]` is an evidence line that says the source is
+unclear. Prose outside callouts carries no origin mark here, and lint checks
+callout shape only ([[ADR-010 Lint the Claim Contract]]: "does not try to
+find contestable prose that should have been a claim").
 
-> [!claim] Marking the origin of every claim lets lint catch a page drifting into speculation; marking only contestable claims cannot
+> [!claim] obsidian-wiki marks the origin of every claim and lints pages for drift into speculation
 > confidence: medium · status: supported
 > evidence: "Every claim is tagged `extracted`, `^[inferred]`, or
-> `^[ambiguous]`, and lint flags pages drifting into speculation"; repo notes
-> add an `undated_claims` rule — [[2026-10-22 ar9av obsidian-wiki (repo)]].
-> A README description of a shipped feature, no measurement of how often the
-> lint fires or how much tagging costs at write time. The second half is this
-> KB's own position by construction: `check_claims` validates callouts and
-> "does not try to find contestable prose that should have been a claim".
+> `^[ambiguous]`, and lint flags pages drifting into speculation" —
+> [[2026-10-22 ar9av obsidian-wiki (repo)]]. A README description of a
+> shipped feature: no algorithm, no threshold, no measurement of how often it
+> fires or what tagging costs at write time.
+
+> [!claim] A lint over origin marks can only count inference the agent already admitted to; the failure this KB has, a contestable inference written as bare prose, is invisible to it
+> confidence: medium · status: speculative
+> evidence: the KB's own reasoning, checked by two independent reviews
+> (`staging/schema-review-obsidian-wiki-*.md`) that sampled three pages and
+> found one to three such sentences each, e.g. "strictly worse than RAG" in
+> [[Why LLM Wikis Beat RAG]]. Confirm: a source that measures tag coverage
+> against an audit. Refute: obsidian-wiki's `docs/` describing a drift check
+> that does not depend on the agent's own marks.
 
 ## What transfers
 
-The drift lint is the part that solves a problem this KB has: a page's
-share of inferred prose can rise over several ingests and nothing here would
-notice. The cost is tagging every sentence, which the anti-padding rule and
-the callout convention were chosen to avoid. A middle form is possible: a
-page-level `inferred:` count or a `^[inferred]` footnote on prose sentences
-only, counted by lint. That is a schema question, filed in the ingest log
-for the Decision workflow, not decided here.
+Not the lint. The gap here is narrow: an inference that skips the callout at
+the moment it is written, on a page one person reads before it is committed.
+Tagging every sentence would add footnote noise in Obsidian for a check that
+cannot see the untagged sentence anyway. The decision is
+[[ADR-011 Speculative Drift Lint]]: widen `speculative` to the agent's own
+inferences during ingest, add the check to the lint judgment pass, no new
+field and no Python.

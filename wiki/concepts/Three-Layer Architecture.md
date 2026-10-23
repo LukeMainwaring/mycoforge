@@ -116,6 +116,6 @@ three layers in markdown and adds a fourth kind of file the Karpathy gist does
 not name: a **memory surface** (`hot.md`, an owner profile and todo index
 under `_meta/`) injected at session start by a hook, with `index.md` and
 `log.md`, written through one locked atomic writer. It also moves provenance
-down a level, from the page to the sentence ([[Provenance Tags]]). Both are
+down a level, from the contestable claim to every claim ([[Provenance Tags]]). Both are
 properties of the wiki layer; the schema layer is spread across 39 skill
 files rather than one `AGENTS.md`.
