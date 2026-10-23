@@ -47,5 +47,8 @@ which added [[Provenance Tags]] and the rule that bookkeeping files stay out
 of the link graph, and the vendor-scale comparator, LangChain's OpenWiki
 ([[2026-10-22 langchain-ai openwiki (repo)]]), whose scheduled CI ingest and
 Grounded Claims put the one-source-per-session rule on record as a choice of
-gate ([[Ingest Workflow]]). The catalog lives in [[index]]; the history in
+gate ([[Ingest Workflow]]), and Anthropic's scheduled daily-brief automation
+([[2026-10-08 Building Effective Agent Automations (Anthropic)]]), which added
+[[Unattended Agent State]], the memory discipline `/scout` would need on a
+timer. The catalog lives in [[index]]; the history in
 [[log]].

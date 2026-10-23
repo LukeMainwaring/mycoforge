@@ -34,6 +34,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[Skill Evolution]] — agents improving their own skills from traces; WikiSkill's persistent wiki between raw and skills, gated and rolled back
 - [[Belief Ledger]] — gbrain's append-only record of what a brain believed and when: diff beliefs not rows, logical identity, two clocks, trust per event, disclosed coverage
 - [[Provenance Tags]] — obsidian-wiki's extracted / inferred / ambiguous mark on every claim, with lint for speculative drift; origin vs standing against this KB's callouts; why the lint does not transfer
+- [[Unattended Agent State]] — Anthropic's daily-brief pattern: read-only preferences vs read-write state, per-source bookmarks, append-only ledger, verify then confirm then record; what `/scout` has and lacks
 
 ## People
 
@@ -47,6 +48,8 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[Nathaniel Whittemore]] — AI Daily Brief host: the dissents and additions to the 30-features list
 - [[Tu Vu]] — Google Research; WikiSkill corresponding author, also on the EvoSkill baseline and SealQA benchmark
 - [[Garry Tan]] — YC president; author of gbrain, the database-backed company brain behind the belief ledger
+- [[Lance Martin]] — Anthropic; co-author of the daily-brief automation write-up
+- [[CJ Avilla]] — Anthropic; co-author of the daily-brief automation write-up
 
 ## Syntheses
 
@@ -66,6 +69,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]] — gbrain design doc for an append-only ledger of belief transitions, with as-built deviations (article, 2026-10-15)
 - [[2026-10-22 ar9av obsidian-wiki (repo)]] — skills-first open-source implementation of the Karpathy gist: README, benchmark and repo notes (repo, 2026-10-22)
 - [[2026-10-22 langchain-ai openwiki (repo)]] — LangChain's repository-to-wiki tool: scheduled CI ingest opening docs PRs, Grounded Claims pinned to versioned evidence, OKF v0.2 output (repo, 2026-10-22)
+- [[2026-10-08 Building Effective Agent Automations (Anthropic)]] — Anthropic's scheduled daily-brief reference implementation on Managed Agents: six rules for unattended agent memory and guardrails (article, 2026-10-08)
 
 ## Decisions
 

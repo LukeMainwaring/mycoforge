@@ -4,14 +4,17 @@ created: 2026-10-23
 updated: 2026-10-23
 sources:
   - "[[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]]"
+  - "[[2026-10-08 Building Effective Agent Automations (Anthropic)]]"
 raw:
   - raw/articles/2026-10-15 gbrain Belief Ledger Design (Garry Tan).md
+  - raw/articles/2026-10-08 Building Effective Agent Automations (Anthropic).md
 related:
   - "[[Three-Layer Architecture]]"
   - "[[Company Brain]]"
   - "[[Organizational Legibility]]"
   - "[[Ingest Workflow]]"
   - "[[Garry Tan]]"
+  - "[[Unattended Agent State]]"
 confidence: medium
 tags: [architecture, memory, provenance]
 ---
@@ -155,4 +158,9 @@ the outcome is [[ADR-006 Two Clocks in Frontmatter]] through
 [[ADR-010 Lint the Claim Contract]], summarized in
 [[Three-Layer Architecture#What the wiki layer does not record]]. [[Company Brain]] is the
 organizational frame: gbrain is a company brain that has decided time is a
-first-class axis of the brain, not a property of the sources.
+first-class axis of the brain, not a property of the sources. A second, smaller kind of ledger is the
+record of what an agent has *told* someone, as in Anthropic's scheduled brief
+([[2026-10-08 Building Effective Agent Automations (Anthropic)]]): append-only,
+keyed on a source-supplied id, and the only memory between runs. Same
+discipline, different subject; the contrast is drawn in
+[[Unattended Agent State#The ledger and the run record]].

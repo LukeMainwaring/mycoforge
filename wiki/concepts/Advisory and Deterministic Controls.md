@@ -7,11 +7,13 @@ sources:
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
   - "[[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]"
+  - "[[2026-10-08 Building Effective Agent Automations (Anthropic)]]"
 raw:
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
   - raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md
+  - raw/articles/2026-10-08 Building Effective Agent Automations (Anthropic).md
 related:
   - "[[Skill Evolution]]"
   - "[[AI-Native SDLC]]"
@@ -20,6 +22,7 @@ related:
   - "[[Self-Improving AI Loop]]"
   - "[[Company Brain]]"
   - "[[Fix the Principle, Not the Example]]"
+  - "[[Unattended Agent State]]"
 confidence: medium
 tags: [ai-native, governance, guardrails]
 ---
@@ -128,3 +131,21 @@ harness fixed and evolves only the advisory layer (skills), while a
 deterministic gate, a validation score the harness computes, decides what
 stays ([[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]). The skill makes the behavior likely; the gate makes a bad
 skill impossible to keep.
+
+## Unattended runs
+
+Anthropic's daily-brief automation ([[2026-10-08 Building Effective Agent Automations (Anthropic)]])
+is the model with no human at any layer during the run, and it leans on
+layers 4 and 5 alone. The sources are text other people wrote that "can be
+interpreted as instructions", so the design limits what following them could
+do rather than trying to stop the reading: the GitHub token is read-only, the
+reader's preferences store is mounted read-only, the sandbox reaches only
+allowlisted hosts, and credentials never enter the sandbox (an opaque
+placeholder is swapped for the real token as the request leaves). MCP tools
+that would normally ask for approval are set to `always_allow`, which is
+exactly why the token behind them is read-only. The authors state the
+residual plainly: a planted instruction "can still change what the brief
+says, including through the notes the agent keeps between runs. It can't
+write to GitHub or edit your rules." A per-run spending cap is the last
+deterministic layer, and a run that hits it pauses rather than fails. The
+memory side of the same design is [[Unattended Agent State]].

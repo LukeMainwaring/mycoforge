@@ -7,15 +7,18 @@ sources:
   - "[[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]"
   - "[[2026-10-22 ar9av obsidian-wiki (repo)]]"
   - "[[2026-10-22 langchain-ai openwiki (repo)]]"
+  - "[[2026-10-08 Building Effective Agent Automations (Anthropic)]]"
 raw:
   - raw/articles/2026-04-04 LLM Wiki (Karpathy).md
   - raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md
   - raw/articles/2026-10-22 ar9av obsidian-wiki (repo).md
   - raw/articles/2026-10-22 langchain-ai openwiki (repo).md
+  - raw/articles/2026-10-08 Building Effective Agent Automations (Anthropic).md
 related:
   - "[[Provenance Tags]]"
   - "[[Skill Evolution]]"
   - "[[Three-Layer Architecture]]"
+  - "[[Unattended Agent State]]"
 confidence: high
 tags: [workflow]
 ---
@@ -108,7 +111,12 @@ standing instructions survive in `openwiki/INSTRUCTIONS.md`, "a user-authored
 file OpenWiki reads for scope and priorities but never rewrites". The source
 is also different in kind: a codebase changes under its wiki, so the update
 is driven by the diff and the stale evidence, where this KB's raw layer is
-immutable and nothing in it ever goes stale ([[Three-Layer Architecture]]).
+immutable and nothing in it ever goes stale ([[Three-Layer Architecture]]). What
+the unattended run needs underneath it, per-source bookmarks, a ledger of
+what it already did, preferences it re-reads but cannot edit, and a rule
+for a source it could not read, is the pattern in
+[[Unattended Agent State]]; `/scout` has most of it and is the only part of
+this KB a schedule could plausibly drive.
 
 > [!claim] One source per session is a choice of gate, not of scale: each unattended ingest in `raw/` replaces the user's judgment at ingest time with a different gate, never with none
 > confidence: medium · status: speculative
