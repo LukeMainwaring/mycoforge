@@ -77,8 +77,10 @@ ledger and the user applies them.
    sub-agents reported watch candidates, write them under a `proposed watch`
    line in the run section as ready-to-paste `{ url = …, why = … }` rows. The
    user pastes the ones they want into `[scout].watch` in `kb.toml`; the skill
-   does not edit `kb.toml`. A proposed row that is in `kb.toml` by the next
-   run, or that the user declined, is not proposed again.
+   does not edit `kb.toml`. Each row ends in a status cell: `proposed`, which
+   the user changes to `added` after pasting or `declined`; the next run
+   also treats a URL already in `[scout].watch` as `added`. Only `proposed`
+   rows carry forward, listed once under the next run's `proposed watch`.
 
 6. **Hand off.** Append each captured source to `staging/ingest.md` as an
    unticked row, in the order you would ingest them, with one line on what to
@@ -101,7 +103,7 @@ bottom); status cells inside a run are edited in place:
 unreachable: https://example.com/blog (fetch timed out twice); window stays open from 2026-07-24
 
 proposed watch:
-- `{ url = "https://example.org/notes", why = "turned up in two topic searches; posts on agent memory" }`
+- `{ url = "https://example.org/notes", why = "turned up in two topic searches; posts on agent memory" }` · proposed
 ```
 
 Statuses: `candidate` → `approved` → `captured → <raw path>`, or `rejected`.
