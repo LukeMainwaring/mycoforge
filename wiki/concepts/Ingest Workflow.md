@@ -100,9 +100,11 @@ all` runs every configured connector (Gmail, Notion, Slack, X, web search,
 Hacker News, local git, custom MCP); connector tools write raw data and
 manifests, then a per-source agent run synthesizes the wiki from them.
 
-Two things make the unattended run schedulable, and neither is scale. The
-model's work is narrowed before it starts: a page is reopened only for
-changed source or a stale claim, and the page worker "receives only Claims
+Read as design rather than as the README's own argument, two things make
+the unattended run schedulable, and neither is scale. The model's work is
+narrowed before it starts: the README names changed source, stale or
+unresolved claims, additions and broad rewrites as what reopens a page, and
+the page worker "receives only Claims
 requiring attention; current issue-free Claims are retained
 deterministically" ([[Provenance Tags]] has the claim mechanics). And the
 judgment this KB spends at ingest time is spent at review time instead, on a
@@ -111,12 +113,14 @@ standing instructions survive in `openwiki/INSTRUCTIONS.md`, "a user-authored
 file OpenWiki reads for scope and priorities but never rewrites". The source
 is also different in kind: a codebase changes under its wiki, so the update
 is driven by the diff and the stale evidence, where this KB's raw layer is
-immutable and nothing in it ever goes stale ([[Three-Layer Architecture]]). What
+immutable, so a captured file never changes, though the repo it snapshots
+can ([[Three-Layer Architecture]]). What
 the unattended run needs underneath it, per-source bookmarks, a ledger of
 what it already did, preferences it re-reads but cannot edit, and a rule
 for a source it could not read, is the pattern in
-[[Unattended Agent State]]; `/scout` has most of it and is the only part of
-this KB a schedule could plausibly drive.
+[[Unattended Agent State]]; `/scout` has the shape of it and is the only
+part of this KB a schedule could plausibly drive, which is why
+[[ADR-012 No Scheduled Capture Without a Decision]] exists.
 
 > [!claim] One source per session is a choice of gate, not of scale: each unattended ingest in `raw/` replaces the user's judgment at ingest time with a different gate, never with none
 > confidence: medium · status: speculative

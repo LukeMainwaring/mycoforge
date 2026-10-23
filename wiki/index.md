@@ -84,3 +84,6 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[ADR-009 Hand Edits Are the Unmanaged Writer]] — `hand-edit:` commits at session start; never supersede a user-written claim
 - [[ADR-010 Lint the Claim Contract]] — lint callout shape; status vocabulary in kb.toml, adds `speculative`
 - [[ADR-011 Speculative Drift Lint]] — no origin tags or drift lint; `speculative` widened to the agent's own inferences, judged in the lint pass
+- [[ADR-012 No Scheduled Capture Without a Decision]] — proposed: no skill runs on a timer until an ADR names what the run may write; source text is data
+- [[ADR-013 Evidence Stays at File Level]] — proposed: no `#heading` anchors on claim evidence; the quote is the locator; recheck claims on a re-captured snapshot
+- [[ADR-014 The Wiki Does Not Edit Skills]] — proposed: skill changes go wiki page → ADR → draft PR → human merge; no PURPOSE.md; no MCP reader policy from WikiSkill

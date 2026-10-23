@@ -23,8 +23,10 @@ The memory discipline for an agent that runs on a schedule with nobody
 watching, from Anthropic's daily-brief reference implementation
 ([[2026-10-08 Building Effective Agent Automations (Anthropic)]]). Each run
 "starts in a fresh sandbox with no memory of the last one", so everything the
-agent carries between runs is files, and the article's six rules are about
-which files, who may write them, and when. It is the closest published
+agent carries between runs is files; four of the article's six rules are
+about which files, who may write them, and when, and the other two are a
+live re-check before posting and read-only access with a spending cap. It is
+the closest published
 sibling to this KB's `/scout` ledger, and the pattern an LLM wiki would need
 before any of its capture ran on a timer.
 
@@ -48,9 +50,12 @@ different object: the reader owns the rules, the agent owns the working
 record, and the thing the agent learns about the rules is filed as a
 proposal. `/scout` already has the shape. `kb.toml` `[scout]` is the
 preferences store, re-read every run; `staging/scout.md` is the state store,
-and its run header is the bookmark. The one leak is that `/scout` appends
-approved `watch` entries to `kb.toml` itself, with the user's approval in
-conversation rather than through a proposals file the user applies.
+and its run header is the bookmark. Until 2026-10-23 one thing leaked:
+`/scout` appended approved `watch` entries to `kb.toml` itself, with the
+user's approval in conversation; it now writes `proposed watch` rows in the
+ledger and the user pastes them. The remaining difference is the source's
+"from a store the agent can't edit": here `kb.toml` is read-only by
+instruction, not by the harness.
 
 ## Bookmarks, not windows
 
@@ -70,14 +75,19 @@ without that source's tools and the agent sees nothing from it. The rule:
 keep that source's bookmark where it is, write the brief from the others, and
 end with one line naming what could not be read ("pull requests unavailable
 this run"). Otherwise a failed read is reported as a quiet day. `/scout`'s
-fan-out has no such rule: a sub-agent that could not reach its `watch` entry
-returns no candidates, and the merge step cannot tell that from nothing new.
+fan-out lacked this rule until 2026-10-23: a sub-agent that could not reach
+its `watch` entry returned no candidates, and the merge step could not tell
+that from nothing new. It now returns `unreachable` and the run header
+carries it. Scout's bookmark is still the run date, not the newest item
+read per source, so a source that returns a bounded page is not necessarily
+read in full.
 
 ## The ledger and the run record
 
-The **ledger** is append-only, one line per item ever reported: when it was
-reported, where it came from, an id that does not change (a Slack message
-timestamp, a pull request number) and its last known status. It is what
+The **ledger** holds one line per item ever reported: when it was reported,
+where it came from, an id that does not change (a Slack message timestamp, a
+pull request number) and its last known status, which is updated in place as
+an open item is carried forward; the source never calls it append-only. It is what
 stops the brief repeating itself and what lets an open item be carried as
 one marked line ("still waiting, day 3") rather than re-reported. The **run
 record** (`runs/<date>.md`) is the per-run state machine: "posting" before
@@ -85,10 +95,10 @@ the post, then "posted" with the message id, or "maybe posted".
 
 This ledger is a different object from gbrain's [[Belief Ledger]]. gbrain
 records what the brain *believes* and when it came to believe it; this one
-records what the agent *told the reader* and when. Both are append-only,
-both key on a stable id the source supplies, and neither can be rebuilt from
-the output. The scout ledger is the second kind: a row per candidate with its
-status, which is why the skill treats it as "the only memory between runs."
+records what the agent *told the reader* and when. Both key on a stable id
+the source supplies and both are the working memory the next run reads
+first. The scout ledger is the second kind: runs append, status cells change
+in place, and the skill treats it as "the only memory between runs."
 
 ## Verify, then confirm, then record
 
@@ -132,21 +142,21 @@ in the control model is in
 
 > [!claim] A scheduled `/scout` would need the failed-read rule and a proposals file before the schedule, not after
 > confidence: medium · status: speculative
-> evidence: this KB's inference. Premises: `/scout` already matches four of
-> the six rules (bookmark from the last run header, ledger as the only state,
-> read-only preferences re-read each run, capture only after the user
-> confirms) per the scout skill; the two it lacks are
-> distinguishing an unreachable `watch` entry from nothing new, and routing
-> its own `watch` additions through a proposal the user applies rather than
-> an in-conversation yes — [[2026-10-08 Building Effective Agent Automations (Anthropic)]].
-> [[Ingest Workflow]] already records that scheduling capture moves the
-> one-source gate to review. Confirm: a scheduled scout run that reports
-> "nothing new" on a window where a watch site was down. Refute: a run log
-> showing the sub-agents already surface fetch failures to the merge step.
+> evidence: this KB's inference, written when `/scout` lacked both. Premises
+> at the time: scout resembled four of the six rules in shape (a window from
+> the last run header, the ledger as the only state, `kb.toml` re-read each
+> run and unwritten by instruction, capture only after the user confirms),
+> and lacked a way to tell an unreachable `watch` entry from nothing new and
+> a proposals path for its own `watch` additions —
+> [[2026-10-08 Building Effective Agent Automations (Anthropic)]]. Both were
+> added on 2026-10-23 (log, `schema |` entry), which leaves the claim's
+> necessity half untested rather than confirmed: nothing is scheduled.
+> Confirm: a scheduled run before these rules that reports "nothing new" on
+> a window where a watch site was down. Refute: a scheduled run that holds
+> quality without them.
 
-Both gaps were closed the same day the page was written: sub-agents now
-return `unreachable` and the run header carries it, and watch candidates
-land as `proposed watch` rows the user pastes into `kb.toml` (log, schema
-entry of 2026-10-23). The claim stays as written because the schedule it is
-about does not exist; what it now predicts is that these two rules are
-sufficient, which only a scheduled run can test.
+What a schedule would still lack, in the source's terms: a bookmark that is
+the newest item read per source rather than the run date, a re-check of
+carried-forward candidates before they are shown again, a spend cap, and
+limits enforced by the harness rather than by SKILL.md prose. Whether any of
+that is ever built is [[ADR-012 No Scheduled Capture Without a Decision]].
