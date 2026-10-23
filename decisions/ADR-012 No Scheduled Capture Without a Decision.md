@@ -1,6 +1,6 @@
 ---
 type: decision
-status: proposed
+status: accepted
 created: 2026-10-23
 updated: 2026-10-23
 sources:
@@ -55,7 +55,7 @@ stale rows. Opus adds the sentence now; GPT-6 says the existing
 user-invocation rule already covers it and offers the same sentence as
 optional.
 
-## Decision (proposed)
+## Decision
 
 A prohibition with a named exit, two sentences in AGENTS.md, no tooling.
 
@@ -95,6 +95,12 @@ run that does not exist is padding.
 - **PR per scheduled run, as OpenWiki**: rejected for capture. The ledger is
   already the review surface; a PR would be a second one. A branch is only
   worth it if the run executes off-machine.
+
+## Implemented
+
+2026-10-23, same PR, accepted by the user: the two sentences above in
+AGENTS.md, in the Research, Scout, and Connect paragraph and at the end of
+Ingest. No tooling change.
 
 ## Noted, not decided
 
