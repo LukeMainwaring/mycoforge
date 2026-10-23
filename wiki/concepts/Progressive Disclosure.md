@@ -68,8 +68,8 @@ choice; wikilinks and `related:` are the dependency graph the agent traverses;
 the MCP server's `search_kb` / `read_page` / `get_index` split is the
 CLI-tools half. The [[Three-Layer Architecture]] gives the metadata a place to
 live that the source's flat "markdown files" does not. See
-[[Why LLM Wikis Beat RAG]] for why compiling at ingest is what makes the
-metadata trustworthy enough to route on.
+[[Why LLM Wikis Beat RAG]] for the compile-at-ingest argument the routing
+rests on.
 
 ## The index is for routing, not for reasoning
 

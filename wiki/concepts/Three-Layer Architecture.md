@@ -38,9 +38,9 @@ An LLM wiki has exactly three layers, with a strict ownership boundary between t
    wiki maintainer rather than a generic chatbot." User and LLM co-evolve it.
 
 The analogy from the source: *Obsidian is the IDE; the LLM is the programmer; the
-wiki is the codebase.* The ownership boundary is what makes the pattern safe — the
-LLM can rewrite fifteen wiki pages in one [[Ingest Workflow|ingest]] pass precisely
-because it can never damage the sources underneath.
+wiki is the codebase.* In that framing the ownership boundary is what makes the
+pattern safe: the LLM can rewrite fifteen wiki pages in one
+[[Ingest Workflow|ingest]] pass because it cannot damage the sources underneath.
 
 The read side of the layering, frontmatter and `index.md` as metadata an agent
 routes on before opening a page, is [[Progressive Disclosure]].
@@ -73,9 +73,9 @@ a harness the paper holds constant.
 Two details carry back. Who may read the wiki is a design variable: WikiSkill
 denies the executing agent wiki access during rollouts and lets only the
 maintainer and proposer in, because an executor that reads the wiki leaves
-less informative traces (63.7% to 60.9%). And the ownership boundary holds
-with no human in the loop at all, provided the raw layer stays immutable and
-the wiki is only ever patched, never reset.
+less informative traces (63.7% to 60.9%). And in WikiSkill's setting the ownership
+boundary holds with no human in the loop, with the raw layer immutable and
+the wiki only ever patched, never reset; one paper, one harness.
 
 ## What the wiki layer does not record
 
@@ -108,14 +108,23 @@ move), [[ADR-008 No Coverage Marker]] (none; an onboarding log line for
 imported vaults), [[ADR-009 Hand Edits Are the Unmanaged Writer]]
 (`hand-edit:` commits; never supersede a user-written claim) and
 [[ADR-010 Lint the Claim Contract]] (lint callout shape; align the status
-vocabulary). The layering survives: the ledger is a property of the wiki
-layer, not a fourth layer.
+vocabulary).
+
+> [!claim] A belief ledger is a property of the wiki layer, not a fourth layer
+> confidence: medium · status: speculative
+> evidence: this KB's reading of [[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]]:
+> the ledger records transitions of wiki-layer beliefs and is written in the
+> same transaction as the page change, so it has no content of its own.
+> Confirm: an implementation that keeps the ledger across a wiki rebuild,
+> which would make it a store the wiki depends on rather than one that
+> depends on the wiki. Refute: the same, read the other way; gbrain already
+> declares it database-only and not rebuildable from markdown.
 
 obsidian-wiki ([[2026-10-22 ar9av obsidian-wiki (repo)]]) keeps the same
 three layers in markdown and adds a fourth kind of file the Karpathy gist does
 not name: a **memory surface** (`hot.md`, an owner profile and todo index
 under `_meta/`) injected at session start by a hook, with `index.md` and
 `log.md`, written through one locked atomic writer. It also moves provenance
-down a level, from the page to the sentence ([[Provenance Tags]]). Both are
+down a level, from the contestable claim to every claim ([[Provenance Tags]]). Both are
 properties of the wiki layer; the schema layer is spread across 39 skill
 files rather than one `AGENTS.md`.

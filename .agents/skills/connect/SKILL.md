@@ -19,7 +19,9 @@ the skill.
    the whole wiki. Read `wiki/index.md`, then map the link structure — grep the
    wiki for `[[...]]` wikilinks (skills and scripts aside, `scripts/lint.py`'s
    source shows the parsing conventions) and look for pages or clusters with few
-   or no links between them despite living in the same domain.
+   or no links between them despite living in the same domain. Leave
+   `index.md`, `log.md` and `overview.md` out of the map: they link to every
+   page, so any path through them is two hops and means nothing.
 2. **Generate candidate bridges — at most three.** For each candidate, work it
    out honestly before presenting:
    - the two (or more) anchor pages, by wikilink
