@@ -147,9 +147,9 @@ brain. Trust is a property of each write, and a low-trust write that would
 overwrite a high-trust belief is held for the owner rather than refused or
 applied. And the brain discloses its own coverage: a question about a time
 it was not recording gets a coded refusal, not a reconstruction. Blomfield's
-"software is ephemeral" holds here too, in a stricter form: the ledger is the
-one store gbrain declares non-recomputable, and it gets a backup contract for
-that reason.
+"software is ephemeral" holds here too, in a stricter form: the ledger is one
+of the few stores gbrain declares non-recomputable, and it gets a backup
+contract for that reason.
 
 ## Where humans still matter
 

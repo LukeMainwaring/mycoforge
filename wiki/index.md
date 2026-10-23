@@ -71,3 +71,8 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[ADR-003 Copy-and-Own with Config-Code Split]] — vendored tooling, instance data in kb.toml
 - [[ADR-004 Read-Only MCP in v1]] — search/read/index only; writes stay interactive
 - [[ADR-005 Onboarding Archetypes as Presets]] — second-brain and playbook as /onboard presets, no new machinery
+- [[ADR-006 Two Clocks in Frontmatter]] — (proposed) source time vs recorded time named in the schema; warn-only lint on raw dates
+- [[ADR-007 No Stable Claim Identity]] — (proposed) no claim ids; log reword/move/split; block ids only when a link needs one
+- [[ADR-008 No Coverage Marker]] — (proposed) no page marker; one onboarding log line for imported vaults
+- [[ADR-009 Hand Edits Are the Unmanaged Writer]] — (proposed) `hand-edit:` commits at session start; never supersede a user-written claim
+- [[ADR-010 Lint the Claim Contract]] — (proposed) lint callout shape; status vocabulary in kb.toml, adds `speculative`
