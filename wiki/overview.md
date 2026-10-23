@@ -38,5 +38,8 @@ podcast walking [[Alex Lieberman]]'s thirty AI-native features
 [[Token Efficiency]] and [[Progressive Disclosure]], and the first paper,
 Google Research's WikiSkill
 ([[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]), which added [[Skill Evolution]] and the first controlled evidence
-for the compounding claim. The catalog lives in [[index]]; the history in
+for the compounding claim, and the first non-markdown implementation of a
+brain, gbrain's [[Belief Ledger]] design
+([[2026-10-16 gbrain Belief Ledger Design (Garry Tan)]]), which asks what a
+wiki's log and git do not record. The catalog lives in [[index]]; the history in
 [[log]].

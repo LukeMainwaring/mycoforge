@@ -255,3 +255,32 @@ provenance back to wiki pages. Whether `wiki/` should feed `.agents/skills/`
 here, and what would gate it given this KB has no validation score, is a
 branch decision; also worth a look is its executor/maintainer read split for
 the MCP server's readers.
+
+## [2026-10-23] ingest | gbrain Belief Ledger design (Garry Tan, 2026-10-16)
+First database-backed brain in `raw/` and first gbrain document: an
+append-only ledger of canonical belief transitions (page, fact, take, link)
+keyed on logical identity, with recorded time kept apart from source time,
+trust tier on every event, contested-not-refused supersession, baseline and
+watermark coverage that refuses rather than guesses, and a measured weekly
+belief diff. New: [[Belief Ledger]] (four portable rules, two claims: diff
+beliefs not rows, measured 0 beliefs per 27 to 258 row writes; cited change
+diff costs about the same tokens as an uncited list) and [[Garry Tan]].
+Updated [[Three-Layer Architecture]] (new section and claim: markdown plus
+git records file history, not belief history; assessed as holding for
+identity but mostly not for time in this KB, since one commit per workflow
+run makes commit time recorded time), [[Company Brain]] (a brain that knows
+when it knew; trust per write; disclosed coverage), [[Organizational Legibility]]
+(the strict form of record-everything; the design doc as a legible
+decision log), [[overview]], [[index]]. No existing claim contested. Sections
+5 to 12 of the source (DB mechanics, purge sweeps, backup contract) read but
+not filed. Schema implications, not acted on here: (1) `[!claim]` callouts
+have no stable identity, so a rename or title edit severs a claim's history;
+a short claim id in the callout would fix it and let lint track status
+changes over time. (2) The KB has no coverage marker: pages written before
+callouts existed carry no "beliefs before this date unrecorded" note. (3)
+This KB is already bitemporal in a loose way (raw filename date is source
+time, frontmatter `created`/`updated` and commit time are recorded time);
+worth naming in AGENTS.md. (4) gbrain's contested-not-refused rule is
+`status: contested` made mechanical; `raw/` has no trust tier, and whether
+sources should carry one (paper vs practitioner vs vendor) is a branch
+question. Each is a branch decision with this source as the PR citation.

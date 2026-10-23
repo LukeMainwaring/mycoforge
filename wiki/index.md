@@ -32,6 +32,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[Token Efficiency]] — cost per successful task as the unit; routing, plan/execute model split, cost per accepted PR, fine-tuned open models
 - [[Progressive Disclosure]] — metadata at the top of knowledge files so agents load only the slice they need; this KB is one
 - [[Skill Evolution]] — agents improving their own skills from traces; WikiSkill's persistent wiki between raw and skills, gated and rolled back
+- [[Belief Ledger]] — gbrain's append-only record of what a brain believed and when: diff beliefs not rows, logical identity, two clocks, trust per event, disclosed coverage
 
 ## People
 
@@ -44,6 +45,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[Alex Lieberman]] — 10X Labs founder, ex-Morning Brew: author of the 30-features list, cited secondhand
 - [[Nathaniel Whittemore]] — AI Daily Brief host: the dissents and additions to the 30-features list
 - [[Tu Vu]] — Google Research; WikiSkill corresponding author, also on the EvoSkill baseline and SealQA benchmark
+- [[Garry Tan]] — YC president; author of gbrain, the database-backed company brain behind the belief ledger
 
 ## Syntheses
 
@@ -60,6 +62,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]] — Anthropic's enterprise SDLC playbook: plays per stage with governance and metrics (article, 2026-08-21)
 - [[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]] — host walks Lieberman's 30 features with commentary (podcast, 2026-09-06)
 - [[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]] — Google Research paper: a persistent wiki between agent traces and evolved skills (paper, 2026-08-27)
+- [[2026-10-16 gbrain Belief Ledger Design (Garry Tan)]] — gbrain design doc for an append-only ledger of belief transitions, with as-built deviations (article, 2026-10-16)
 
 <!-- sf:begin(product) -->
 ## Decisions

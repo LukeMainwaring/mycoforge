@@ -1,19 +1,21 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-09-06
+updated: 2026-10-23
 sources:
   - "[[2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up]]"
   - "[[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
+  - "[[2026-10-16 gbrain Belief Ledger Design (Garry Tan)]]"
 raw:
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
+  - raw/articles/2026-10-16 gbrain Belief Ledger Design (Garry Tan).md
 related:
   - "[[AI-Native Company]]"
   - "[[Company Brain]]"
@@ -23,6 +25,7 @@ related:
   - "[[AI-Native SDLC]]"
   - "[[Progressive Disclosure]]"
   - "[[Tiered Autonomy]]"
+  - "[[Belief Ledger]]"
 confidence: medium
 tags: [ai-native, knowledge-capture]
 ---
@@ -78,6 +81,16 @@ requirement: trace "every output to its prompt, model, data, and approver, so
 human feedback attaches to something specific, not to a vague sense that
 something is off" ([[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]), which is
 also what makes [[Fix the Principle, Not the Example]] possible.
+
+The strict form of "if it wasn't recorded, it didn't happen" is gbrain's
+[[Belief Ledger]] ([[2026-10-16 gbrain Belief Ledger Design (Garry Tan)]]):
+the brain certifies its own history only for the interval it was
+instrumented, refuses questions about earlier times with a coded
+`coverage_from` rather than reconstructing an answer from file history, and
+marks anything backfilled from git or page versions as uncertified. The
+design doc itself is the legibility practice applied to engineering: written
+across 33 commits, it records which open questions the owner decided, then
+gains "as built" sections naming every deviation from the design.
 
 ## Diarization: raw capture is necessary but not sufficient
 

@@ -1,19 +1,21 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-09-06
+updated: 2026-10-23
 sources:
   - "[[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]"
   - "[[2026-05-06 The Founders Playbook (Anthropic)]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
+  - "[[2026-10-16 gbrain Belief Ledger Design (Garry Tan)]]"
 raw:
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
   - raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
+  - raw/articles/2026-10-16 gbrain Belief Ledger Design (Garry Tan).md
 related:
   - "[[AI-Native Company]]"
   - "[[Organizational Legibility]]"
@@ -24,6 +26,7 @@ related:
   - "[[Advisory and Deterministic Controls]]"
   - "[[Progressive Disclosure]]"
   - "[[Token Efficiency]]"
+  - "[[Belief Ledger]]"
 confidence: medium
 tags: [ai-native, knowledge-capture]
 ---
@@ -130,6 +133,23 @@ investigations can read." Note the tension with Zingage's 567-line
 that into skills. How much of the brain the agent is *forced* to obey is
 the subject of [[Advisory and Deterministic Controls]]; the full artifact
 chain is in [[AI-Native SDLC]].
+
+## A brain that knows when it knew
+
+The first implementation on this KB's shelf that is not markdown:
+[[Garry Tan]]'s gbrain, an agent memory layer built as a database with
+facts, takes, typed links, trust tiers and purge. Its [[Belief Ledger]]
+([[2026-10-16 gbrain Belief Ledger Design (Garry Tan)]]) adds what none of the
+brains above have: a certified record of *when the brain came to believe
+each thing*, kept apart from when the thing was true, with a weekly diff of
+beliefs that changed, each cited to its evidence. Two rules carry back to any
+brain. Trust is a property of each write, and a low-trust write that would
+overwrite a high-trust belief is held for the owner rather than refused or
+applied. And the brain discloses its own coverage: a question about a time
+it was not recording gets a coded refusal, not a reconstruction. Blomfield's
+"software is ephemeral" holds here too, in a stricter form: the ledger is the
+one store gbrain declares non-recomputable, and it gets a backup contract for
+that reason.
 
 ## Where humans still matter
 

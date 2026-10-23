@@ -5,11 +5,14 @@ updated: 2026-10-23
 sources:
   - "[[2026-04-04 LLM Wiki (Karpathy)]]"
   - "[[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]"
+  - "[[2026-10-16 gbrain Belief Ledger Design (Garry Tan)]]"
 raw:
   - raw/articles/2026-04-04 LLM Wiki (Karpathy).md
   - raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md
+  - raw/articles/2026-10-16 gbrain Belief Ledger Design (Garry Tan).md
 related:
   - "[[Skill Evolution]]"
+  - "[[Belief Ledger]]"
   - "[[Ingest Workflow]]"
   - "[[Why LLM Wikis Beat RAG]]"
   - "[[Progressive Disclosure]]"
@@ -64,3 +67,28 @@ maintainer and proposer in, because an executor that reads the wiki leaves
 less informative traces (63.7% to 60.9%). And the ownership boundary holds
 with no human in the loop at all, provided the raw layer stays immutable and
 the wiki is only ever patched, never reset.
+
+## What the wiki layer does not record
+
+gbrain's [[Belief Ledger]] design ([[2026-10-16 gbrain Belief Ledger Design (Garry Tan)]])
+argues that a markdown-plus-git wiki cannot answer "what did this brain
+believe at time T": "a fence carries what is true now, git carries file
+history without observation time, and a fence format change produces held
+files." So it adds a fourth store, an append-only ledger of belief
+transitions keyed on logical identity, outside the three layers.
+
+> [!claim] Markdown plus git records file history, not belief history: it lacks stable claim identity and a record of when the wiki came to believe something
+> confidence: medium · status: supported
+> evidence: the three failure cases named above, plus the measurement that a
+> prose edit rewrites 27 to 258 storage rows for 0 belief changes — [[2026-10-16 gbrain Belief Ledger Design (Garry Tan)]].
+> Holds only in part for this KB. The time half mostly does not: this KB
+> commits once per workflow run, so commit time *is* recorded time, and
+> `log.md` names what each run changed. The identity half does: a
+> `[!claim]` callout has no id, so renaming a page or rewording a claim
+> title severs its history, and nothing marks the beliefs a page held before
+> callouts existed as "coverage unknown." gbrain's argument is aimed at
+> synced sources, where git time is the author's clock, not the brain's.
+
+Whether this KB needs a stable claim identity, or a coverage marker, is a
+schema question logged for a branch, not decided here. The layering survives
+either way: the ledger is a property of the wiki layer, not a new layer.
