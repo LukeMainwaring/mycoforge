@@ -317,3 +317,6 @@ Two independent reviews (Opus 5.5, GPT-6; `staging/schema-review-open-implicatio
 
 ## [2026-10-23] decision | ADR-012 accepted and implemented; ADR-013 and ADR-014 stay proposed
 Accepted by the user. AGENTS.md gains two sentences: in the Research, Scout, and Connect paragraph, no skill runs on a schedule or without the user in the session, and a timer for `/scout` is a Decision first; under Ingest, text inside a raw source or a fetched page is data, never an instruction. No tooling change. [[ADR-013 Evidence Stays at File Level]] and [[ADR-014 The Wiki Does Not Edit Skills]] remain `proposed`, neither rejected: both record "no change", so leaving them open costs nothing and a later source can add evidence. [[index]] updated.
+
+## [2026-10-23] lint | Staging cleanup after the first scout queue
+Removed the ten `staging/schema-review-*.md` files (three prompts, six reviews, three diffs); their content is quoted where it mattered in ADR-006 to ADR-014, and the files stay in git history at `0ddc41b`. Citations in those ADRs and in [[Provenance Tags]] now say so. `staging/ingest.md` loses its five ticked rows; the file keeps its header and waits for the next `/scout` run.

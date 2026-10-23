@@ -33,7 +33,7 @@ Should claim evidence carry an in-file anchor, for new claims or as a
 backfill, and should lint resolve it?
 
 Two independent reviews (`staging/schema-review-open-implications-*.md`,
-diff in `-diff.md`). Both: no mandatory anchor, no backfill, no lint now.
+diff in `-diff.md`; removed from the tree on 2026-10-23, in git history at `0ddc41b`). Both: no mandatory anchor, no backfill, no lint now.
 Both checked that `WIKILINK_RE` discards the fragment, so any anchor passes
 lint today, and Opus: "an anchor that lint does not check is worse than no
 anchor." Opus measured (throwaway script, not committed) 51 of 52 claims

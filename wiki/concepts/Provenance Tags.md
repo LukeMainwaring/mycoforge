@@ -81,7 +81,7 @@ find contestable prose that should have been a claim").
 > [!claim] A lint over origin marks can only count inference the agent already admitted to; the failure this KB has, a contestable inference written as bare prose, is invisible to it
 > confidence: medium · status: speculative
 > evidence: the KB's own reasoning, checked by two independent reviews
-> (`staging/schema-review-obsidian-wiki-*.md`) that sampled three pages and
+> (`staging/schema-review-obsidian-wiki-*.md`, in git history at `0ddc41b`) that sampled three pages and
 > found one to three such sentences each, e.g. "strictly worse than RAG" in
 > [[Why LLM Wikis Beat RAG]]. Confirm: a source that measures tag coverage
 > against an audit. Refute: obsidian-wiki's `docs/` describing a drift check

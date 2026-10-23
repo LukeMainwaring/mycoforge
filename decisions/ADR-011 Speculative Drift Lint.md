@@ -41,7 +41,8 @@ Is unmarked inferred prose a real gap for this KB, and if so what is the
 smallest marking that lets lint see drift without tagging every sentence?
 
 Two independent reviews ran `staging/schema-review-obsidian-wiki-prompt.md`
-(Opus 5.5, GPT-6; diff in `staging/schema-review-obsidian-wiki-diff.md`).
+(Opus 5.5, GPT-6; diff in `staging/schema-review-obsidian-wiki-diff.md`; all
+three removed from the tree on 2026-10-23, in git history at `0ddc41b`).
 Both sampled three pages and found 25 to 55 percent of prose outside callouts
 to be inference, nearly all of it cross-linking, framing or statements about
 this KB that git can check. The gap is one to three contestable sentences per

@@ -32,7 +32,7 @@ read split says who the MCP server's readers should be.
 May anything in `wiki/` change `.agents/skills/`, and what is the gate?
 
 Two independent reviews (`staging/schema-review-open-implications-*.md`,
-diff in `-diff.md`) agree: no change. The path exists already. A wiki page
+diff in `-diff.md`; removed from the tree on 2026-10-23, in git history at `0ddc41b`) agree: no change. The path exists already. A wiki page
 motivates a `proposed` ADR (Ingest step 5), the change goes on a branch as a
 draft PR with lint and the verify matrix as evidence, and merges on the
 user's say-so. "That human merge is the gate." Lint and the matrix check

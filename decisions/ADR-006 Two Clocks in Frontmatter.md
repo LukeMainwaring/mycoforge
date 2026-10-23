@@ -28,7 +28,7 @@ time; `retrieved:` is capture time; a wiki page's `created`/`updated` and the
 workflow commit are recorded time.
 
 Both external reviews (`staging/schema-review-gbrain-opus-5.5.md`,
-`staging/schema-review-gbrain-gpt-6.md`) say: real, cheap, name it in
+`staging/schema-review-gbrain-gpt-6.md`; removed from the tree on 2026-10-23, in git history at `0ddc41b`) say: real, cheap, name it in
 AGENTS.md, add no wiki fields, never backdate `created`/`updated` to a source
 date. They split on lint. Checked in this session, the drift Opus found is real:
 

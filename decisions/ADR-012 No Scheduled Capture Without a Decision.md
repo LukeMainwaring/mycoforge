@@ -42,7 +42,7 @@ What must AGENTS.md say about scheduled capture before anyone schedules it,
 and is the right answer today a contract or a prohibition?
 
 Two independent reviews (`staging/schema-review-open-implications-*.md`,
-diff in `-diff.md`) agree on the contract and split on whether to write a
+diff in `-diff.md`; removed from the tree on 2026-10-23, in git history at `0ddc41b`) agree on the contract and split on whether to write a
 sentence now. Both: the gate is the ledger's status cell, not a PR; the run
 may append one run section to `staging/scout.md` and nothing else; it must
 never write `raw/`, `kb.toml`, `wiki/` or `staging/ingest.md`, edit earlier
