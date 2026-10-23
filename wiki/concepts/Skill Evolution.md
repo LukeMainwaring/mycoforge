@@ -32,7 +32,9 @@ history of past proposals. WikiSkill, from [[Tu Vu]]'s group at Google
 Research ([[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution|WikiSkill]]),
 puts a persistent wiki between the raw traces and the skills, cites
 [[Andrej Karpathy]]'s gist as the inspiration, and is the first controlled
-evidence in this KB for the compounding thesis in [[Why LLM Wikis Beat RAG]].
+evidence in this KB that a persistent wiki beats re-deriving from the latest
+traces each time, the compounding half of [[Why LLM Wikis Beat RAG]]; the
+paper has no retrieval arm, so it says nothing against RAG.
 
 ## The loop
 
@@ -66,24 +68,28 @@ iteration:
 The system state is the pair (skills, wiki). Skills roll back; the wiki never
 does.
 
-> [!claim] A persistent wiki between raw traces and skills beats keeping lessons inside the skill or in a flat proposal history
+> [!claim] A persistent wiki between raw traces and skills beats evolving skills with no accumulated knowledge at all
 > confidence: medium · status: supported
 > evidence: WikiSkill has the highest average over five benchmarks for all
 > five models, beating the strongest prior method by 3.3 to 12.0 points, and
 > the ablation that removes the wiki (and with it the maintainer) drops
 > Gemini-3.5-Flash from 63.7% to 48.7% average — [[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]].
-> Three runs per cell, paired bootstrap at p<0.05. One paper, the authors'
-> own method against baselines one of them co-wrote; moves to high on an
-> independent reproduction.
+> Three runs per cell, paired bootstrap at p<0.05. Only the ablation
+> isolates the wiki, and it compares against no memory, not against a flat
+> proposal history; the cross-method lead is confounded by everything else
+> that differs between methods. One paper, the authors' own method against
+> baselines one of them co-wrote; moves to high on an independent
+> reproduction.
 
-> [!claim] The executing agent should not read the wiki; only the maintainer and proposer should
+> [!claim] During skill evolution, giving the executing agent the wiki lowers the final skill quality; the paper does not test wiki access at inference time
 > confidence: medium · status: supported
 > evidence: giving the Inference Agent wiki access during rollouts cuts the
 > final average from 63.7% to 60.9% (LiveMath 72.6% to 64.8%); the authors'
 > hypothesis is that an executor that solves tasks from the wiki leaves
 > traces that say less about the skills — [[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]].
-> One model, four benchmarks. Relevant to any wiki with more than one kind
-> of reader: who gets to read it is a design variable.
+> One model, four benchmarks, the mechanism explicitly "we hypothesize".
+> The split protects a training signal, not a reader; it does not by itself
+> say who should read a wiki that is not training anything.
 
 > [!claim] Discovering a skill and executing it are different capabilities; evolved skills transfer across models and can beat self-evolved ones
 > confidence: medium · status: supported

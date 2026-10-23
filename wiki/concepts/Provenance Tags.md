@@ -44,13 +44,15 @@ level, and they split the work differently:
 
 The tags answer *origin*; the callouts answer *standing*; OpenWiki's claims
 answer *currency*, whether the evidence is still the evidence
-([[2026-10-22 langchain-ai openwiki (repo)]]). That third question only exists
-because its raw layer is versioned and changes: "when that evidence changes
+([[2026-10-22 langchain-ai openwiki (repo)]]). OpenWiki has to ask that
+question of every claim because its raw layer is versioned and changes: "when that evidence changes
 or disappears, OpenWiki identifies which facts need to be confirmed,
 rewritten, or retired", and the page worker is handed only those, submitting
 "sparse Claim decisions" (confirm, revise, add, retract) while unaffected
-claims are kept without passing through the model. Facts from connectors,
-which have no version to pin, get no claims at all. This KB's nearest
+claims are kept without passing through the model. Facts from connectors
+"are not claimed"; the README gives no reason. (An immutable capture can
+still become an outdated account of a moving target, which is a different
+staleness from a changed evidence byte; see [[ADR-013 Evidence Stays at File Level]].) This KB's nearest
 equivalent to `^[inferred]` is `status: speculative`, which in practice only
 `/connect` has used (0 of 48 callouts at the time of writing), and the nearest
 equivalent to `^[ambiguous]` is an evidence line that says the source is
