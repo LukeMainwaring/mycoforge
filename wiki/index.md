@@ -64,7 +64,6 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]] — Google Research paper: a persistent wiki between agent traces and evolved skills (paper, 2026-08-27)
 - [[2026-10-16 gbrain Belief Ledger Design (Garry Tan)]] — gbrain design doc for an append-only ledger of belief transitions, with as-built deviations (article, 2026-10-16)
 
-<!-- sf:begin(product) -->
 ## Decisions
 
 - [[ADR-001 Separate Repo with Product as Seam]] — KB and software live apart, bridged by MCP
@@ -72,4 +71,3 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[ADR-003 Copy-and-Own with Config-Code Split]] — vendored tooling, instance data in kb.toml
 - [[ADR-004 Read-Only MCP in v1]] — search/read/index only; writes stay interactive
 - [[ADR-005 Onboarding Archetypes as Presets]] — second-brain and playbook as /onboard presets, no new machinery
-<!-- sf:end(product) -->

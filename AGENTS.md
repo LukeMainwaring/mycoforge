@@ -90,7 +90,8 @@ note the conflict in the ingest's log entry.
 | `/research <topic>` | **Research** — source discovery into `raw/` | <!-- sf:keep-if(insight) -->
 | `/scout [Nd]` | **Scout** — standing watch for fresh sources, staged in `staging/scout.md` | <!-- sf:keep-if(insight) -->
 | `/connect` | **Connect** — bridge weakly-linked pages | <!-- sf:keep-if(insight) -->
-| "we decided…", "new ADR", "update the roadmap" | **Product ops** | <!-- sf:keep-if(product) -->
+| "we decided…", "new ADR", a schema implication worth deciding | **Decision** |
+| "update the roadmap", a new software spec | **Product ops** | <!-- sf:keep-if(product) -->
 | a question belonging to a child KB | **Routing** | <!-- sf:keep-if(orchestrator) -->
 | `/sync-skills` | **Sync skills** — port upstream changes to the vendored Pocock skills |
 
@@ -174,6 +175,20 @@ Three knowledge-work skills that bracket the ingest pipeline:
   `discovered |` entry.
 <!-- sf:end(insight) -->
 
+### Decision
+
+Significant decisions about this KB, its schema, or (where the product layer is
+kept) its product become ADR pages in `decisions/`: Context / Decision /
+Consequences / Alternatives, `type: decision` frontmatter with `status:`.
+Supersede rather than rewrite: new decision page, old one gets
+`status: superseded` and a link. Log a `decision |` entry.
+
+Schema implications recorded by Ingest (step 5) enter here: each becomes a
+`status: proposed` ADR on a branch, stating the question, the source that
+raised it, and the smallest change that would close it. Accept, reject, or
+leave proposed; later ingests add evidence to the ADR instead of to the log.
+A `proposed` ADR is a question on record, not a commitment.
+
 <!-- sf:begin(product) -->
 ### Product ops
 
@@ -181,10 +196,6 @@ This KB carries its product layer as **spec pages, never application code**. Rea
 software lives in separate repos (grown from the sporeforge template) that read
 this KB over MCP.
 
-- **Decisions lifecycle**: significant decisions become ADR pages in `decisions/`
-  (Context / Decision / Consequences / Alternatives, `type: decision` frontmatter
-  with `status:`). Supersede rather than rewrite: new decision page, old one gets
-  `status: superseded` and a link. Log a `decision |` entry.
 - **Roadmap upkeep**: `roadmap.md` holds Next / Later only — no Done section.
   Remove items when they ship (the log and git history are the record); promote
   Later items to Next as they become active. `Home.md` is the dashboard — keep
@@ -193,7 +204,7 @@ this KB over MCP.
   `product/software/` containing the full build prompt (a fenced block ready to
   paste into a coding agent) plus a link to the resulting repo. The prompt *is*
   the spec; keep it current as decisions change. See the example page in
-  `product/software/`.
+  `product/software/`. Product decisions use the Decision workflow above.
 <!-- sf:end(product) -->
 
 <!-- sf:begin(orchestrator) -->

@@ -163,4 +163,4 @@ The structural rhyme with this KB: the brain/edge split mirrors the
 (`raw/` + wiki), regenerable consumers at the edge (product repos reading over
 MCP). A MycoForge instance is a candidate implementation of a company brain;
 noted here as an observation, not yet a filed synthesis.
-The center/edge seam is decided in [[ADR-001 Separate Repo with Product as Seam]]. <!-- sf:keep-if(product) -->
+The center/edge seam is decided in [[ADR-001 Separate Repo with Product as Seam]].

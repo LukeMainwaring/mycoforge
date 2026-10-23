@@ -284,3 +284,6 @@ worth naming in AGENTS.md. (4) gbrain's contested-not-refused rule is
 `status: contested` made mechanical; `raw/` has no trust tier, and whether
 sources should carry one (paper vs practitioner vs vendor) is a branch
 question. Each is a branch decision with this source as the PR citation.
+
+## [2026-10-23] schema | Decisions become trunk; Decision workflow; schema-review prompt
+`decisions/` leaves the `product` feature: removed from `.template/features.toml` paths, Decisions section in [[index]] unwrapped, `README.md` feature table and the ADR-001 keep-if in [[Company Brain]] adjusted. New **Decision** workflow in AGENTS.md (own table row; Product ops keeps roadmap and embedded prompts): Ingest step-5 schema implications become `status: proposed` ADRs on a branch, and later ingests add evidence to the ADR rather than the log. Added `staging/schema-review-prompt.md`, a shared prompt for two independent external reviews of the four gbrain implications (output to `staging/schema-review-gbrain-<model>.md`); the ADRs come after those reviews are read. verify_matrix all cases pass, lint clean.
