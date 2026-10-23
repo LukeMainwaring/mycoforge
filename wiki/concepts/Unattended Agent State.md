@@ -143,3 +143,10 @@ in the control model is in
 > one-source gate to review. Confirm: a scheduled scout run that reports
 > "nothing new" on a window where a watch site was down. Refute: a run log
 > showing the sub-agents already surface fetch failures to the merge step.
+
+Both gaps were closed the same day the page was written: sub-agents now
+return `unreachable` and the run header carries it, and watch candidates
+land as `proposed watch` rows the user pastes into `kb.toml` (log, schema
+entry of 2026-10-23). The claim stays as written because the schedule it is
+about does not exist; what it now predicts is that these two rules are
+sufficient, which only a scheduled run can test.

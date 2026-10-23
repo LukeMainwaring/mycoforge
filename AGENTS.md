@@ -185,8 +185,10 @@ Three knowledge-work skills that bracket the ingest pipeline:
   `topics` and `watch` list in `kb.toml` `[scout]` for sources fresher than
   `max_age_days` / `repo_active_days`, stages at most five candidates in
   `staging/scout.md` (the **ledger**: review stage, skip list, and "since when"
-  in one file), and captures only approved rows. Capture-only, same hand-off
-  as `/research`. The capture rules both skills follow live in
+  in one file, plus `unreachable:` entries whose window stays open and
+  `proposed watch` rows the user pastes into `kb.toml`), and captures only
+  approved rows. It reads `kb.toml` and never writes it. Capture-only, same
+  hand-off as `/research`. The capture rules both skills follow live in
   `.agents/skills/research/capture.md`.
 - **`/connect`** (`.agents/skills/connect/`) — the compounding arm: find pages
   that should reference each other but don't, propose at most three candidate
