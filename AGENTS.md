@@ -82,8 +82,12 @@ When a new source contradicts an existing claim, don't silently rewrite it: upda
 the callout's status, cite both sources, and note the conflict in the ingest's
 log entry. Statuses (vocabulary in `kb.toml` `[lint].claim_statuses`, lint
 checks the shape of every callout): `supported | contested | superseded |
-speculative`, where `speculative` is what `/connect` files and a later source
-promotes or refutes. When a claim is superseded, keep the old proposition in
+speculative`, where `speculative` is an inference you drew rather than a
+source stated, whether filed by `/connect` or written during ingest or query
+filing: its evidence line names the premises and what would confirm or refute
+it, and a later source promotes or refutes it. A contestable sentence no
+source states goes in a `speculative` callout or is cut; cross-links and
+statements about this KB itself stay as prose. When a claim is superseded, keep the old proposition in
 its callout and point at the successor by page and claim title; never
 overwrite it in place. When you reword, move or split a claim, name the old
 and new title in the log entry. A claim the user wrote or edited by hand is
@@ -149,8 +153,9 @@ never reconstructed.
 
 1. Run `python3 scripts/lint.py` and fix every hard issue it reports.
 2. Then do the judgment pass the script can't: contradictions between pages, claims
-   a newer source supersedes, missing cross-references, concepts worth promoting to
-   pages, data gaps worth a new source.
+   a newer source supersedes, contestable inference in bare prose and claims whose
+   conclusion is stronger than the evidence cited, missing cross-references,
+   concepts worth promoting to pages, data gaps worth a new source.
 3. Log a `lint |` entry summarizing what changed.
 
 <!-- sf:begin(media-capture) -->

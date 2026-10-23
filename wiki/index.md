@@ -78,4 +78,4 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[ADR-008 No Coverage Marker]] — no page marker; one onboarding log line for imported vaults
 - [[ADR-009 Hand Edits Are the Unmanaged Writer]] — `hand-edit:` commits at session start; never supersede a user-written claim
 - [[ADR-010 Lint the Claim Contract]] — lint callout shape; status vocabulary in kb.toml, adds `speculative`
-- [[ADR-011 Speculative Drift Lint]] — proposed: no origin tags or drift lint; `speculative` widened to the agent's own inferences, judged in the lint pass
+- [[ADR-011 Speculative Drift Lint]] — no origin tags or drift lint; `speculative` widened to the agent's own inferences, judged in the lint pass

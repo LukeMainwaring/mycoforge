@@ -88,7 +88,13 @@ why that trade wins for a personal, curated corpus.
 > [[2026-04-04 LLM Wiki (Karpathy)]]. Retrieval quality is a side effect of a
 > maintained artifact.
 
-The honest caveat: a wiki is only as good as its ingest discipline. Skip the
-bookkeeping and you get a stale cache with confident prose — strictly worse than
-RAG, which at least never pretends to remember. The schema and lint tooling exist
-to hold that discipline.
+The honest caveat: a wiki is only as good as its ingest discipline. The
+schema and lint tooling exist to hold that discipline.
+
+> [!claim] A wiki whose bookkeeping lapses is worse than RAG, because it serves stale prose with the confidence of a maintained artifact while RAG never claims to remember
+> confidence: low · status: speculative
+> evidence: this KB's own inference from the maintenance argument above —
+> [[2026-04-04 LLM Wiki (Karpathy)]] says abandoned wikis lose value, not
+> that they fall below RAG. Confirm: a comparison of a stale wiki against
+> RAG on the same corpus and questions. Refute: evidence that readers
+> discount an unmaintained wiki's answers as readily as retrieved fragments.

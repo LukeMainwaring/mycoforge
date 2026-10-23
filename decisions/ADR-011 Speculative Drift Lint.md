@@ -1,6 +1,6 @@
 ---
 type: decision
-status: proposed
+status: accepted
 created: 2026-10-23
 updated: 2026-10-23
 sources:
@@ -98,6 +98,16 @@ already means by it.
 - **Do nothing**: rejected narrowly. The convention already says contestable
   assertions go in callouts; what was missing is that the agent's own
   inferences count as contestable and have a status to land in.
+
+## Implemented
+
+2026-10-23, same PR: Claims and Lint step 2 in AGENTS.md as above; "strictly
+worse than RAG" in [[Why LLM Wikis Beat RAG]] and "not a fourth layer" in
+[[Three-Layer Architecture]] became `speculative` callouts; "precisely because
+it can never damage" and "no human in the loop at all" on the same page were
+narrowed in prose; the causal "trustworthy enough to route on" in
+[[Progressive Disclosure]] softened. First `speculative` callouts outside
+`/connect`.
 
 ## Noted, not decided
 
