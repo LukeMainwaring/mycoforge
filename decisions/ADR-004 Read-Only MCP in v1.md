@@ -2,7 +2,11 @@
 type: decision
 status: accepted
 created: 2026-07-10
-updated: 2026-07-10
+updated: 2026-10-23
+sources:
+  - "[[2026-10-22 ar9av obsidian-wiki (repo)]]"
+raw:
+  - raw/articles/2026-10-22 ar9av obsidian-wiki (repo).md
 related:
   - "[[ADR-001 Separate Repo with Product as Seam]]"
   - "[[Ingest Workflow]]"
@@ -44,3 +48,15 @@ session inside the KB.
   that erode the schema. Documented as a graduation path.
 - **Embeddings/semantic search** — rejected for v1: personal-scale KBs navigate
   fine index-first; revisit if scale proves otherwise.
+
+## Later evidence
+
+- 2026-10-23, [[2026-10-22 ar9av obsidian-wiki (repo)]]: the opposite choice,
+  shipped. obsidian-wiki's Python `Memory` API is read-write
+  (`remember`, `add`) with a `confidence` argument, and its Deployment doc runs a
+  vault "as a Dockerized memory service agents reach over HTTP/MCP". The
+  README's own guard against drive-by writes is behavioral, not structural:
+  "nothing is saved unless you or a skill decides it's worth keeping", and the
+  end-of-session hook "only suggests a capture". No evidence either way on
+  schema erosion; the decision stands, and this is the design to study if the
+  write-tool graduation path is ever taken.

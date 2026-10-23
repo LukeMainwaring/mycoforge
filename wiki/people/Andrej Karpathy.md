@@ -5,10 +5,13 @@ updated: 2026-10-23
 sources:
   - "[[2026-04-04 LLM Wiki (Karpathy)]]"
   - "[[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]"
+  - "[[2026-10-22 ar9av obsidian-wiki (repo)]]"
 raw:
   - raw/articles/2026-04-04 LLM Wiki (Karpathy).md
   - raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md
+  - raw/articles/2026-10-22 ar9av obsidian-wiki (repo).md
 related:
+  - "[[Provenance Tags]]"
   - "[[Skill Evolution]]"
   - "[[Three-Layer Architecture]]"
 confidence: high
@@ -33,3 +36,10 @@ First academic uptake in `raw/`: WikiSkill ([[2026-08-27 WikiSkill - Compiling A
 inspiration for putting a persistent wiki between agent execution traces and
 evolved skills, and reports controlled gains from doing so; see
 [[Skill Evolution]].
+
+First open-source implementation at scale in `raw/`: obsidian-wiki
+([[2026-10-22 ar9av obsidian-wiki (repo)]], 3,609 stars at capture) names
+the gist as its origin and ships the pattern as 39 markdown skills with an
+optional CLI; its additions over the gist are per-sentence
+[[Provenance Tags]], a session memory surface and a locked bookkeeping
+writer ([[Three-Layer Architecture]]).

@@ -5,9 +5,12 @@ created: 2026-10-23
 updated: 2026-10-23
 sources:
   - "[[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]]"
+  - "[[2026-10-22 ar9av obsidian-wiki (repo)]]"
 raw:
   - raw/articles/2026-10-15 gbrain Belief Ledger Design (Garry Tan).md
+  - raw/articles/2026-10-22 ar9av obsidian-wiki (repo).md
 related:
+  - "[[Ingest Workflow]]"
   - "[[Belief Ledger]]"
   - "[[Three-Layer Architecture]]"
   - "[[ADR-006 Two Clocks in Frontmatter]]"
@@ -70,3 +73,14 @@ source.
   agent touched a hand-written claim.
 - **Do nothing**: rejected because the clock problem is real and the fix is
   one git command.
+
+## Later evidence
+
+- 2026-10-23, [[2026-10-22 ar9av obsidian-wiki (repo)]]: the agent-side
+  version of this problem has a mechanical fix there. `index.md`, `log.md`,
+  `hot.md` and `_meta/` "all go through one writer that takes a lock and
+  writes atomically, so parallel agents can't drop each other's updates."
+  A lock coordinates agents with each other; it does nothing for a user
+  editing in Obsidian between sessions, which is the writer this ADR is
+  about. Relevant only if this KB ever runs parallel sessions
+  ([[Ingest Workflow]]).

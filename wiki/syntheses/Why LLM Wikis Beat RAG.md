@@ -7,12 +7,15 @@ sources:
   - "[[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
   - "[[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]"
+  - "[[2026-10-22 ar9av obsidian-wiki (repo)]]"
 raw:
   - raw/articles/2026-04-04 LLM Wiki (Karpathy).md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
   - raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md
+  - raw/articles/2026-10-22 ar9av obsidian-wiki (repo).md
 related:
+  - "[[Provenance Tags]]"
   - "[[Skill Evolution]]"
   - "[[Three-Layer Architecture]]"
   - "[[Ingest Workflow]]"
@@ -67,6 +70,16 @@ why that trade wins for a personal, curated corpus.
 > calls index entries "the MOST IMPORTANT part of the wiki" because they
 > decide whether a page gets opened — [[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]. Its wikis hold 4–10 patterns,
 > so this corroborates the mechanism at the low end, not the scale question.
+> Second practitioner implementation making the same bet: obsidian-wiki ships
+> with "no embedding model, no vector store, no network", claims "titles,
+> tags, and summaries get read before page bodies. 20 pages or 2000, roughly
+> the same cost", and offers QMD semantic search as an opt-in config, which is
+> the same graduation path — [[2026-10-22 ar9av obsidian-wiki (repo)]]. The
+> 2000-page figure is asserted, not shown; its one measurement is a 38-page
+> vault. One qualification from that measurement: the index is a routing
+> aid, not a graph edge, since an agent that reasoned over links through
+> `index.md` "found a short path that means nothing" (see
+> [[Progressive Disclosure]]).
 
 > [!claim] The economics are about maintenance, not retrieval
 > confidence: high · status: supported

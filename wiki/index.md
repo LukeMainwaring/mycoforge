@@ -33,6 +33,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[Progressive Disclosure]] — metadata at the top of knowledge files so agents load only the slice they need; this KB is one
 - [[Skill Evolution]] — agents improving their own skills from traces; WikiSkill's persistent wiki between raw and skills, gated and rolled back
 - [[Belief Ledger]] — gbrain's append-only record of what a brain believed and when: diff beliefs not rows, logical identity, two clocks, trust per event, disclosed coverage
+- [[Provenance Tags]] — obsidian-wiki's extracted / inferred / ambiguous mark on every claim, with lint for speculative drift; origin vs standing against this KB's callouts
 
 ## People
 
@@ -63,6 +64,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]] — host walks Lieberman's 30 features with commentary (podcast, 2026-09-06)
 - [[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]] — Google Research paper: a persistent wiki between agent traces and evolved skills (paper, 2026-08-27)
 - [[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]] — gbrain design doc for an append-only ledger of belief transitions, with as-built deviations (article, 2026-10-15)
+- [[2026-10-22 ar9av obsidian-wiki (repo)]] — skills-first open-source implementation of the Karpathy gist: README, benchmark and repo notes (repo, 2026-10-22)
 
 ## Decisions
 

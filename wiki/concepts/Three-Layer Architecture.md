@@ -6,11 +6,14 @@ sources:
   - "[[2026-04-04 LLM Wiki (Karpathy)]]"
   - "[[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]"
   - "[[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]]"
+  - "[[2026-10-22 ar9av obsidian-wiki (repo)]]"
 raw:
   - raw/articles/2026-04-04 LLM Wiki (Karpathy).md
   - raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md
   - raw/articles/2026-10-15 gbrain Belief Ledger Design (Garry Tan).md
+  - raw/articles/2026-10-22 ar9av obsidian-wiki (repo).md
 related:
+  - "[[Provenance Tags]]"
   - "[[Skill Evolution]]"
   - "[[Belief Ledger]]"
   - "[[Ingest Workflow]]"
@@ -60,6 +63,12 @@ a harness the paper holds constant.
 > drops average accuracy from 63.7% to 48.7% — [[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]].
 > One paper, one domain (benchmark agents); the asymmetry is a design choice
 > the authors do not ablate on its own.
+> A third raw type from practice: obsidian-wiki feeds the same wiki layer
+> from documents, saved conversations (`/wiki-capture`) and mined agent
+> session histories (`/wiki-history-ingest` for Claude, Codex, Copilot and
+> others), with `_raw/` as the staging folder — [[2026-10-22 ar9av obsidian-wiki (repo)]].
+> Its "Not a transcript recorder" rule keeps the layer curated: "nothing is
+> saved unless you or a skill decides it's worth keeping".
 
 Two details carry back. Who may read the wiki is a design variable: WikiSkill
 denies the executing agent wiki access during rollouts and lets only the
@@ -101,3 +110,12 @@ imported vaults), [[ADR-009 Hand Edits Are the Unmanaged Writer]]
 [[ADR-010 Lint the Claim Contract]] (lint callout shape; align the status
 vocabulary). The layering survives: the ledger is a property of the wiki
 layer, not a fourth layer.
+
+obsidian-wiki ([[2026-10-22 ar9av obsidian-wiki (repo)]]) keeps the same
+three layers in markdown and adds a fourth kind of file the Karpathy gist does
+not name: a **memory surface** (`hot.md`, an owner profile and todo index
+under `_meta/`) injected at session start by a hook, with `index.md` and
+`log.md`, written through one locked atomic writer. It also moves provenance
+down a level, from the page to the sentence ([[Provenance Tags]]). Both are
+properties of the wiki layer; the schema layer is spread across 39 skill
+files rather than one `AGENTS.md`.

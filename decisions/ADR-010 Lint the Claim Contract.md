@@ -5,9 +5,12 @@ created: 2026-10-23
 updated: 2026-10-23
 sources:
   - "[[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]]"
+  - "[[2026-10-22 ar9av obsidian-wiki (repo)]]"
 raw:
   - raw/articles/2026-10-15 gbrain Belief Ledger Design (Garry Tan).md
+  - raw/articles/2026-10-22 ar9av obsidian-wiki (repo).md
 related:
+  - "[[Provenance Tags]]"
   - "[[Belief Ledger]]"
   - "[[ADR-007 No Stable Claim Identity]]"
   - "[[ADR-003 Copy-and-Own with Config-Code Split]]"
@@ -62,3 +65,14 @@ prose that should have been a claim.
 - **Also require `status: superseded` claims to link their successor**:
   deferred to when [[ADR-007 No Stable Claim Identity]]'s convention has been
   in use long enough to have examples.
+
+## Later evidence
+
+- 2026-10-23, [[2026-10-22 ar9av obsidian-wiki (repo)]]: a lint that goes
+  past shape. obsidian-wiki tags every claim `extracted`, `^[inferred]` or
+  `^[ambiguous]` and "lint flags pages drifting into speculation", with an
+  `undated_claims` rule. That is the check this ADR declined ("does not try
+  to find contestable prose that should have been a claim"), made possible by
+  tagging all prose rather than only callouts. Whether a lighter form fits
+  here is the open question on [[Provenance Tags]]; logged for the Decision
+  workflow.

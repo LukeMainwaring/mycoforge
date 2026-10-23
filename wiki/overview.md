@@ -41,5 +41,8 @@ Google Research's WikiSkill
 for the compounding claim, and the first non-markdown implementation of a
 brain, gbrain's [[Belief Ledger]] design
 ([[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]]), which asks what a
-wiki's log and git do not record. The catalog lives in [[index]]; the history in
+wiki's log and git do not record, and the first open-source implementation
+of the gist itself, obsidian-wiki ([[2026-10-22 ar9av obsidian-wiki (repo)]]),
+which added [[Provenance Tags]] and the rule that bookkeeping files stay out
+of the link graph. The catalog lives in [[index]]; the history in
 [[log]].
