@@ -22,6 +22,9 @@ commit = ""                                # template commit last synced from; s
 concept_candidate_terms = ["federation", "onboarding"]
 # Pages you know you'll write but haven't yet — suppresses broken-link errors.
 intentional_forward_links = ["Query Workflow", "Lint Workflow"]
+# Status vocabulary for `[!claim]` callouts. `speculative` is what /connect files;
+# a later source promotes it to supported or refutes it.
+claim_statuses = ["supported", "contested", "superseded", "speculative"]
 # Warn when a page's file mtime is more than N days newer than its `updated:`
 # frontmatter (the maintainer forgot to bump it). 0 disables the check.
 stale_after_days = 0

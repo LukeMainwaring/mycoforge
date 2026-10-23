@@ -11,6 +11,10 @@ Checks:
   * ``raw:`` frontmatter references point at existing files
   * orphan pages (no inbound link outside index.md/log.md) — warning
   * stale pages — file mtime more than ``stale_after_days`` newer than ``updated:``
+  * claim shape — every ``[!claim]`` callout has one confidence, one status from
+    ``claim_statuses``, and an evidence line with a resolving wikilink
+  * raw dates — a raw file's filename date matches ``published``/``retrieved``/
+    ``created`` (warn-only: raw is the user's layer)
   * concept candidates — configured terms recurring without a page of their own
   * child KBs exist and carry their own kb.toml; cross-KB links are warnings
 
@@ -37,6 +41,13 @@ INLINE_CODE_RE = re.compile(r"`[^`\n]+`")
 # — [[Target\|Display]], required inside markdown table cells — is captured as
 # `Target\`; wikilinks() strips that escaping backslash back off.
 WIKILINK_RE = re.compile(r"!?\[\[([^\[\]|#]+?)(?:#[^\[\]|]*)?(?:\\?\|[^\[\]]*)?\]\]")
+CLAIM_OPEN_RE = re.compile(r"^>\s*\[!claim\]", re.IGNORECASE)
+CONFIDENCE_RE = re.compile(r"\bconfidence:\s*([a-z]+)")
+STATUS_RE = re.compile(r"\bstatus:\s*([a-z]+)")
+EVIDENCE_RE = re.compile(r"\bevidence:\s*(.*)", re.DOTALL)
+RAW_DATE_RE = re.compile(r"^(\d{4}-\d{2}-\d{2}) ")
+CONFIDENCES = {"high", "medium", "low"}
+DEFAULT_CLAIM_STATUSES = ["supported", "contested", "superseded"]
 
 # Directories never scanned (not KB content).
 SKIP_DIRS = {".git", ".obsidian", ".template", ".agents", ".claude", "__pycache__",
@@ -273,6 +284,66 @@ def check_stale(root: Path, config: dict, issues: Issues) -> None:
                         f"stale: edited {mtime} but frontmatter says updated: {updated}")
 
 
+def claim_blocks(text: str) -> list[tuple[int, str]]:
+    """``(line_no, block)`` for every ``> [!claim]`` callout, code fences removed."""
+    blocks: list[tuple[int, str]] = []
+    lines = strip_code(text).split("\n")
+    i = 0
+    while i < len(lines):
+        if CLAIM_OPEN_RE.match(lines[i]):
+            start = i
+            i += 1
+            while i < len(lines) and lines[i].startswith(">"):
+                i += 1
+            blocks.append((start + 1, "\n".join(lines[start:i])))
+            continue
+        i += 1
+    return blocks
+
+
+def check_claims(root: Path, config: dict, targets: set[str], issues: Issues) -> None:
+    """Shape of the claim contract, not its truth: one confidence, one status
+    from the configured vocabulary, an evidence line with a resolving wikilink."""
+    statuses = set(config.get("lint", {}).get("claim_statuses", DEFAULT_CLAIM_STATUSES))
+    for page in scannable(root):
+        for line_no, block in claim_blocks(page.read_text(encoding="utf-8")):
+            where = f"{rel(root, page)}:{line_no}"
+            body = "\n".join(l.lstrip("> ").rstrip() for l in block.split("\n")[1:])
+            confs = CONFIDENCE_RE.findall(body)
+            stats = STATUS_RE.findall(body)
+            if len(confs) != 1 or confs[0] not in CONFIDENCES:
+                issues.error(where, f"claim needs exactly one confidence from "
+                                    f"{sorted(CONFIDENCES)}, found {confs}")
+            if len(stats) != 1 or stats[0] not in statuses:
+                issues.error(where, f"claim needs exactly one status from "
+                                    f"{sorted(statuses)}, found {stats}")
+            m = EVIDENCE_RE.search(body)
+            if not m or not m.group(1).strip():
+                issues.error(where, "claim has no evidence line")
+            elif not any(t in targets for t in wikilinks(m.group(1))):
+                issues.error(where, "claim evidence cites no resolving wikilink")
+
+
+def check_raw_dates(root: Path, issues: Issues) -> None:
+    """A raw markdown file's filename date should be its ``published`` date, else
+    its capture date (``retrieved``, or ``created`` from older clippers). Warn
+    only: ``raw/`` is the user's layer and the agent never edits it."""
+    raw = root / "raw"
+    if not raw.is_dir():
+        return
+    for p in sorted(raw.rglob("*.md")):
+        m = RAW_DATE_RE.match(p.name)
+        if not m:
+            continue
+        meta = parse_frontmatter(p.read_text(encoding="utf-8"))
+        dates = {str(meta.get(k)) for k in ("published", "retrieved", "created")
+                 if isinstance(meta.get(k), str)}
+        if dates and m.group(1) not in dates:
+            issues.warn(rel(root, p),
+                        f"filename date {m.group(1)} matches none of "
+                        f"published/retrieved/created {sorted(dates)}")
+
+
 def check_concept_candidates(root: Path, config: dict, targets: set[str],
                              issues: Issues, threshold: int = 3) -> None:
     terms = config.get("lint", {}).get("concept_candidate_terms", [])
@@ -308,6 +379,8 @@ def run(root: Path) -> Issues:
     check_raw_refs(root, targets, issues)
     check_orphans(root, issues)
     check_stale(root, config, issues)
+    check_claims(root, config, targets, issues)
+    check_raw_dates(root, issues)
     check_concept_candidates(root, config, targets, issues)
     check_children(config, root, issues)  # sf:keep-if(orchestrator)
     return issues
