@@ -1,16 +1,19 @@
 ---
 type: synthesis
 created: 2026-07-10
-updated: 2026-09-02
+updated: 2026-10-23
 sources:
   - "[[2026-04-04 LLM Wiki (Karpathy)]]"
   - "[[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
+  - "[[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]"
 raw:
   - raw/articles/2026-04-04 LLM Wiki (Karpathy).md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
+  - raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md
 related:
+  - "[[Skill Evolution]]"
   - "[[Three-Layer Architecture]]"
   - "[[Ingest Workflow]]"
   - "[[Prototype, Dogfood, Productionize]]"
@@ -37,6 +40,14 @@ why that trade wins for a personal, curated corpus.
 > [[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]];
 > YC's regenerated, monthly-refreshed user manual (see
 > [[Organizational Legibility]]) is this pattern running live.
+> First controlled evidence, from a different setting ([[Skill Evolution]]):
+> in WikiSkill's ablation a skill proposer that reads a wiki compiled from
+> past iterations averages 63.7%, against 48.7% when "persistent knowledge
+> accumulation across iterations" is removed and it works from the latest
+> traces alone, re-deriving each time — [[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]].
+> Four benchmarks, one model (Gemini-3.5-Flash), three runs. The compounding
+> artifact there is patterns from traces, not documents, so it supports the
+> mechanism rather than the personal-corpus case.
 
 > [!claim] Index-first navigation makes embeddings unnecessary at personal scale
 > confidence: medium · status: supported
@@ -51,6 +62,11 @@ why that trade wins for a personal, curated corpus.
 > [[2026-08-20 The Claude Code Guide For Startups]]. No scale figure given, so
 > it widens the claim's plausible range without pinning it; see
 > [[Prototype, Dogfood, Productionize]].
+> Machine-scale data point: WikiSkill's Skill Proposer is handed `index.md`
+> and reads pattern pages and traces on demand, and the maintainer prompt
+> calls index entries "the MOST IMPORTANT part of the wiki" because they
+> decide whether a page gets opened — [[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]. Its wikis hold 4–10 patterns,
+> so this corroborates the mechanism at the low end, not the scale question.
 
 > [!claim] The economics are about maintenance, not retrieval
 > confidence: high · status: supported

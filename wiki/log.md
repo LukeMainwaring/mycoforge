@@ -228,3 +228,30 @@ Added `/scout` (user-invoked, `insight` feature): a standing watch that reads `[
 
 ## [2026-10-22] schema | Ingest step 5 and the ingest queue
 Ingest now ends by routing any implication for the KB's own schema, claims, lint, or skills to a branch instead of changing them mid-session. Added `staging/ingest.md` (ordered queue with watch-outs; /scout appends to it on hand-off) and seeded it with the five sources from today's scout run.
+
+## [2026-10-23] ingest | WikiSkill (Google Research paper, 2026-08-27)
+First paper in `raw/` and first source whose raw layer is machine-generated:
+WikiSkill co-evolves agent skills with a persistent wiki (raw traces → wiki
+patterns → skills; skills gated on a validation score and rolled back, wiki
+never), citing Karpathy's gist. New: [[Skill Evolution]] (loop anatomy, four
+claims, results table, limitations) and [[Tu Vu]] (corresponding author; also
+on the EvoSkill baseline and the SealQA benchmark). Updated
+[[Three-Layer Architecture]] (new claim: layers generalize to any immutable raw
+record; executor denied wiki access), [[Why LLM Wikis Beat RAG]] (compounding
+claim gets its first controlled evidence, 63.7% vs 48.7% ablation; index-first
+claim gets a machine-scale data point), [[Progressive Disclosure]] (first
+non-practitioner source on the metadata claim; cost model for index-first
+reading), [[Self-Improving AI Loop]] (the anatomy benchmarked), [[Fix the Principle, Not the Example]]
+(measured negative transfer from
+workaround-encoding skills; maintainer rules as the Cainex fix written down),
+[[Ingest Workflow]] (unattended maintainer; sampling instead of
+one-source-per-session; "no mechanism to prune" vs Lint), [[Token Efficiency]]
+(9B with skills beats 27B without), [[Andrej Karpathy]],
+[[Advisory and Deterministic Controls]], [[overview]], [[index]]. No existing claim contested;
+all confidences unchanged (single paper, authors' method vs a baseline one
+author co-wrote). Schema implication, not acted on here: the paper's third
+layer is executable skills fed by the wiki, with `PURPOSE.md` as per-skill
+provenance back to wiki pages. Whether `wiki/` should feed `.agents/skills/`
+here, and what would gate it given this KB has no validation score, is a
+branch decision; also worth a look is its executor/maintainer read split for
+the MCP server's readers.

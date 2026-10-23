@@ -1,7 +1,7 @@
 ---
 type: overview
 created: 2026-07-10
-updated: 2026-09-06
+updated: 2026-10-23
 tags: [meta]
 ---
 
@@ -35,5 +35,8 @@ enterprise SDLC playbook ([[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]
 filed under [[AI-Native SDLC]], and a first non-Anthropic, non-YC source, a
 podcast walking [[Alex Lieberman]]'s thirty AI-native features
 ([[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]), which added
-[[Token Efficiency]] and [[Progressive Disclosure]]. The catalog lives in
-[[index]]; the history in [[log]].
+[[Token Efficiency]] and [[Progressive Disclosure]], and the first paper,
+Google Research's WikiSkill
+([[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]), which added [[Skill Evolution]] and the first controlled evidence
+for the compounding claim. The catalog lives in [[index]]; the history in
+[[log]].

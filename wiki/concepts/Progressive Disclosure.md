@@ -1,12 +1,15 @@
 ---
 type: concept
 created: 2026-09-06
-updated: 2026-09-06
+updated: 2026-10-23
 sources:
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
+  - "[[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]"
 raw:
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
+  - raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md
 related:
+  - "[[Skill Evolution]]"
   - "[[Token Efficiency]]"
   - "[[Company Brain]]"
   - "[[Three-Layer Architecture]]"
@@ -38,6 +41,13 @@ working" — [[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company
 > for `CLAUDE.md` in the [[AI-Native SDLC]] playbook ("anything stale is
 > taking up context for no benefit"), from the loading side rather than the
 > writing side. Prescription, no cases.
+> First non-practitioner source: WikiSkill's maintainer prompt requires each
+> `index.md` entry to give "PROBLEM + ROOT CAUSE + FIX in one or two
+> sentence[s]… specific enough that an agent can judge relevance without
+> reading the full page", and its skill proposer is given the index, not the
+> wiki — [[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]. The paper also cites progressive disclosure as a property
+> of the skill format itself. Asserted in a prompt and a citation, not
+> ablated, so confidence stays medium.
 
 It is the [[Token Efficiency]] mechanism that touches the [[Company Brain]]
 directly: the brain has to be shaped for partial reads, not just accumulated.
@@ -57,3 +67,14 @@ CLI-tools half. The [[Three-Layer Architecture]] gives the metadata a place to
 live that the source's flat "markdown files" does not. See
 [[Why LLM Wikis Beat RAG]] for why compiling at ingest is what makes the
 metadata trustworthy enough to route on.
+
+## The payoff, measured once
+
+[[Skill Evolution]] gives the first number. Because WikiSkill's proposer
+reads the index first and opens pages and traces only as needed, its
+optimizer cost per iteration is one maintainer call plus 10–20 ReAct turns,
+independent of how many training traces exist; the three baselines it beats
+all scale linearly with the training set because they read every trace or
+every minibatch ([[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]). That is the [[Token Efficiency]] argument for
+metadata-first reading with a cost model attached, though at wiki sizes of
+4–10 pages.

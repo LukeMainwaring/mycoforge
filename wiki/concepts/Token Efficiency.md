@@ -1,12 +1,15 @@
 ---
 type: concept
 created: 2026-09-06
-updated: 2026-09-06
+updated: 2026-10-23
 sources:
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
+  - "[[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]"
 raw:
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
+  - raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md
 related:
+  - "[[Skill Evolution]]"
   - "[[AI-Native Company]]"
   - "[[Progressive Disclosure]]"
   - "[[AI Software Factory]]"
@@ -57,6 +60,19 @@ The mechanisms the source lists:
 - **Skills, not prompts** — a skills distribution system "improves token
   efficiency by triggering consistent skills throughout the workflow"
   (feature 7; the mechanism lives in [[Company Brain]]).
+
+## Skills as a substitute for scale
+
+[[Skill Evolution]] adds a measured version of the routing argument. In
+WikiSkill ([[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]) Qwen-3.5-9B with evolved skills averages 47.4% over five
+benchmarks against 39.4% for Qwen-3.6-27B without, and skills transfer
+across model families, so an expensive model can do the discovery once and
+a cheaper one can execute. The caveat cuts both ways: gains grow with model
+size (+12.3, +17.5, +23.9 points for 4B, 9B, 27B), and skills evolved by a
+small model can carry workarounds that hurt a large one
+([[Fix the Principle, Not the Example]]). The proposer's on-demand reading
+also makes the optimizer's cost constant in training-set size, the
+[[Progressive Disclosure]] payoff with a number on it.
 
 ## Tension with token maxing
 

@@ -31,6 +31,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[Tiered Autonomy]] — autonomy scaled by deviation, environment, change size, and guardrail maturity; stops at the production gate
 - [[Token Efficiency]] — cost per successful task as the unit; routing, plan/execute model split, cost per accepted PR, fine-tuned open models
 - [[Progressive Disclosure]] — metadata at the top of knowledge files so agents load only the slice they need; this KB is one
+- [[Skill Evolution]] — agents improving their own skills from traces; WikiSkill's persistent wiki between raw and skills, gated and rolled back
 
 ## People
 
@@ -42,6 +43,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[Uriah Israel]] — Cainex CTO: the medical-coding loop behind fix-the-principle
 - [[Alex Lieberman]] — 10X Labs founder, ex-Morning Brew: author of the 30-features list, cited secondhand
 - [[Nathaniel Whittemore]] — AI Daily Brief host: the dissents and additions to the 30-features list
+- [[Tu Vu]] — Google Research; WikiSkill corresponding author, also on the EvoSkill baseline and SealQA benchmark
 
 ## Syntheses
 
@@ -57,6 +59,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[2026-08-20 The Claude Code Guide For Startups]] — five rules from a dozen Claude Code startups (article/PDF, 2026-08-20)
 - [[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]] — Anthropic's enterprise SDLC playbook: plays per stage with governance and metrics (article, 2026-08-21)
 - [[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]] — host walks Lieberman's 30 features with commentary (podcast, 2026-09-06)
+- [[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]] — Google Research paper: a persistent wiki between agent traces and evolved skills (paper, 2026-08-27)
 
 <!-- sf:begin(product) -->
 ## Decisions

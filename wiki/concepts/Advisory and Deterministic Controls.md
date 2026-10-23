@@ -1,16 +1,19 @@
 ---
 type: concept
 created: 2026-09-02
-updated: 2026-09-06
+updated: 2026-10-23
 sources:
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
+  - "[[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]"
 raw:
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
+  - raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md
 related:
+  - "[[Skill Evolution]]"
   - "[[AI-Native SDLC]]"
   - "[[Verification Bottleneck]]"
   - "[[Tiered Autonomy]]"
@@ -119,3 +122,9 @@ advisory controls are the policy layer and the deterministic ones are the
 quality gate; the playbook is the first source to say which is which and where
 each runs. The advisory layer is also where institutional knowledge lives — the
 [[Company Brain]] as files the agent reads.
+
+[[Skill Evolution]] is the model run as an experiment: WikiSkill holds the
+harness fixed and evolves only the advisory layer (skills), while a
+deterministic gate, a validation score the harness computes, decides what
+stays ([[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]). The skill makes the behavior likely; the gate makes a bad
+skill impossible to keep.

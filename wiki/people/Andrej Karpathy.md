@@ -1,12 +1,15 @@
 ---
 type: person
 created: 2026-07-10
-updated: 2026-07-10
+updated: 2026-10-23
 sources:
   - "[[2026-04-04 LLM Wiki (Karpathy)]]"
+  - "[[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]"
 raw:
   - raw/articles/2026-04-04 LLM Wiki (Karpathy).md
+  - raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md
 related:
+  - "[[Skill Evolution]]"
   - "[[Three-Layer Architecture]]"
 confidence: high
 tags: [person]
@@ -25,3 +28,8 @@ discipline mechanism, and the working setup of Obsidian-as-IDE beside an agent
 session. He traces the lineage to Vannevar Bush's Memex (1945) — a private,
 curated knowledge store whose unsolved problem was *who does the maintenance*;
 the LLM is his answer.
+
+First academic uptake in `raw/`: WikiSkill ([[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]) cites the gist as the
+inspiration for putting a persistent wiki between agent execution traces and
+evolved skills, and reports controlled gains from doing so; see
+[[Skill Evolution]].

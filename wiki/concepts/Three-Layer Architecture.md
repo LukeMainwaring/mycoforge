@@ -1,12 +1,15 @@
 ---
 type: concept
 created: 2026-07-10
-updated: 2026-09-06
+updated: 2026-10-23
 sources:
   - "[[2026-04-04 LLM Wiki (Karpathy)]]"
+  - "[[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]"
 raw:
   - raw/articles/2026-04-04 LLM Wiki (Karpathy).md
+  - raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md
 related:
+  - "[[Skill Evolution]]"
   - "[[Ingest Workflow]]"
   - "[[Why LLM Wikis Beat RAG]]"
   - "[[Progressive Disclosure]]"
@@ -35,3 +38,29 @@ because it can never damage the sources underneath.
 
 The read side of the layering, frontmatter and `index.md` as metadata an agent
 routes on before opening a page, is [[Progressive Disclosure]].
+
+## The same split with machine-generated sources
+
+WikiSkill ([[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]) rebuilds the architecture for [[Skill Evolution]], citing
+Karpathy's gist directly, and swaps the top layer: `raw/` holds immutable
+execution traces instead of documents; `wiki/` holds pattern pages plus
+`index.md`, `logs.md` and a `skill-impact.md` audit trail; and the third
+layer is executable skills (`SKILL.md` plus a `PURPOSE.md` that maps each
+skill back to the wiki patterns behind it) rather than the schema. The
+schema's job, disciplining the maintainer, lives in fixed agent prompts and
+a harness the paper holds constant.
+
+> [!claim] The three layers generalize beyond curated documents: raw can be any immutable record, and the wiki is the layer that persists while the layer above it is rolled back
+> confidence: medium · status: supported
+> evidence: "While skill updates can be rolled back, the wiki persists so that
+> future updates can build on accumulated knowledge"; removing the wiki layer
+> drops average accuracy from 63.7% to 48.7% — [[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]].
+> One paper, one domain (benchmark agents); the asymmetry is a design choice
+> the authors do not ablate on its own.
+
+Two details carry back. Who may read the wiki is a design variable: WikiSkill
+denies the executing agent wiki access during rollouts and lets only the
+maintainer and proposer in, because an executor that reads the wiki leaves
+less informative traces (63.7% to 60.9%). And the ownership boundary holds
+with no human in the loop at all, provided the raw layer stays immutable and
+the wiki is only ever patched, never reset.

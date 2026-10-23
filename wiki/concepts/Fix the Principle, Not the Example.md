@@ -1,14 +1,17 @@
 ---
 type: concept
 created: 2026-09-02
-updated: 2026-09-02
+updated: 2026-10-23
 sources:
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
+  - "[[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]"
 raw:
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
+  - raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md
 related:
+  - "[[Skill Evolution]]"
   - "[[Self-Improving AI Loop]]"
   - "[[Verification Bottleneck]]"
   - "[[Ingest Workflow]]"
@@ -54,6 +57,18 @@ The loop as described:
 > [[2026-08-20 The Claude Code Guide For Startups]]. Single company,
 > first-party. The failure mode is overfitting and plausible on general
 > grounds; the fix's effectiveness is asserted, not measured.
+> A measured instance from [[Skill Evolution]]: spreadsheet skills evolved
+> by Qwen-3.5-4B "encode low-level workarounds, such as single-line Python
+> commands and string-conversion rules" that rescue the small model but drop
+> Gemini-3.5-Flash from 50.5% to 18.1%, while skills from a larger model lift
+> it to 63.4% — [[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]. Overfitting to a model rather than to a case, but
+> the same shape: specifics that help locally and hurt once generalized.
+> WikiSkill's maintainer rules are the Cainex fix written down ("Only create
+> patterns for meaningful, generalizable observations"; "Do NOT create
+> duplicate patterns -- update existing ones with new evidence"), and its
+> `skill-impact.md` keeps every rejected proposal so it is never re-tried.
+> Confidence stays medium: the transfer failure is measured, the rule's
+> effect is not.
 
 Two structural requirements fall out. Corrections must be **legible** — tagged,
 versioned, reasoning visible — which is [[Organizational Legibility]] applied

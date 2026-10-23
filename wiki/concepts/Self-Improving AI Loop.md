@@ -1,20 +1,23 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-09-06
+updated: 2026-10-23
 sources:
   - "[[2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up]]"
   - "[[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
+  - "[[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]"
 raw:
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
+  - raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md
 related:
+  - "[[Skill Evolution]]"
   - "[[AI-Native Company]]"
   - "[[Organizational Legibility]]"
   - "[[Fix the Principle, Not the Example]]"
@@ -122,6 +125,22 @@ engineering leadership, "which shows the harness works for process metrics
 as well as production ones." Vendor recipe rather than a case, but it is
 the deterministic-detection design that ClickHouse's flaky-test agents
 already embody.
+
+## The loop, benchmarked
+
+[[Skill Evolution]] is the anatomy run against public benchmarks with a
+score at the end. In WikiSkill ([[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]) the sensor is the execution traces;
+the policy is fixed prompts plus one hard rule, only a validation-score
+improvement is accepted; the quality gate is that score, decided by the
+harness with no model involved, as the playbook row above wants; and the
+learning mechanism is a wiki the proposer must read before proposing.
+Across five benchmarks and five models it adds 12 to 24 points over no
+skills and beats three prior skill-evolution loops; 39–58% of accepted
+improvements land in the first two iterations and the rest keep arriving
+through iteration 7. The objective metric the AI Daily Brief host says every
+loop needs is what lets this one run unattended: the validation split is the
+"verifiable success metric." The authors' own caveat is that a strict
+better-than-best gate rejects neutral groundwork that might pay off later.
 
 [[Kareem Amin]]'s practitioner version of the thesis: "the moat for any
 company right now is that it needs to be self-improving. So Clay is a
