@@ -6,10 +6,12 @@ sources:
   - "[[2026-04-04 LLM Wiki (Karpathy)]]"
   - "[[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]"
   - "[[2026-10-22 ar9av obsidian-wiki (repo)]]"
+  - "[[2026-10-22 langchain-ai openwiki (repo)]]"
 raw:
   - raw/articles/2026-04-04 LLM Wiki (Karpathy).md
   - raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md
   - raw/articles/2026-10-22 ar9av obsidian-wiki (repo).md
+  - raw/articles/2026-10-22 langchain-ai openwiki (repo).md
 related:
   - "[[Provenance Tags]]"
   - "[[Skill Evolution]]"
@@ -78,3 +80,44 @@ does not coordinate is the user editing in Obsidian, which is the case
 commits. If this KB ever runs parallel ingest sessions, the bookkeeping
 files are the first thing that needs a lock, and `log.md` being append-only
 is what makes that cheap.
+
+## Continuous ingest: the gate moves to the pull request
+
+OpenWiki ([[2026-10-22 langchain-ai openwiki (repo)]]), LangChain's repository-to-wiki
+tool (17,335 stars and seventy commits in the thirty days before capture),
+drops the session altogether. In code mode a scheduled CI job runs
+`openwiki --update`, which "checks repository changes and the evidence behind
+existing Claims to decide what needs updating", and opens a docs-only pull
+request when the wiki changed; "clean updates skip model work and leave the
+wiki content untouched". An auto-merge variant is offered as "repository
+infrastructure rather than an OpenWiki runtime feature", gated by the
+branch's required checks, and the README leaves the repo to "decide whether
+OpenWiki PRs still require human review". In personal mode `openwiki ingest
+all` runs every configured connector (Gmail, Notion, Slack, X, web search,
+Hacker News, local git, custom MCP); connector tools write raw data and
+manifests, then a per-source agent run synthesizes the wiki from them.
+
+Two things make the unattended run schedulable, and neither is scale. The
+model's work is narrowed before it starts: a page is reopened only for
+changed source or a stale claim, and the page worker "receives only Claims
+requiring attention; current issue-free Claims are retained
+deterministically" ([[Provenance Tags]] has the claim mechanics). And the
+judgment this KB spends at ingest time is spent at review time instead, on a
+PR diff, or waived by auto-merge behind the repo's own checks. The user's
+standing instructions survive in `openwiki/INSTRUCTIONS.md`, "a user-authored
+file OpenWiki reads for scope and priorities but never rewrites". The source
+is also different in kind: a codebase changes under its wiki, so the update
+is driven by the diff and the stale evidence, where this KB's raw layer is
+immutable and nothing in it ever goes stale ([[Three-Layer Architecture]]).
+
+> [!claim] One source per session is a choice of gate, not of scale: each unattended ingest in `raw/` replaces the user's judgment at ingest time with a different gate, never with none
+> confidence: medium · status: speculative
+> evidence: this KB's inference across three sources. WikiSkill gates on a
+> downstream validation score with no human — [[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]];
+> obsidian-wiki's batch ingest keeps the human as the one who runs the skill
+> and reviews the manifest — [[2026-10-22 ar9av obsidian-wiki (repo)]]; OpenWiki
+> gates on PR review and required branch checks, and its auto-merge path
+> drops review only where those checks stand in — [[2026-10-22 langchain-ai openwiki (repo)]].
+> Confirm: an auto-merged OpenWiki whose docs drift in ways review would have
+> caught, which would show the gate doing the work. Refute: a maintainer that
+> runs with no gate at all and is shown to hold quality.

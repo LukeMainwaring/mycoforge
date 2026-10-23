@@ -44,5 +44,8 @@ brain, gbrain's [[Belief Ledger]] design
 wiki's log and git do not record, and the first open-source implementation
 of the gist itself, obsidian-wiki ([[2026-10-22 ar9av obsidian-wiki (repo)]]),
 which added [[Provenance Tags]] and the rule that bookkeeping files stay out
-of the link graph. The catalog lives in [[index]]; the history in
+of the link graph, and the vendor-scale comparator, LangChain's OpenWiki
+([[2026-10-22 langchain-ai openwiki (repo)]]), whose scheduled CI ingest and
+Grounded Claims put the one-source-per-session rule on record as a choice of
+gate ([[Ingest Workflow]]). The catalog lives in [[index]]; the history in
 [[log]].

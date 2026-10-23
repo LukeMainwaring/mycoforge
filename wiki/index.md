@@ -65,6 +65,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]] — Google Research paper: a persistent wiki between agent traces and evolved skills (paper, 2026-08-27)
 - [[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]] — gbrain design doc for an append-only ledger of belief transitions, with as-built deviations (article, 2026-10-15)
 - [[2026-10-22 ar9av obsidian-wiki (repo)]] — skills-first open-source implementation of the Karpathy gist: README, benchmark and repo notes (repo, 2026-10-22)
+- [[2026-10-22 langchain-ai openwiki (repo)]] — LangChain's repository-to-wiki tool: scheduled CI ingest opening docs PRs, Grounded Claims pinned to versioned evidence, OKF v0.2 output (repo, 2026-10-22)
 
 ## Decisions
 

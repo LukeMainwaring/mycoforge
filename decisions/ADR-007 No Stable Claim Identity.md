@@ -5,8 +5,10 @@ created: 2026-10-23
 updated: 2026-10-23
 sources:
   - "[[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]]"
+  - "[[2026-10-22 langchain-ai openwiki (repo)]]"
 raw:
   - raw/articles/2026-10-15 gbrain Belief Ledger Design (Garry Tan).md
+  - raw/articles/2026-10-22 langchain-ai openwiki (repo).md
 related:
   - "[[Belief Ledger]]"
   - "[[Three-Layer Architecture]]"
@@ -63,3 +65,14 @@ added when a link needs them, never to every claim.
 - **Fingerprint claims by content** as gbrain does: rejected; the proposition
   text changes on most substantive edits, so the fingerprint buys nothing a
   diff does not.
+
+## Later evidence
+
+- 2026-10-23, [[2026-10-22 langchain-ai openwiki (repo)]]: the consumer this ADR
+  waited for, in another system. OpenWiki's page worker submits per-claim
+  decisions (confirm, revise, add, retract) against claims it did not
+  rewrite, which needs a stable claim identity; it keeps that state in a
+  sidecar under `openwiki/.claims/` so "the Markdown stays clean". The
+  consumer is staleness against versioned evidence ([[Provenance Tags]]).
+  This KB's raw layer never changes, so that consumer still does not exist
+  here; the decision stands.

@@ -5,8 +5,10 @@ created: 2026-07-10
 updated: 2026-10-23
 sources:
   - "[[2026-10-22 ar9av obsidian-wiki (repo)]]"
+  - "[[2026-10-22 langchain-ai openwiki (repo)]]"
 raw:
   - raw/articles/2026-10-22 ar9av obsidian-wiki (repo).md
+  - raw/articles/2026-10-22 langchain-ai openwiki (repo).md
 related:
   - "[[ADR-001 Separate Repo with Product as Seam]]"
   - "[[Ingest Workflow]]"
@@ -60,3 +62,14 @@ session inside the KB.
   end-of-session hook "only suggests a capture". No evidence either way on
   schema erosion; the decision stands, and this is the design to study if the
   write-tool graduation path is ever taken.
+- 2026-10-23, [[2026-10-22 langchain-ai openwiki (repo)]]: a third shape, between
+  read-only and `add_page`. OpenWiki's retrieval tools are "local, read-only,
+  and model-free", as here. Its write path is also MCP, but as a lifecycle
+  (`openwiki_begin → openwiki_submit_plan → openwiki_next_page →
+  openwiki_submit_page → … → openwiki_finish`) in which the host agent
+  submits pages and "only sparse Claim decisions" while OpenWiki "owns the
+  durable queue, Claims validation and persistence" and "refuses to finish
+  until the final state is durable". Writes exist, but every one passes
+  through validation the tool owns, so the guard is structural after all.
+  If the graduation path is taken, this is the shape to copy rather than
+  free-form write tools.

@@ -5,8 +5,10 @@ created: 2026-10-23
 updated: 2026-10-23
 sources:
   - "[[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]]"
+  - "[[2026-10-22 langchain-ai openwiki (repo)]]"
 raw:
   - raw/articles/2026-10-15 gbrain Belief Ledger Design (Garry Tan).md
+  - raw/articles/2026-10-22 langchain-ai openwiki (repo).md
 related:
   - "[[Belief Ledger]]"
   - "[[Three-Layer Architecture]]"
@@ -70,3 +72,16 @@ date. They split on lint. Checked in this session, the drift Opus found is real:
   workflow commit.
 - **Rename raw files to a bitemporal scheme**: rejected; raw is immutable and
   the frontmatter already carries both dates.
+
+## Later evidence
+
+- 2026-10-23, [[2026-10-22 langchain-ai openwiki (repo)]]: the same separation from
+  a vendor, with a third clock. Each Grounded Claim "records the evidence
+  version observed when the claim was established, rather than relying only
+  on when a Markdown file was last generated". Its OKF front matter keeps
+  `generated: {by, at}`, which advances on any body change and never on a
+  front-matter-only edit, apart from `verified: {by, at}`, set only after a
+  successful claims recheck; "clean preflight alone never creates or advances
+  verification". Generation time and verification time are both maintenance
+  time here, folded into `updated`. Nothing to add while raw is immutable
+  and no check runs without a page edit.

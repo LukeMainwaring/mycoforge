@@ -4,8 +4,10 @@ created: 2026-10-23
 updated: 2026-10-23
 sources:
   - "[[2026-10-22 ar9av obsidian-wiki (repo)]]"
+  - "[[2026-10-22 langchain-ai openwiki (repo)]]"
 raw:
   - raw/articles/2026-10-22 ar9av obsidian-wiki (repo).md
+  - raw/articles/2026-10-22 langchain-ai openwiki (repo).md
 related:
   - "[[ADR-011 Speculative Drift Lint]]"
   - "[[Belief Ledger]]"
@@ -29,18 +31,26 @@ described in the README; the repo's `docs/` were not captured. The README's
 own gloss is "you can tell knowledge from guessing" and "Not an oracle. Pages
 are as good as their sources."
 
-## Three ways to mark the same thing
+## Four ways to mark the same thing
 
-Two implementations in `raw/` and this KB carry provenance at the claim
+Three implementations in `raw/` and this KB carry provenance at the claim
 level, and they split the work differently:
 
-| | obsidian-wiki | this KB (`[!claim]`) | gbrain ([[Belief Ledger]]) |
-|---|---|---|---|
-| Unit | every claim (granularity unspecified) | contestable assertions only | every fact, take and link |
-| Marks | origin: extracted / inferred / ambiguous | `confidence` + `status` + an evidence wikilink | trust tier of the writer, plus status over time |
-| Lint | page-level drift into speculation; undated claims | callout shape and a resolving evidence link ([[ADR-010 Lint the Claim Contract]]) | coverage and completeness, in the database |
+| | obsidian-wiki | this KB (`[!claim]`) | gbrain ([[Belief Ledger]]) | OpenWiki (Grounded Claims) |
+|---|---|---|---|---|
+| Unit | every claim (granularity unspecified) | contestable assertions only | every fact, take and link | "the truths future agents rely on" on repository pages; connector facts are not claimed |
+| Marks | origin: extracted / inferred / ambiguous | `confidence` + `status` + an evidence wikilink | trust tier of the writer, plus status over time | a versioned evidence range (`repo://src/server.ts#L40-L82`) in a `.claims/` sidecar, not the page |
+| Lint | page-level drift into speculation; undated claims | callout shape and a resolving evidence link ([[ADR-010 Lint the Claim Contract]]) | coverage and completeness, in the database | every evidence version rechecked before each update; a stale claim forces page work |
 
-The tags answer *origin*; the callouts answer *standing*. This KB's nearest
+The tags answer *origin*; the callouts answer *standing*; OpenWiki's claims
+answer *currency*, whether the evidence is still the evidence
+([[2026-10-22 langchain-ai openwiki (repo)]]). That third question only exists
+because its raw layer is versioned and changes: "when that evidence changes
+or disappears, OpenWiki identifies which facts need to be confirmed,
+rewritten, or retired", and the page worker is handed only those, submitting
+"sparse Claim decisions" (confirm, revise, add, retract) while unaffected
+claims are kept without passing through the model. Facts from connectors,
+which have no version to pin, get no claims at all. This KB's nearest
 equivalent to `^[inferred]` is `status: speculative`, which in practice only
 `/connect` has used (0 of 48 callouts at the time of writing), and the nearest
 equivalent to `^[ambiguous]` is an evidence line that says the source is
@@ -55,6 +65,16 @@ find contestable prose that should have been a claim").
 > [[2026-10-22 ar9av obsidian-wiki (repo)]]. A README description of a
 > shipped feature: no algorithm, no threshold, no measurement of how often it
 > fires or what tagging costs at write time.
+
+> [!claim] OpenWiki pins each repository claim to a versioned evidence range and rechecks every range before deciding whether an update is a no-op
+> confidence: medium · status: supported
+> evidence: "Each Claim points to versioned source evidence, such as
+> `repo://src/server.ts#L40-L82`"; "Before an update, OpenWiki checks every
+> persisted evidence version, before even deciding whether the repository is
+> a no-op. A stale or unresolved Claim requires work for its owning page even
+> if the planner omits it" — [[2026-10-22 langchain-ai openwiki (repo)]]. README
+> description of a shipped feature; the sidecar format and the recheck cost
+> are not shown, and the repo's `src/` was not captured.
 
 > [!claim] A lint over origin marks can only count inference the agent already admitted to; the failure this KB has, a contestable inference written as bare prose, is invisible to it
 > confidence: medium · status: speculative

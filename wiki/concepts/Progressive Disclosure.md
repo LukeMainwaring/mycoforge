@@ -6,10 +6,12 @@ sources:
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
   - "[[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]"
   - "[[2026-10-22 ar9av obsidian-wiki (repo)]]"
+  - "[[2026-10-22 langchain-ai openwiki (repo)]]"
 raw:
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
   - raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md
   - raw/articles/2026-10-22 ar9av obsidian-wiki (repo).md
+  - raw/articles/2026-10-22 langchain-ai openwiki (repo).md
 related:
   - "[[Provenance Tags]]"
   - "[[Skill Evolution]]"
@@ -90,6 +92,10 @@ short path that means nothing", and named `index` as a most-important page.
 > and one "with" run failed because the model ignored the CLI. The wall-clock
 > gap is well outside the run-to-run spread; the accuracy figures rest on
 > fewer samples.
+> A format standard reserves the same two files, for whatever reason:
+> OpenWiki emits Google's Open Knowledge Format v0.2, in which "`index.md`
+> and `log.md` are reserved documents rather than concepts" — [[2026-10-22 langchain-ai openwiki (repo)]].
+> OKF is known here only through that README; the spec is not in `raw/`.
 
 For this KB the rule is already half true: `index.md` and `log.md` are read
 first and never counted as `related:`. Anything that walks wikilinks here,

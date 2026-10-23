@@ -7,11 +7,13 @@ sources:
   - "[[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]"
   - "[[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]]"
   - "[[2026-10-22 ar9av obsidian-wiki (repo)]]"
+  - "[[2026-10-22 langchain-ai openwiki (repo)]]"
 raw:
   - raw/articles/2026-04-04 LLM Wiki (Karpathy).md
   - raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md
   - raw/articles/2026-10-15 gbrain Belief Ledger Design (Garry Tan).md
   - raw/articles/2026-10-22 ar9av obsidian-wiki (repo).md
+  - raw/articles/2026-10-22 langchain-ai openwiki (repo).md
 related:
   - "[[Provenance Tags]]"
   - "[[Skill Evolution]]"
@@ -69,6 +71,11 @@ a harness the paper holds constant.
 > others), with `_raw/` as the staging folder — [[2026-10-22 ar9av obsidian-wiki (repo)]].
 > Its "Not a transcript recorder" rule keeps the layer curated: "nothing is
 > saved unless you or a skill decides it's worth keeping".
+> A limit on "immutable": in OpenWiki's code mode the raw layer is the live
+> repository and changes under the wiki. The split holds there because every
+> Grounded Claim "records the evidence version observed when the claim was
+> established", so a change in raw is detected and routed to the page it
+> affects rather than silently absorbed — [[2026-10-22 langchain-ai openwiki (repo)]].
 
 Two details carry back. Who may read the wiki is a design variable: WikiSkill
 denies the executing agent wiki access during rollouts and lets only the
@@ -128,3 +135,13 @@ under `_meta/`) injected at session start by a hook, with `index.md` and
 down a level, from the contestable claim to every claim ([[Provenance Tags]]). Both are
 properties of the wiki layer; the schema layer is spread across 39 skill
 files rather than one `AGENTS.md`.
+
+OpenWiki ([[2026-10-22 langchain-ai openwiki (repo)]]) splits the schema layer by
+owner instead. The user's brief is `openwiki/INSTRUCTIONS.md`, read "for scope
+and priorities but never rewrite[n] during normal runs"; the tool's own
+instructions to the host agent go into a managed
+`<!-- OPENWIKI:START -->…<!-- OPENWIKI:END -->` block in the repo's
+`AGENTS.md`, the one part of that file it rewrites. Claim state leaves the
+markdown for a sidecar under `openwiki/.claims/` so "the Markdown stays
+clean" ([[Provenance Tags]]). This KB's raw layer is immutable, which is why
+its claims cite a file and never a version or a line range.

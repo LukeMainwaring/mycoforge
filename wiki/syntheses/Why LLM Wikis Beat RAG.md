@@ -8,12 +8,14 @@ sources:
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
   - "[[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]"
   - "[[2026-10-22 ar9av obsidian-wiki (repo)]]"
+  - "[[2026-10-22 langchain-ai openwiki (repo)]]"
 raw:
   - raw/articles/2026-04-04 LLM Wiki (Karpathy).md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
   - raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md
   - raw/articles/2026-10-22 ar9av obsidian-wiki (repo).md
+  - raw/articles/2026-10-22 langchain-ai openwiki (repo).md
 related:
   - "[[Provenance Tags]]"
   - "[[Skill Evolution]]"
@@ -80,6 +82,13 @@ why that trade wins for a personal, curated corpus.
 > aid, not a graph edge, since an agent that reasoned over links through
 > `index.md` "found a short path that means nothing" (see
 > [[Progressive Disclosure]]).
+> Not a data point either way: OpenWiki's `openwiki_search` and
+> `openwiki_read` are "local, read-only, and model-free" and return "compact,
+> ranked results", but the README does not say how they rank, so whether a
+> vendor at 17,000 stars kept embeddings out is unknown. Its agent guidance
+> does take the index-first shape: retrieval is "optional context, not a
+> routine step at the start of every task", and `openwiki/quickstart.md` is
+> the fallback entry when the tools are absent — [[2026-10-22 langchain-ai openwiki (repo)]].
 
 > [!claim] The economics are about maintenance, not retrieval
 > confidence: high · status: supported
@@ -87,6 +96,13 @@ why that trade wins for a personal, curated corpus.
 > the value"; the LLM makes maintenance near-free, which is the actual unlock —
 > [[2026-04-04 LLM Wiki (Karpathy)]]. Retrieval quality is a side effect of a
 > maintained artifact.
+> A vendor building for the maintenance cost directly: OpenWiki rechecks
+> "every persisted evidence version, before even deciding whether the
+> repository is a no-op", reopens a page only for changed source or a stale
+> claim, and a clean scheduled run "skips model work and leaves the wiki
+> content untouched" — [[2026-10-22 langchain-ai openwiki (repo)]]. The design
+> spends the model on what changed and nothing else, which is the
+> maintenance economics made mechanical; README description, no cost figures.
 
 The honest caveat: a wiki is only as good as its ingest discipline. The
 schema and lint tooling exist to hold that discipline.
