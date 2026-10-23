@@ -3,9 +3,9 @@ type: person
 created: 2026-10-23
 updated: 2026-10-23
 sources:
-  - "[[2026-10-16 gbrain Belief Ledger Design (Garry Tan)]]"
+  - "[[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]]"
 raw:
-  - raw/articles/2026-10-16 gbrain Belief Ledger Design (Garry Tan).md
+  - raw/articles/2026-10-15 gbrain Belief Ledger Design (Garry Tan).md
 related:
   - "[[Belief Ledger]]"
   - "[[Company Brain]]"
@@ -21,7 +21,7 @@ President and CEO of Y Combinator (background knowledge, not from the source),
 and author of **gbrain**, an MIT-licensed agent memory layer
 (`github.com/garrytan/gbrain`, about 31k stars and dozens of commits a day at
 capture). The KB holds one gbrain document so far, the [[Belief Ledger]]
-design ([[2026-10-16 gbrain Belief Ledger Design (Garry Tan)]]), written with
+design ([[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]]), written with
 contributors across 33 commits over two days and then annotated with
 "as built" sections recording where the shipped waves deviated from it. The
 design notes which open questions "Garry accepted" and which plan corrections

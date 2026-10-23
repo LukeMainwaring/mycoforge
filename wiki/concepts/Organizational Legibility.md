@@ -8,14 +8,14 @@ sources:
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
-  - "[[2026-10-16 gbrain Belief Ledger Design (Garry Tan)]]"
+  - "[[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]]"
 raw:
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
-  - raw/articles/2026-10-16 gbrain Belief Ledger Design (Garry Tan).md
+  - raw/articles/2026-10-15 gbrain Belief Ledger Design (Garry Tan).md
 related:
   - "[[AI-Native Company]]"
   - "[[Company Brain]]"
@@ -83,7 +83,7 @@ something is off" ([[2026-09-06 The AI Daily Brief - How to Build an AI-Native C
 also what makes [[Fix the Principle, Not the Example]] possible.
 
 The strict form of "if it wasn't recorded, it didn't happen" is gbrain's
-[[Belief Ledger]] ([[2026-10-16 gbrain Belief Ledger Design (Garry Tan)]]):
+[[Belief Ledger]] ([[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]]):
 the brain certifies its own history only for the interval it was
 instrumented, refuses questions about earlier times with a coded
 `coverage_from` rather than reconstructing an answer from file history, and

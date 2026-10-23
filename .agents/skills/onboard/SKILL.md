@@ -103,7 +103,10 @@ Now your half. All of it must obey the schema in `AGENTS.md`:
    in `product/software/`. Create the taxonomy's empty subfolders.
 3. **Seed pages**: fresh `wiki/overview.md` (domain, purpose, where to start),
    `wiki/index.md` (empty catalog with the taxonomy's sections), `wiki/log.md`
-   (one genuine `schema |` entry recording the onboarding), and — if `product`
+   (one genuine `schema |` entry recording the onboarding; if the user brings
+   existing pages into `wiki/` instead of starting empty, the entry also says
+   `imported N pages; beliefs before <date> not recorded as claims`, so the
+   coverage gap is on record in the log and never on the pages), and — if `product`
    was kept — a thin `Home.md`, `roadmap.md`, `product/Vision.md` for the new
    domain.
 

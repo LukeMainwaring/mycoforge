@@ -8,14 +8,14 @@ sources:
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
-  - "[[2026-10-16 gbrain Belief Ledger Design (Garry Tan)]]"
+  - "[[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]]"
 raw:
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
   - raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
-  - raw/articles/2026-10-16 gbrain Belief Ledger Design (Garry Tan).md
+  - raw/articles/2026-10-15 gbrain Belief Ledger Design (Garry Tan).md
 related:
   - "[[AI-Native Company]]"
   - "[[Organizational Legibility]]"
@@ -139,7 +139,7 @@ chain is in [[AI-Native SDLC]].
 The first implementation on this KB's shelf that is not markdown:
 [[Garry Tan]]'s gbrain, an agent memory layer built as a database with
 facts, takes, typed links, trust tiers and purge. Its [[Belief Ledger]]
-([[2026-10-16 gbrain Belief Ledger Design (Garry Tan)]]) adds what none of the
+([[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]]) adds what none of the
 brains above have: a certified record of *when the brain came to believe
 each thing*, kept apart from when the thing was true, with a weekly diff of
 beliefs that changed, each cited to its evidence. Two rules carry back to any
@@ -147,9 +147,9 @@ brain. Trust is a property of each write, and a low-trust write that would
 overwrite a high-trust belief is held for the owner rather than refused or
 applied. And the brain discloses its own coverage: a question about a time
 it was not recording gets a coded refusal, not a reconstruction. Blomfield's
-"software is ephemeral" holds here too, in a stricter form: the ledger is the
-one store gbrain declares non-recomputable, and it gets a backup contract for
-that reason.
+"software is ephemeral" holds here too, in a stricter form: the ledger is one
+of the few stores gbrain declares non-recomputable, and it gets a backup
+contract for that reason.
 
 ## Where humans still matter
 
@@ -163,4 +163,4 @@ The structural rhyme with this KB: the brain/edge split mirrors the
 (`raw/` + wiki), regenerable consumers at the edge (product repos reading over
 MCP). A MycoForge instance is a candidate implementation of a company brain;
 noted here as an observation, not yet a filed synthesis.
-The center/edge seam is decided in [[ADR-001 Separate Repo with Product as Seam]]. <!-- sf:keep-if(product) -->
+The center/edge seam is decided in [[ADR-001 Separate Repo with Product as Seam]].

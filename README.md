@@ -88,7 +88,7 @@ pruning is subtractive, deterministic, and verified. The five cuttable features
 
 | Feature | What it is |
 |---|---|
-| `product` | Spec pages, ADRs in `decisions/`, roadmap, Home dashboard — for KBs that feed software |
+| `product` | Spec pages, roadmap, Home dashboard — for KBs that feed software (ADRs in `decisions/` are trunk) |
 | `orchestrator` | Parent-KB federation: children manifest, routing workflow, child-aware lint |
 | `media-capture` | `/transcript` + `/snippet` skills for podcast/video sources |
 | `insight` | `/research` (web source discovery into `raw/`) + `/connect` (novel-connection syntheses) |

@@ -23,13 +23,12 @@ slug = "mycoforge"    # identity token; `--slug` renames it
 brand = "MycoForge"   # display name; `--brand` renames it
 
 [features.product]
-description = "The product layer: Home dashboard, roadmap, product/ spec pages, decisions/ ADRs, and the product-ops workflow. Spec pages only — real software lives in separate repos."
+description = "The product layer: Home dashboard, roadmap, product/ spec pages, and the product-ops workflow. Spec pages only — real software lives in separate repos. ADRs in decisions/ are trunk, not part of this feature."
 requires = []
 paths = [
   "Home.md",
   "roadmap.md",
   "product",
-  "decisions",
 ]
 
 [features.orchestrator]

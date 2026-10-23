@@ -34,7 +34,11 @@ you find hand-made edits, respect them and fold them in.
 - **Wiki pages**: Title Case, e.g. `Three-Layer Architecture.md`. The filename is
   the page title and the wikilink target.
 - **Raw files**: `YYYY-MM-DD <Title>.<ext>` — publication date if known, otherwise
-  capture date, e.g. `2026-04-04 LLM Wiki (Karpathy).md`.
+  capture date, e.g. `2026-04-04 LLM Wiki (Karpathy).md`. Raw frontmatter keeps
+  source time (`published:`) apart from capture time (`retrieved:`; older
+  clipper files say `created:`); the filename date is one of those two, and
+  neither is ever copied into a wiki page's `created`/`updated`, which are
+  maintenance time (lint warns on a mismatch; the user fixes raw files).
 - **Never** use these characters in a filename (they break Obsidian links or file
   systems): `[ ] # ^ | : / \`. Parentheses, hyphens, apostrophes, and spaces are fine.
 
@@ -75,8 +79,15 @@ Contestable assertions — anything a future source could contradict — go in a
 ```
 
 When a new source contradicts an existing claim, don't silently rewrite it: update
-the callout's status (`supported | contested | superseded`), cite both sources, and
-note the conflict in the ingest's log entry.
+the callout's status, cite both sources, and note the conflict in the ingest's
+log entry. Statuses (vocabulary in `kb.toml` `[lint].claim_statuses`, lint
+checks the shape of every callout): `supported | contested | superseded |
+speculative`, where `speculative` is what `/connect` files and a later source
+promotes or refutes. When a claim is superseded, keep the old proposition in
+its callout and point at the successor by page and claim title; never
+overwrite it in place. When you reword, move or split a claim, name the old
+and new title in the log entry. A claim the user wrote or edited by hand is
+never superseded by you: set `status: contested`, cite both, and ask.
 
 ## Workflows
 
@@ -90,7 +101,8 @@ note the conflict in the ingest's log entry.
 | `/research <topic>` | **Research** — source discovery into `raw/` | <!-- sf:keep-if(insight) -->
 | `/scout [Nd]` | **Scout** — standing watch for fresh sources, staged in `staging/scout.md` | <!-- sf:keep-if(insight) -->
 | `/connect` | **Connect** — bridge weakly-linked pages | <!-- sf:keep-if(insight) -->
-| "we decided…", "new ADR", "update the roadmap" | **Product ops** | <!-- sf:keep-if(product) -->
+| "we decided…", "new ADR", a schema implication worth deciding | **Decision** |
+| "update the roadmap", a new software spec | **Product ops** | <!-- sf:keep-if(product) -->
 | a question belonging to a child KB | **Routing** | <!-- sf:keep-if(orchestrator) -->
 | `/sync-skills` | **Sync skills** — port upstream changes to the vendored Pocock skills |
 
@@ -128,6 +140,10 @@ Read `wiki/index.md` first to find relevant pages, drill into them, and answer *
 conversation** with wikilink citations. File the answer back into the wiki as a
 `syntheses/` page **only when the user asks** — good answers are worth keeping, but
 the user decides which ones. If you do file one, index it and log a `query |` entry.
+A "what did this KB say at time T" answer cites the commit it read and says
+"the page stated X" rather than "the KB recorded X" unless a claim callout
+carried it; an earlier state that git does not hold is reported as unknown,
+never reconstructed.
 
 ### Lint
 
@@ -174,6 +190,20 @@ Three knowledge-work skills that bracket the ingest pipeline:
   `discovered |` entry.
 <!-- sf:end(insight) -->
 
+### Decision
+
+Significant decisions about this KB, its schema, or (where the product layer is
+kept) its product become ADR pages in `decisions/`: Context / Decision /
+Consequences / Alternatives, `type: decision` frontmatter with `status:`.
+Supersede rather than rewrite: new decision page, old one gets
+`status: superseded` and a link. Log a `decision |` entry.
+
+Schema implications recorded by Ingest (step 5) enter here: each becomes a
+`status: proposed` ADR on a branch, stating the question, the source that
+raised it, and the smallest change that would close it. Accept, reject, or
+leave proposed; later ingests add evidence to the ADR instead of to the log.
+A `proposed` ADR is a question on record, not a commitment.
+
 <!-- sf:begin(product) -->
 ### Product ops
 
@@ -181,10 +211,6 @@ This KB carries its product layer as **spec pages, never application code**. Rea
 software lives in separate repos (grown from the sporeforge template) that read
 this KB over MCP.
 
-- **Decisions lifecycle**: significant decisions become ADR pages in `decisions/`
-  (Context / Decision / Consequences / Alternatives, `type: decision` frontmatter
-  with `status:`). Supersede rather than rewrite: new decision page, old one gets
-  `status: superseded` and a link. Log a `decision |` entry.
 - **Roadmap upkeep**: `roadmap.md` holds Next / Later only — no Done section.
   Remove items when they ship (the log and git history are the record); promote
   Later items to Next as they become active. `Home.md` is the dashboard — keep
@@ -193,7 +219,7 @@ this KB over MCP.
   `product/software/` containing the full build prompt (a fenced block ready to
   paste into a coding agent) plus a link to the resulting repo. The prompt *is*
   the spec; keep it current as decisions change. See the example page in
-  `product/software/`.
+  `product/software/`. Product decisions use the Decision workflow above.
 <!-- sf:end(product) -->
 
 <!-- sf:begin(orchestrator) -->
@@ -220,7 +246,9 @@ ingestion stays an interactive workflow here, never an API call.
 
 Content work (`ingest | query | lint | decision | discovered`) commits straight to
 `main`, one commit per workflow run, with the log prefix as the commit prefix
-(`ingest: <source>`). Schema, tooling, and skill changes go on a branch and open a
+(`ingest: <source>`). At session start, if `git status` shows uncommitted changes
+under `wiki/`, tell the user and commit them on their own as `hand-edit: <pages>`
+before the workflow run, so the user's edits keep their own time and author. Schema, tooling, and skill changes go on a branch and open a
 draft PR whose body comes from the `pr` skill; Evidence is the `scripts/lint.py` output,
 plus `.template/verify_matrix.sh` output while `.template/` still exists (onboarding
 deletes it). Merge only on the user's explicit approval.
