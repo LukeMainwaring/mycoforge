@@ -3,9 +3,9 @@ title: "How to Build a Self-Improving Company with AI"
 source: https://www.youtube.com/watch?v=X_JsIHUfUjc
 show: "Y Combinator"
 published: 2026-05-21
-created: 2026-07-23
+retrieved: 2026-07-23
 duration: "13:28"
-captions_source: youtube-manual
+captions_source: youtube-auto
 tags:
   - podcast
 ---

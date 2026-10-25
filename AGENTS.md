@@ -35,8 +35,8 @@ you find hand-made edits, respect them and fold them in.
   the page title and the wikilink target.
 - **Raw files**: `YYYY-MM-DD <Title>.<ext>` — publication date if known, otherwise
   capture date, e.g. `2026-04-04 LLM Wiki (Karpathy).md`. Raw frontmatter keeps
-  source time (`published:`) apart from capture time (`retrieved:`; older
-  clipper files say `created:`); the filename date is one of those two, and
+  source time (`published:`) apart from capture time (`retrieved:`, never
+  `created:`); the filename date is one of those two, and
   neither is ever copied into a wiki page's `created`/`updated`, which are
   maintenance time (lint warns on a mismatch; the user fixes raw files).
 - **Never** use these characters in a filename (they break Obsidian links or file

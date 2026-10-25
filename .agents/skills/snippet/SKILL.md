@@ -87,7 +87,7 @@ Drop these inline: `um`, `uh`, `like` (when filler), `you know` (when filler), `
 
 ### ASR error correction (domain glossary)
 
-Even `youtube-manual` files often contain auto-transcribed text uploaded as if hand-edited, so proper nouns and domain jargon arrive mangled. Two references:
+Auto captions mangle proper nouns and domain jargon, and `youtube-manual` files can too (files captured before 2026-10-25 carry that label even when the captions were auto). Two references:
 
 - The frontmatter `title` (yt-dlp pulls it from clean metadata) is canonical for the show/guest proper nouns — cross-reference it rather than trusting the body.
 - The KB's **domain glossary** lives in `kb.toml` under `[snippet].glossary` as `"what ASR heard" = "what was actually said"` pairs. Read it and apply every correction aggressively. Example shape:

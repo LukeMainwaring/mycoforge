@@ -42,6 +42,7 @@ requires = []
 paths = [
   ".agents/skills/transcript",
   ".agents/skills/snippet",
+  "scripts/test_transcript.py",
 ]
 
 [features.insight]

@@ -320,3 +320,9 @@ Accepted by the user. AGENTS.md gains two sentences: in the Research, Scout, and
 
 ## [2026-10-23] lint | Staging cleanup after the first scout queue
 Removed the ten `staging/schema-review-*.md` files (three prompts, six reviews, three diffs); their content is quoted where it mattered in ADR-006 to ADR-014, and the files stay in git history at `0ddc41b`. Citations in those ADRs and in [[Provenance Tags]] now say so. `staging/ingest.md` loses its five ticked rows; the file keeps its header and waits for the next `/scout` run.
+
+## [2026-10-25] decision | ADR-015 Retrieved Is the Only Capture Field
+User-directed, accepted. Raw capture date is `retrieved:` only; narrows [[ADR-006 Two Clocks in Frontmatter]] point 2, which accepted `created:` as a stand-in. The user migrates four raw files and the Web Clipper template. [[index]] updated.
+
+## [2026-10-25] schema | Capture date is never `created:` in raw
+AGENTS.md File naming: "older clipper files say `created:`" becomes "never `created:`". `scripts/lint.py` `check_raw_dates` warns on a raw `created:` (four warnings until the user migrates). `/transcript` refresh: caption track picked from metadata (fixes the always-`youtube-manual` label), one extraction, no-clobber, canonical source URL, `retrieved:`; ports LukeMainwaring/recruiting#148.

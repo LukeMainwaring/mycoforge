@@ -2,7 +2,7 @@
 type: decision
 status: accepted
 created: 2026-10-23
-updated: 2026-10-23
+updated: 2026-10-25
 sources:
   - "[[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]]"
   - "[[2026-10-22 langchain-ai openwiki (repo)]]"
@@ -13,6 +13,7 @@ related:
   - "[[Belief Ledger]]"
   - "[[Three-Layer Architecture]]"
   - "[[ADR-007 No Stable Claim Identity]]"
+  - "[[ADR-015 Retrieved Is the Only Capture Field]]"
 tags: [adr, schema, provenance]
 ---
 
@@ -63,6 +64,8 @@ date. They split on lint. Checked in this session, the drift Opus found is real:
 - One warning to clear now, and a check that catches the next clipper error.
 - The wording "commit time is recorded time" in [[Three-Layer Architecture]]
   is narrowed to agent writes; see [[ADR-009 Hand Edits Are the Unmanaged Writer]].
+- Point 2's `created:` stand-in is withdrawn and old files migrated; see
+  [[ADR-015 Retrieved Is the Only Capture Field]].
 
 ## Alternatives
 
