@@ -13,8 +13,8 @@ Checks:
   * stale pages — file mtime more than ``stale_after_days`` newer than ``updated:``
   * claim shape — every ``[!claim]`` callout has one confidence, one status from
     ``claim_statuses``, and an evidence line with a resolving wikilink
-  * raw dates — a raw file's filename date matches ``published``/``retrieved``/
-    ``created`` (warn-only: raw is the user's layer)
+  * raw dates — a raw file's filename date matches ``published``/``retrieved``,
+    and capture date is never ``created`` (warn-only: raw is the user's layer)
   * concept candidates — configured terms recurring without a page of their own
   * child KBs exist and carry their own kb.toml; cross-KB links are warnings
 
@@ -326,8 +326,9 @@ def check_claims(root: Path, config: dict, targets: set[str], issues: Issues) ->
 
 def check_raw_dates(root: Path, issues: Issues) -> None:
     """A raw markdown file's filename date should be its ``published`` date, else
-    its capture date (``retrieved``, or ``created`` from older clippers). Warn
-    only: ``raw/`` is the user's layer and the agent never edits it."""
+    its capture date ``retrieved``. A raw ``created`` is flagged: that word means
+    wiki-page creation. Warn only: ``raw/`` is the user's layer and the agent
+    never edits it."""
     raw = root / "raw"
     if not raw.is_dir():
         return
@@ -336,6 +337,9 @@ def check_raw_dates(root: Path, issues: Issues) -> None:
         if not m:
             continue
         meta = parse_frontmatter(p.read_text(encoding="utf-8"))
+        if "created" in meta:
+            issues.warn(rel(root, p),
+                        "raw capture date belongs in `retrieved:`, not `created:`")
         dates = {str(meta.get(k)) for k in ("published", "retrieved", "created")
                  if isinstance(meta.get(k), str)}
         if dates and m.group(1) not in dates:

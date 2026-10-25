@@ -144,6 +144,18 @@ def test_raw_wikilink_form_refs(tmp_path):
     assert any("Beta" in e and "Nonexistent Source" in e for e in issues.errors)
 
 
+def test_raw_created_field_warns(tmp_path):
+    (tmp_path / "raw/articles").mkdir(parents=True)
+    (tmp_path / "raw/articles/2026-01-01 Clip.md").write_text(
+        "---\npublished: 2026-01-01\ncreated: 2026-02-01\n---\nx\n", encoding="utf-8")
+    (tmp_path / "raw/articles/2026-01-02 Fetch.md").write_text(
+        "---\npublished: 2026-01-02\nretrieved: 2026-02-01\n---\nx\n", encoding="utf-8")
+    make_kb(tmp_path)
+    issues = lint.run(tmp_path)
+    assert any("Clip.md" in w and "`created:`" in w for w in issues.warnings)
+    assert not any("Fetch.md" in w for w in issues.warnings)
+
+
 def test_overview_not_required_in_index(tmp_path):
     make_kb(tmp_path, pages={
         "wiki/index.md": "- [[Alpha]]\n",       # overview.md deliberately absent
