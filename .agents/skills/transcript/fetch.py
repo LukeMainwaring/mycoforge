@@ -8,8 +8,11 @@ Usage:
     fetch.py <url> --clip 30:20-31:50 --topic "key argument"
     fetch.py <url> --clip 1:05:30-1:07:00 --topic "methodology"
     fetch.py <url> --show "Acquired"
+    fetch.py <url> --cookies-from-browser chrome   # after an HTTP 429
+    fetch.py <url> --force                         # overwrite an existing file
 
-Requires: yt-dlp (`brew install yt-dlp`, or `pip install -U yt-dlp`).
+Requires: yt-dlp (`uv tool install "yt-dlp[default]"`, or `brew install yt-dlp`).
+Recommends: deno (`brew install deno`), the JS runtime yt-dlp uses for YouTube.
 """
 
 from __future__ import annotations
@@ -46,54 +49,100 @@ def require_yt_dlp() -> None:
     if shutil.which("yt-dlp") is None:
         sys.exit(
             "error: yt-dlp is not installed.\n"
-            "  install with: brew install yt-dlp\n"
-            "  or:           pip install -U yt-dlp"
+            '  install with: uv tool install "yt-dlp[default]"\n'
+            "  or:           brew install yt-dlp"
+        )
+    if shutil.which("deno") is None:
+        # Captions don't need the JS runtime today; video formats do, and
+        # YouTube keeps tightening, so nudge rather than fail.
+        print(
+            "warning: deno not found; yt-dlp wants a JS runtime for YouTube "
+            "(brew install deno). Continuing.",
+            file=sys.stderr,
         )
 
 
 # --- yt-dlp wrappers --------------------------------------------------------
 
-def get_metadata(url: str) -> dict:
-    res = subprocess.run(
-        ["yt-dlp", "--dump-json", "--skip-download", "--no-warnings", url],
-        capture_output=True, text=True,
-    )
+RATE_LIMITED = (
+    "YouTube rate-limited this IP (HTTP 429).\n"
+    "  wait a few minutes and retry; don't run several fetches in parallel;\n"
+    "  or retry with --cookies-from-browser chrome"
+)
+
+
+def run_yt_dlp(args: list[str], what: str) -> subprocess.CompletedProcess:
+    res = subprocess.run(["yt-dlp", *args], capture_output=True, text=True)
     if res.returncode != 0:
-        sys.exit(f"yt-dlp metadata fetch failed:\n{res.stderr.strip()}")
+        if "HTTP Error 429" in res.stderr:
+            sys.exit(RATE_LIMITED)
+        sys.exit(f"yt-dlp {what} failed:\n{res.stderr.strip()}")
+    return res
+
+
+def get_metadata(url: str, info_path: Path, cookie_args: list[str]) -> dict:
+    """Extract video metadata once and save it to info_path, so the caption
+    download can reuse it (--load-info-json) instead of hitting YouTube's
+    player again. --no-playlist makes a `watch?v=...&list=...` URL mean the
+    one video; --flat-playlist keeps a bare playlist URL from extracting
+    every entry before we reject it."""
+    res = run_yt_dlp(
+        ["-J", "--skip-download", "--no-playlist", "--flat-playlist",
+         *cookie_args, url],
+        "metadata fetch",
+    )
+    info_path.write_text(res.stdout, encoding="utf-8")
     return json.loads(res.stdout)
 
 
-def fetch_captions(url: str, lang: str) -> tuple[str | None, str | None]:
-    """Fetch captions via yt-dlp. Returns (vtt_text, source_label)."""
-    with tempfile.TemporaryDirectory() as td:
-        td_path = Path(td)
-        cmd = [
-            "yt-dlp",
-            "--write-sub", "--write-auto-sub",
-            "--skip-download",
-            "--sub-format", "vtt",
-            "--sub-langs", lang,
-            "--no-warnings",
-            "-o", str(td_path / "%(id)s.%(ext)s"),
-            url,
-        ]
-        res = subprocess.run(cmd, capture_output=True, text=True)
-        if res.returncode != 0:
-            sys.exit(f"yt-dlp caption fetch failed:\n{res.stderr.strip()}")
+def pick_caption_track(meta: dict, lang: str) -> tuple[str, str, str] | None:
+    """Choose the caption track to fetch from the metadata's track lists.
+    Returns (track key, metadata field, captions_source label), or None.
 
-        vtt_files = list(td_path.glob("*.vtt"))
-        if not vtt_files:
-            return None, None
+    Uploader tracks win, regional variants included (`en-US` serves `en`).
+    Then YouTube's ASR in the spoken language (`en-orig`), then the plain auto
+    key, which is a machine translation when the video was spoken in another
+    language (some other `*-orig` key exists)."""
+    manual = meta.get("subtitles") or {}
+    if lang in manual:
+        return lang, "subtitles", "youtube-manual"
+    regional = sorted(k for k in manual if k.startswith(f"{lang}-"))
+    if regional:
+        return regional[0], "subtitles", "youtube-manual"
 
-        log = (res.stderr + res.stdout).lower()
-        # yt-dlp writes manual subs preferentially; the log line tells us which.
-        if "writing video subtitles" in log:
-            source = "youtube-manual"
-        elif "writing video automatic" in log or "writing automatic" in log:
-            source = "youtube-auto"
-        else:
-            source = "youtube-unknown"
-        return vtt_files[0].read_text(encoding="utf-8"), source
+    auto = meta.get("automatic_captions") or {}
+    if f"{lang}-orig" in auto:
+        return f"{lang}-orig", "automatic_captions", "youtube-auto"
+    if lang in auto:
+        spoken_elsewhere = any(k.endswith("-orig") for k in auto)
+        label = "youtube-auto-translated" if spoken_elsewhere else "youtube-auto"
+        return lang, "automatic_captions", label
+    return None
+
+
+def fetch_captions(
+    info_path: Path, track: str, field: str, cookie_args: list[str]
+) -> str:
+    """Download one caption track as VTT, reusing the saved metadata."""
+    out_dir = info_path.parent / "subs"
+    write_flag = "--write-subs" if field == "subtitles" else "--write-auto-subs"
+    res = run_yt_dlp(
+        ["--load-info-json", str(info_path),
+         write_flag, "--skip-download",
+         "--sub-format", "vtt",
+         "--sub-langs", re.escape(track),
+         *cookie_args,
+         "-o", str(out_dir / "%(id)s.%(ext)s")],
+        "caption fetch",
+    )
+    vtt_files = list(out_dir.glob("*.vtt"))
+    if not vtt_files:
+        # yt-dlp can log a failed subtitle download and still exit 0.
+        if "HTTP Error 429" in res.stderr:
+            sys.exit(RATE_LIMITED)
+        sys.exit(f"yt-dlp wrote no caption file for track {track!r}:\n"
+                 f"{res.stderr.strip()}")
+    return vtt_files[0].read_text(encoding="utf-8")
 
 
 # --- VTT parsing ------------------------------------------------------------
@@ -156,18 +205,19 @@ def parse_vtt(vtt_text: str) -> list[tuple[float, float, list[str]]]:
 
 def cues_to_timed_lines(
     cues: list[tuple[float, float, list[str]]],
+    window: int = 2,
 ) -> list[tuple[float, str]]:
-    """Flatten cues to (start_s, line) tuples in transcript order, deduping at
-    the line level to absorb YouTube's rolling-window repetition. The earliest
-    start_s wins per unique line — that's the cue when the line first appeared,
-    which is the most accurate moment to anchor on."""
-    seen: set[str] = set()
+    """Flatten cues to (start_s, line) tuples in transcript order, dropping a
+    line that repeats one of the last `window` kept lines. That absorbs
+    YouTube's rolling-window repetition (each cue re-shows the previous line)
+    while keeping a phrase said again later ("Yeah."). The earliest start_s
+    wins — that's the cue when the line first appeared, the most accurate
+    moment to anchor on."""
     out: list[tuple[float, str]] = []
     for start_s, _, lines in cues:
         for ln in lines:
-            if ln in seen:
+            if any(ln == prev for _, prev in out[-window:]):
                 continue
-            seen.add(ln)
             out.append((start_s, ln))
     return out
 
@@ -385,6 +435,30 @@ def yaml_dq(s: str) -> str:
     return '"' + s.replace("\\", "\\\\").replace('"', '\\"') + '"'
 
 
+def describe(
+    meta: dict, args: argparse.Namespace, clip_m: re.Match | None, out_dir: Path
+) -> tuple[str, str, str, int | float | None, Path]:
+    """Title, show, published date, duration and output path from metadata."""
+    title = (meta.get("title") or "untitled").strip()
+    show = (args.show or meta.get("uploader") or meta.get("channel") or "unknown").strip()
+    upload = meta.get("upload_date")  # YYYYMMDD
+    if upload and len(upload) == 8 and upload.isdigit():
+        published = f"{upload[:4]}-{upload[4:6]}-{upload[6:]}"
+    else:
+        published = ""
+    duration_s = meta.get("duration")
+
+    stem = safe_stem(
+        f"{published} {show} - {title}" if published else f"{show} - {title}"
+    )
+    if clip_m:
+        # Truncate the base, never the clip suffix, so clips stay distinct.
+        topic_label = args.topic or f"{clip_m.group(1)}-{clip_m.group(2)}"
+        stem += " " + safe_stem(f"(clip - {topic_label})")
+    out_path = out_dir / f"{stem}.md"
+    return title, show, published, duration_s, out_path
+
+
 # --- main -------------------------------------------------------------------
 
 def main() -> None:
@@ -396,33 +470,53 @@ def main() -> None:
     ap.add_argument("--topic", help="Topic label for the snippet filename")
     ap.add_argument("--lang", default="en", help="Caption language (default: en)")
     ap.add_argument("--show", help="Override the show / channel name")
+    ap.add_argument("--cookies-from-browser", metavar="BROWSER",
+                    help="Pass browser cookies to yt-dlp (e.g. chrome) after an HTTP 429")
+    ap.add_argument("--force", action="store_true",
+                    help="Overwrite the output file if it already exists")
     args = ap.parse_args()
+
+    clip_m = None
+    if args.clip:
+        clip_m = CLIP_RE.match(args.clip)
+        if not clip_m:
+            sys.exit(
+                f"bad --clip format: {args.clip!r} "
+                "(expected MM:SS-MM:SS or HH:MM:SS-HH:MM:SS)"
+            )
 
     require_yt_dlp()
     project_root = find_project_root()
     out_dir = project_root / "raw" / "podcasts"
     out_dir.mkdir(parents=True, exist_ok=True)
+    cookie_args = (["--cookies-from-browser", args.cookies_from_browser]
+                   if args.cookies_from_browser else [])
 
-    print(f"fetching metadata for {args.url} ...", file=sys.stderr)
-    meta = get_metadata(args.url)
-    title = (meta.get("title") or "untitled").strip()
-    show = (args.show or meta.get("uploader") or meta.get("channel") or "unknown").strip()
-    upload = meta.get("upload_date")  # YYYYMMDD
-    if upload and len(upload) == 8 and upload.isdigit():
-        published = f"{upload[:4]}-{upload[4:6]}-{upload[6:]}"
-    else:
-        published = ""
-    duration_s = meta.get("duration")
+    with tempfile.TemporaryDirectory() as td:
+        info_path = Path(td) / "info.json"
+        print(f"fetching metadata for {args.url} ...", file=sys.stderr)
+        meta = get_metadata(args.url, info_path, cookie_args)
+        if meta.get("_type") == "playlist":
+            sys.exit("this is a playlist URL; pass a single video URL")
 
-    print("fetching captions ...", file=sys.stderr)
-    vtt, source = fetch_captions(args.url, lang=args.lang)
-    if vtt is None:
-        sys.exit(
-            "no captions available for this video.\n"
-            "fall back to whisper:\n"
-            f"  yt-dlp -x --audio-format mp3 \"{args.url}\"\n"
-            "  whisper-cpp -m models/ggml-large-v3.bin -f <audio>.mp3 -otxt"
-        )
+        title, show, published, duration_s, out_path = describe(meta, args, clip_m, out_dir)
+        if out_path.exists() and not args.force:
+            sys.exit(
+                f"{out_path.relative_to(project_root)} already exists "
+                "(it may carry your ==highlights==); pass --force to overwrite"
+            )
+
+        track = pick_caption_track(meta, args.lang)
+        if track is None:
+            sys.exit(
+                f"no {args.lang!r} captions available for this video.\n"
+                "fall back to whisper (brew install whisper-cpp):\n"
+                f"  yt-dlp -x --audio-format mp3 \"{args.url}\"\n"
+                "  whisper-cli -m <ggml-model.bin> -f <audio>.mp3 -otxt"
+            )
+        key, field, source = track
+        print(f"fetching captions ({key}, {source}) ...", file=sys.stderr)
+        vtt = fetch_captions(info_path, key, field, cookie_args)
 
     cues = parse_vtt(vtt)
     if not cues:
@@ -430,44 +524,27 @@ def main() -> None:
 
     anchor_fmt = select_anchor_format(duration_s)
 
-    if args.clip:
-        m = CLIP_RE.match(args.clip)
-        if not m:
-            sys.exit(
-                f"bad --clip format: {args.clip!r} "
-                "(expected MM:SS-MM:SS or HH:MM:SS-HH:MM:SS)"
-            )
-        start_s = parse_clock(m.group(1))
-        end_s = parse_clock(m.group(2))
+    if clip_m:
+        start_s = parse_clock(clip_m.group(1))
+        end_s = parse_clock(clip_m.group(2))
         if end_s <= start_s:
-            sys.exit(f"--clip end ({m.group(2)}) must be after start ({m.group(1)})")
+            sys.exit(f"--clip end ({clip_m.group(2)}) must be after start ({clip_m.group(1)})")
         sliced = slice_cues(cues, start_s, end_s)
         if not sliced:
             sys.exit(f"no captions found in time range {args.clip}")
         body = cues_to_prose(sliced, anchor_fmt=anchor_fmt)
-        topic_label = args.topic or f"{m.group(1)}-{m.group(2)}"
-        suffix = f" (clip - {topic_label})"
-        is_clip = True
     else:
         body = cues_to_prose(cues, anchor_fmt=anchor_fmt)
-        suffix = ""
-        is_clip = False
-
-    stem_raw = (
-        f"{published} {show} - {title}{suffix}"
-        if published
-        else f"{show} - {title}{suffix}"
-    )
-    stem = safe_stem(stem_raw)
-    out_path = out_dir / f"{stem}.md"
+    is_clip = clip_m is not None
 
     fm: list[str] = ["---"]
     fm.append(f"title: {yaml_dq(title)}")
-    fm.append(f"source: {args.url}")
+    # yt-dlp's canonical watch URL, not the pasted one: drops &list=, &t=, &si=.
+    fm.append(f"source: {meta.get('webpage_url') or args.url}")
     fm.append(f"show: {yaml_dq(show)}")
     if published:
         fm.append(f"published: {published}")
-    fm.append(f"created: {date.today().isoformat()}")
+    fm.append(f"retrieved: {date.today().isoformat()}")
     if duration_s:
         fm.append(f'duration: "{fmt_duration(duration_s)}"')
     fm.append(f"captions_source: {source}")

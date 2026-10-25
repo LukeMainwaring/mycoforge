@@ -520,7 +520,7 @@ def write_snippet_regen(plan: dict, project_root: Path) -> None:
     # else use raw_text from the plan (covers fresh `--clip` output case).
     raw = _extract_raw_transcript_section(existing_body) or h["raw_text"]
 
-    # Reuse existing frontmatter wholesale — that pins `created` and any user
+    # Reuse existing frontmatter wholesale — that pins the capture date and any user
     # edits. Only the body sections are regenerated.
     title = existing_fm.get("title", fm_inherit.get("title", "untitled"))
     topic = (
@@ -559,7 +559,9 @@ def _assemble_snippet_file(
 ) -> str:
     """Compose a fresh snippet file from inherited frontmatter + per-clip data."""
     fm = dict(fm_inherit)
-    fm["created"] = date.today().isoformat()
+    # A snippet is captured today; older parents still say `created`.
+    fm.pop("created", None)
+    fm["retrieved"] = date.today().isoformat()
     fm["clip"] = clip_range
     fm["clip_topic"] = topic
     fm["derived_from"] = f"[[{source_stem}]]"
@@ -589,7 +591,7 @@ def _assemble_snippet_file(
 # Field ordering for emitted frontmatter — matches fetch.py's order so a
 # carved snippet sits naturally next to a `/transcript`-fetched full episode.
 _FIELD_ORDER = [
-    "title", "source", "show", "published", "created", "duration",
+    "title", "source", "show", "published", "retrieved", "created", "duration",
     "captions_source", "clip", "clip_topic", "derived_from", "tags",
 ]
 
@@ -621,7 +623,7 @@ def _emit_field(key: str, val) -> list[str]:
     # String scalars get quoted unless they look like a bare URL / date / number
     # we know fetch.py emits unquoted.
     sval = str(val)
-    if key in {"source", "published", "created", "captions_source"}:
+    if key in {"source", "published", "retrieved", "created", "captions_source"}:
         return [f"{key}: {sval}"]
     if key == "duration":
         return [f'duration: "{sval}"']
