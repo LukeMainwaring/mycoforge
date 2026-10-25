@@ -3,9 +3,9 @@ title: "How to Build an AI-Native Company Today"
 source: https://www.youtube.com/watch?v=Qa4juJzo0TY
 show: "The AI Daily Brief: Artificial Intelligence News"
 published: 2026-09-06
-created: 2026-09-06
+retrieved: 2026-09-06
 duration: "24:27"
-captions_source: youtube-manual
+captions_source: youtube-auto
 tags:
   - podcast
 ---

@@ -3,9 +3,9 @@ title: "How To Build A Company With AI From The Ground Up"
 source: https://www.youtube.com/watch?v=EN7frwQIbKc
 show: "Y Combinator"
 published: 2026-04-24
-created: 2026-07-23
+retrieved: 2026-07-23
 duration: "10:27"
-captions_source: youtube-manual
+captions_source: youtube-auto
 tags:
   - podcast
 ---
