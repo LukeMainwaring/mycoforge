@@ -344,3 +344,6 @@ First archify rendering of the AI-native software engineering cluster at `archit
 
 ## [2026-10-28] architecture | Render Map - The Knowledge Layer
 First archify rendering of the knowledge-layer cluster at `architecture/diagrams/map-the-knowledge-layer/` (type architecture, revision e3226d0). Page gets its "Rendered with archify" link; README table gets a row. No page text changed.
+
+## [2026-10-28] architecture | Re-render Map - AI-Native Organizations (model comparison)
+Fresh archify rendering of the AI-native organizations cluster at `architecture/diagrams/map-ai-native-organizations/` (type architecture, revision c82d295), drawn from scratch by a second model for a side-by-side comparison with the earlier render; the old spec and HTML were deleted first so the layout is independent. Page link and README row unchanged. No page text changed.
