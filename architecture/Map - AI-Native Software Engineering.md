@@ -47,6 +47,8 @@ Seven pages on what happens to software engineering when agents write the code. 
 
 ## Diagram
 
+Rendered with archify: [diagrams/map-ai-native-software-engineering](diagrams/map-ai-native-software-engineering/map-ai-native-software-engineering.html) (open from a local checkout).
+
 ```mermaid
 flowchart LR
     factory["AI Software Factory<br/>humans write specs and tests"]
