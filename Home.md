@@ -1,7 +1,7 @@
 ---
 type: dashboard
 created: 2026-07-10
-updated: 2026-07-10
+updated: 2026-10-28
 tags: [meta]
 ---
 
@@ -15,6 +15,11 @@ The dashboard — a map of content, kept current by the LLM.
 - [[index]] — the full catalog · [[log]] — the append-only history
 - Highlights: [[Three-Layer Architecture]] · [[Why LLM Wikis Beat RAG]] ·
   [[Fractal Federation]]
+
+## The architecture guide
+
+- [[The Machinery]] — how this KB works, in one diagram
+- [[The Knowledge Map]] — the three clusters and how they connect
 
 ## The product layer
 

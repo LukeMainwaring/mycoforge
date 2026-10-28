@@ -329,3 +329,6 @@ AGENTS.md File naming: "older clipper files say `created:`" becomes "never `crea
 
 ## [2026-10-28] decision | ADR-016 Architecture Guide for Machinery and Content
 Proposed. Ports the code-repo `architecture-guide` skill as a wiki-flavored native skill: `architecture/` holds `The Machinery` and `The Knowledge Map` overviews plus cluster pages, `type: architecture` and `kind:` in frontmatter, `commit:`/`watches:` staleness, archify renders under `architecture/diagrams/`. Schema: workflow row, Architecture guide section, `architecture |` log prefix, `[features.architecture]`.
+
+## [2026-10-28] architecture | First run: The Machinery and The Knowledge Map
+Wrote `architecture/`: The Machinery (kind: machinery, five focuses), The Knowledge Map (kind: content) and three cluster pages (Map - AI-Native Organizations, Map - AI-Native Software Engineering, Map - The Knowledge Layer), each with a Mermaid diagram, `commit: 4b7c704` and `watches:`. Indexed under a new Architecture section; linked from Home. Renders of the two overviews follow.
