@@ -3,10 +3,12 @@ type: architecture
 kind: content
 created: 2026-10-28
 updated: 2026-10-28
-commit: 4b7c704
+commit: 34ddfc2
 watches:
-  - wiki/index.md
   - wiki/overview.md
+  - architecture/Map - AI-Native Organizations.md
+  - architecture/Map - AI-Native Software Engineering.md
+  - architecture/Map - The Knowledge Layer.md
 new_entries:
   - wiki/concepts
   - wiki/syntheses

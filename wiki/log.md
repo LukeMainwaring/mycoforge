@@ -347,3 +347,6 @@ First archify rendering of the knowledge-layer cluster at `architecture/diagrams
 
 ## [2026-10-28] architecture | Re-render Map - AI-Native Organizations (model comparison)
 Fresh archify rendering of the AI-native organizations cluster at `architecture/diagrams/map-ai-native-organizations/` (type architecture, revision c82d295), drawn from scratch by a second model for a side-by-side comparison with the earlier render; the old spec and HTML were deleted first so the layout is independent. Page link and README row unchanged. No page text changed.
+
+## [2026-10-28] architecture | The Knowledge Map watches its topic pages, not index.md
+`check` flagged The Knowledge Map stale on every `index.md` edit, which the page template says not to watch. `watches:` now lists `overview.md` and the three cluster pages; `commit:` and the render's pinned revision bumped to HEAD (layout unchanged). All five pages and renders read current.
