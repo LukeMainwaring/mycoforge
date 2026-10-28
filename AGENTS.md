@@ -109,6 +109,7 @@ never superseded by you: set `status: contested`, cite both, and ask.
 | "update the roadmap", a new software spec | **Product ops** | <!-- sf:keep-if(product) -->
 | a question belonging to a child KB | **Routing** | <!-- sf:keep-if(orchestrator) -->
 | `/sync-skills` | **Sync skills** — port upstream changes to the vendored Pocock skills |
+| `/architecture-guide [check \| full \| render <topic>]` | **Architecture guide** — diagrams of the machinery and of the content, kept current | <!-- sf:keep-if(architecture) -->
 
 The slash-only rows are user-invoked: the agent never fires them on its own, the
 user types the command. Utility skills outside the KB workflows: `/grill-me` (stress-
@@ -201,6 +202,21 @@ Three knowledge-work skills that bracket the ingest pipeline:
   `discovered |` entry.
 <!-- sf:end(insight) -->
 
+<!-- sf:begin(architecture) -->
+### Architecture guide
+
+`/architecture-guide` (`.agents/skills/architecture-guide/`) keeps `architecture/`:
+two overviews, `The Machinery` (how this KB works, one focus per section) and
+`The Knowledge Map` (how the wiki's clusters relate, one topic page per
+cluster), each a wiki page with `type: architecture`, `kind: machinery |
+content`, a Mermaid diagram, and `commit:` plus `watches:` frontmatter that
+`check` diffs against `HEAD` to find stale pages. A topic may also have an
+archify rendering under `architecture/diagrams/<slug>/`, linked from the page
+and never embedded; the Mermaid diagram stays the statement of the topic's
+claims. Logs an `architecture |` entry. See
+[[ADR-016 Architecture Guide for Machinery and Content]].
+<!-- sf:end(architecture) -->
+
 ### Decision
 
 Significant decisions about this KB, its schema, or (where the product layer is
@@ -277,6 +293,9 @@ Prefixes (greppable — `grep "^## \[" wiki/log.md | tail -5` shows recent activ
 `ingest | query | lint | decision | schema | discovered`. Use `schema` for changes
 to this file, `discovered` for connections or gaps worth recording outside a
 formal workflow.
+<!-- sf:begin(architecture) -->
+An `architecture` prefix marks architecture-guide runs.
+<!-- sf:end(architecture) -->
 
 ## Style
 

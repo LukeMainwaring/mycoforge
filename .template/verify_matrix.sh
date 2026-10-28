@@ -120,13 +120,13 @@ run_case() {
   echo
 }
 
-run_case "full + rename"  --keep product,orchestrator,media-capture,mcp-server,insight --slug testkb --brand TestKB
+run_case "full + rename"  --keep product,orchestrator,media-capture,mcp-server,insight,architecture --slug testkb --brand TestKB
 run_case "research-only"  --keep orchestrator,media-capture,mcp-server
-run_case "leaf"           --keep product,media-capture,mcp-server,insight
+run_case "leaf"           --keep product,media-capture,mcp-server,insight,architecture
 run_case "minimal"        --keep ""
 # the [archetypes] preset combos from features.toml (defaults; optionals dropped)
 run_case "second-brain preset" --keep media-capture,insight
-run_case "playbook preset"     --keep product,mcp-server,insight
+run_case "playbook preset"     --keep product,mcp-server,insight,architecture
 
 if [ $fail -eq 0 ]; then echo "ALL CASES PASSED"; else echo "SOME CASES FAILED"; fi
 exit $fail

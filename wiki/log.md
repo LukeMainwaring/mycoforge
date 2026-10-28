@@ -326,3 +326,6 @@ User-directed, accepted. Raw capture date is `retrieved:` only; narrows [[ADR-00
 
 ## [2026-10-25] schema | Capture date is never `created:` in raw
 AGENTS.md File naming: "older clipper files say `created:`" becomes "never `created:`". `scripts/lint.py` `check_raw_dates` warns on a raw `created:` (four warnings until the user migrates). `/transcript` refresh: caption track picked from metadata (fixes the always-`youtube-manual` label), one extraction, no-clobber, canonical source URL, `retrieved:`; ports LukeMainwaring/recruiting#148.
+
+## [2026-10-28] decision | ADR-016 Architecture Guide for Machinery and Content
+Proposed. Ports the code-repo `architecture-guide` skill as a wiki-flavored native skill: `architecture/` holds `The Machinery` and `The Knowledge Map` overviews plus cluster pages, `type: architecture` and `kind:` in frontmatter, `commit:`/`watches:` staleness, archify renders under `architecture/diagrams/`. Schema: workflow row, Architecture guide section, `architecture |` log prefix, `[features.architecture]`.

@@ -39,7 +39,7 @@ modules.
 
 ## Decision
 
-Port the skill as a native skill, `.agents/skills/architecture-guide/`,
+Port the skill as a native skill, `/architecture-guide`,
 forked from Upstart's copy. Sporeforge and Upstart keep the code-repo
 flavor; this KB owns the wiki flavor, and children receive it through
 `/sync-upstream`. The two flavors drift independently.
