@@ -52,6 +52,8 @@ Ten pages on the LLM-wiki pattern as the sources describe it, as opposed to how 
 
 ## Diagram
 
+Rendered with archify: [diagrams/map-the-knowledge-layer](diagrams/map-the-knowledge-layer/map-the-knowledge-layer.html) (open from a local checkout).
+
 ```mermaid
 flowchart TB
     karpathy["Karpathy gist (2026-04)<br/>thesis: a persistent, compounding wiki"]
