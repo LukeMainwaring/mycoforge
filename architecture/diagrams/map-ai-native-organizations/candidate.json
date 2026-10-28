@@ -10,19 +10,19 @@
       "url": "https://github.com/LukeMainwaring/mycoforge.git",
       "provider": "github",
       "link_mode": "web",
-      "revision": "4bb66ef97d0633cffa4e65b71e1f74cdfc82f0c7"
+      "revision": "c82d295911a3cb46bd335a637c1aea31ef2d48d8"
     },
     "legend": {
       "mode": "auto",
       "entries": {
+        "external": {
+          "label": "The hub"
+        },
         "backend": {
-          "label": "The frame"
+          "label": "The mechanism"
         },
         "database": {
-          "label": "The mechanism: input, loop, output"
-        },
-        "external": {
-          "label": "The people"
+          "label": "Who does the work"
         },
         "security": {
           "label": "What gets rebuilt"
@@ -32,27 +32,56 @@
   },
   "components": [
     {
-      "id": "company",
+      "id": "principle",
       "type": "backend",
-      "label": "AI-Native Company",
-      "sublabel": "AI as the OS; the hub",
+      "label": "Fix the Principle, Not the Example",
+      "sublabel": "patches do not make a loop smarter",
       "pos": [
-        300,
+        595,
+        40
+      ],
+      "size": [
+        220,
+        64
+      ],
+      "tag": "the rule",
+      "sources": [
+        {
+          "path": "wiki/concepts/Fix the Principle, Not the Example.md",
+          "label": "the rule"
+        },
+        {
+          "path": "raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf",
+          "label": "Startups guide"
+        },
+        {
+          "path": "raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md",
+          "label": "WikiSkill"
+        }
+      ]
+    },
+    {
+      "id": "legibility",
+      "type": "backend",
+      "label": "Organizational Legibility",
+      "sublabel": "record everything, synthesize down",
+      "pos": [
+        335,
         190
       ],
       "size": [
-        150,
+        160,
         64
       ],
-      "tag": "hub",
+      "tag": "input; two high-confidence claims",
       "sources": [
         {
-          "path": "wiki/concepts/AI-Native Company.md",
-          "label": "hub page"
+          "path": "wiki/concepts/Organizational Legibility.md",
+          "label": "the input"
         },
         {
-          "path": "raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md",
-          "label": "Hu (YC)"
+          "path": "raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md",
+          "label": "Blomfield"
         },
         {
           "path": "raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md",
@@ -61,41 +90,12 @@
       ]
     },
     {
-      "id": "legibility",
-      "type": "database",
-      "label": "Organizational Legibility",
-      "sublabel": "record all, synthesize down",
-      "pos": [
-        580,
-        40
-      ],
-      "size": [
-        160,
-        64
-      ],
-      "tag": "input",
-      "sources": [
-        {
-          "path": "wiki/concepts/Organizational Legibility.md",
-          "label": "two high-confidence claims"
-        },
-        {
-          "path": "raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md",
-          "label": "Blomfield (YC)"
-        },
-        {
-          "path": "raw/articles/2026-10-15 gbrain Belief Ledger Design (Garry Tan).md",
-          "label": "gbrain"
-        }
-      ]
-    },
-    {
       "id": "loop",
-      "type": "database",
+      "type": "backend",
       "label": "Self-Improving AI Loop",
       "sublabel": "closed loop fixes itself",
       "pos": [
-        580,
+        625,
         190
       ],
       "size": [
@@ -109,203 +109,41 @@
           "label": "the unit of work"
         },
         {
+          "path": "raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md",
+          "label": "Hu"
+        },
+        {
           "path": "raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md",
-          "label": "Blomfield (YC)"
-        },
-        {
-          "path": "raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md",
-          "label": "SDLC playbook"
-        }
-      ]
-    },
-    {
-      "id": "principle",
-      "type": "database",
-      "label": "Fix the Principle, Not the Example",
-      "sublabel": "learn, don't patch",
-      "pos": [
-        580,
-        340
-      ],
-      "size": [
-        220,
-        64
-      ],
-      "tag": "learning rule",
-      "sources": [
-        {
-          "path": "wiki/concepts/Fix the Principle, Not the Example.md",
-          "label": "the learning rule"
-        },
-        {
-          "path": "raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md",
-          "label": "SDLC playbook"
-        },
-        {
-          "path": "raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md",
-          "label": "WikiSkill"
+          "label": "Blomfield"
         }
       ]
     },
     {
       "id": "brain",
-      "type": "database",
+      "type": "backend",
       "label": "Company Brain",
       "sublabel": "durable context at the center",
       "pos": [
-        860,
+        915,
         190
       ],
       "size": [
-        160,
+        150,
         64
       ],
-      "tag": "output",
+      "tag": "output; mesh claim contested",
       "sources": [
         {
           "path": "wiki/concepts/Company Brain.md",
-          "label": "the moat; one contested claim"
+          "label": "the output"
         },
         {
-          "path": "raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md",
-          "label": "Blomfield (YC)"
+          "path": "raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf",
+          "label": "Founders Playbook"
         },
         {
           "path": "raw/articles/2026-10-15 gbrain Belief Ledger Design (Garry Tan).md",
           "label": "gbrain"
-        }
-      ]
-    },
-    {
-      "id": "roles",
-      "type": "external",
-      "label": "AI-Native Role Archetypes",
-      "sublabel": "hire judgment, not throughput",
-      "pos": [
-        300,
-        340
-      ],
-      "size": [
-        160,
-        64
-      ],
-      "sources": [
-        {
-          "path": "wiki/concepts/AI-Native Role Archetypes.md",
-          "label": "roles blur, owners stay"
-        },
-        {
-          "path": "raw/articles/2026-06-03 Running an AI-native Engineering Org (Anthropic).md",
-          "label": "Eng Org"
-        },
-        {
-          "path": "raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf",
-          "label": "Founders"
-        }
-      ]
-    },
-    {
-      "id": "founder",
-      "type": "external",
-      "label": "Founder as Orchestrator",
-      "sublabel": "founder scale",
-      "pos": [
-        20,
-        340
-      ],
-      "size": [
-        150,
-        64
-      ],
-      "sources": [
-        {
-          "path": "wiki/concepts/Founder as Orchestrator.md",
-          "label": "founder axis"
-        },
-        {
-          "path": "raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf",
-          "label": "Founders"
-        },
-        {
-          "path": "raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf",
-          "label": "Startups guide"
-        }
-      ]
-    },
-    {
-      "id": "lifecycle",
-      "type": "external",
-      "label": "AI-Native Startup Lifecycle",
-      "sublabel": "four stages, one source",
-      "pos": [
-        20,
-        490
-      ],
-      "size": [
-        176,
-        64
-      ],
-      "sources": [
-        {
-          "path": "wiki/concepts/AI-Native Startup Lifecycle.md",
-          "label": "the remapped stages"
-        },
-        {
-          "path": "raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf",
-          "label": "its only source"
-        }
-      ]
-    },
-    {
-      "id": "ships",
-      "type": "external",
-      "label": "Everyone Ships",
-      "sublabel": "team scale",
-      "pos": [
-        300,
-        490
-      ],
-      "size": [
-        150,
-        64
-      ],
-      "sources": [
-        {
-          "path": "wiki/concepts/Everyone Ships.md",
-          "label": "team axis"
-        },
-        {
-          "path": "raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf",
-          "label": "Startups guide"
-        },
-        {
-          "path": "raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md",
-          "label": "AI Daily Brief"
-        }
-      ]
-    },
-    {
-      "id": "pdp",
-      "type": "security",
-      "label": "Prototype, Dogfood, Productionize",
-      "sublabel": "internal tool to product",
-      "pos": [
-        580,
-        490
-      ],
-      "size": [
-        220,
-        64
-      ],
-      "tag": "no claim callout",
-      "sources": [
-        {
-          "path": "wiki/concepts/Prototype, Dogfood, Productionize.md",
-          "label": "the path"
-        },
-        {
-          "path": "raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf",
-          "label": "its only source"
         }
       ]
     },
@@ -315,17 +153,18 @@
       "label": "Build for Rebuilding",
       "sublabel": "software disposable per model",
       "pos": [
-        860,
-        490
+        1235,
+        190
       ],
       "size": [
-        160,
+        150,
         64
       ],
+      "tag": "rule 4 of the Startups guide",
       "sources": [
         {
           "path": "wiki/concepts/Build for Rebuilding.md",
-          "label": "code is disposable"
+          "label": "disposable software"
         },
         {
           "path": "raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf",
@@ -336,38 +175,205 @@
           "label": "AI Daily Brief"
         }
       ]
+    },
+    {
+      "id": "company",
+      "type": "external",
+      "label": "AI-Native Company",
+      "sublabel": "AI as the OS; the hub",
+      "pos": [
+        610,
+        340
+      ],
+      "size": [
+        190,
+        64
+      ],
+      "tag": "hub; tokens replace headcount",
+      "sources": [
+        {
+          "path": "wiki/concepts/AI-Native Company.md",
+          "label": "the hub"
+        },
+        {
+          "path": "raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md",
+          "label": "Hu"
+        },
+        {
+          "path": "raw/articles/2026-06-03 Running an AI-native Engineering Org (Anthropic).md",
+          "label": "first-party practitioner"
+        }
+      ]
+    },
+    {
+      "id": "lifecycle",
+      "type": "database",
+      "label": "AI-Native Startup Lifecycle",
+      "sublabel": "four stages, one team",
+      "pos": [
+        20,
+        490
+      ],
+      "size": [
+        180,
+        64
+      ],
+      "tag": "one vendor ebook",
+      "sources": [
+        {
+          "path": "wiki/concepts/AI-Native Startup Lifecycle.md",
+          "label": "stages remapped"
+        },
+        {
+          "path": "raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf",
+          "label": "the only source"
+        }
+      ]
+    },
+    {
+      "id": "founder",
+      "type": "database",
+      "label": "Founder as Orchestrator",
+      "sublabel": "IC to orchestrator of agents",
+      "pos": [
+        330,
+        490
+      ],
+      "size": [
+        160,
+        64
+      ],
+      "tag": "founder scale",
+      "sources": [
+        {
+          "path": "wiki/concepts/Founder as Orchestrator.md",
+          "label": "the founder shift"
+        },
+        {
+          "path": "raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf",
+          "label": "Founders Playbook"
+        },
+        {
+          "path": "raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf",
+          "label": "Startups guide"
+        }
+      ]
+    },
+    {
+      "id": "roles",
+      "type": "database",
+      "label": "AI-Native Role Archetypes",
+      "sublabel": "hire judgment, not throughput",
+      "pos": [
+        620,
+        490
+      ],
+      "size": [
+        170,
+        64
+      ],
+      "tag": "a named owner per workflow",
+      "sources": [
+        {
+          "path": "wiki/concepts/AI-Native Role Archetypes.md",
+          "label": "who you hire"
+        },
+        {
+          "path": "raw/articles/2026-06-03 Running an AI-native Engineering Org (Anthropic).md",
+          "label": "first-party practitioner"
+        },
+        {
+          "path": "raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf",
+          "label": "Startups guide"
+        }
+      ]
+    },
+    {
+      "id": "ships",
+      "type": "database",
+      "label": "Everyone Ships",
+      "sublabel": "whoever knows the problem ships v1",
+      "pos": [
+        920,
+        490
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "tag": "team scale",
+      "sources": [
+        {
+          "path": "wiki/concepts/Everyone Ships.md",
+          "label": "the team shift"
+        },
+        {
+          "path": "raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf",
+          "label": "Startups guide"
+        },
+        {
+          "path": "raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md",
+          "label": "SDLC Playbook"
+        }
+      ]
+    },
+    {
+      "id": "pdp",
+      "type": "security",
+      "label": "Prototype, Dogfood, Productionize",
+      "sublabel": "internal tools become product",
+      "pos": [
+        1195,
+        490
+      ],
+      "size": [
+        210,
+        64
+      ],
+      "tag": "no claim callout",
+      "sources": [
+        {
+          "path": "wiki/concepts/Prototype, Dogfood, Productionize.md",
+          "label": "the flywheel"
+        },
+        {
+          "path": "raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf",
+          "label": "the only source"
+        }
+      ]
     }
   ],
   "boundaries": [
     {
       "kind": "region",
-      "label": "The mechanism — legibility in, brain out",
+      "label": "The mechanism \u2014 input, loop, output, and the rule that keeps it learning",
       "wraps": [
         "legibility",
         "loop",
-        "principle",
-        "brain"
+        "brain",
+        "principle"
       ],
       "pad": 14
     },
     {
       "kind": "region",
-      "label": "The people — who does the work",
+      "label": "Who does the work \u2014 the same shift at founder and team scale",
       "wraps": [
-        "roles",
-        "founder",
         "lifecycle",
+        "founder",
+        "roles",
         "ships"
       ],
       "pad": 14
     },
     {
       "kind": "region",
-      "label": "Disposable software",
+      "label": "What gets rebuilt",
       "wraps": [
-        "pdp",
-        "rebuild"
-      ]
+        "rebuild",
+        "pdp"
+      ],
+      "pad": 14
     }
   ],
   "connections": [
@@ -396,27 +402,17 @@
       "id": "principle-loop",
       "from": "principle",
       "to": "loop",
-      "label": "keeps it learning",
+      "label": "keeps learning",
       "variant": "default"
     },
     {
       "id": "brain-company",
       "from": "brain",
       "to": "company",
-      "label": "is the moat under",
+      "label": "the moat under",
       "variant": "emphasis",
-      "fromSide": "top",
-      "toSide": "top",
-      "via": [
-        [
-          940,
-          12
-        ],
-        [
-          375,
-          12
-        ]
-      ]
+      "fromSide": "bottom",
+      "toSide": "right"
     },
     {
       "id": "company-roles",
@@ -440,78 +436,72 @@
       "variant": "default"
     },
     {
-      "id": "founder-lifecycle",
-      "from": "founder",
-      "to": "lifecycle",
-      "label": "stages collapse",
-      "variant": "default"
-    },
-    {
       "id": "ships-pdp",
       "from": "ships",
       "to": "pdp",
-      "label": "becomes product",
+      "label": "to product",
       "variant": "default"
     },
     {
       "id": "brain-rebuild",
       "from": "brain",
       "to": "rebuild",
-      "label": "context lasts, code doesn't",
-      "variant": "dashed",
-      "labelDy": 80
+      "label": "context, not code",
+      "variant": "dashed"
     },
     {
       "id": "rebuild-company",
       "from": "rebuild",
       "to": "company",
-      "label": "rebuilt each model generation",
+      "label": "rebuilt per generation",
+      "variant": "default"
+    },
+    {
+      "id": "founder-lifecycle",
+      "from": "founder",
+      "to": "lifecycle",
+      "label": "stages collapse",
       "variant": "default"
     }
   ],
   "cards": [
     {
       "dot": "cyan",
-      "title": "The mechanism is a triangle",
+      "title": "The hub and the mechanism",
       "items": [
-        "Input: Organizational Legibility. If an action was not recorded, it did not happen to the AI; raw recordings must be synthesized down because no context window holds an org's history.",
-        "Unit of work: a Self-Improving AI Loop, a process wrapped in a closed feedback loop that fixes its own failures. Fix the Principle, Not the Example keeps it learning instead of accumulating patches.",
-        "Output: the Company Brain. Business context and skills are the durable asset; accumulated context compounds into the moat under the company."
+        "AI-Native Company is the frame: AI is the operating system the company runs on, token usage replaces headcount as the binding constraint, and the intelligence layer takes over middle management's routing role.",
+        "The mechanism is a triangle. Organizational Legibility is the input: if an action was not recorded, it did not happen to the AI, and recordings must be synthesized down because no context window holds an org's history.",
+        "Self-Improving AI Loop is the unit of work: a process wrapped in a closed feedback loop that fixes its own failures. Fix the Principle, Not the Example keeps a loop learning instead of accumulating patches.",
+        "Company Brain is the output: business context and skills are the durable asset, and accumulated context compounds into a moat. The one idea to remember: recorded context lasts; everything else, including the software, is disposable."
       ]
     },
     {
       "dot": "amber",
-      "title": "The people",
+      "title": "Who does the work, what gets rebuilt",
       "items": [
-        "Role Archetypes: hire for judgment because models supply throughput; boundaries blur, but every agent workflow keeps a named human owner.",
-        "Founder as Orchestrator and Everyone Ships are the same shift at two scales: whoever understands the problem ships the first version.",
-        "Prototype, Dogfood, Productionize is the path an internal tool takes to become product. Startup Lifecycle remaps the four stages on the same premise."
+        "AI-Native Role Archetypes: hire for judgment because models supply throughput; role boundaries blur; every agent workflow still has a named human owner.",
+        "Founder as Orchestrator and Everyone Ships are the same shift at founder and team scale: the person who understands the problem ships the first version.",
+        "Prototype, Dogfood, Productionize is the path an internal tool takes to become product; Build for Rebuilding says the software on top is discarded each model generation, which only makes sense if the context in the brain is what persists.",
+        "AI-Native Startup Lifecycle remaps the four startup stages on the same premise: each stage no longer needs a bigger team and a fresh round."
       ]
     },
     {
       "dot": "rose",
       "title": "Where the tensions are",
       "items": [
-        "One intelligence layer or a mesh: AI-Native Company says the layer replaces middle management's routing; Company Brain carries a contested, low-confidence claim that large orgs get a mesh of sources of truth. An account of an org past a few hundred people would settle it.",
-        "Disposable software, durable context: Build for Rebuilding and Company Brain only agree if code and context are kept strictly apart. No page states that separation as its own claim.",
-        "Roles blur, owners stay: which roles survive past the first version is not stated."
+        "One intelligence layer or a mesh: AI-Native Company says the intelligence layer replaces middle management's routing; Company Brain carries a contested, low-confidence claim that large organizations get a mesh of sources of truth agents reconcile. A source on an org past a few hundred people would settle it.",
+        "Disposable software, durable context: Build for Rebuilding and Company Brain only agree if code and context are kept strictly apart. No page states that separation as its own claim; this KB's Three-Layer Architecture is one instance of it.",
+        "Roles blur, owners stay: AI-Native Role Archetypes and Everyone Ships say boundaries dissolve and anyone ships, yet require a named human owner per workflow and say the division of labor survives past the first version. Which roles survive is not stated.",
+        "Thin sourcing: AI-Native Startup Lifecycle rests on one vendor ebook, Founder as Orchestrator and Everyone Ships on vendor-curated testimonials; their supported status is weaker than it reads. Prototype, Dogfood, Productionize has no claim callout at all."
       ]
     },
     {
       "dot": "slate",
       "title": "Sourcing",
       "items": [
-        "Startup Lifecycle rests on one vendor ebook; Founder as Orchestrator and Everyone Ships on vendor-curated testimonials. Their supported status is weaker than it reads.",
-        "Prototype, Dogfood, Productionize has no claim callout at all.",
-        "Strongest: the two high-confidence legibility claims. Most in doubt: one layer or a mesh."
-      ]
-    },
-    {
-      "dot": "violet",
-      "title": "This KB is an instance",
-      "items": [
-        "This KB is a company brain for one domain, and its ingest loop is a self-improving loop with a human in it.",
-        "Its Three-Layer Architecture (raw, wiki, schema) is one instance of keeping durable context apart from disposable code."
+        "Two YC talks (Hu, Blomfield) are VC prescription; the Anthropic playbooks and the Startups guide are vendor prescription and vendor-curated testimonials; the Claude Code team's account is the one first-party practitioner source.",
+        "The AI Daily Brief episode is the first non-YC, non-Anthropic source and mostly corroborates pages that already existed.",
+        "Strongest claims: the two high-confidence legibility claims. Most in doubt: one layer or a mesh. Every other claim in the cluster is medium confidence."
       ]
     }
   ]
