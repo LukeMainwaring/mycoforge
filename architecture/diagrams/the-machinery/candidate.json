@@ -64,16 +64,12 @@
       "tag": "capture only",
       "sources": [
         {
-          "path": ".agents/skills/research/SKILL.md",
-          "label": "research"
+          "path": "AGENTS.md",
+          "label": "capture rows in the workflow table"
         },
         {
-          "path": ".agents/skills/scout/SKILL.md",
-          "label": "scout"
-        },
-        {
-          "path": ".agents/skills/transcript/SKILL.md",
-          "label": "transcript"
+          "path": "staging/scout.md",
+          "label": "the scout ledger"
         }
       ]
     },

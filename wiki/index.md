@@ -71,6 +71,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[2026-10-22 langchain-ai openwiki (repo)]] — LangChain's repository-to-wiki tool: scheduled CI ingest opening docs PRs, Grounded Claims pinned to versioned evidence, OKF v0.2 output (repo, 2026-10-22)
 - [[2026-10-08 Building Effective Agent Automations (Anthropic)]] — Anthropic's scheduled daily-brief reference implementation on Managed Agents: six rules for unattended agent memory and guardrails (article, 2026-10-08)
 
+<!-- sf:begin(architecture) -->
 ## Architecture
 
 - [[The Machinery]] — how this KB works: the loop in one diagram, five focuses (compile not retrieve, three layers, write path, read path, keeping it honest)
@@ -78,6 +79,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[Map - AI-Native Organizations]] — the org cluster: legibility feeds a loop that fills a company brain; who ships and what gets rebuilt
 - [[Map - AI-Native Software Engineering]] — the engineering cluster: verification is the bottleneck; controls, autonomy tiers, planning, cost
 - [[Map - The Knowledge Layer]] — the pattern as the sources see it: thesis, layers, write path, and five comparators
+<!-- sf:end(architecture) -->
 
 ## Decisions
 

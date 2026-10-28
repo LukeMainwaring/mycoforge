@@ -16,10 +16,12 @@ The dashboard — a map of content, kept current by the LLM.
 - Highlights: [[Three-Layer Architecture]] · [[Why LLM Wikis Beat RAG]] ·
   [[Fractal Federation]]
 
+<!-- sf:begin(architecture) -->
 ## The architecture guide
 
 - [[The Machinery]] — how this KB works, in one diagram
 - [[The Knowledge Map]] — the three clusters and how they connect
+<!-- sf:end(architecture) -->
 
 ## The product layer
 
