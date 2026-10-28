@@ -18,7 +18,7 @@ Parts, each printed as soon as it finishes:
 Exit status: non-zero if lint reported an error or a part crashed.
 
 Usage:
-    python3 scripts/audit.py [--root <kb-root>]   # every part but scout
+    python3 scripts/audit.py [--root <kb-root>]   # the full report
     python3 scripts/audit.py --architecture        # architecture only  # sf:keep-if(architecture)
     python3 scripts/audit.py --scout               # scout ledger only  # sf:keep-if(insight)
 """
