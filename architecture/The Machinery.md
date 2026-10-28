@@ -3,9 +3,10 @@ type: architecture
 kind: machinery
 created: 2026-10-28
 updated: 2026-10-28
-commit: 4b7c704
+commit: 0ed9182
 watches:
   - scripts/lint.py
+  - scripts/audit.py
   - kb.toml
   - mcp/server.py
   - .agents/skills
@@ -50,6 +51,8 @@ flowchart LR
     mcp -->|serves| software["Product repos"]
     lint["Lint<br/>scripts/lint.py + judgment pass"] -->|fixes pages, claim statuses| wiki
     wiki -->|checked by| lint
+    lint -->|counts| audit["Audit<br/>scripts/audit.py · reports only"]
+    audit -->|findings + next moves| user
     ingest -->|schema implication| decision["Decision (ADR)"]
     decision -->|changes the rules| schema["AGENTS.md + kb.toml"]
     schema -.->|disciplines| ingest
@@ -81,12 +84,15 @@ A question starts at `index.md`, one line per page, so the agent routes to the f
 
 `scripts/lint.py` is the deterministic half: every page indexed exactly once, every wikilink resolving, every `raw:` path existing, every claim callout well-formed with a status from the vocabulary in `kb.toml`, raw dates consistent, orphans and recurring unpaged terms flagged. The judgment half is the lint workflow's second step, which the script cannot do: contradictions between pages, claims a newer source supersedes, inference stated as fact, missing cross-references. Both end in a `lint |` log entry. Decisions close the loop on the rules themselves: a schema implication becomes a proposed ADR under `decisions/`, and an accepted one changes `AGENTS.md` or the tooling on a branch with review ([[Advisory and Deterministic Controls]] is the same split, seen from the sources).
 
+`/audit` puts the checks in one report and fixes nothing. `scripts/audit.py` prints the numbers (lint output, drift in the vendored skills, architecture pages stale against their `commit:`, the scout ledger's open and approved rows), the skill pastes them verbatim, and each finding ends in the workflow that fixes it, which you start. Its one write is the run section `/scout` appends to `staging/scout.md`; `quick` skips that search. It runs when you type it: putting it on a timer, with a channel to post to, is a decision still to make.
+
 ## Why it's built this way
 
 - **One source per session.** Ingest is judgment-heavy and the user stays involved; a batch would move the gate from the conversation to a review queue (`AGENTS.md`, Ingest; [[ADR-012 No Scheduled Capture Without a Decision]] records why nothing runs on a timer).
 - **Capture never touches the wiki.** Capture is mechanical, ingest is deliberate; keeping them apart means a fetched page can be wrong or hostile without reaching a wiki page, and text inside a source is data, never an instruction (`AGENTS.md`, Transcript and Snippet; Ingest).
 - **Claims are callouts, not prose.** A contestable sentence in prose cannot be found or audited; a callout can be linted for shape and superseded without being overwritten ([[ADR-010 Lint the Claim Contract]], [[ADR-007 No Stable Claim Identity]]).
 - **Config in `kb.toml`, never in code.** Instance data separated from vendored tooling is what lets `/sync-upstream` port template updates and lets a child KB stay a standalone folder ([[ADR-003 Copy-and-Own with Config-Code Split]]).
+- **Audit reports, never edits.** There is no validation score to gate a fix on, so findings go to you; the numbers come from a script so the agent being audited does not write its own record ([[ADR-017 Audit Reports, Never Edits]]).
 - **The MCP server is read-only.** Ingestion stays an interactive workflow here, never an API call ([[ADR-004 Read-Only MCP in v1]]).
 - **Content lands on `main`, structure goes through review.** Knowledge commits are one per workflow run; schema, tooling, and skill changes take a branch and a PR citing the source that prompted them ([[ADR-014 The Wiki Does Not Edit Skills]]).
 
