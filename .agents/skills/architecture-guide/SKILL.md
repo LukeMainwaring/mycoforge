@@ -38,7 +38,7 @@ python3 scripts/audit.py --architecture
 
 For every page, overviews included, it diffs the page's `watches:` from its `commit:` to `HEAD`; a page is **stale** when any watched file changed or the commit no longer exists. A page whose Diagram section has a "Rendered with archify" link also has a rendered diagram, whose `candidate.json` records the commit it was drawn at in `meta.repository.revision`; the script runs the same diff from that commit, so a **stale diagram** is caught even when its page is current. It also lists uncommitted changes under each page's watches and, for each overview, the files added under its `new_entries:`.
 
-Done when every page and every rendered diagram is marked stale or current, with the changed files listed for each stale one.
+Done when every page and every rendered diagram is marked stale or current, with the changed files listed for each stale one. A page the script marks `incomplete` (no `watches:`, or a git error) is reported as such, never as current.
 
 ## Update
 
@@ -52,7 +52,7 @@ When any topic page changed, re-read its overview and fix whatever no longer mat
 
 ## Find new entries
 
-Each overview's frontmatter has a `new_entries:` list of directories. The `new under <overview>'s new_entries` lines from `audit.py --architecture` list what was added there since the overview's commit.
+Each overview's frontmatter has a `new_entries:` list of directories. Run `python3 scripts/audit.py --architecture`, unless this run already has its output; its `new under <overview>'s new_entries` lines list what was added there since the overview's commit.
 
 For each addition (a new skill or script for machinery; a new concept, synthesis, or raw source for content), read enough to judge whether an existing page already explains it. A page listing the directory in `watches:` is not the same as explaining what was added. Report the ones no page explains as possible new topics, additions to an existing page, or, for machinery, a focus grown enough to become its own page.
 

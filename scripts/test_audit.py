@@ -42,6 +42,15 @@ def test_lint_part_passes_lint_output_through(tmp_path):
     assert "ERROR" in out and "1 error(s)" in out
 
 
+def test_vendored_check_comes_from_the_target_root(tmp_path):
+    assert audit.vendored_part(tmp_path) == "vendored skills: no scripts/check-vendored-skills.sh in this KB"
+
+
+def test_a_crashing_part_is_reported_not_fatal(capsys):
+    assert audit.emit("boom", lambda: 1 / 0) is False
+    assert "boom: check crashed: ZeroDivisionError" in capsys.readouterr().out
+
+
 # sf:begin(architecture)
 def arch_page(commit: str, extra: str = "") -> str:
     return (f"---\ntype: architecture\ncommit: {commit}\nwatches:\n  - wiki/Alpha.md\n{extra}---\n"
@@ -86,8 +95,39 @@ def test_diagram_stale_from_its_own_revision(tmp_path):
         "Rendered with archify: [diagrams/page](diagrams/page/page.html) (open locally).\n")})
     commit_all(tmp_path, "page updated, diagram not re-rendered")
     out = audit.architecture_part(tmp_path)
-    assert "0 stale, 1 current, 1 stale diagram(s)" in out
+    assert "0 stale, 1 current, 0 incomplete, 1 stale diagram(s)" in out
     assert f"stale diagram diagrams/page (revision {sha[:7]}): wiki/Alpha.md" in out
+
+
+def test_malformed_diagram_revision_is_reported(tmp_path):
+    sha = make_repo(tmp_path, {"wiki/Alpha.md": "a\n"})
+    write(tmp_path, {
+        "architecture/diagrams/page/candidate.json": '{"meta": {"repository": {"revision": 123}}}',
+        "architecture/Page.md": arch_page(sha) + "Rendered with archify: [d](diagrams/page/page.html)\n",
+    })
+    assert "stale diagram diagrams/page: no revision in candidate.json" in audit.architecture_part(tmp_path)
+
+
+def test_scalar_watches_is_one_path(tmp_path):
+    sha = make_repo(tmp_path, {"wiki/Alpha.md": "a\n"})
+    write(tmp_path, {"architecture/Page.md": arch_page(sha).replace(
+        "watches:\n  - wiki/Alpha.md\n", "watches: wiki/Alpha.md\n")})
+    commit_all(tmp_path, "page")
+    write(tmp_path, {"wiki/Alpha.md": "a2\n"})
+    commit_all(tmp_path, "alpha")
+    assert f"stale Page (commit {sha}): wiki/Alpha.md" in audit.architecture_part(tmp_path)
+
+
+def test_missing_watches_or_git_failure_is_incomplete_not_current(tmp_path):
+    sha = make_repo(tmp_path, {"wiki/Alpha.md": "a\n"})
+    write(tmp_path, {
+        "architecture/NoWatch.md": f"---\ntype: architecture\ncommit: {sha}\n---\n",
+        "architecture/BadSpec.md": arch_page(sha).replace("wiki/Alpha.md", ":(invalid)wiki/"),
+    })
+    out = audit.architecture_part(tmp_path)
+    assert "0 current, 2 incomplete" in out
+    assert "incomplete NoWatch: no watches" in out
+    assert "incomplete BadSpec: git diff failed" in out
 
 
 def test_new_entries_listed(tmp_path):
@@ -134,4 +174,11 @@ def test_scout_counts_and_latest_section(tmp_path):
     out = audit.scout_part(tmp_path)
     assert "latest run 2026-10-28 — 0 new candidate(s)" in out
     assert "ledger uncommitted changes: yes" in out
+
+
+def test_first_run_ledger_with_no_preamble(tmp_path):
+    first = LEDGER[LEDGER.index("## [2026-10-01]"):LEDGER.index("## [2026-10-20]")]
+    make_repo(tmp_path, {"staging/scout.md": first})
+    assert audit.scout_part(tmp_path).startswith(
+        "scout: latest run 2026-10-01 — 0 new candidate(s); ledger-wide 0 candidate, 1 approved")
 # sf:end(insight)

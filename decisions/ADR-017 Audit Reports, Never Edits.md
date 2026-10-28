@@ -54,7 +54,11 @@ A manual, user-invoked `/audit [quick]` skill backed by `scripts/audit.py`.
   git diffs by hand, so the two cannot drift.
 - **Capture stays with `/scout`.** Audit stages candidates and stops; `/scout`
   step 5 now also captures `approved` rows left from earlier runs.
-- **`quick`** skips scout, the only part that spends sub-agents.
+- **`quick`** skips scout's search, the only part that spends sub-agents;
+  the ledger is still read, so open and approved rows are still reported.
+- **Incomplete is not current.** A check that could not run (a git error,
+  a page with no `watches:`, a crashed part) is reported as such; the
+  report is "all clear" only when every part ran.
 - **Trunk, with marked parts.** Audit survives every onboarding cut; its
   scout steps carry `insight` markers and the architecture check carries
   `architecture` markers.

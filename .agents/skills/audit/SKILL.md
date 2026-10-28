@@ -1,6 +1,6 @@
 ---
 name: audit
-description: Health report on the KB (lint, vendored-skill drift, stale architecture pages, fresh sources) ending in what to do next. Reports only.
+description: Health report across the KB's checks, ending in what to do next. Reports only.
 argument-hint: "[quick]"
 disable-model-invocation: true
 ---
@@ -9,8 +9,12 @@ disable-model-invocation: true
 
 One report on the KB's health. The numbers come from `scripts/audit.py`, pasted
 exactly as printed; your part is the summary and the next moves. Audit
-**reports**: its one write is the run section `/scout` appends to
-`staging/scout.md`. Each fix is its own workflow, started by the user.
+**reports**: the working tree ends as it started, and each fix is its own
+workflow, started by the user.
+<!-- sf:begin(insight) -->
+The one exception is the run section `/scout` appends to `staging/scout.md`;
+the user reviews and commits it.
+<!-- sf:end(insight) -->
 
 ## Steps
 
@@ -26,7 +30,8 @@ exactly as printed; your part is the summary and the next moves. Audit
 2. **Stage fresh sources**, unless the argument is `quick`. Follow
    [`/scout`](../scout/SKILL.md) steps 1–4, and stop once the run section is
    appended to the ledger: capture and `staging/ingest.md` belong to a later
-   `/scout` run with the user. Then:
+   `/scout` run with the user.
+3. **Read the ledger**, with or without `quick`:
 
    ```bash
    python3 scripts/audit.py --scout
@@ -34,7 +39,7 @@ exactly as printed; your part is the summary and the next moves. Audit
 
    and add that output, exactly as printed, after the first.
 <!-- sf:end(insight) -->
-3. **Report** in the format below. Done when every part that ran has its
+4. **Report** in the format below. Done when every part that ran has its
    output in the block and every part that found something has a move.
 
 ## Report
@@ -44,7 +49,7 @@ Audit YYYY-MM-DD
 
 <script output, verbatim>
 
-<two or three lines: what changed since the KB was last healthy, what matters most>
+<two or three lines interpreting the findings above: which matter most and why>
 
 Your move:
 - <one line per part that found something>
@@ -54,16 +59,15 @@ The moves, one per part that found something:
 
 - lint errors or warnings: run Lint.
 - `Changed since pin` or `New upstream skills`: run `/sync-skills`.
+- a part that failed, crashed, or printed `incomplete`: name it and its error; the user decides whether to rerun.
 - stale architecture pages or new entries: run `/architecture-guide`; a stale diagram alone: `/architecture-guide render <topic>`. <!-- sf:keep-if(architecture) -->
-- new scout candidates: list each as a clickable link, then mark rows `approved` or `rejected` in `staging/scout.md`; the next `/scout` captures approved rows. Name each unreachable entry. <!-- sf:keep-if(insight) -->
+- new scout candidates: list each as a clickable link; the user marks rows `approved` or `rejected` in `staging/scout.md`, and the next `/scout` captures approved rows. Name each unreachable entry. <!-- sf:keep-if(insight) -->
 - `approved` rows awaiting capture: run `/scout`. <!-- sf:keep-if(insight) -->
 
-When no part found anything, the whole report is one line:
-`Audit YYYY-MM-DD: all clear`, followed by the script's summary lines.
+When every part ran to completion and none found anything, the report is
+`Audit YYYY-MM-DD: all clear` followed by the script output, verbatim.
 
-The summary interprets the block and quotes its numbers as printed. Leave the
-working tree as you found it apart from the ledger section; the user reviews and
-commits it.
+The summary quotes the block's numbers as printed.
 
 ## Scheduling (draft)
 
