@@ -1,0 +1,5 @@
+interface:
+  display_name: "Audit"
+  short_description: "Health report on the KB, ending in next moves"
+policy:
+  allow_implicit_invocation: false

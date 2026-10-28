@@ -109,6 +109,7 @@ never superseded by you: set `status: contested`, cite both, and ask.
 | "update the roadmap", a new software spec | **Product ops** | <!-- sf:keep-if(product) -->
 | a question belonging to a child KB | **Routing** | <!-- sf:keep-if(orchestrator) -->
 | `/sync-skills` | **Sync skills** — port upstream changes to the vendored Pocock skills |
+| `/audit [quick]` | **Audit** — one health report across the KB's checks; reports only |
 | `/architecture-guide [check \| full \| render <topic>]` | **Architecture guide** — diagrams of the machinery and of the content, kept current | <!-- sf:keep-if(architecture) -->
 
 The slash-only rows are user-invoked: the agent never fires them on its own, the
@@ -159,6 +160,18 @@ never reconstructed.
    conclusion is stronger than the evidence cited, missing cross-references,
    concepts worth promoting to pages, data gaps worth a new source.
 3. Log a `lint |` entry summarizing what changed.
+
+### Audit
+
+`/audit` (`.agents/skills/audit/`) runs the KB's health checks in one pass and
+reports; it never fixes. `scripts/audit.py` prints the numbers, the skill
+pastes them verbatim, summarizes, and names the workflow that fixes each
+finding. Manual only: scheduling it is the Decision ADR-012 requires. See
+[[ADR-017 Audit Reports, Never Edits]].
+<!-- sf:begin(insight) -->
+It also stages a `/scout` run (skipped with `quick`); that run section in
+`staging/scout.md` is audit's one write.
+<!-- sf:end(insight) -->
 
 <!-- sf:begin(media-capture) -->
 ### Transcript and Snippet

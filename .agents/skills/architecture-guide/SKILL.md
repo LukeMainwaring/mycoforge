@@ -32,17 +32,13 @@ The guide describes committed state: every comparison runs from a page's `commit
 
 ## Find stale pages
 
-For every page, overviews included:
-
 ```bash
-git diff --name-only <commit> HEAD -- <watches>
+python3 scripts/audit.py --architecture
 ```
 
-A page is **stale** when that prints any file, or when the commit no longer exists.
+For every page, overviews included, it diffs the page's `watches:` from its `commit:` to `HEAD`; a page is **stale** when any watched file changed or the commit no longer exists. A page whose Diagram section has a "Rendered with archify" link also has a rendered diagram, whose `candidate.json` records the commit it was drawn at in `meta.repository.revision`; the script runs the same diff from that commit, so a **stale diagram** is caught even when its page is current. It also lists uncommitted changes under each page's watches and, for each overview, the files added under its `new_entries:`.
 
-A page whose Diagram section has a "Rendered with archify" link also has a rendered diagram, and its `candidate.json` records the commit it was drawn at in `meta.repository.revision`. Run the same diff from that commit over the page's `watches:`. The **diagram is stale** when it prints any file, even if the page is current, so a page updated earlier without a re-render is still caught.
-
-Done when every page and every rendered diagram is marked stale or current, with the changed files listed for each stale one.
+Done when every page and every rendered diagram is marked stale or current, with the changed files listed for each stale one. A page the script marks `incomplete` (no `watches:`, or a git error) is reported as such, never as current.
 
 ## Update
 
@@ -56,11 +52,7 @@ When any topic page changed, re-read its overview and fix whatever no longer mat
 
 ## Find new entries
 
-Each overview's frontmatter has a `new_entries:` list of directories. List what was added there since the overview's commit:
-
-```bash
-git diff --name-only --diff-filter=A <overview commit> HEAD -- <new_entries>
-```
+Each overview's frontmatter has a `new_entries:` list of directories. Run `python3 scripts/audit.py --architecture`, unless this run already has its output; its `new under <overview>'s new_entries` lines list what was added there since the overview's commit.
 
 For each addition (a new skill or script for machinery; a new concept, synthesis, or raw source for content), read enough to judge whether an existing page already explains it. A page listing the directory in `watches:` is not the same as explaining what was added. Report the ones no page explains as possible new topics, additions to an existing page, or, for machinery, a focus grown enough to become its own page.
 
