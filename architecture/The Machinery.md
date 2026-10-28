@@ -32,6 +32,8 @@ MycoForge is a closed loop: you curate sources into `raw/`, an agent compiles th
 
 ## Diagram
 
+Rendered with archify: [diagrams/the-machinery](diagrams/the-machinery/the-machinery.html) (open from a local checkout).
+
 ```mermaid
 flowchart LR
     user([You]) -->|curate, drop files| raw[("raw/ — immutable sources")]
