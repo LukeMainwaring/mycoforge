@@ -8,3 +8,4 @@ Archify renderings of architecture pages, one folder per topic: the spec (`candi
 | [[The Knowledge Map]] | architecture | [the-knowledge-map/the-knowledge-map.html](the-knowledge-map/the-knowledge-map.html) |
 | [[Map - AI-Native Organizations]] | architecture | [map-ai-native-organizations/map-ai-native-organizations.html](map-ai-native-organizations/map-ai-native-organizations.html) |
 | [[Map - AI-Native Software Engineering]] | architecture | [map-ai-native-software-engineering/map-ai-native-software-engineering.html](map-ai-native-software-engineering/map-ai-native-software-engineering.html) |
+| [[Map - The Knowledge Layer]] | architecture | [map-the-knowledge-layer/map-the-knowledge-layer.html](map-the-knowledge-layer/map-the-knowledge-layer.html) |
