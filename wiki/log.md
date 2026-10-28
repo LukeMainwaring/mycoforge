@@ -338,3 +338,6 @@ Status proposed → accepted, same PR. Skill, five `architecture/` pages, two ar
 
 ## [2026-10-28] architecture | Render Map - AI-Native Organizations
 First archify rendering of the AI-native organizations cluster at `architecture/diagrams/map-ai-native-organizations/` (type architecture, revision 4bb66ef). Page gets its "Rendered with archify" link; README table gets a row. No page text changed.
+
+## [2026-10-28] architecture | Render Map - AI-Native Software Engineering
+First archify rendering of the AI-native software engineering cluster at `architecture/diagrams/map-ai-native-software-engineering/` (type architecture, revision cb850c4). Page gets its "Rendered with archify" link; README table gets a row. No page text changed.

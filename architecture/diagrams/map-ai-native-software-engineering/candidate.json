@@ -1,0 +1,351 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "MycoForge: AI-native software engineering",
+    "output": "architecture/diagrams/map-ai-native-software-engineering/map-ai-native-software-engineering.html",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "repository": {
+      "url": "https://github.com/LukeMainwaring/mycoforge.git",
+      "provider": "github",
+      "link_mode": "web",
+      "revision": "cb850c45cdf09480d6c0c4056cf3669173659e24"
+    },
+    "legend": {
+      "mode": "auto",
+      "entries": {
+        "backend": {
+          "label": "The hub: the constraint moves"
+        },
+        "database": {
+          "label": "Where verification lives"
+        },
+        "external": {
+          "label": "The premise and its price"
+        },
+        "security": {
+          "label": "What planning becomes"
+        }
+      }
+    }
+  },
+  "components": [
+    {
+      "id": "factory",
+      "type": "external",
+      "label": "AI Software Factory",
+      "sublabel": "humans write specs and tests",
+      "pos": [
+        20,
+        190
+      ],
+      "size": [
+        160,
+        64
+      ],
+      "tag": "premise",
+      "sources": [
+        {
+          "path": "wiki/concepts/AI Software Factory.md",
+          "label": "the premise; one low claim"
+        },
+        {
+          "path": "raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md",
+          "label": "Hu (YC), secondhand"
+        },
+        {
+          "path": "raw/articles/2026-06-03 Running an AI-native Engineering Org (Anthropic).md",
+          "label": "Eng Org"
+        }
+      ]
+    },
+    {
+      "id": "vb",
+      "type": "backend",
+      "label": "Verification Bottleneck",
+      "sublabel": "the constraint moves to judging",
+      "pos": [
+        300,
+        190
+      ],
+      "size": [
+        170,
+        64
+      ],
+      "tag": "hub",
+      "sources": [
+        {
+          "path": "wiki/concepts/Verification Bottleneck.md",
+          "label": "hub page, two claims"
+        },
+        {
+          "path": "raw/articles/2026-06-03 Running an AI-native Engineering Org (Anthropic).md",
+          "label": "Eng Org"
+        },
+        {
+          "path": "raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md",
+          "label": "SDLC playbook"
+        }
+      ]
+    },
+    {
+      "id": "jit",
+      "type": "security",
+      "label": "Just-in-Time Planning",
+      "sublabel": "prototypes over design docs",
+      "pos": [
+        300,
+        40
+      ],
+      "size": [
+        170,
+        64
+      ],
+      "tag": "contested claim",
+      "sources": [
+        {
+          "path": "wiki/concepts/Just-in-Time Planning.md",
+          "label": "the only contested claim"
+        },
+        {
+          "path": "raw/articles/2026-06-03 Running an AI-native Engineering Org (Anthropic).md",
+          "label": "Eng Org (for)"
+        },
+        {
+          "path": "raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf",
+          "label": "Founders (against)"
+        }
+      ]
+    },
+    {
+      "id": "sdlc",
+      "type": "database",
+      "label": "AI-Native SDLC",
+      "sublabel": "six stages as a loop",
+      "pos": [
+        600,
+        40
+      ],
+      "size": [
+        160,
+        64
+      ],
+      "tag": "committed artifacts",
+      "sources": [
+        {
+          "path": "wiki/concepts/AI-Native SDLC.md",
+          "label": "loop and audit trail"
+        },
+        {
+          "path": "raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md",
+          "label": "SDLC playbook"
+        },
+        {
+          "path": "raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md",
+          "label": "AI Daily Brief"
+        }
+      ]
+    },
+    {
+      "id": "adc",
+      "type": "database",
+      "label": "Advisory and Deterministic Controls",
+      "sublabel": "skills advise, hooks enforce",
+      "pos": [
+        600,
+        190
+      ],
+      "size": [
+        240,
+        64
+      ],
+      "tag": "must-hold rules",
+      "sources": [
+        {
+          "path": "wiki/concepts/Advisory and Deterministic Controls.md",
+          "label": "skill vs hook"
+        },
+        {
+          "path": "raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md",
+          "label": "SDLC playbook"
+        },
+        {
+          "path": "raw/articles/2026-10-08 Building Effective Agent Automations (Anthropic).md",
+          "label": "Agent Automations"
+        }
+      ]
+    },
+    {
+      "id": "tiers",
+      "type": "database",
+      "label": "Tiered Autonomy",
+      "sublabel": "earned; stops at production",
+      "pos": [
+        970,
+        190
+      ],
+      "size": [
+        160,
+        64
+      ],
+      "tag": "production gate",
+      "sources": [
+        {
+          "path": "wiki/concepts/Tiered Autonomy.md",
+          "label": "earned, bounded"
+        },
+        {
+          "path": "raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md",
+          "label": "SDLC playbook"
+        },
+        {
+          "path": "raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf",
+          "label": "Startups guide"
+        }
+      ]
+    },
+    {
+      "id": "tokens",
+      "type": "external",
+      "label": "Token Efficiency",
+      "sublabel": "cost per successful task",
+      "pos": [
+        160,
+        340
+      ],
+      "size": [
+        160,
+        64
+      ],
+      "tag": "price",
+      "sources": [
+        {
+          "path": "wiki/concepts/Token Efficiency.md",
+          "label": "the unit of cost"
+        },
+        {
+          "path": "raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md",
+          "label": "AI Daily Brief"
+        },
+        {
+          "path": "raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md",
+          "label": "WikiSkill"
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Where verification lives",
+      "wraps": [
+        "sdlc",
+        "adc",
+        "tiers"
+      ],
+      "pad": 14
+    }
+  ],
+  "connections": [
+    {
+      "id": "factory-vb",
+      "from": "factory",
+      "to": "vb",
+      "label": "collapses build",
+      "variant": "emphasis"
+    },
+    {
+      "id": "vb-sdlc",
+      "from": "vb",
+      "to": "sdlc",
+      "label": "restructures into",
+      "variant": "emphasis"
+    },
+    {
+      "id": "vb-adc",
+      "from": "vb",
+      "to": "adc",
+      "label": "rules need",
+      "variant": "emphasis"
+    },
+    {
+      "id": "adc-tiers",
+      "from": "adc",
+      "to": "tiers",
+      "label": "maturity unlocks",
+      "variant": "default"
+    },
+    {
+      "id": "tiers-sdlc",
+      "from": "tiers",
+      "to": "sdlc",
+      "label": "bounded by",
+      "variant": "default"
+    },
+    {
+      "id": "jit-vb",
+      "from": "jit",
+      "to": "vb",
+      "label": "cheap build implies",
+      "variant": "default"
+    },
+    {
+      "id": "sdlc-jit",
+      "from": "sdlc",
+      "to": "jit",
+      "label": "needs plan.md",
+      "variant": "dashed"
+    },
+    {
+      "id": "tokens-factory",
+      "from": "tokens",
+      "to": "factory",
+      "label": "prices the loop",
+      "variant": "default"
+    },
+    {
+      "id": "vb-tokens",
+      "from": "vb",
+      "to": "tokens",
+      "label": "review is token cost",
+      "variant": "default"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Read the hub first",
+      "items": [
+        "AI Software Factory is the premise: humans write specs and tests, agents implement until the tests pass; the spec is the asset, the code disposable.",
+        "Verification Bottleneck is the consequence: the constraint moves from writing code to verification, review and security, and the human/AI review boundary is recalibrated each model generation."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Where verification lives",
+      "items": [
+        "Advisory and Deterministic Controls: a skill makes violations rare; only a hook, sandbox or PR review makes them close to impossible.",
+        "Tiered Autonomy: freedom scales with deviation, environment, change size and trust earned, and always stops at the production gate.",
+        "AI-Native SDLC: six stages rebuilt as a loop chained by committed markdown artifacts that are both handoff and audit trail."
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Where the tensions are",
+      "items": [
+        "Prototype or plan: Just-in-Time Planning's contested claim says prototypes replace design docs; AI-Native SDLC implements nothing without an accepted plan.md, checked by a hook. Stage or disagreement is unsettled.",
+        "Spec as asset vs agents that drift: the factory has humans only define and judge; the hub and the controls say agents drift plausibly and must not weaken their own tests. Implicit, not stated.",
+        "Spend tokens or save them: Token Efficiency calls cost per task compatible with fleets and a burn-tokens posture, but files no claim for it."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Sourcing",
+      "items": [
+        "Weakest: the factory's no-hand-written-code repo, low confidence, secondhand and greenfield-only.",
+        "Nearly every other claim is supported at medium confidence on Anthropic or vendor-collected sources; one consultant is the only outside voice. Read supported as not yet contested."
+      ]
+    }
+  ]
+}
