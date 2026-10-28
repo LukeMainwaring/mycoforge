@@ -70,8 +70,9 @@ ledger and the user applies them.
    when the user has answered, by editing status cells or by replying.
 
 5. **Capture approved rows** following
-   [`../research/capture.md`](../research/capture.md). Set each row to
-   `captured` with its `raw/` path. Only a row the user explicitly declined
+   [`../research/capture.md`](../research/capture.md), including any
+   `approved` rows left in earlier runs (an `/audit` run stages but never
+   captures). Set each row to `captured` with its `raw/` path. Only a row the user explicitly declined
    becomes `rejected`; rows they didn't mention stay `candidate` and carry
    forward to the next run. If the
    sub-agents reported watch candidates, write them under a `proposed watch`

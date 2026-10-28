@@ -99,3 +99,4 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[ADR-015 Retrieved Is the Only Capture Field]] — raw capture date is `retrieved:` only; lint warns on `created:` in raw; Web Clipper template follows
 - [[ADR-016 Architecture Guide for Machinery and Content]] — accepted: `/architecture-guide` ported as a native skill; `architecture/` with machinery and content kinds, commit-pinned staleness, archify renders linked never embedded
 - [[ADR-014 The Wiki Does Not Edit Skills]] — proposed: skill changes go wiki page → ADR → draft PR → human merge; no PURPOSE.md; no MCP reader policy from WikiSkill
+- [[ADR-017 Audit Reports, Never Edits]] — accepted: manual `/audit` reports and never edits; `scripts/audit.py` writes the numbers; scout ledger section is its only write; scheduling waits on the ADR-012 decision

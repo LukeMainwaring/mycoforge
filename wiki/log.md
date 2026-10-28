@@ -350,3 +350,6 @@ Fresh archify rendering of the AI-native organizations cluster at `architecture/
 
 ## [2026-10-28] architecture | The Knowledge Map watches its topic pages, not index.md
 `check` flagged The Knowledge Map stale on every `index.md` edit, which the page template says not to watch. `watches:` now lists `overview.md` and the three cluster pages; `commit:` and the render's pinned revision bumped to HEAD (layout unchanged). All five pages and renders read current.
+
+## [2026-10-28] schema | /audit: one health report that never edits
+New user-invoked `/audit [quick]` skill and `scripts/audit.py` (with `scripts/test_audit.py`): the script prints lint output, the vendored-skill check, architecture staleness and the scout ledger's latest run with counts; the skill pastes them verbatim, summarizes, and names the fixing workflow per finding. Its one write is the scout run section; `quick` skips scout. `/scout` step 5 now also captures `approved` rows left from earlier runs; `/architecture-guide`'s stale-page and new-entries steps call `audit.py --architecture`. Decision in [[ADR-017 Audit Reports, Never Edits]]; scheduling and a Slack channel wait on the ADR that [[ADR-012 No Scheduled Capture Without a Decision]] requires. AGENTS.md gains the `/audit` row and an Audit section.
