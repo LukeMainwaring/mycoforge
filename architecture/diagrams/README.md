@@ -6,3 +6,4 @@ Archify renderings of architecture pages, one folder per topic: the spec (`candi
 |---|---|---|
 | [[The Machinery]] | architecture | [the-machinery/the-machinery.html](the-machinery/the-machinery.html) |
 | [[The Knowledge Map]] | architecture | [the-knowledge-map/the-knowledge-map.html](the-knowledge-map/the-knowledge-map.html) |
+| [[Map - AI-Native Organizations]] | architecture | [map-ai-native-organizations/map-ai-native-organizations.html](map-ai-native-organizations/map-ai-native-organizations.html) |

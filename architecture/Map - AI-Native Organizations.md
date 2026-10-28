@@ -52,6 +52,8 @@ Eleven pages on what a company looks like when AI is its operating system rather
 
 ## Diagram
 
+Rendered with archify: [diagrams/map-ai-native-organizations](diagrams/map-ai-native-organizations/map-ai-native-organizations.html) (open from a local checkout).
+
 ```mermaid
 flowchart TB
     company["AI-Native Company<br/>AI as the OS"]

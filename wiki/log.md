@@ -335,3 +335,6 @@ Wrote `architecture/`: The Machinery (kind: machinery, five focuses), The Knowle
 
 ## [2026-10-28] decision | ADR-016 accepted and implemented
 Status proposed → accepted, same PR. Skill, five `architecture/` pages, two archify renders and the `architecture` feature are in; the three cluster renders are queued as their own PRs.
+
+## [2026-10-28] architecture | Render Map - AI-Native Organizations
+First archify rendering of the AI-native organizations cluster at `architecture/diagrams/map-ai-native-organizations/` (type architecture, revision 4bb66ef). Page gets its "Rendered with archify" link; README table gets a row. No page text changed.
