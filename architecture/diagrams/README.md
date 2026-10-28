@@ -5,3 +5,4 @@ Archify renderings of architecture pages, one folder per topic: the spec (`candi
 | Topic | Type | HTML |
 |---|---|---|
 | [[The Machinery]] | architecture | [the-machinery/the-machinery.html](the-machinery/the-machinery.html) |
+| [[The Knowledge Map]] | architecture | [the-knowledge-map/the-knowledge-map.html](the-knowledge-map/the-knowledge-map.html) |

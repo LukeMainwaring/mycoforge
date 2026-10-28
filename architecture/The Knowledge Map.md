@@ -34,13 +34,15 @@ The wiki holds twenty-seven concept pages, one synthesis, and twelve people, fed
 
 ## Diagram
 
+Rendered with archify: [diagrams/the-knowledge-map](diagrams/the-knowledge-map/the-knowledge-map.html) (open from a local checkout).
+
 ```mermaid
 flowchart LR
     subgraph org["AI-Native Organizations"]
         company["AI-Native Company"]
-        brain["Company Brain"]
         loop["Self-Improving AI Loop"]
         legibility["Organizational Legibility"]
+        brain["Company Brain"]
     end
     subgraph eng["AI-Native Software Engineering"]
         vb["Verification Bottleneck"]
@@ -52,15 +54,19 @@ flowchart LR
         why["Why LLM Wikis Beat RAG"]
         ingest["Ingest Workflow"]
     end
-    yc["YC talks<br/>Hu, Blomfield"] -->|feed| org
-    anthropic["Anthropic playbooks<br/>Founders, Startups, SDLC, Eng Org"] -->|feed| org
-    anthropic -->|feed| eng
-    karpathy["Karpathy gist +<br/>WikiSkill, gbrain,<br/>obsidian-wiki, OpenWiki"] -->|feed| kl
-    legibility -->|recordings become a| brain
+    yc["YC talks<br/>Hu, Blomfield"] -->|feed| company
+    anthropic["Anthropic playbooks<br/>Founders, Startups, SDLC, Eng Org"] -->|feed| loop
+    anthropic -->|feed| vb
+    karpathy["Karpathy gist +<br/>WikiSkill, gbrain,<br/>obsidian-wiki, OpenWiki"] -->|feed| three
+    company -->|runs on| loop
+    legibility -->|recorded into| brain
+    loop -->|accumulates into| brain
     brain -->|is one instance of| three
-    loop -->|needs| vb
-    adc -->|same split as lint and judgment| ingest
-    company -->|runs| sdlc
+    loop -.->|needs| vb
+    vb -->|restructures into| sdlc
+    three -->|makes safe| why
+    why -->|requires| ingest
+    adc -.->|same advise-or-enforce split as lint| ingest
 ```
 
 ## How it works
