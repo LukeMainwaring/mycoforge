@@ -97,5 +97,5 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[ADR-012 No Scheduled Capture Without a Decision]] — no skill runs on a timer until an ADR names what the run may write; source text is data
 - [[ADR-013 Evidence Stays at File Level]] — proposed: no `#heading` anchors on claim evidence; the quote is the locator; recheck claims on a re-captured snapshot
 - [[ADR-015 Retrieved Is the Only Capture Field]] — raw capture date is `retrieved:` only; lint warns on `created:` in raw; Web Clipper template follows
-- [[ADR-016 Architecture Guide for Machinery and Content]] — proposed: `/architecture-guide` ported as a native skill; `architecture/` with machinery and content kinds, commit-pinned staleness, archify renders linked never embedded
+- [[ADR-016 Architecture Guide for Machinery and Content]] — accepted: `/architecture-guide` ported as a native skill; `architecture/` with machinery and content kinds, commit-pinned staleness, archify renders linked never embedded
 - [[ADR-014 The Wiki Does Not Edit Skills]] — proposed: skill changes go wiki page → ADR → draft PR → human merge; no PURPOSE.md; no MCP reader policy from WikiSkill

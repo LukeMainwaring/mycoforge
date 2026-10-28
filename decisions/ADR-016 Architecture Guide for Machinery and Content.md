@@ -1,6 +1,6 @@
 ---
 type: decision
-status: proposed
+status: accepted
 created: 2026-10-28
 updated: 2026-10-28
 related:
@@ -112,3 +112,7 @@ flavor; this KB owns the wiki flavor, and children receive it through
   and one template section differ.
 - **Knowledge maps via `/connect`**: rejected. `/connect` proposes bridges
   the wiki lacks; the map shows the links it has.
+
+## Implemented
+
+2026-10-28, same PR, accepted by the user: the skill, the five pages, the two overview renders, and `[features.architecture]`. `verify_matrix.sh` caught three prune hazards on the way (the ADR citing the skill path, unmarked index and Home links, a render citing a cuttable skill as evidence), all fixed in-branch. Cluster renders follow one per PR.

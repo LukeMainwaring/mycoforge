@@ -332,3 +332,6 @@ Proposed. Ports the code-repo `architecture-guide` skill as a wiki-flavored nati
 
 ## [2026-10-28] architecture | First run: The Machinery and The Knowledge Map
 Wrote `architecture/`: The Machinery (kind: machinery, five focuses), The Knowledge Map (kind: content) and three cluster pages (Map - AI-Native Organizations, Map - AI-Native Software Engineering, Map - The Knowledge Layer), each with a Mermaid diagram, `commit: 4b7c704` and `watches:`. Indexed under a new Architecture section; linked from Home. Renders of the two overviews follow.
+
+## [2026-10-28] decision | ADR-016 accepted and implemented
+Status proposed → accepted, same PR. Skill, five `architecture/` pages, two archify renders and the `architecture` feature are in; the three cluster renders are queued as their own PRs.
