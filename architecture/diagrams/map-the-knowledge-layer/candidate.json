@@ -1,0 +1,478 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "MycoForge: the knowledge layer",
+    "output": "architecture/diagrams/map-the-knowledge-layer/map-the-knowledge-layer.html",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "repository": {
+      "url": "https://github.com/LukeMainwaring/mycoforge.git",
+      "provider": "github",
+      "link_mode": "web",
+      "revision": "e3226d07dda08206d2064963b6d13f266444b33a"
+    },
+    "legend": {
+      "mode": "auto",
+      "entries": {
+        "external": {
+          "label": "The founding source"
+        },
+        "backend": {
+          "label": "The pattern"
+        },
+        "database": {
+          "label": "Comparators"
+        },
+        "security": {
+          "label": "Template design, no sources"
+        }
+      }
+    }
+  },
+  "components": [
+    {
+      "id": "karpathy",
+      "type": "external",
+      "label": "Karpathy gist (2026-04)",
+      "sublabel": "persistent, compounding wiki",
+      "pos": [
+        560,
+        40
+      ],
+      "size": [
+        190,
+        64
+      ],
+      "tag": "founding source",
+      "sources": [
+        {
+          "path": "raw/articles/2026-04-04 LLM Wiki (Karpathy).md",
+          "label": "the founding gist"
+        }
+      ]
+    },
+    {
+      "id": "ingest",
+      "type": "backend",
+      "label": "Ingest Workflow",
+      "sublabel": "one source per session",
+      "pos": [
+        20,
+        190
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "tag": "write path",
+      "sources": [
+        {
+          "path": "wiki/concepts/Ingest Workflow.md",
+          "label": "the write path"
+        },
+        {
+          "path": "raw/articles/2026-04-04 LLM Wiki (Karpathy).md",
+          "label": "Karpathy"
+        },
+        {
+          "path": "raw/articles/2026-10-08 Building Effective Agent Automations (Anthropic).md",
+          "label": "Anthropic automations"
+        }
+      ]
+    },
+    {
+      "id": "why",
+      "type": "backend",
+      "label": "Why LLM Wikis Beat RAG",
+      "sublabel": "compile once, at ingest",
+      "pos": [
+        300,
+        190
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "tag": "thesis",
+      "sources": [
+        {
+          "path": "wiki/syntheses/Why LLM Wikis Beat RAG.md",
+          "label": "the thesis"
+        },
+        {
+          "path": "raw/articles/2026-04-04 LLM Wiki (Karpathy).md",
+          "label": "Karpathy"
+        },
+        {
+          "path": "raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md",
+          "label": "WikiSkill"
+        }
+      ]
+    },
+    {
+      "id": "pd",
+      "type": "backend",
+      "label": "Progressive Disclosure",
+      "sublabel": "routes, never reasons",
+      "pos": [
+        580,
+        190
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "tag": "read side",
+      "sources": [
+        {
+          "path": "wiki/concepts/Progressive Disclosure.md",
+          "label": "the read side"
+        },
+        {
+          "path": "raw/articles/2026-10-22 ar9av obsidian-wiki (repo).md",
+          "label": "obsidian-wiki 44% vs 83%"
+        },
+        {
+          "path": "raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md",
+          "label": "WikiSkill"
+        }
+      ]
+    },
+    {
+      "id": "three",
+      "type": "backend",
+      "label": "Three-Layer Architecture",
+      "sublabel": "raw · wiki · schema; hub",
+      "pos": [
+        860,
+        190
+      ],
+      "size": [
+        170,
+        64
+      ],
+      "tag": "hub",
+      "sources": [
+        {
+          "path": "wiki/concepts/Three-Layer Architecture.md",
+          "label": "the hub"
+        },
+        {
+          "path": "raw/articles/2026-04-04 LLM Wiki (Karpathy).md",
+          "label": "Karpathy"
+        },
+        {
+          "path": "raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md",
+          "label": "WikiSkill"
+        }
+      ]
+    },
+    {
+      "id": "prov",
+      "type": "database",
+      "label": "Provenance Tags",
+      "sublabel": "obsidian-wiki, OpenWiki",
+      "pos": [
+        20,
+        340
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "sources": [
+        {
+          "path": "wiki/concepts/Provenance Tags.md",
+          "label": "callouts vs tags vs ranges"
+        },
+        {
+          "path": "raw/articles/2026-10-22 ar9av obsidian-wiki (repo).md",
+          "label": "obsidian-wiki"
+        },
+        {
+          "path": "raw/articles/2026-10-22 langchain-ai openwiki (repo).md",
+          "label": "OpenWiki"
+        }
+      ]
+    },
+    {
+      "id": "unattended",
+      "type": "database",
+      "label": "Unattended Agent State",
+      "sublabel": "Anthropic: timer-driven",
+      "pos": [
+        300,
+        340
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "sources": [
+        {
+          "path": "wiki/concepts/Unattended Agent State.md",
+          "label": "a scheduled reader"
+        },
+        {
+          "path": "raw/articles/2026-10-08 Building Effective Agent Automations (Anthropic).md",
+          "label": "Anthropic automations"
+        }
+      ]
+    },
+    {
+      "id": "skill",
+      "type": "database",
+      "label": "Skill Evolution",
+      "sublabel": "WikiSkill: 63.7% vs 48.7%",
+      "pos": [
+        580,
+        340
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "tag": "only controlled evidence",
+      "sources": [
+        {
+          "path": "wiki/concepts/Skill Evolution.md",
+          "label": "the one controlled measurement"
+        },
+        {
+          "path": "raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md",
+          "label": "WikiSkill"
+        }
+      ]
+    },
+    {
+      "id": "ledger",
+      "type": "database",
+      "label": "Belief Ledger",
+      "sublabel": "gbrain: what git misses",
+      "pos": [
+        860,
+        340
+      ],
+      "size": [
+        170,
+        64
+      ],
+      "sources": [
+        {
+          "path": "wiki/concepts/Belief Ledger.md",
+          "label": "belief, not file, history"
+        },
+        {
+          "path": "raw/articles/2026-10-15 gbrain Belief Ledger Design (Garry Tan).md",
+          "label": "gbrain"
+        },
+        {
+          "path": "raw/articles/2026-10-08 Building Effective Agent Automations (Anthropic).md",
+          "label": "Anthropic automations"
+        }
+      ]
+    },
+    {
+      "id": "fed",
+      "type": "security",
+      "label": "Fractal Federation",
+      "sublabel": "KBs nest; no sources",
+      "pos": [
+        1120,
+        190
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "tag": "no callouts",
+      "sources": [
+        {
+          "path": "wiki/concepts/Fractal Federation.md",
+          "label": "template design"
+        }
+      ]
+    },
+    {
+      "id": "sub",
+      "type": "security",
+      "label": "Subtractive Onboarding",
+      "sublabel": "template shape; no sources",
+      "pos": [
+        1120,
+        340
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "tag": "no callouts",
+      "sources": [
+        {
+          "path": "wiki/concepts/Subtractive Onboarding.md",
+          "label": "template design"
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "The pattern — thesis, layers, write and read paths",
+      "wraps": [
+        "ingest",
+        "why",
+        "pd",
+        "three"
+      ],
+      "pad": 14
+    },
+    {
+      "kind": "region",
+      "label": "Comparators — each tests one piece",
+      "wraps": [
+        "prov",
+        "unattended",
+        "skill",
+        "ledger"
+      ],
+      "pad": 14
+    },
+    {
+      "kind": "region",
+      "label": "Template design",
+      "wraps": [
+        "fed",
+        "sub"
+      ],
+      "pad": 14
+    }
+  ],
+  "connections": [
+    {
+      "id": "karpathy-why",
+      "from": "karpathy",
+      "to": "why",
+      "label": "states",
+      "variant": "emphasis"
+    },
+    {
+      "id": "karpathy-three",
+      "from": "karpathy",
+      "to": "three",
+      "label": "defines",
+      "variant": "emphasis"
+    },
+    {
+      "id": "why-ingest",
+      "from": "why",
+      "to": "ingest",
+      "label": "requires",
+      "variant": "emphasis"
+    },
+    {
+      "id": "three-pd",
+      "from": "three",
+      "to": "pd",
+      "label": "read side",
+      "variant": "default"
+    },
+    {
+      "id": "pd-why",
+      "from": "pd",
+      "to": "why",
+      "label": "index misleads reasoning",
+      "variant": "dashed"
+    },
+    {
+      "id": "skill-why",
+      "from": "skill",
+      "to": "why",
+      "label": "63.7% vs 48.7% supports",
+      "variant": "default"
+    },
+    {
+      "id": "skill-three",
+      "from": "skill",
+      "to": "three",
+      "label": "swaps the top layer",
+      "variant": "default"
+    },
+    {
+      "id": "ledger-three",
+      "from": "ledger",
+      "to": "three",
+      "label": "a wiki-layer property",
+      "variant": "default"
+    },
+    {
+      "id": "prov-ingest",
+      "from": "prov",
+      "to": "ingest",
+      "label": "callouts vs tags vs ranges",
+      "variant": "default"
+    },
+    {
+      "id": "unattended-ingest",
+      "from": "unattended",
+      "to": "ingest",
+      "label": "a different gate",
+      "variant": "default"
+    },
+    {
+      "id": "sub-fed",
+      "from": "sub",
+      "to": "fed",
+      "label": "template shape",
+      "variant": "default"
+    },
+    {
+      "id": "fed-three",
+      "from": "fed",
+      "to": "three",
+      "label": "nests",
+      "variant": "default"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Hub, thesis, write path, read side",
+      "items": [
+        "Why LLM Wikis Beat RAG is the thesis: synthesis moves to ingest time, so knowledge compounds instead of being re-derived per query; the economics are maintenance, not retrieval.",
+        "Three-Layer Architecture is the hub: immutable raw/, an agent-owned wiki/, and a schema that disciplines the agent.",
+        "Ingest Workflow is the write path, one source per session with the user in the loop; Progressive Disclosure is the read side, where index.md routes but is not where the agent reasons."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "The comparators",
+      "items": [
+        "Skill Evolution (WikiSkill) swaps documents for traces and the schema for skills, and is the only controlled evidence for compounding: 63.7% vs 48.7%.",
+        "Belief Ledger (gbrain) asks what markdown plus git fails to record; the page files it as a wiki-layer property, not a fourth layer.",
+        "Provenance Tags sets obsidian-wiki's origin tags and OpenWiki's evidence ranges against claim callouts; Unattended Agent State is the discipline a timer-driven /scout would need.",
+        "Every comparator so far changes the gate, not the layers."
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Where the tensions are",
+      "items": [
+        "Interactive gate vs mechanical maintenance: ingest stays interactive, but the maintenance claim rests on OpenWiki and WikiSkill, which run with no human at ingest. Filed speculative: a choice of gate, not of scale.",
+        "Who reads the wiki: giving the executing agent wiki access lowered skill quality (63.7% to 60.9%), against the read-time-asset premise.",
+        "Index vs embeddings: obsidian-wiki measured 44% vs 83% on graph questions; the index is a routing aid only.",
+        "Inference lint cannot see prose: origin-mark lint only counts inference the agent admitted to."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Sourcing",
+      "items": [
+        "One paper carries the thesis: everything resting on WikiSkill is medium confidence from one paper, one model, three runs.",
+        "obsidian-wiki's \"2000 pages, same cost\" is asserted, not shown. A second controlled study on a document corpus would move the compounding claim most.",
+        "Fractal Federation and Subtractive Onboarding describe the template, not the sources: no sources, no callouts."
+      ]
+    }
+  ]
+}
