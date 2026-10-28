@@ -71,6 +71,16 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[2026-10-22 langchain-ai openwiki (repo)]] — LangChain's repository-to-wiki tool: scheduled CI ingest opening docs PRs, Grounded Claims pinned to versioned evidence, OKF v0.2 output (repo, 2026-10-22)
 - [[2026-10-08 Building Effective Agent Automations (Anthropic)]] — Anthropic's scheduled daily-brief reference implementation on Managed Agents: six rules for unattended agent memory and guardrails (article, 2026-10-08)
 
+<!-- sf:begin(architecture) -->
+## Architecture
+
+- [[The Machinery]] — how this KB works: the loop in one diagram, five focuses (compile not retrieve, three layers, write path, read path, keeping it honest)
+- [[The Knowledge Map]] — the wiki's three clusters, their hubs, and the bridges between them
+- [[Map - AI-Native Organizations]] — the org cluster: legibility feeds a loop that fills a company brain; who ships and what gets rebuilt
+- [[Map - AI-Native Software Engineering]] — the engineering cluster: verification is the bottleneck; controls, autonomy tiers, planning, cost
+- [[Map - The Knowledge Layer]] — the pattern as the sources see it: thesis, layers, write path, and five comparators
+<!-- sf:end(architecture) -->
+
 ## Decisions
 
 - [[ADR-001 Separate Repo with Product as Seam]] — KB and software live apart, bridged by MCP
@@ -87,4 +97,5 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[ADR-012 No Scheduled Capture Without a Decision]] — no skill runs on a timer until an ADR names what the run may write; source text is data
 - [[ADR-013 Evidence Stays at File Level]] — proposed: no `#heading` anchors on claim evidence; the quote is the locator; recheck claims on a re-captured snapshot
 - [[ADR-015 Retrieved Is the Only Capture Field]] — raw capture date is `retrieved:` only; lint warns on `created:` in raw; Web Clipper template follows
+- [[ADR-016 Architecture Guide for Machinery and Content]] — accepted: `/architecture-guide` ported as a native skill; `architecture/` with machinery and content kinds, commit-pinned staleness, archify renders linked never embedded
 - [[ADR-014 The Wiki Does Not Edit Skills]] — proposed: skill changes go wiki page → ADR → draft PR → human merge; no PURPOSE.md; no MCP reader policy from WikiSkill

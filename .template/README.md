@@ -7,7 +7,8 @@ it by hand. **Delete this whole directory once you've onboarded.**
 ## Files
 
 - **`features.toml`** — declares the cuttable features (`product`,
-  `orchestrator`, `media-capture`, `insight`, `mcp-server`; all independent),
+  `orchestrator`, `media-capture`, `insight`, `mcp-server`, `architecture`; all
+  independent),
   the paths each wholly owns, and the `[archetypes]` onboarding presets
   (interview defaults the `/onboard` skill reads; `onboard.py` ignores them).
 - **`onboard.py`** — deterministic prune + rename (pure stdlib, dry-run by

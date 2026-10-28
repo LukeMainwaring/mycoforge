@@ -1,0 +1,514 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "MycoForge: the knowledge map",
+    "output": "architecture/diagrams/the-knowledge-map/the-knowledge-map.html",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "repository": {
+      "url": "https://github.com/LukeMainwaring/mycoforge.git",
+      "provider": "github",
+      "link_mode": "web",
+      "revision": "94bdd1d94e0fd3c8be81d6924d3a649710a7564b"
+    },
+    "legend": {
+      "mode": "auto",
+      "entries": {
+        "external": {
+          "label": "Raw sources"
+        },
+        "backend": {
+          "label": "AI-native organizations"
+        },
+        "security": {
+          "label": "AI-native software engineering"
+        },
+        "database": {
+          "label": "The knowledge layer"
+        }
+      }
+    }
+  },
+  "components": [
+    {
+      "id": "yc",
+      "type": "external",
+      "label": "YC talks",
+      "sublabel": "Hu, Blomfield",
+      "pos": [
+        20,
+        40
+      ],
+      "size": [
+        160,
+        64
+      ],
+      "sources": [
+        {
+          "path": "raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md",
+          "label": "Hu"
+        },
+        {
+          "path": "raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md",
+          "label": "Blomfield"
+        }
+      ]
+    },
+    {
+      "id": "anthropic",
+      "type": "external",
+      "label": "Anthropic playbooks",
+      "sublabel": "Founders, Startups, SDLC, Eng Org",
+      "pos": [
+        300,
+        40
+      ],
+      "size": [
+        190,
+        64
+      ],
+      "tag": "feeds two clusters",
+      "sources": [
+        {
+          "path": "raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf",
+          "label": "Founders"
+        },
+        {
+          "path": "raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md",
+          "label": "SDLC"
+        },
+        {
+          "path": "raw/articles/2026-06-03 Running an AI-native Engineering Org (Anthropic).md",
+          "label": "Eng Org"
+        }
+      ]
+    },
+    {
+      "id": "karpathy",
+      "type": "external",
+      "label": "Karpathy + comparators",
+      "sublabel": "gist; WikiSkill, gbrain, two wikis",
+      "pos": [
+        300,
+        490
+      ],
+      "size": [
+        190,
+        64
+      ],
+      "sources": [
+        {
+          "path": "raw/articles/2026-04-04 LLM Wiki (Karpathy).md",
+          "label": "the gist"
+        },
+        {
+          "path": "raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md",
+          "label": "WikiSkill"
+        },
+        {
+          "path": "raw/articles/2026-10-22 langchain-ai openwiki (repo).md",
+          "label": "OpenWiki"
+        }
+      ]
+    },
+    {
+      "id": "company",
+      "type": "backend",
+      "label": "AI-Native Company",
+      "sublabel": "AI as the OS; the hub",
+      "pos": [
+        20,
+        190
+      ],
+      "size": [
+        160,
+        64
+      ],
+      "tag": "hub",
+      "sources": [
+        {
+          "path": "wiki/concepts/AI-Native Company.md",
+          "label": "hub page"
+        }
+      ]
+    },
+    {
+      "id": "loop",
+      "type": "backend",
+      "label": "Self-Improving AI Loop",
+      "sublabel": "closed loop fixes itself",
+      "pos": [
+        300,
+        190
+      ],
+      "size": [
+        160,
+        64
+      ],
+      "sources": [
+        {
+          "path": "wiki/concepts/Self-Improving AI Loop.md",
+          "label": "the unit of work"
+        },
+        {
+          "path": "wiki/concepts/Fix the Principle, Not the Example.md",
+          "label": "the learning rule"
+        }
+      ]
+    },
+    {
+      "id": "legibility",
+      "type": "backend",
+      "label": "Organizational Legibility",
+      "sublabel": "record everything, synthesize down",
+      "pos": [
+        20,
+        340
+      ],
+      "size": [
+        160,
+        64
+      ],
+      "sources": [
+        {
+          "path": "wiki/concepts/Organizational Legibility.md",
+          "label": "two high-confidence claims"
+        }
+      ]
+    },
+    {
+      "id": "brain",
+      "type": "backend",
+      "label": "Company Brain",
+      "sublabel": "durable context at the center",
+      "pos": [
+        300,
+        340
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "tag": "hub",
+      "sources": [
+        {
+          "path": "wiki/concepts/Company Brain.md",
+          "label": "hub page"
+        },
+        {
+          "path": "wiki/concepts/Build for Rebuilding.md",
+          "label": "code is disposable"
+        }
+      ]
+    },
+    {
+      "id": "vb",
+      "type": "security",
+      "label": "Verification Bottleneck",
+      "sublabel": "the constraint moves to judging",
+      "pos": [
+        1140,
+        190
+      ],
+      "size": [
+        160,
+        64
+      ],
+      "tag": "hub",
+      "sources": [
+        {
+          "path": "wiki/concepts/Verification Bottleneck.md",
+          "label": "hub page"
+        }
+      ]
+    },
+    {
+      "id": "sdlc",
+      "type": "security",
+      "label": "AI-Native SDLC",
+      "sublabel": "six stages, committed artifacts",
+      "pos": [
+        1140,
+        340
+      ],
+      "size": [
+        160,
+        64
+      ],
+      "sources": [
+        {
+          "path": "wiki/concepts/AI-Native SDLC.md",
+          "label": "the rebuilt lifecycle"
+        },
+        {
+          "path": "wiki/concepts/Just-in-Time Planning.md",
+          "label": "the contested claim"
+        }
+      ]
+    },
+    {
+      "id": "adc",
+      "type": "security",
+      "label": "Advisory and Deterministic Controls",
+      "sublabel": "skills advise, hooks enforce",
+      "pos": [
+        1140,
+        490
+      ],
+      "size": [
+        232,
+        64
+      ],
+      "sources": [
+        {
+          "path": "wiki/concepts/Advisory and Deterministic Controls.md",
+          "label": "advise or enforce"
+        },
+        {
+          "path": "wiki/concepts/Tiered Autonomy.md",
+          "label": "earned autonomy"
+        }
+      ]
+    },
+    {
+      "id": "three",
+      "type": "database",
+      "label": "Three-Layer Architecture",
+      "sublabel": "raw \u00b7 wiki \u00b7 schema; the hub",
+      "pos": [
+        580,
+        340
+      ],
+      "size": [
+        152,
+        64
+      ],
+      "tag": "hub",
+      "sources": [
+        {
+          "path": "wiki/concepts/Three-Layer Architecture.md",
+          "label": "hub page"
+        }
+      ]
+    },
+    {
+      "id": "why",
+      "type": "database",
+      "label": "Why LLM Wikis Beat RAG",
+      "sublabel": "compile at ingest, not per query",
+      "pos": [
+        860,
+        340
+      ],
+      "size": [
+        160,
+        64
+      ],
+      "sources": [
+        {
+          "path": "wiki/syntheses/Why LLM Wikis Beat RAG.md",
+          "label": "the thesis"
+        },
+        {
+          "path": "wiki/concepts/Skill Evolution.md",
+          "label": "the one measurement"
+        }
+      ]
+    },
+    {
+      "id": "ingest",
+      "type": "database",
+      "label": "Ingest Workflow",
+      "sublabel": "one source per session",
+      "pos": [
+        860,
+        490
+      ],
+      "size": [
+        160,
+        64
+      ],
+      "sources": [
+        {
+          "path": "wiki/concepts/Ingest Workflow.md",
+          "label": "the write path"
+        },
+        {
+          "path": "wiki/concepts/Unattended Agent State.md",
+          "label": "what a timer would need"
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "AI-Native Organizations \u2014 11 pages",
+      "wraps": [
+        "company",
+        "loop",
+        "legibility",
+        "brain"
+      ],
+      "pad": 14
+    },
+    {
+      "kind": "region",
+      "label": "The Knowledge Layer \u2014 10 pages",
+      "wraps": [
+        "three",
+        "why",
+        "ingest"
+      ],
+      "pad": 14
+    },
+    {
+      "kind": "region",
+      "label": "AI-Native Software Engineering \u2014 7 pages",
+      "wraps": [
+        "vb",
+        "sdlc",
+        "adc"
+      ],
+      "pad": 14
+    }
+  ],
+  "connections": [
+    {
+      "id": "yc-company",
+      "from": "yc",
+      "to": "company",
+      "label": "feeds",
+      "variant": "default"
+    },
+    {
+      "id": "anth-loop",
+      "from": "anthropic",
+      "to": "loop",
+      "label": "feeds",
+      "variant": "default"
+    },
+    {
+      "id": "anth-vb",
+      "from": "anthropic",
+      "to": "vb",
+      "label": "feeds",
+      "variant": "default"
+    },
+    {
+      "id": "karp-three",
+      "from": "karpathy",
+      "to": "three",
+      "label": "feeds",
+      "variant": "default"
+    },
+    {
+      "id": "company-loop",
+      "from": "company",
+      "to": "loop",
+      "label": "runs on",
+      "variant": "emphasis"
+    },
+    {
+      "id": "legibility-brain",
+      "from": "legibility",
+      "to": "brain",
+      "label": "recorded into",
+      "variant": "emphasis"
+    },
+    {
+      "id": "loop-brain",
+      "from": "loop",
+      "to": "brain",
+      "label": "accumulates into",
+      "variant": "emphasis"
+    },
+    {
+      "id": "loop-vb",
+      "from": "loop",
+      "to": "vb",
+      "label": "needs",
+      "variant": "dashed"
+    },
+    {
+      "id": "vb-sdlc",
+      "from": "vb",
+      "to": "sdlc",
+      "label": "restructures into",
+      "variant": "emphasis"
+    },
+    {
+      "id": "adc-ingest",
+      "from": "adc",
+      "to": "ingest",
+      "label": "same split",
+      "variant": "dashed"
+    },
+    {
+      "id": "three-why",
+      "from": "three",
+      "to": "why",
+      "label": "makes safe",
+      "variant": "emphasis"
+    },
+    {
+      "id": "why-ingest",
+      "from": "why",
+      "to": "ingest",
+      "label": "requires",
+      "variant": "emphasis"
+    },
+    {
+      "id": "brain-three",
+      "from": "brain",
+      "to": "three",
+      "label": "instance of",
+      "variant": "dashed"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "AI-Native Organizations",
+      "items": [
+        "Hub: AI-Native Company. Mechanism: Organizational Legibility feeds a Self-Improving AI Loop, which fills a Company Brain; Fix the Principle keeps the loop learning.",
+        "Around it: Role Archetypes, Founder as Orchestrator, Everyone Ships, Prototype/Dogfood/Productionize, Build for Rebuilding, Startup Lifecycle.",
+        "Open: one intelligence layer or a mesh of sources of truth (Company Brain's contested claim)."
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "AI-Native Software Engineering",
+      "items": [
+        "Hub: Verification Bottleneck; every other page is a consequence of building collapsing. Advisory and Deterministic Controls says which rules hold; Tiered Autonomy says how much an agent earns; AI-Native SDLC rebuilds the lifecycle around committed artifacts.",
+        "Open: Just-in-Time Planning's contested claim that prototypes replace design docs, against the SDLC's enforced plan.md."
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "The Knowledge Layer",
+      "items": [
+        "Hub: Three-Layer Architecture. Thesis: Why LLM Wikis Beat RAG. Write path: Ingest Workflow. Comparators each test one piece: Skill Evolution (WikiSkill), Belief Ledger (gbrain), Provenance Tags (obsidian-wiki, OpenWiki), Unattended Agent State (Anthropic).",
+        "Compounding has exactly one controlled measurement (WikiSkill: 63.7% vs 48.7%). Fractal Federation and Subtractive Onboarding describe the template and carry no claims."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Bridges between clusters",
+      "items": [
+        "Company Brain is the org-side name for what Three-Layer Architecture builds for one domain.",
+        "A Self-Improving AI Loop needs the verification the engineering cluster describes before it runs unattended.",
+        "Advisory and Deterministic Controls is the same advise-or-enforce split that Ingest Workflow and lint make in this KB."
+      ]
+    },
+    {
+      "dot": "slate",
+      "title": "Sourcing",
+      "items": [
+        "The organizations and engineering clusters share most sources, so agreement between them is one vendor's view twice. Outside voices: two YC talks and one consultant's feature list.",
+        "Most supported claims mean no source has contested them yet. What would move the map most: a non-vendor account of an AI-native org at scale, and a second controlled study of a compiled wiki."
+      ]
+    }
+  ]
+}

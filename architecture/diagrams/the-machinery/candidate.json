@@ -1,0 +1,556 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "MycoForge: the machinery",
+    "output": "architecture/diagrams/the-machinery/the-machinery.html",
+    "quality_profile": "showcase",
+    "locale": "en",
+    "repository": {
+      "url": "https://github.com/LukeMainwaring/mycoforge.git",
+      "provider": "github",
+      "link_mode": "web",
+      "revision": "9345cd1caf671976a328c4a67d5c029760c38aa9"
+    },
+    "legend": {
+      "mode": "auto",
+      "entries": {
+        "external": {
+          "label": "People and other repos"
+        },
+        "backend": {
+          "label": "Workflows the agent runs"
+        },
+        "database": {
+          "label": "Files in this repo"
+        },
+        "messagebus": {
+          "label": "Queue"
+        },
+        "security": {
+          "label": "Rules"
+        }
+      }
+    }
+  },
+  "components": [
+    {
+      "id": "you",
+      "type": "external",
+      "label": "You",
+      "sublabel": "curate, ask, decide",
+      "pos": [
+        20,
+        40
+      ],
+      "size": [
+        120,
+        64
+      ]
+    },
+    {
+      "id": "capture",
+      "type": "backend",
+      "label": "Capture skills",
+      "sublabel": "/research /scout /transcript /snippet",
+      "pos": [
+        300,
+        40
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "tag": "capture only",
+      "sources": [
+        {
+          "path": "AGENTS.md",
+          "label": "capture rows in the workflow table"
+        },
+        {
+          "path": "staging/scout.md",
+          "label": "the scout ledger"
+        }
+      ]
+    },
+    {
+      "id": "raw",
+      "type": "database",
+      "label": "raw/",
+      "sublabel": "immutable, yours",
+      "pos": [
+        580,
+        40
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "sources": [
+        {
+          "path": "raw/articles/2026-04-04 LLM Wiki (Karpathy).md",
+          "label": "a dated source"
+        },
+        {
+          "path": "AGENTS.md",
+          "label": "ownership rules"
+        }
+      ]
+    },
+    {
+      "id": "staging",
+      "type": "messagebus",
+      "label": "Ingest queue",
+      "sublabel": "staging/ingest.md, watch-outs",
+      "pos": [
+        860,
+        40
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "sources": [
+        {
+          "path": "staging/ingest.md",
+          "label": "the queue"
+        }
+      ]
+    },
+    {
+      "id": "ingest",
+      "type": "backend",
+      "label": "Ingest",
+      "sublabel": "one source per session",
+      "pos": [
+        1140,
+        40
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "tag": "human in the session",
+      "sources": [
+        {
+          "path": "AGENTS.md",
+          "label": "Ingest workflow"
+        },
+        {
+          "path": "wiki/concepts/Ingest Workflow.md",
+          "label": "the write path"
+        }
+      ]
+    },
+    {
+      "id": "query",
+      "type": "backend",
+      "label": "Query",
+      "sublabel": "index first, cites pages",
+      "pos": [
+        20,
+        190
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "sources": [
+        {
+          "path": "AGENTS.md",
+          "label": "Query workflow"
+        }
+      ]
+    },
+    {
+      "id": "index",
+      "type": "database",
+      "label": "index.md",
+      "sublabel": "one line per page",
+      "pos": [
+        300,
+        190
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "sources": [
+        {
+          "path": "wiki/index.md",
+          "label": "the catalog"
+        }
+      ]
+    },
+    {
+      "id": "wiki",
+      "type": "database",
+      "label": "wiki/",
+      "sublabel": "concepts, people, syntheses",
+      "pos": [
+        580,
+        190
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "tag": "agent-owned",
+      "sources": [
+        {
+          "path": "wiki/overview.md",
+          "label": "start here"
+        },
+        {
+          "path": "wiki/concepts/Three-Layer Architecture.md",
+          "label": "the layers"
+        }
+      ]
+    },
+    {
+      "id": "log",
+      "type": "database",
+      "label": "log.md",
+      "sublabel": "append-only",
+      "pos": [
+        860,
+        190
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "sources": [
+        {
+          "path": "wiki/log.md",
+          "label": "the history"
+        }
+      ]
+    },
+    {
+      "id": "mcp",
+      "type": "backend",
+      "label": "MCP server",
+      "sublabel": "search_kb \u00b7 read_page \u00b7 get_index",
+      "pos": [
+        20,
+        340
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "tag": "read-only",
+      "sources": [
+        {
+          "path": "mcp/server.py",
+          "label": "read-only tools"
+        },
+        {
+          "path": ".mcp.json",
+          "label": "registration"
+        }
+      ]
+    },
+    {
+      "id": "lint",
+      "type": "backend",
+      "label": "Lint",
+      "sublabel": "lint.py + judgment pass",
+      "pos": [
+        580,
+        340
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "sources": [
+        {
+          "path": "scripts/lint.py",
+          "label": "deterministic checks"
+        },
+        {
+          "path": "AGENTS.md",
+          "label": "Lint workflow"
+        }
+      ]
+    },
+    {
+      "id": "schema",
+      "type": "security",
+      "label": "Schema",
+      "sublabel": "AGENTS.md + kb.toml",
+      "pos": [
+        860,
+        340
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "tag": "disciplines every run",
+      "sources": [
+        {
+          "path": "AGENTS.md",
+          "label": "the contract"
+        },
+        {
+          "path": "kb.toml",
+          "label": "instance config"
+        }
+      ]
+    },
+    {
+      "id": "decision",
+      "type": "backend",
+      "label": "Decision",
+      "sublabel": "ADR in decisions/",
+      "pos": [
+        1140,
+        340
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "tag": "branch + review",
+      "sources": [
+        {
+          "path": "decisions/ADR-016 Architecture Guide for Machinery and Content.md",
+          "label": "an ADR"
+        },
+        {
+          "path": "AGENTS.md",
+          "label": "Decision workflow"
+        }
+      ]
+    },
+    {
+      "id": "product",
+      "type": "external",
+      "label": "Product repos",
+      "sublabel": "software on the KB",
+      "pos": [
+        20,
+        490
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "sources": [
+        {
+          "path": "product/software/KB Stats Dashboard (Example).md",
+          "label": "embedded-prompt spec"
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Write path: capture is mechanical, ingest is deliberate",
+      "wraps": [
+        "capture",
+        "raw",
+        "staging",
+        "ingest"
+      ]
+    },
+    {
+      "kind": "region",
+      "label": "The wiki: agent-owned, you read it in Obsidian",
+      "wraps": [
+        "index",
+        "wiki",
+        "log"
+      ]
+    },
+    {
+      "kind": "region",
+      "label": "Read path",
+      "wraps": [
+        "query",
+        "mcp",
+        "product"
+      ],
+      "pad": 14
+    },
+    {
+      "kind": "region",
+      "label": "Keeping it honest",
+      "wraps": [
+        "lint",
+        "schema",
+        "decision"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "you-capture",
+      "from": "you",
+      "to": "capture",
+      "label": "invokes",
+      "variant": "default"
+    },
+    {
+      "id": "you-query",
+      "from": "you",
+      "to": "query",
+      "label": "asks",
+      "variant": "emphasis"
+    },
+    {
+      "id": "query-you",
+      "from": "query",
+      "to": "you",
+      "label": "answers, cited",
+      "variant": "emphasis"
+    },
+    {
+      "id": "capture-raw",
+      "from": "capture",
+      "to": "raw",
+      "label": "dated files",
+      "variant": "emphasis"
+    },
+    {
+      "id": "raw-staging",
+      "from": "raw",
+      "to": "staging",
+      "label": "queued",
+      "variant": "emphasis"
+    },
+    {
+      "id": "staging-ingest",
+      "from": "staging",
+      "to": "ingest",
+      "label": "next source",
+      "variant": "emphasis"
+    },
+    {
+      "id": "ingest-wiki",
+      "from": "ingest",
+      "to": "wiki",
+      "label": "creates and updates pages",
+      "variant": "emphasis"
+    },
+    {
+      "id": "ingest-log",
+      "from": "ingest",
+      "to": "log",
+      "label": "appends entry",
+      "variant": "default"
+    },
+    {
+      "id": "wiki-index",
+      "from": "wiki",
+      "to": "index",
+      "label": "one entry each",
+      "variant": "default"
+    },
+    {
+      "id": "index-query",
+      "from": "index",
+      "to": "query",
+      "label": "routes",
+      "variant": "emphasis"
+    },
+    {
+      "id": "wiki-mcp",
+      "from": "wiki",
+      "to": "mcp",
+      "label": "read-only",
+      "variant": "default"
+    },
+    {
+      "id": "mcp-product",
+      "from": "mcp",
+      "to": "product",
+      "label": "serves",
+      "variant": "default"
+    },
+    {
+      "id": "wiki-lint",
+      "from": "wiki",
+      "to": "lint",
+      "label": "checked by",
+      "variant": "default"
+    },
+    {
+      "id": "lint-wiki",
+      "from": "lint",
+      "to": "wiki",
+      "label": "fixes pages, statuses",
+      "variant": "default"
+    },
+    {
+      "id": "ingest-decision",
+      "from": "ingest",
+      "to": "decision",
+      "label": "schema implication",
+      "variant": "dashed"
+    },
+    {
+      "id": "decision-schema",
+      "from": "decision",
+      "to": "schema",
+      "label": "changes rules",
+      "variant": "dashed"
+    },
+    {
+      "id": "schema-lint",
+      "from": "schema",
+      "to": "lint",
+      "label": "reads kb.toml",
+      "variant": "default"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Why compile, not retrieve",
+      "items": [
+        "RAG searches the sources again on every question, so nothing learned on one question helps the next. Here every source is read once, in full, and folded into pages that already exist, with links and a provenance trail.",
+        "The payoff compounds: the tenth source lands into a wiki that already knows the first nine. The cost is that compilation is judgment work, so ingest keeps you in the session."
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Three layers, who writes where",
+      "items": [
+        "raw/ is yours and immutable: the agent reads it and never edits or deletes it.",
+        "wiki/ is the agent's: pages, index.md, append-only log.md. You read it and rarely touch it; a hand edit is committed separately as yours before the agent works.",
+        "The schema is co-owned: AGENTS.md says how the wiki is structured and which workflow runs when; kb.toml holds per-instance data so the tooling stays byte-identical across instances."
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "The write path",
+      "items": [
+        "Capture skills land dated files with provenance frontmatter in raw/ and stop; staging/ingest.md queues what is not yet ingested, with a watch-out per source.",
+        "Ingest is one source per session: read in full, discuss takeaways, create or update every page the source touches, add each new page to index.md, append an ingest entry to log.md.",
+        "Contestable assertions go in [!claim] callouts with a confidence, a status and an evidence line, so a later source can contest or supersede them in place."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "The read path",
+      "items": [
+        "A question starts at index.md, one line per page, so the agent routes to the few pages that matter before opening any. Answers come back in conversation with wikilink citations; a synthesis page is filed only when you ask.",
+        "Software built on the KB reads it the same way through mcp/server.py: search_kb, read_page, get_index. Writes stay interactive by design (ADR-004)."
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Keeping it honest",
+      "items": [
+        "scripts/lint.py is the deterministic half: every page indexed once, every wikilink resolving, every raw: path existing, every claim callout well-formed with a status from kb.toml, orphans and recurring unpaged terms flagged.",
+        "The judgment pass is what the script cannot do: contradictions between pages, claims a newer source supersedes, inference stated as fact, missing cross-references.",
+        "A schema implication found during ingest is logged, not acted on; it becomes a proposed ADR under decisions/, and an accepted one changes AGENTS.md or the tooling on a branch with review. The schema then disciplines the next run."
+      ]
+    }
+  ]
+}

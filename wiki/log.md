@@ -326,3 +326,12 @@ User-directed, accepted. Raw capture date is `retrieved:` only; narrows [[ADR-00
 
 ## [2026-10-25] schema | Capture date is never `created:` in raw
 AGENTS.md File naming: "older clipper files say `created:`" becomes "never `created:`". `scripts/lint.py` `check_raw_dates` warns on a raw `created:` (four warnings until the user migrates). `/transcript` refresh: caption track picked from metadata (fixes the always-`youtube-manual` label), one extraction, no-clobber, canonical source URL, `retrieved:`; ports LukeMainwaring/recruiting#148.
+
+## [2026-10-28] decision | ADR-016 Architecture Guide for Machinery and Content
+Proposed. Ports the code-repo `architecture-guide` skill as a wiki-flavored native skill: `architecture/` holds `The Machinery` and `The Knowledge Map` overviews plus cluster pages, `type: architecture` and `kind:` in frontmatter, `commit:`/`watches:` staleness, archify renders under `architecture/diagrams/`. Schema: workflow row, Architecture guide section, `architecture |` log prefix, `[features.architecture]`.
+
+## [2026-10-28] architecture | First run: The Machinery and The Knowledge Map
+Wrote `architecture/`: The Machinery (kind: machinery, five focuses), The Knowledge Map (kind: content) and three cluster pages (Map - AI-Native Organizations, Map - AI-Native Software Engineering, Map - The Knowledge Layer), each with a Mermaid diagram, `commit: 4b7c704` and `watches:`. Indexed under a new Architecture section; linked from Home. Renders of the two overviews follow.
+
+## [2026-10-28] decision | ADR-016 accepted and implemented
+Status proposed → accepted, same PR. Skill, five `architecture/` pages, two archify renders and the `architecture` feature are in; the three cluster renders are queued as their own PRs.

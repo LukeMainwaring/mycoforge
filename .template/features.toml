@@ -55,6 +55,14 @@ paths = [
   "staging",
 ]
 
+[features.architecture]
+description = "The architecture guide: /architecture-guide keeps architecture/ (The Machinery, The Knowledge Map, cluster pages) as diagrammed wiki pages with commit-pinned staleness, plus optional archify renderings under architecture/diagrams/."
+requires = []
+paths = [
+  ".agents/skills/architecture-guide",
+  "architecture",
+]
+
 [features.mcp-server]
 description = "Read-only MCP server (search_kb, read_page, get_index) so product repos and other agent sessions can consult this KB."
 requires = []
@@ -73,9 +81,9 @@ paths = [
 [archetypes.second-brain]
 description = "Personal second-brain: an individual's compounding research/reading KB."
 keep = ["media-capture", "insight"]
-optional = ["mcp-server"]
+optional = ["mcp-server", "architecture"]
 
 [archetypes.playbook]
 description = "AI-native company playbook: a venture's durable context layer (decisions, playbooks, roles)."
-keep = ["product", "mcp-server", "insight"]
+keep = ["product", "mcp-server", "insight", "architecture"]
 optional = ["orchestrator"]

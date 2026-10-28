@@ -19,7 +19,7 @@ Examples
     python3 .template/onboard.py --keep media-capture,mcp-server \\
             --slug mykb --brand MyKB --apply
 
-    # Minimal wiki core (drop all four features):
+    # Minimal wiki core (drop every feature):
     python3 .template/onboard.py --keep "" --apply
 
 The deterministic prune covers code + config + marked prose. Whole docs

@@ -21,3 +21,9 @@ __pycache__/
 # One line per child, matching [[orchestrator.children]] in kb.toml, e.g.:
 # my-child-kb/
 # sf:end(orchestrator)
+
+# sf:begin(architecture)
+# Archify scratch runs and side-by-side re-render copies (architecture-guide skill)
+.archify/
+architecture/diagrams/*/*-previous.html
+# sf:end(architecture)
