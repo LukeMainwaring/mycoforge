@@ -1,14 +1,19 @@
 ---
 type: person
 created: 2026-09-06
-updated: 2026-09-06
+updated: 2026-11-02
 sources:
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
+  - "[[2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35)]]"
 raw:
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
+  - raw/podcasts/2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35).md
 related:
   - "[[Alex Lieberman]]"
   - "[[AI-Native Company]]"
+  - "[[Stigmergic Coordination]]"
+  - "[[Organizational Legibility]]"
+  - "[[Founder as Orchestrator]]"
 confidence: medium
 tags: [person]
 ---
@@ -31,3 +36,17 @@ metric ([[Self-Improving AI Loop]]), "everyone is now in the eval business"
 ([[Verification Bottleneck]]), and the feature the list is missing, clear
 ownership, is "nothing short of a new management discipline"
 ([[AI-Native Role Archetypes]]).
+
+On Spawn's article, in [[2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35)]] from [27:51]: two reasons it is hard to copy beyond
+the CEO's own. It is hard enough to build from scratch and "fairly
+inconducive to modifying an existing system," so he would start it in a new
+division or product ([[AI-Native Company]]); and it may depend on a product
+with a fast feedback loop built in, users' agents filing bugs, which most
+categories lack ([[Self-Improving AI Loop]], [[Stigmergic Coordination]]).
+His five takeaways for teams that won't go as far: give agents ongoing
+responsibility; let the work carry the context ([[Stigmergic Coordination]]);
+make results observable; turn decisions into precedent
+([[Organizational Legibility]]); keep human attention on direction, since
+"ambition and long horizon views do not come natural to agents"
+([[Founder as Orchestrator]]). The clip's retelling of the article before
+that point misstates several figures and is not cited.

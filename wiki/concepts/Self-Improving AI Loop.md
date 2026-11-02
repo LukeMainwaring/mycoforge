@@ -10,6 +10,7 @@ sources:
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
   - "[[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]"
   - "[[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]"
+  - "[[2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35)]]"
 raw:
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
@@ -18,6 +19,7 @@ raw:
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
   - raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md
   - raw/articles/2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn).md
+  - raw/podcasts/2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35).md
 related:
   - "[[Skill Evolution]]"
   - "[[AI-Native Company]]"
@@ -177,6 +179,12 @@ argument that agents on private machines wait for humans to relay what broke:
 The non-engineering version of the same loop is the precedent judges in
 [[Organizational Legibility]]; the engineering side's coordination is
 [[Stigmergic Coordination]].
+
+The AI Daily Brief host's doubt ([[2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35)]]): Spawn's sensor layer is its users'
+agents reporting bugs as they play, "not the type of thing that you're going
+to get in many categories of products." Whether the approach needs that
+loop, and whether other products can build one, he leaves open. It sits
+beside his objective-metric precondition above.
 
 [[Kareem Amin]]'s practitioner version of the thesis: "the moat for any
 company right now is that it needs to be self-improving. So Clay is a

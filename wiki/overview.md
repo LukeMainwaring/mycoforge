@@ -54,5 +54,6 @@ timer, and the first operator's own account outside the vendor and VC
 sources, Spawn's CEO on a ten-person company run by an agent fleet
 ([[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]),
 which added [[Stigmergic Coordination]] and contested the production gate in
-[[Tiered Autonomy]]. The catalog lives in [[index]]; the history in
+[[Tiered Autonomy]]. The AI Daily Brief host's commentary on it
+([[2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35)]]) adds the doubts. The catalog lives in [[index]]; the history in
 [[log]].

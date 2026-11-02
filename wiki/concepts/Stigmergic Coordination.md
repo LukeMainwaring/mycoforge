@@ -4,8 +4,10 @@ created: 2026-11-02
 updated: 2026-11-02
 sources:
   - "[[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]"
+  - "[[2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35)]]"
 raw:
   - raw/articles/2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn).md
+  - raw/podcasts/2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35).md
 related:
   - "[[Verification Bottleneck]]"
   - "[[Tiered Autonomy]]"
@@ -13,6 +15,7 @@ related:
   - "[[Self-Improving AI Loop]]"
   - "[[Organizational Legibility]]"
   - "[[AI-Native Company]]"
+  - "[[Nathaniel Whittemore]]"
 confidence: medium
 tags: [ai-native, software-engineering, coordination]
 ---
@@ -82,3 +85,13 @@ written record of why ([[Organizational Legibility]]). The loop that tells
 an agent its change broke something is in [[Self-Improving AI Loop]], and
 the counter-position, a chain of committed artifacts and PRs as the handoff,
 is [[AI-Native SDLC]].
+
+## How far it travels
+
+[[Nathaniel Whittemore]] ([[2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35)]]) doubts two things: that it can be retrofitted
+onto an existing system rather than started in a new division or product,
+and that it works without a product whose users' agents file bug reports as
+they play, a feedback loop most categories lack. His portable version is
+"letting the work carry the context": more agents create more coordination
+overhead, and a shared, current record shows what changed, who owns the next
+step and what is unresolved.
