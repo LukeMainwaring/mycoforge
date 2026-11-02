@@ -1,13 +1,15 @@
 ---
 type: concept
 created: 2026-09-02
-updated: 2026-09-06
+updated: 2026-11-02
 sources:
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
+  - "[[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]"
 raw:
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
+  - raw/articles/2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn).md
 related:
   - "[[AI-Native Company]]"
   - "[[Verification Bottleneck]]"
@@ -19,6 +21,7 @@ related:
   - "[[Organizational Legibility]]"
   - "[[Three-Layer Architecture]]"
   - "[[Progressive Disclosure]]"
+  - "[[Stigmergic Coordination]]"
 confidence: medium
 tags: [ai-native, software-engineering, governance]
 ---
@@ -63,7 +66,7 @@ the artifacts and the gates.
 | Maintain | the incident record, written as a new `intent.md` | → Plan |
 
 > [!claim] Committed markdown artifacts are both the handoff mechanism and the audit trail
-> confidence: medium · status: supported
+> confidence: medium · status: contested
 > evidence: "The thread running through the right-hand column is the committed
 > artifact… The chain of commits is also the audit trail: who asked for what,
 > what the agent produced, and who approved it." Markdown is the early-stage
@@ -80,6 +83,13 @@ the artifacts and the gates.
 > its prompt, model, data, and approver" (the audit trail) —
 > [[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]. Consultant
 > prescription, so it corroborates the design rather than reports its use.
+> Contested on the handoff half by practice: Spawn "killed PRs" and its agents
+> hand off through the code, the live product and the database themselves,
+> converging hourly instead of passing an approved artifact along a chain —
+> [[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]],
+> see [[Stigmergic Coordination]]. The record half survives in another form:
+> Spawn keeps every call as text in the repo and replays agent work from
+> text logs, but nothing in it is an approval. One company's self-report.
 
 Adoption order: prompt each step by hand first; the end state is a loop in
 which each accepted artifact fires the next gate and "human attention

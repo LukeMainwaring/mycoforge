@@ -1,13 +1,15 @@
 ---
 type: concept
 created: 2026-09-06
-updated: 2026-10-23
+updated: 2026-11-02
 sources:
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
   - "[[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]"
+  - "[[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]"
 raw:
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
   - raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md
+  - raw/articles/2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn).md
 related:
   - "[[Skill Evolution]]"
   - "[[AI-Native Company]]"
@@ -83,3 +85,11 @@ are looking at different stages: the YC advice is for startups substituting
 tokens for hires, Lieberman's for incumbents running high-volume processes,
 where a per-task cost is what gets budgeted. Noted as a reading, not a filed
 synthesis.
+
+Spawn is the far end of token maxing: $3.1 million on tokens in a month,
+30 times payroll, for a ten-person team —
+[[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]].
+It does not contradict the unit. The CEO would "love to use a cheaper model",
+but in Spawn's account only one model's tasks succeeded at all, so cost per
+successful task was set by the denominator. The same compatibility reading
+as above, at a larger number; one company's self-report.

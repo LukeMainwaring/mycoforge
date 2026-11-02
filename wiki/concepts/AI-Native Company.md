@@ -1,7 +1,7 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-09-06
+updated: 2026-11-02
 sources:
   - "[[2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up]]"
   - "[[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]"
@@ -10,6 +10,7 @@ sources:
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
+  - "[[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]"
 raw:
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
@@ -18,6 +19,7 @@ raw:
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
+  - raw/articles/2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn).md
 related:
   - "[[AI-Native Startup Lifecycle]]"
   - "[[Founder as Orchestrator]]"
@@ -37,6 +39,7 @@ related:
   - "[[Tiered Autonomy]]"
   - "[[Token Efficiency]]"
   - "[[Progressive Disclosure]]"
+  - "[[Stigmergic Coordination]]"
 confidence: medium
 tags: [ai-native, org-design]
 ---
@@ -113,7 +116,11 @@ two ([[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]
 > more revenue per employee than 18 months ago" — [[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]].
 > Hu: "you should be willing to run an uncomfortably high API bill." Blomfield
 > concedes token-usage leaderboards are "gameable at the extreme, but
-> directionally correct."
+> directionally correct." First non-YC operator figure: Spawn, ten people,
+> $3.1 million on tokens in a month, 30 times payroll; "most companies run big
+> human teams that use AI, and we run a small human team alongside a big team
+> of agents" — [[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]].
+> Self-reported.
 
 The other side of the same coin, cost per successful task, is
 [[Token Efficiency]]; the two prescriptions are compatible but come from
@@ -168,6 +175,11 @@ AI-assisted commits up — "don't confuse throughput with success"
 > has to fit around what exists" — the prescribed floor is "linkage as the
 > minimum bar," accepting two sources of truth. Wrapping instead of
 > unwinding is the concession that the incumbent path is slower.
+> An operator's reason why: "none of it works unless you close the loop. And
+> closing the loop takes risk appetite. You have to be willing to let your
+> agents break production," which Spawn's CEO expects big companies to lack —
+> [[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]],
+> see [[Stigmergic Coordination]] and [[Tiered Autonomy]].
 
 ## The thirty features
 

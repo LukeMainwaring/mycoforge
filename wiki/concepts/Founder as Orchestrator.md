@@ -1,19 +1,23 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-09-02
+updated: 2026-11-02
 sources:
   - "[[2026-05-06 The Founders Playbook (Anthropic)]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
+  - "[[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]"
 raw:
   - raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
+  - raw/articles/2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn).md
 related:
   - "[[AI-Native Role Archetypes]]"
   - "[[AI-Native Startup Lifecycle]]"
   - "[[Verification Bottleneck]]"
   - "[[AI Software Factory]]"
   - "[[Everyone Ships]]"
+  - "[[Organizational Legibility]]"
+  - "[[Build for Rebuilding]]"
 confidence: medium
 tags: [ai-native, org-design, founders]
 ---
@@ -69,3 +73,34 @@ to *disciplined not-building* — the founder-level [[Verification Bottleneck]]:
 
 The closing formula: "The bottlenecks are no longer what you can build, but
 what you choose to build."
+
+## Taste and entropy: what is left for the humans
+
+Spawn ([[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]])
+is the case past that formula: a ten-person company where agents do the
+engineering and, by October 2026, the only work left waiting was the
+founder's taste calls, until precedent judges took most of those too
+([[Organizational Legibility]]). The engineers stopped owning systems and
+became "paratroopers" who drop in wherever the agents are blocked. The CEO
+names two jobs left:
+
+- **Taste.** Using the product hard and giving feedback by the hundred;
+  telling Claude no "even when the thing works" (a far-player stand-in, a
+  default that made the in-product agent slower, reverted 18 minutes after it
+  landed); and deleting what the last model needed and this one doesn't
+  ([[Build for Rebuilding]]).
+- **Entropy.** Asking for what the models would not suggest. One agent had
+  permission to rewrite the whole engine and did nothing; another spent two
+  days and $100,000 on 1–3% gains when a new architecture was needed. The
+  prompt "How do we make a world a thousand times the size of GTA load on a
+  phone in one second?" became Spawn 6, the version that grew virally.
+
+> [!claim] Agents compound small improvements but will not propose large rewrites or 100x goals; asking for those is the human job
+> confidence: medium · status: supported
+> evidence: "The models are great at compounding 2% changes for weeks on end.
+> They're really bad at stopping and going, 'These 100,000 lines of code
+> could be 10,000'… They're too anchored on what exists today," and "the
+> models also won't ask for 100x on their own, so we do" —
+> [[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]].
+> One CEO's observation of current models; the source expects deletion, at
+> least, to move to the agents soon.

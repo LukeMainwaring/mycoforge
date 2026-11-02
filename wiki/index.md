@@ -14,7 +14,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[Fractal Federation]] — nesting KBs: orchestrator as a feature, children as independent repos
 - [[AI-Native Company]] — AI as the company's OS, not a tool; umbrella for the AI-native cluster
 - [[Self-Improving AI Loop]] — closed-loop processes that fix themselves; loop anatomy
-- [[Organizational Legibility]] — record everything; diarize down; the YC user manual example
+- [[Organizational Legibility]] — record everything; diarize down; the YC user manual example; precedent judges answer taste calls from recorded decisions
 - [[Company Brain]] — durable context at the center, humans at the edge, software ephemeral
 - [[AI Software Factory]] — humans write specs and tests; agents write the code
 - [[AI-Native Role Archetypes]] — Dorsey's IC/DRI/AI-founder × Claude Code's hiring profiles × the founder archetype
@@ -35,6 +35,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[Belief Ledger]] — gbrain's append-only record of what a brain believed and when: diff beliefs not rows, logical identity, two clocks, trust per event, disclosed coverage
 - [[Provenance Tags]] — obsidian-wiki's extracted / inferred / ambiguous mark on every claim, with lint for speculative drift; origin vs standing against this KB's callouts; why the lint does not transfer
 - [[Unattended Agent State]] — Anthropic's daily-brief pattern: read-only preferences vs read-write state, per-source bookmarks, append-only ledger, verify then confirm then record; what `/scout` has and lacks
+- [[Stigmergic Coordination]] — agents coordinate through the code, not messages: Spawn's no-PR, fix-forward, hourly-convergence engineering; the gate moves to irreversibility
 
 ## People
 
@@ -70,6 +71,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[2026-10-22 ar9av obsidian-wiki (repo)]] — skills-first open-source implementation of the Karpathy gist: README, benchmark and repo notes (repo, 2026-10-22)
 - [[2026-10-22 langchain-ai openwiki (repo)]] — LangChain's repository-to-wiki tool: scheduled CI ingest opening docs PRs, Grounded Claims pinned to versioned evidence, OKF v0.2 output (repo, 2026-10-22)
 - [[2026-10-08 Building Effective Agent Automations (Anthropic)]] — Anthropic's scheduled daily-brief reference implementation on Managed Agents: six rules for unattended agent memory and guardrails (article, 2026-10-08)
+- [[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]] — Spawn CEO's account of a ten-person company run by a persistent agent fleet: no PRs, hourly production ships, precedent judges (article, 2026-10-28)
 
 <!-- sf:begin(architecture) -->
 ## Architecture

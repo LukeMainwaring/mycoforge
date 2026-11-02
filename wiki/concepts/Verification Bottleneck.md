@@ -1,19 +1,21 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-09-06
+updated: 2026-11-02
 sources:
   - "[[2026-06-03 Running an AI-native Engineering Org (Anthropic)]]"
   - "[[2026-05-06 The Founders Playbook (Anthropic)]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
+  - "[[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]"
 raw:
   - raw/articles/2026-06-03 Running an AI-native Engineering Org (Anthropic).md
   - raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
+  - raw/articles/2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn).md
 related:
   - "[[AI Software Factory]]"
   - "[[AI-Native Role Archetypes]]"
@@ -25,6 +27,7 @@ related:
   - "[[Advisory and Deterministic Controls]]"
   - "[[Tiered Autonomy]]"
   - "[[Token Efficiency]]"
+  - "[[Stigmergic Coordination]]"
 confidence: medium
 tags: [ai-native, software-engineering]
 ---
@@ -78,6 +81,10 @@ of the [[AI Software Factory]]: humans judge output rather than produce it.
 > eval business… you have to build in evaluation against some standard or
 > else the loops don't work" — [[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]].
 > The cost half of that apparatus is [[Token Efficiency]].
+> Practitioner case for the generation dependence: Spawn's way of working
+> stayed flat for two years and only started once a model held up over long
+> tasks; each successor fixed most of the last one's issues —
+> [[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]].
 
 ## What verification is made of
 
@@ -116,6 +123,17 @@ every contribution compounds" (Dan Shiebler). Verification infrastructure is
 the precondition for speed, not a tax on it — which is also why rebuilding is
 cheap for these teams ([[Build for Rebuilding]]: run evals against v1 and v2,
 merge the winner).
+
+## Verification after merge
+
+Spawn ([[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]])
+keeps the shift and moves the checks: no PRs, helper agents that did not
+write a change try to break it before it lands, the full suite runs against
+the latest code every 15 minutes, and anything broken spawns a fixer agent.
+Its revert rate is about 0.9% of 123,548 changes over a year, self-reported.
+The test fleet (about 5,000 vCPUs and 150 GPUs) shows where the bottleneck
+went: verification is still the expensive part, bought with compute rather
+than reviewer time. Detail in [[Stigmergic Coordination]].
 
 ## The enterprise version
 

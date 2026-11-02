@@ -1,15 +1,17 @@
 ---
 type: concept
 created: 2026-09-02
-updated: 2026-09-06
+updated: 2026-11-02
 sources:
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
+  - "[[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]"
 raw:
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
+  - raw/articles/2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn).md
 related:
   - "[[AI-Native SDLC]]"
   - "[[Advisory and Deterministic Controls]]"
@@ -17,6 +19,7 @@ related:
   - "[[Verification Bottleneck]]"
   - "[[Founder as Orchestrator]]"
   - "[[Organizational Legibility]]"
+  - "[[Stigmergic Coordination]]"
 confidence: medium
 tags: [ai-native, governance, autonomy]
 ---
@@ -25,10 +28,11 @@ tags: [ai-native, governance, autonomy]
 
 How much an agent may do on its own is not a single switch in the
 [[AI-Native SDLC]]. It scales along several axes at once, and every axis stops
-at the same place: the production gate.
+at the same place: the production gate. One practitioner runs past it and
+keeps a gate only at irreversibility ([[Stigmergic Coordination]]).
 
 > [!claim] Agent autonomy is earned by guardrail maturity and bounded by the production gate, never switched on flat
-> confidence: medium · status: supported
+> confidence: medium · status: contested
 > evidence: auto-accept "becomes the default for routine work" only "as the
 > guardrails from the later plays mature (a tuned CLAUDE.md, skills that
 > encode policy, hooks that block unsafe actions, and a test suite Claude can
@@ -41,6 +45,15 @@ at the same place: the production gate.
 > corroboration, as prescription: [[Alex Lieberman]]'s feature 29, "autonomy
 > must be earned… not given full autonomy right away, but climb a ladder" —
 > [[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]].
+> Contested by practice: Spawn's agents change live code, ship to production
+> hourly with no PRs, and treat an hour without a ship as a SEV-0; the only
+> hard gates are "a small set of dumb, hard-coded gates" for actions that
+> "can't be undone, like sending a payment" —
+> [[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]].
+> The ladder half survives (two years of trial before it worked); the
+> production-gate half does not, at least for one ten-person company's
+> self-report against a vendor playbook and vendor-collected testimonials.
+> On this account the gate's place is irreversibility, not production.
 
 ## The axes
 

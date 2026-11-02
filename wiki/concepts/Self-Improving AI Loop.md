@@ -1,7 +1,7 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-10-23
+updated: 2026-11-02
 sources:
   - "[[2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up]]"
   - "[[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]"
@@ -9,6 +9,7 @@ sources:
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
   - "[[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]"
+  - "[[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]"
 raw:
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
@@ -16,6 +17,7 @@ raw:
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
   - raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md
+  - raw/articles/2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn).md
 related:
   - "[[Skill Evolution]]"
   - "[[AI-Native Company]]"
@@ -25,6 +27,7 @@ related:
   - "[[AI-Native SDLC]]"
   - "[[Tiered Autonomy]]"
   - "[[Advisory and Deterministic Controls]]"
+  - "[[Stigmergic Coordination]]"
 confidence: medium
 tags: [ai-native, feedback-loops]
 ---
@@ -65,7 +68,12 @@ Blomfield's loop anatomy:
 > updates that file"); at Anthropic, Claude Tag is the CI/CD first responder
 > and "authored the first situation report in every recent incident", usually
 > within 15 minutes. Still vendor-collected, but the contributor ranking is the
-> first quantitative signal; a non-vendor source would move this to high.
+> first quantitative signal. First non-vendor source: Spawn, where a break
+> spawns a fixer agent on the spot and "if the code breaks at 2am on
+> Christmas, nobody gets woken up" —
+> [[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]].
+> Self-reported and unaudited, so held at medium; an independent account
+> would move this to high.
 
 Other proposed loops: a product loop (agent mines analytics for funnel friction,
 researches fixes, runs an A/B test, deploys the winner, repeats) and a support
@@ -141,6 +149,34 @@ through iteration 7. The objective metric the AI Daily Brief host says every
 loop needs is what lets this one run unattended: the validation split is the
 "verifiable success metric." The authors' own caveat is that a strict
 better-than-best gate rejects neutral groundwork that might pay off later.
+
+## The loop on live production
+
+Spawn ([[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]])
+runs every layer against production rather than a test copy, on the
+argument that agents on private machines wait for humans to relay what broke:
+
+- **Sensor.** "Hyper observability": everything must be something an agent
+  can follow step by step in text and replay. Errors, logs, metrics, spend
+  and every transaction notify an agent; about 60% of work starts from a
+  production error, a bug report, a log anomaly or a feature request.
+  Savi, the in-product agent users build games with, files bugs herself.
+- **Policy.** A small model triages each error or report and hands it to the
+  owning agent, which decides fix, won't-fix, or a design question for a
+  human. The fix usually reaches the user within an hour, in the same chat.
+- **Cadence as a quality gate.** An hour without a ship is a SEV-0, Spawn's
+  most severe incident. The stated reason: "an agent can only keep a few
+  hours of work in its head, so shipping faster than that actually helps it
+  stay coherent." Rollback takes 30 seconds; recovery paths are tested by
+  breaking things on purpose.
+- **Results quoted.** A leaked API key caught from the spend anomaly within
+  15 minutes, then disabled and every key rotated; one incident declared
+  about 8 minutes after players were affected, fix live 11 minutes after
+  declaration, stable 4 minutes later.
+
+The non-engineering version of the same loop is the precedent judges in
+[[Organizational Legibility]]; the engineering side's coordination is
+[[Stigmergic Coordination]].
 
 [[Kareem Amin]]'s practitioner version of the thesis: "the moat for any
 company right now is that it needs to be self-improving. So Clay is a

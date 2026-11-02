@@ -1,19 +1,22 @@
 ---
 type: concept
 created: 2026-09-02
-updated: 2026-09-06
+updated: 2026-11-02
 sources:
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
+  - "[[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]"
 raw:
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
+  - raw/articles/2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn).md
 related:
   - "[[Company Brain]]"
   - "[[Just-in-Time Planning]]"
   - "[[AI Software Factory]]"
   - "[[Self-Improving AI Loop]]"
   - "[[AI-Native Company]]"
+  - "[[Founder as Orchestrator]]"
 confidence: medium
 tags: [ai-native, software-engineering]
 ---
@@ -44,6 +47,11 @@ and the startups count the rebuilding itself as competitive advantage.
 > do something just a couple of months ago" —
 > [[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]. Consultant
 > prescription; first non-Anthropic source for the claim.
+> Practitioner case outside the vendor's collection: Spawn's way of working
+> stayed flat for two years and only started once a model held up over long
+> tasks; each successor fixed most of the last one's issues, and "every model
+> that comes out makes the things we added for the last one pointless" —
+> [[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]].
 
 Commure's completion rule, from Tanay Tandon: "A rebuild isn't done when the
 new path ships. It's done when the old path is gone." Teardown "always lost the
@@ -57,6 +65,19 @@ paths.
 Tooling the guide attaches: git worktrees so v2 runs beside v1 and evals decide
 which one merges ("what makes 'build it four times' cheap"), and plan mode for
 any rewrite big enough to drift from the architecture.
+
+## Who does the deleting
+
+Spawn ([[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]])
+says the agents do not, yet. In June the CEO looked at six months of work on
+a server-run simulation, about 70% of the engine and "one more commit away"
+the whole time, and ripped it out; the servers went in July. The models are
+"too anchored on what exists today": good at compounding 2% changes, bad at
+saying 100,000 lines could be 10,000. He expects them to start deleting on
+their own soon; for now it is a human job ([[Founder as Orchestrator]]).
+The other half of the rebuild is asked for, not waited on: one engineer
+rewrote the renderer in six days, replacing the off-the-shelf graphics
+library, for about 25x efficiency.
 
 Lieberman's feature 27 widens the rule from workflows to the business itself:
 "maintain a bias towards disrupting the company before someone else does it

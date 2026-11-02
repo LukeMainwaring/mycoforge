@@ -1,7 +1,7 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-10-23
+updated: 2026-11-02
 sources:
   - "[[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]"
   - "[[2026-05-06 The Founders Playbook (Anthropic)]]"
@@ -9,6 +9,7 @@ sources:
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
   - "[[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]]"
+  - "[[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]"
 raw:
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
   - raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf
@@ -16,6 +17,7 @@ raw:
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
   - raw/articles/2026-10-15 gbrain Belief Ledger Design (Garry Tan).md
+  - raw/articles/2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn).md
 related:
   - "[[AI-Native Company]]"
   - "[[Organizational Legibility]]"
@@ -69,7 +71,12 @@ is what keeps AI a force multiplier instead of a source of entropy."
 > the more you use this, the more we know who your best customers are"
 > ([[Kareem Amin]], Clay); "structure your codebase, knowledge base, and team
 > the right way, and every contribution compounds" (Dan Shiebler, Artemis
-> Security). Still vendor-collected; held at medium.
+> Security). Still vendor-collected; held at medium. Non-vendor practitioner
+> echo: "with the right structure, every new model makes the whole company
+> significantly better, and that's very hard to catch up with," from a company
+> whose structure includes two years of recorded calls kept next to the code —
+> [[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]
+> (see [[Organizational Legibility]]). Self-report, so still medium.
 
 ## One layer or a mesh
 

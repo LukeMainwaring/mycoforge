@@ -1,7 +1,7 @@
 ---
 type: overview
 created: 2026-07-10
-updated: 2026-10-23
+updated: 2026-11-02
 tags: [meta]
 ---
 
@@ -50,5 +50,9 @@ Grounded Claims put the one-source-per-session rule on record as a choice of
 gate ([[Ingest Workflow]]), and Anthropic's scheduled daily-brief automation
 ([[2026-10-08 Building Effective Agent Automations (Anthropic)]]), which added
 [[Unattended Agent State]], the memory discipline `/scout` would need on a
-timer. The catalog lives in [[index]]; the history in
+timer, and the first operator's own account outside the vendor and VC
+sources, Spawn's CEO on a ten-person company run by an agent fleet
+([[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]),
+which added [[Stigmergic Coordination]] and contested the production gate in
+[[Tiered Autonomy]]. The catalog lives in [[index]]; the history in
 [[log]].

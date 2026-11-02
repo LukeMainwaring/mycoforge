@@ -1,7 +1,7 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-10-23
+updated: 2026-11-02
 sources:
   - "[[2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up]]"
   - "[[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]"
@@ -9,6 +9,7 @@ sources:
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
   - "[[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]]"
+  - "[[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]"
 raw:
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
@@ -16,6 +17,7 @@ raw:
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
   - raw/articles/2026-10-15 gbrain Belief Ledger Design (Garry Tan).md
+  - raw/articles/2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn).md
 related:
   - "[[AI-Native Company]]"
   - "[[Company Brain]]"
@@ -26,6 +28,7 @@ related:
   - "[[Progressive Disclosure]]"
   - "[[Tiered Autonomy]]"
   - "[[Belief Ledger]]"
+  - "[[Founder as Orchestrator]]"
 confidence: medium
 tags: [ai-native, knowledge-capture]
 ---
@@ -101,6 +104,45 @@ gains "as built" sections naming every deviation from the design.
 > AI breadcrumbs" — [[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]].
 > This is compile-at-ingest at organizational scale — the same argument as
 > [[Why LLM Wikis Beat RAG]], arrived at independently.
+
+## Precedent judges: recorded decisions answer new questions
+
+The payoff of recording decisions, not just activity. Spawn
+([[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]])
+has kept every call since its 2024 founding as text in the repo, next to the
+code, "because we knew one day it would be great context for agents." By
+October 2026 the only work still waiting was taste decisions, mostly the
+CEO's (build this feature? add a setting? new API surface?), and one morning
+there were 700 of them. Most he had answered before.
+
+So the team distilled two years of decisions into principles for each
+person's taste and built AI judges to apply them. A judge does one of three
+things with a question:
+
+1. **Decide and cite** — someone answered it on the record; the judge
+   applies that answer and says where it came from.
+2. **Send back** — the question itself is wrong; it returns to the agent
+   that filed it.
+3. **Hold** — it needs judgment nobody has given yet; it waits for a human.
+
+When a judge gets one wrong, the team says so and the judges read the
+correction next time, the loop in [[Fix the Principle, Not the Example]].
+
+> [!claim] Recorded past decisions can answer most new taste questions without the person who made them
+> confidence: medium · status: supported
+> evidence: in the eight days after the first verdicts on October 6, the
+> judges returned more than 11,000: 7,296 decided, 2,213 sent back, 1,863
+> held for a human; the CEO "gave my own word 27 times." The fleet went from
+> about 1,000 changes a day the week before to 7,250 on October 10 —
+> [[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]].
+> One company, eight days, self-reported; nothing says how often a "decided"
+> verdict was later overturned.
+
+This is diarization applied to decisions: the judges run on distilled
+principles, not on two years of raw calls. It also scales the founder's
+taste rather than replacing it ([[Founder as Orchestrator]]). This KB's
+ADRs are the same shape at small scale, decisions on record that later
+work cites, without a judge, since nothing here queues on the user.
 
 ## Worked example: the self-improving YC user manual
 
