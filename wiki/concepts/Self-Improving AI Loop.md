@@ -10,7 +10,7 @@ sources:
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
   - "[[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]"
   - "[[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]"
-  - "[[2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35)]]"
+  - "[[2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn)]]"
 raw:
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
@@ -19,7 +19,7 @@ raw:
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
   - raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md
   - raw/articles/2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn).md
-  - raw/podcasts/2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35).md
+  - raw/podcasts/2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn).md
 related:
   - "[[Skill Evolution]]"
   - "[[AI-Native Company]]"
@@ -180,7 +180,7 @@ The non-engineering version of the same loop is the precedent judges in
 [[Organizational Legibility]]; the engineering side's coordination is
 [[Stigmergic Coordination]].
 
-The AI Daily Brief host's doubt ([[2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35)]]): Spawn's sensor layer is its users'
+The AI Daily Brief host's doubt ([[2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn)]]): Spawn's sensor layer is its users'
 agents reporting bugs as they play, "not the type of thing that you're going
 to get in many categories of products." Whether the approach needs that
 loop, and whether other products can build one, he leaves open. It sits

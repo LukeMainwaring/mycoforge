@@ -4,10 +4,10 @@ created: 2026-11-02
 updated: 2026-11-02
 sources:
   - "[[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]"
-  - "[[2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35)]]"
+  - "[[2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn)]]"
 raw:
   - raw/articles/2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn).md
-  - raw/podcasts/2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35).md
+  - raw/podcasts/2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn).md
 related:
   - "[[Verification Bottleneck]]"
   - "[[Tiered Autonomy]]"
@@ -88,7 +88,7 @@ is [[AI-Native SDLC]].
 
 ## How far it travels
 
-[[Nathaniel Whittemore]] ([[2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35)]]) doubts two things: that it can be retrofitted
+[[Nathaniel Whittemore]] ([[2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn)]]) doubts two things: that it can be retrofitted
 onto an existing system rather than started in a new division or product,
 and that it works without a product whose users' agents file bug reports as
 they play, a feedback loop most categories lack. His portable version is

@@ -7,6 +7,7 @@ retrieved: 2026-11-02
 duration: "30:35"
 captions_source: youtube-auto
 clip: "15:00-30:35"
+clip_topic: "Spawn"
 tags:
   - podcast
   - podcast-clip

@@ -72,7 +72,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[2026-10-22 langchain-ai openwiki (repo)]] — LangChain's repository-to-wiki tool: scheduled CI ingest opening docs PRs, Grounded Claims pinned to versioned evidence, OKF v0.2 output (repo, 2026-10-22)
 - [[2026-10-08 Building Effective Agent Automations (Anthropic)]] — Anthropic's scheduled daily-brief reference implementation on Managed Agents: six rules for unattended agent memory and guardrails (article, 2026-10-08)
 - [[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]] — Spawn CEO's account of a ten-person company run by a persistent agent fleet: no PRs, hourly production ships, precedent judges (article, 2026-10-28)
-- [[2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35)]] — host retells the Spawn article and adds two doubts and five takeaways; only the commentary is cited (podcast clip, 2026-10-31)
+- [[2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn)]] — host retells the Spawn article and adds two doubts and five takeaways; only the commentary is cited (podcast clip, 2026-10-31)
 
 <!-- sf:begin(architecture) -->
 ## Architecture

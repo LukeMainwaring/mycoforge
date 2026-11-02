@@ -10,7 +10,7 @@ sources:
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
   - "[[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]]"
   - "[[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]"
-  - "[[2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35)]]"
+  - "[[2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn)]]"
 raw:
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
@@ -19,7 +19,7 @@ raw:
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
   - raw/articles/2026-10-15 gbrain Belief Ledger Design (Garry Tan).md
   - raw/articles/2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn).md
-  - raw/podcasts/2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35).md
+  - raw/podcasts/2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn).md
 related:
   - "[[AI-Native Company]]"
   - "[[Company Brain]]"
@@ -142,7 +142,7 @@ correction next time, the loop in [[Fix the Principle, Not the Example]].
 
 The AI Daily Brief host's takeaway for other teams: decisions do "double
 duty," solving the issue at hand and "building the canon of how issues get
-solved" — [[2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35)]].
+solved" — [[2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn)]].
 
 This is diarization applied to decisions: the judges run on distilled
 principles, not on two years of raw calls. It also scales the founder's

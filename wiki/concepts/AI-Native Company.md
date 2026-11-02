@@ -11,7 +11,7 @@ sources:
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
   - "[[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]"
-  - "[[2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35)]]"
+  - "[[2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn)]]"
 raw:
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
@@ -21,7 +21,7 @@ raw:
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
   - raw/articles/2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn).md
-  - raw/podcasts/2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35).md
+  - raw/podcasts/2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn).md
 related:
   - "[[AI-Native Startup Lifecycle]]"
   - "[[Founder as Orchestrator]]"
@@ -184,7 +184,7 @@ AI-assisted commits up — "don't confuse throughput with success"
 > see [[Stigmergic Coordination]] and [[Tiered Autonomy]]. The AI Daily Brief
 > host adds that the setup is "fairly inconducive to modifying an existing
 > system" and he would build it "in some entirely new division or entirely new
-> product," the skunkworks escape hatch again — [[2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35)]].
+> product," the skunkworks escape hatch again — [[2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn)]].
 
 ## The thirty features
 

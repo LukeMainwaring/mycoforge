@@ -4,10 +4,10 @@ created: 2026-09-06
 updated: 2026-11-02
 sources:
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
-  - "[[2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35)]]"
+  - "[[2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn)]]"
 raw:
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
-  - raw/podcasts/2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35).md
+  - raw/podcasts/2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn).md
 related:
   - "[[Alex Lieberman]]"
   - "[[AI-Native Company]]"
@@ -37,7 +37,7 @@ metric ([[Self-Improving AI Loop]]), "everyone is now in the eval business"
 ownership, is "nothing short of a new management discipline"
 ([[AI-Native Role Archetypes]]).
 
-On Spawn's article, in [[2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35)]] from [27:51]: two reasons it is hard to copy beyond
+On Spawn's article, in [[2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn)]] from [27:51]: two reasons it is hard to copy beyond
 the CEO's own. It is hard enough to build from scratch and "fairly
 inconducive to modifying an existing system," so he would start it in a new
 division or product ([[AI-Native Company]]); and it may depend on a product

@@ -6,12 +6,12 @@ sources:
   - "[[2026-05-06 The Founders Playbook (Anthropic)]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
   - "[[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]"
-  - "[[2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35)]]"
+  - "[[2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn)]]"
 raw:
   - raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
   - raw/articles/2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn).md
-  - raw/podcasts/2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35).md
+  - raw/podcasts/2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn).md
 related:
   - "[[AI-Native Role Archetypes]]"
   - "[[AI-Native Startup Lifecycle]]"
@@ -107,5 +107,5 @@ names two jobs left:
 > One CEO's observation of current models; the source expects deletion, at
 > least, to move to the agents soon. The AI Daily Brief host takes it as the
 > lesson most worth generalizing: "ambition and long horizon views do not
-> come natural to agents" — [[2026-10-31 The AI Daily Brief - Artificial Intelligence News - How the Most AI (clip - 15 -00-30 -35)]]. Commentary on the same source, not
+> come natural to agents" — [[2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn)]]. Commentary on the same source, not
 > independent evidence.
