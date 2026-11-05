@@ -58,5 +58,7 @@ which added [[Stigmergic Coordination]] and contested the production gate in
 ([[2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn)]]) adds the doubts. Warp's [[Zach Lloyd]] on Latent Space
 ([[2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd]])
 turned [[AI Software Factory]] from a division of labor into infrastructure
-a platform team runs, and gave cost per PR its first numbers. The catalog
+a platform team runs, and gave cost per PR its first numbers; Warp's own
+video ([[2026-11-02 Warp - How to build an agentic self improvement loop]])
+showed how its scorers are built ([[Self-Improving AI Loop]]). The catalog
 lives in [[index]]; the history in [[log]].

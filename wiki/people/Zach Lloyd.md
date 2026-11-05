@@ -4,8 +4,10 @@ created: 2026-11-05
 updated: 2026-11-05
 sources:
   - "[[2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd]]"
+  - "[[2026-11-02 Warp - How to build an agentic self improvement loop]]"
 raw:
   - raw/podcasts/2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd.md
+  - raw/podcasts/2026-11-02 Warp - How to build an agentic self improvement loop.md
 related:
   - "[[AI Software Factory]]"
   - "[[Token Efficiency]]"
@@ -17,7 +19,9 @@ tags: [person]
 
 # Zach Lloyd
 
-Of Warp, whose product, Warp Factories, is open infrastructure for cloud
+CEO of Warp (so named by Warp's DevEx lead in
+[[2026-11-02 Warp - How to build an agentic self improvement loop]]),
+whose product, Warp Factories, is open infrastructure for cloud
 software factories. Interviewed on Latent Space
 ([[2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd]]),
 where he states three positions: a factory is a declared, measured artifact

@@ -12,6 +12,7 @@ sources:
   - "[[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]"
   - "[[2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn)]]"
   - "[[2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd]]"
+  - "[[2026-11-02 Warp - How to build an agentic self improvement loop]]"
 raw:
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
@@ -22,6 +23,7 @@ raw:
   - raw/articles/2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn).md
   - raw/podcasts/2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn).md
   - raw/podcasts/2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd.md
+  - raw/podcasts/2026-11-02 Warp - How to build an agentic self improvement loop.md
 related:
   - "[[Skill Evolution]]"
   - "[[AI-Native Company]]"
@@ -210,11 +212,105 @@ process:
   example: 54 triage failures where triage should have spawned a subagent
   to investigate.
 
+### How the scorers are built
+
+Ben, Warp's DevEx lead, walks the same loop as four steps (store, score,
+isolate failures, propose) in a talk on Warp's channel
+([[2026-11-02 Warp - How to build an agentic self improvement loop]]).
+The captions are Warp's own upload, so quotes are safer than in the
+podcast; the sample rubric and report were on screen only, so just what he
+says is filed here. Both sources are Warp describing its product.
+
+**What a trace holds.** Three parts, all needed to diagnose a run: the
+transcript (agent, subagents and the human in the loop), the tool and MCP
+calls ("an agent might spin its wheels sending the wrong properties to an
+MCP call"), and the code output, as diffs or the PR at a commit. The traces
+go in one store the whole team can read. Uploading every engineer's Claude
+or Codex folder to S3 on a cron is the scrappy version; he recommends a
+cloud runner, where every run lands in one place by default.
+
+**A scorer is a markdown rubric.** It has two parts: the failure modes
+being tested for, and a grade from 0 to 1 with each level described and a
+line where failure starts ("mostly or highly inefficient" fails). After a
+run, the transcript goes to each scorer, a separate agent in its own
+context window, which grades it and writes notes in the margin on why.
+Judges run on a lightweight model because of the volume, and a sample rate
+caps the bill; he says a small sample gets "close to the same effect", with
+no figures. Scorers are checked in as code beside the agents and
+automations, so an agent can read and change its own setup.
+
+The four he walks through:
+
+- **Redundant tests**: what a high-quality test is. He grounds it in "Kent
+  C. Dodds' test pyramid", which he reads as end-to-end tests most valuable
+  and unit tests least. Dodds' published model is the Testing Trophy, not a
+  pyramid, and it puts most weight on integration tests; the preference in
+  the rubric is Ben's, not Dodds'.
+- **Tautological tests**: credited to Matt Pocock. A test that asserts the
+  code does what it was written to do, at the extreme a constant returning
+  its own value; described in a markdown file the agent is told not to
+  follow.
+- **Verbosity**: of replies to the human and of code comments, which "bleed
+  into each other"; plain language, and no comment that isn't useful.
+- **Efficiency**: cost to the human (many steers versus right on the first
+  pass) and information gathering (tool calls spent exploring the
+  environment, such as probing for a free port before verifying).
+
+**Isolate, then aggregate.** Passing runs drop out. A self-improvement agent
+on a daily cron reads the failures with the scorers' notes, looks for what
+they have in common, and opens PRs into an inbox, each citing its evidence.
+
+> [!claim] A self-improvement agent should wait for a large sample of failures before proposing changes
+> confidence: low · status: supported
+> evidence: "it's best to have a large dataset before you trigger a
+> self-improvement agent. Otherwise, it might over-index on individual
+> failures instead of seeing the forest for the trees"; a suggested change's
+> evidence "should include multiple examples for it to be worth improving"
+> — [[2026-11-02 Warp - How to build an agentic self improvement loop]].
+> Practitioner advice with no threshold. It is the overfitting risk in
+> [[Fix the Principle, Not the Example]], stated for mining traces.
+> [[Skill Evolution]]'s WikiSkill reads at most 8 traces per pass, but
+> keeps what it learned in a wiki across passes and gates each change on a
+> score; this loop has neither.
+
+**The fixes it found**, from Ben's own runs:
+
+- Agents fought for port numbers before they could test their work. The
+  suggested skill edit names the environment variable that overrides the
+  port when it is taken.
+- He kept steering how changelog entries were worded. The suggestion was a
+  more prescriptive changelog rule in the skill.
+- A triage agent could not spawn a subagent and burned tool calls working
+  out why. The PR added a missing stub to the harness configuration; likely
+  the same case as Lloyd's 54 triage failures above.
+
+The first two are skill edits, the third is harness configuration: the loop
+reaches the whole factory definition, not only skills. The reason to run it
+at all: agents "will always report back that something worked," so wasted
+minutes of tokens go unseen without a score.
+
+**Scores over time.** Each scorer is plotted across runs, so a skill or
+model change shows as better, worse, or not statistically significant; his
+example is the efficiency grade dropping after a model change.
+
+> [!claim] Scoring runs over time makes agent improvement visible where overnight "dreaming" and memory systems are a black box
+> confidence: low · status: supported
+> evidence: "Instead of asking the agent to dream overnight or using memory
+> systems that operate like a black box, here we get visibility into how
+> the agent is improving as we ship these changes" — [[2026-11-02 Warp - How to build an agentic self improvement loop]].
+> A vendor contrasting its product with alternatives it does not test. The
+> trend is in the rubric's own terms; the source does not tie it to
+> outcomes such as reverts or cost.
+
+The single-machine version is Warp's open-source Skill Doctor
+([[Skill Evolution]]).
+
 What the loop lacks is a check that a proposed change helps before a person
 reviews it. Lloyd names it as the next step, to "replay the runs and make
 sure that this actually would have improved them." That replay is the
 better-than-best gate [[Skill Evolution]] already runs on its validation
-split, here with a team's own past runs as the test set.
+split, here with a team's own past runs as the test set. Ben's version has
+the same gap: its gate is a person reviewing the PR.
 
 [[Kareem Amin]]'s practitioner version of the thesis: "the moat for any
 company right now is that it needs to be self-improving. So Clay is a

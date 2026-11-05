@@ -13,7 +13,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[Subtractive Onboarding]] — ship with everything on, prune down deterministically
 - [[Fractal Federation]] — nesting KBs: orchestrator as a feature, children as independent repos
 - [[AI-Native Company]] — AI as the company's OS, not a tool; umbrella for the AI-native cluster
-- [[Self-Improving AI Loop]] — closed-loop processes that fix themselves; loop anatomy
+- [[Self-Improving AI Loop]] — closed-loop processes that fix themselves; loop anatomy; Warp's scorers (traces, 0–1 rubrics, failure isolation, daily improvement agent)
 - [[Organizational Legibility]] — record everything; diarize down; the YC user manual example; precedent judges answer taste calls from recorded decisions
 - [[Company Brain]] — durable context at the center, humans at the edge, software ephemeral
 - [[AI Software Factory]] — humans write specs and tests; agents write the code; Warp's factory as declared, measured infrastructure and its eight-layer stack
@@ -31,7 +31,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[Tiered Autonomy]] — autonomy scaled by deviation, environment, change size, and guardrail maturity; stops at the production gate
 - [[Token Efficiency]] — cost per successful task as the unit; routing, plan/execute model split, cost per accepted PR (Warp's $80 → $15–20), benchmarks on your own runs, fine-tuned open models
 - [[Progressive Disclosure]] — metadata at the top of knowledge files so agents load only the slice they need; this KB is one
-- [[Skill Evolution]] — agents improving their own skills from traces; WikiSkill's persistent wiki between raw and skills, gated and rolled back
+- [[Skill Evolution]] — agents improving their own skills from traces; WikiSkill's persistent wiki between raw and skills, gated and rolled back; Warp's Skill Doctor, gated by a person
 - [[Belief Ledger]] — gbrain's append-only record of what a brain believed and when: diff beliefs not rows, logical identity, two clocks, trust per event, disclosed coverage
 - [[Provenance Tags]] — obsidian-wiki's extracted / inferred / ambiguous mark on every claim, with lint for speculative drift; origin vs standing against this KB's callouts; why the lint does not transfer
 - [[Unattended Agent State]] — Anthropic's daily-brief pattern: read-only preferences vs read-write state, per-source bookmarks, append-only ledger, verify then confirm then record; what `/scout` has and lacks
@@ -75,6 +75,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]] — Spawn CEO's account of a ten-person company run by a persistent agent fleet: no PRs, hourly production ships, precedent judges (article, 2026-10-28)
 - [[2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn)]] — host retells the Spawn article and adds two doubts and five takeaways; only the commentary is cited (podcast clip, 2026-10-31)
 - [[2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd]] — Warp's Zach Lloyd on the software factory as infrastructure: factory as code, the stack, scorers, benchmarks, cost per PR (podcast, 2026-11-03)
+- [[2026-11-02 Warp - How to build an agentic self improvement loop]] — Warp's DevEx lead on how scorers are built: traces, 0–1 rubrics, failure isolation, a daily self-improvement agent, Skill Doctor (video, 2026-11-02)
 
 <!-- sf:begin(architecture) -->
 ## Architecture

@@ -8,12 +8,14 @@ sources:
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
   - "[[2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd]]"
+  - "[[2026-11-02 Warp - How to build an agentic self improvement loop]]"
 raw:
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
   - raw/articles/2026-06-03 Running an AI-native Engineering Org (Anthropic).md
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
   - raw/podcasts/2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd.md
+  - raw/podcasts/2026-11-02 Warp - How to build an agentic self improvement loop.md
 related:
   - "[[AI-Native Company]]"
   - "[[Company Brain]]"
@@ -125,7 +127,17 @@ and interactive agents its factory.
 
 Warp's declaration is a YAML file naming the repos, skills, MCPs and
 integrations, plus a workflow that "roughly matches what… your team is
-probably already doing": triage, spec, implementation.
+probably already doing": triage, spec, implementation. Ben, Warp's DevEx
+lead, gives the whole inner loop
+([[2026-11-02 Warp - How to build an agentic self improvement loop]]):
+triage (research the task and check no other agent already has it); a
+spec written with a person only when one needs to weigh in ("think 'grill
+me,' but only tagging you in when you actually need a grill-me session"),
+otherwise straight to implementation; verification, by the agent clicking
+through what it built with computer use or by end-to-end tests in
+Playwright; rounds of adversarial code review; ship; and a monitor such as
+Sentry that files new issues and starts the cycle again. Improving that
+loop is the outer loop in [[Self-Improving AI Loop]].
 
 **Two kinds of engineering.** Product engineers put work in through tools
 they already use (Slack, Linear or Jira, GitHub, an API or MCP call) and a

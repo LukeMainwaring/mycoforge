@@ -1,12 +1,15 @@
 ---
 type: concept
 created: 2026-10-23
-updated: 2026-10-23
+updated: 2026-11-05
 sources:
   - "[[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]"
+  - "[[2026-11-02 Warp - How to build an agentic self improvement loop]]"
 raw:
   - raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md
+  - raw/podcasts/2026-11-02 Warp - How to build an agentic self improvement loop.md
 related:
+  - "[[AI Software Factory]]"
   - "[[Three-Layer Architecture]]"
   - "[[Why LLM Wikis Beat RAG]]"
   - "[[Self-Improving AI Loop]]"
@@ -116,6 +119,33 @@ does.
 | Accepted skill updates landing in iterations 0–1 | 39–58%, the rest through iteration 7 |
 | Optimizer LLM calls per iteration | 1 + ReAct turns (about 10–20), independent of training-set size |
 | Wiki growth per run | 6–9 patterns created, 7–18 edits, pages of 18–48 lines |
+
+## Without a validation set
+
+Warp's Skill Doctor is a practitioner version
+([[2026-11-02 Warp - How to build an agentic self improvement loop]]): an
+open-source skill, for any coding harness, that grades the recent
+conversations on one machine with scorer subagents, aggregates the grades,
+and writes a report card for a person to review. The report gives
+findings, suggested skill changes, and the evidence for each, which should
+span several runs. In the demo on a project of Ben's (Warp's DevEx lead),
+one subagent graded all three criteria together to save tokens; Warp's
+hosted version gives each scorer its own context window on a lightweight
+model. How the scorers are built, and the fixes they found, are in
+[[Self-Improving AI Loop]].
+
+Against WikiSkill:
+
+| | WikiSkill | Skill Doctor |
+|---|---|---|
+| Traces | training tasks run for the purpose | everyday work conversations |
+| Signal | a validation score the harness computes, no model | LLM judges grading 0–1 rubrics |
+| Gate | kept only if the validation score improves | a person reviews the suggestion |
+| What persists | a pattern wiki, patched across passes | scores and failure notes; no pattern store described |
+
+Skill Doctor runs without the objective score WikiSkill depends on by
+putting a person at the gate. Warp's hosted loop also edits harness
+configuration, not only skills.
 
 ## What this KB takes from it
 
