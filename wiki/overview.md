@@ -1,7 +1,7 @@
 ---
 type: overview
 created: 2026-07-10
-updated: 2026-11-02
+updated: 2026-11-05
 tags: [meta]
 ---
 
@@ -55,5 +55,8 @@ sources, Spawn's CEO on a ten-person company run by an agent fleet
 ([[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]),
 which added [[Stigmergic Coordination]] and contested the production gate in
 [[Tiered Autonomy]]. The AI Daily Brief host's commentary on it
-([[2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn)]]) adds the doubts. The catalog lives in [[index]]; the history in
-[[log]].
+([[2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn)]]) adds the doubts. Warp's [[Zach Lloyd]] on Latent Space
+([[2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd]])
+turned [[AI Software Factory]] from a division of labor into infrastructure
+a platform team runs, and gave cost per PR its first numbers. The catalog
+lives in [[index]]; the history in [[log]].

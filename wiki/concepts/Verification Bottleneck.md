@@ -1,7 +1,7 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-11-02
+updated: 2026-11-05
 sources:
   - "[[2026-06-03 Running an AI-native Engineering Org (Anthropic)]]"
   - "[[2026-05-06 The Founders Playbook (Anthropic)]]"
@@ -9,6 +9,7 @@ sources:
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
   - "[[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]"
+  - "[[2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd]]"
 raw:
   - raw/articles/2026-06-03 Running an AI-native Engineering Org (Anthropic).md
   - raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf
@@ -16,6 +17,7 @@ raw:
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
   - raw/articles/2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn).md
+  - raw/podcasts/2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd.md
 related:
   - "[[AI Software Factory]]"
   - "[[AI-Native Role Archetypes]]"
@@ -28,6 +30,7 @@ related:
   - "[[Tiered Autonomy]]"
   - "[[Token Efficiency]]"
   - "[[Stigmergic Coordination]]"
+  - "[[Zach Lloyd]]"
 confidence: medium
 tags: [ai-native, software-engineering]
 ---
@@ -178,3 +181,13 @@ The article's suggested health metrics track this bottleneck: PR cycle time
 down (and watch for CI/build systems becoming the *next* bottleneck as code
 volume grows), onboarding ramp time down, AI-assisted commits up — with the
 caveat that throughput is not success; measure the problem you're solving.
+
+Warp's factory metrics
+([[2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd]])
+add one this list lacks: for every merged PR, how many times a human had to
+act on it, a direct count of the verification work still left to people.
+[[Zach Lloyd]] frames the whole apparatus as moving agentic coding out of
+"the realm of vibes… and actually into the world of measurement", the cure
+for the guide's "flying blind." His benchmark suite, curated past runs
+replayed against a grid of models and harnesses, is a working version of
+Lieberman's standing eval apparatus above (detail in [[Token Efficiency]]).

@@ -16,7 +16,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[Self-Improving AI Loop]] — closed-loop processes that fix themselves; loop anatomy
 - [[Organizational Legibility]] — record everything; diarize down; the YC user manual example; precedent judges answer taste calls from recorded decisions
 - [[Company Brain]] — durable context at the center, humans at the edge, software ephemeral
-- [[AI Software Factory]] — humans write specs and tests; agents write the code
+- [[AI Software Factory]] — humans write specs and tests; agents write the code; Warp's factory as declared, measured infrastructure and its eight-layer stack
 - [[AI-Native Role Archetypes]] — Dorsey's IC/DRI/AI-founder × Claude Code's hiring profiles × the founder archetype
 - [[AI-Native Startup Lifecycle]] — Idea/MVP/Launch/Scale remapped: exit criteria and AI-specific failure modes
 - [[Founder as Orchestrator]] — founder as director of agents; the inverted failure modes of effortless building
@@ -29,7 +29,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[AI-Native SDLC]] — six stages as a loop; the committed-artifact chain (intent → spec → plan → diff → PR → incident) as handoff and audit trail
 - [[Advisory and Deterministic Controls]] — skills advise, hooks enforce; the layered control model and where each layer runs
 - [[Tiered Autonomy]] — autonomy scaled by deviation, environment, change size, and guardrail maturity; stops at the production gate
-- [[Token Efficiency]] — cost per successful task as the unit; routing, plan/execute model split, cost per accepted PR, fine-tuned open models
+- [[Token Efficiency]] — cost per successful task as the unit; routing, plan/execute model split, cost per accepted PR (Warp's $80 → $15–20), benchmarks on your own runs, fine-tuned open models
 - [[Progressive Disclosure]] — metadata at the top of knowledge files so agents load only the slice they need; this KB is one
 - [[Skill Evolution]] — agents improving their own skills from traces; WikiSkill's persistent wiki between raw and skills, gated and rolled back
 - [[Belief Ledger]] — gbrain's append-only record of what a brain believed and when: diff beliefs not rows, logical identity, two clocks, trust per event, disclosed coverage
@@ -51,6 +51,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[Garry Tan]] — YC president; author of gbrain, the database-backed company brain behind the belief ledger
 - [[Lance Martin]] — Anthropic; co-author of the daily-brief automation write-up
 - [[CJ Avilla]] — Anthropic; co-author of the daily-brief automation write-up
+- [[Zach Lloyd]] — Warp: the factory as declared, measured infrastructure; factory engineering
 
 ## Syntheses
 
@@ -73,6 +74,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[2026-10-08 Building Effective Agent Automations (Anthropic)]] — Anthropic's scheduled daily-brief reference implementation on Managed Agents: six rules for unattended agent memory and guardrails (article, 2026-10-08)
 - [[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]] — Spawn CEO's account of a ten-person company run by a persistent agent fleet: no PRs, hourly production ships, precedent judges (article, 2026-10-28)
 - [[2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn)]] — host retells the Spawn article and adds two doubts and five takeaways; only the commentary is cited (podcast clip, 2026-10-31)
+- [[2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd]] — Warp's Zach Lloyd on the software factory as infrastructure: factory as code, the stack, scorers, benchmarks, cost per PR (podcast, 2026-11-03)
 
 <!-- sf:begin(architecture) -->
 ## Architecture

@@ -1,17 +1,19 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-09-06
+updated: 2026-11-05
 sources:
   - "[[2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up]]"
   - "[[2026-06-03 Running an AI-native Engineering Org (Anthropic)]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
+  - "[[2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd]]"
 raw:
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
   - raw/articles/2026-06-03 Running an AI-native Engineering Org (Anthropic).md
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
+  - raw/podcasts/2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd.md
 related:
   - "[[AI-Native Company]]"
   - "[[Company Brain]]"
@@ -19,6 +21,9 @@ related:
   - "[[Self-Improving AI Loop]]"
   - "[[Prototype, Dogfood, Productionize]]"
   - "[[Token Efficiency]]"
+  - "[[Zach Lloyd]]"
+  - "[[Skill Evolution]]"
+  - "[[Stigmergic Coordination]]"
 confidence: medium
 tags: [ai-native, software-engineering]
 ---
@@ -95,3 +100,80 @@ product spec pages holding a full build prompt, per
 [[ADR-001 Separate Repo with Product as Seam]] — is a small-scale instance of
 the same inversion.
 <!-- sf:end(product) -->
+
+## The factory as infrastructure
+
+[[Zach Lloyd]] of Warp turns the term from a division of labor into a system
+a team operates ([[2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd]]).
+His definition: an agentic system in the cloud that sets the roles of agents
+across building software, with some autonomy, and that is "very measurable,
+very close loop" so a team can tune, measure and benchmark it. The
+misconception he argues against is a team calling its pile of automations
+and interactive agents its factory.
+
+> [!claim] A software factory should be a declared, versioned artifact, one per product surface, not a collection of automations
+> confidence: medium · status: supported
+> evidence: "you should define your factory in code… a concrete thing that
+> you should be able to run at some point in time and measure how it's
+> doing"; "you have one factory per product surface." The Terraform analogy:
+> versioning, branches to test, revert, and "because it's in code, coding
+> agents can suggest improvements to it" — [[2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd]].
+> A vendor's prescription for its own product, though Warp runs its own
+> engineering this way and reports results ([[Token Efficiency]]). Auto
+> captions. Open: whether the declaration needs its own file or can be a
+> repo's existing agent config.
+
+Warp's declaration is a YAML file naming the repos, skills, MCPs and
+integrations, plus a workflow that "roughly matches what… your team is
+probably already doing": triage, spec, implementation.
+
+**Two kinds of engineering.** Product engineers put work in through tools
+they already use (Slack, Linear or Jira, GitHub, an API or MCP call) and a
+predefined workflow starts. The factory's controls are for engineering
+managers, the CTO and above all the platform or DevEx team, not the
+day-to-day engineer. Lloyd names the second job factory engineering: the
+engineer is "engineering the system that builds the software and not just
+building the software directly" — a role [[AI-Native Role Archetypes]] does
+not yet list. Hu's spec-and-tests split above is what product engineers do
+inside the factory; Lloyd's layer is what the factory engineers keep running.
+
+**The stack**, bottom up, as Lloyd lists it for anyone building one, on Warp
+or not:
+
+1. **Declaration** — the factory as code, above.
+2. **Trace and artifact store** — every agent conversation and artifact,
+   following one piece of work from Slack through Linear and GitHub review to
+   a production crash, so it can be diagnosed or replayed later.
+3. **Integrations** — MCPs, with access scoped by team (what marketing may
+   reach versus engineering).
+4. **Compute** — a pluggable sandbox provider; Linux by default, a Mac VM
+   when computer use has to drive an iOS simulator.
+5. **Inference and harness** — bring your own provider (to burn down
+   existing commitments) or your own harness.
+6. **Improvement** — scorers and self-improvement agents
+   ([[Self-Improving AI Loop]]).
+7. **Orchestrator** — moves work through the stages, loading models and
+   skills and firing automations; "a piece of it," not the platform.
+8. **Access points** — headless, API- and MCP-driven. About 60% of Warp's
+   own work starts in Slack; at Spawn the same share starts from production
+   errors and reports ([[Stigmergic Coordination]]).
+
+He places the whole stack "one level back from" CI/CD, a new layer of
+developer infrastructure. Its metrics assume the PR as the unit of work
+(cost per PR, human touches per PR, revert rate), the unit Spawn dropped.
+
+> [!claim] A factory platform pays off from about five to ten engineers; smaller teams go faster on plain subscriptions
+> confidence: low · status: supported
+> evidence: "if you're like a few people honestly… this is overkill. Don't do
+> this… you'll go faster"; "five to 10 engineers would maybe be the floor";
+> self-serve for growth-stage startups on a common Slack/Linear/Jira stack;
+> very large companies with bespoke infrastructure build their own —
+> [[2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd]].
+> One vendor's sales experience, no data. It argues against the vendor's
+> interest at the low end, which is why it is filed as supported rather
+> than speculative.
+
+Warp's own throughput rose 40% in a month of tuning (detail in
+[[Token Efficiency]]). That is a gain inside a running factory, not a
+before-and-after against no factory, so it neither supports nor refutes the
+order-of-magnitude claim above.

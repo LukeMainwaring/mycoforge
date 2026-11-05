@@ -1,7 +1,7 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-11-02
+updated: 2026-11-05
 sources:
   - "[[2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up]]"
   - "[[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]"
@@ -11,6 +11,7 @@ sources:
   - "[[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]"
   - "[[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]"
   - "[[2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn)]]"
+  - "[[2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd]]"
 raw:
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
@@ -20,6 +21,7 @@ raw:
   - raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md
   - raw/articles/2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn).md
   - raw/podcasts/2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn).md
+  - raw/podcasts/2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd.md
 related:
   - "[[Skill Evolution]]"
   - "[[AI-Native Company]]"
@@ -30,6 +32,8 @@ related:
   - "[[Tiered Autonomy]]"
   - "[[Advisory and Deterministic Controls]]"
   - "[[Stigmergic Coordination]]"
+  - "[[AI Software Factory]]"
+  - "[[Zach Lloyd]]"
 confidence: medium
 tags: [ai-native, feedback-loops]
 ---
@@ -185,6 +189,32 @@ agents reporting bugs as they play, "not the type of thing that you're going
 to get in many categories of products." Whether the approach needs that
 loop, and whether other products can build one, he leaves open. It sits
 beside his objective-metric precondition above.
+
+## The loop on the factory itself
+
+In Warp's [[AI Software Factory]]
+([[2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd]])
+the thing being improved is the factory's own definition, not a product
+process:
+
+- **Sensor.** Every agent run, stored centrally rather than on engineers'
+  laptops; [[Zach Lloyd]] calls these traces "the key aspect of how this
+  system improves."
+- **Quality gate.** Scorers, which he also calls "online evals": an LLM judge
+  grades stored runs after the fact, with a chosen judge model, a judging
+  prompt, and a sample rate to cap cost. Built-ins check verbosity,
+  efficiency, code quality and redundant tests; teams add their own failure
+  modes, in code.
+- **Learning.** Self-improvement agents look for clusters of failures and,
+  because the factory is code, open a PR against the definition. The worked
+  example: 54 triage failures where triage should have spawned a subagent
+  to investigate.
+
+What the loop lacks is a check that a proposed change helps before a person
+reviews it. Lloyd names it as the next step, to "replay the runs and make
+sure that this actually would have improved them." That replay is the
+better-than-best gate [[Skill Evolution]] already runs on its validation
+split, here with a team's own past runs as the test set.
 
 [[Kareem Amin]]'s practitioner version of the thesis: "the moat for any
 company right now is that it needs to be self-improving. So Clay is a

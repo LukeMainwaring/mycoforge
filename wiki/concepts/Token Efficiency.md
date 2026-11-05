@@ -1,16 +1,19 @@
 ---
 type: concept
 created: 2026-09-06
-updated: 2026-11-02
+updated: 2026-11-05
 sources:
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
   - "[[2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution]]"
   - "[[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]"
+  - "[[2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd]]"
 raw:
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
   - raw/papers/2026-08-27 WikiSkill - Compiling Agent Experience into Persistent Knowledge for Skill Evolution.md
   - raw/articles/2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn).md
+  - raw/podcasts/2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd.md
 related:
+  - "[[Zach Lloyd]]"
   - "[[Skill Evolution]]"
   - "[[AI-Native Company]]"
   - "[[Progressive Disclosure]]"
@@ -75,6 +78,35 @@ small model can carry workarounds that hurt a large one
 ([[Fix the Principle, Not the Example]]). The proposer's on-demand reading
 also makes the optimizer's cost constant in training-set size, the
 [[Progressive Disclosure]] payoff with a number on it.
+
+## Cost per PR, measured
+
+Warp is the first source to put numbers on Lieberman's cost-per-accepted-PR
+metric, from its own [[AI Software Factory]]
+([[2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd]]).
+
+> [!claim] Tuning a factory's model and agent choices cut cost per PR about fourfold without raising the revert rate
+> confidence: low · status: supported
+> evidence: at the start, about $80 per PR, "because we were using like Opus
+> where we shouldn't have", a high-powered model on triage, and too many
+> subagents; after tuning with the factory's own scorers and benchmarks,
+> "like 20 bucks or 15 bucks"; over the last month throughput up 40% and the
+> revert rate flat — [[2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd]] ([[Zach Lloyd]]).
+> One vendor's self-report from a product demo, with no baseline period or
+> control for PR size. Auto captions.
+
+The fixes are the routing and plan/execute mechanisms above, found by
+measurement rather than chosen up front. Two instruments did it:
+
+- **Cost slicing** — by person, by automation, and by SDLC stage, to see
+  where the money goes.
+- **Benchmarks on your own runs** — curate past agent runs (say, all the
+  front-end ones), replay them against a grid of models and harnesses, and
+  plot cost against correctness on "your company's own real runs" instead
+  of public benchmarks. The result feeds a model or harness routing policy
+  for that codebase. This is the host's "cost per completeness" comparison
+  of model–harness pairs, built. The model scores shown in the demo are left
+  out; they date fast.
 
 ## Tension with token maxing
 
