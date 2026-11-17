@@ -38,10 +38,10 @@ markdown in a git repo you own.
 ## How it works
 
 ```text
-  you curate          the agent compiles         everything reads
-  ──────────          ──────────────────         ────────────────
-     raw/      ──▶          wiki/         ──▶    your questions
-    sources                 pages                product repos (MCP)
+  you curate                the agent compiles                what reads it
+  ──────────                ──────────────────                ─────────────
+  raw/ (your sources)  ──▶  wiki/ (linked, cited pages)  ──▶  your questions
+                                                              product repos (MCP)
 
   AGENTS.md sets the rules · lint and audit check them
 ```
