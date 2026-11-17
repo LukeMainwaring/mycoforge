@@ -1,6 +1,6 @@
 ---
 name: onboard
-description: Turn this MycoForge template clone into your own knowledge base — interview for domain, identity, features, and page-type taxonomy; run the deterministic prune+rename; generate the seed pages; verify with lint. Use when starting a new KB from this template, or when the user says "onboard", "set up this KB", or "make this mine".
+description: Turn this MycoForge template clone into your own knowledge base — interview for domain, identity, features, and page-type taxonomy; run the deterministic prune+rename; generate the seed pages; verify with lint. Use when starting a new KB from this template.
 disable-model-invocation: true
 ---
 
@@ -17,10 +17,9 @@ lists — read them from the manifest.
 
 1. Check `.template/features.toml` exists. If `.template/` is gone, this repo is
    already onboarded — stop and tell the user.
-2. Run `python3 .template/onboard.py --list` to see the cuttable features
-   (currently `product`, `orchestrator`, `media-capture`, `insight`,
-   `mcp-server` — all independent). Read `.template/README.md` if you need the
-   marker/prune details.
+2. Run `python3 .template/onboard.py --list` to see the cuttable features and
+   their descriptions (all independent). Read `.template/README.md` if you need
+   the marker/prune details.
 3. Confirm git state is clean (or warn the user) so onboarding is a reviewable diff.
 
 ## Phase 1 — Interview
@@ -51,23 +50,24 @@ anything the user already answered (e.g. via an argument).
 4. **Feature keep-set** (multi-select — one per feature, read
    from `--list`; with an archetype, present the preset's `keep` list as the
    pre-selected answer and ask its `optional` features individually):
-   - `product` — spec pages, decisions/ADRs, roadmap, Home dashboard. Keep if
-     this KB feeds software or accumulates formal decisions.
-   - `orchestrator` — children manifest, routing workflow, child-aware lint.
-     Keep only for a parent KB with nested child KBs.
-   - `media-capture` — `/transcript` + `/snippet` for podcast/video sources.
-   - `insight` — `/research` (web source discovery into `raw/`) + `/connect`
-     (novel-connection syntheses). Keep for KBs that grow by exploration.
-   - `mcp-server` — read-only search/read/index for other repos' agent sessions.
+   Describe each from its `--list` line. When to recommend keeping it:
+   - `product` — this KB feeds software.
+   - `orchestrator` — only a parent KB with nested child KBs.
+   - `media-capture` — podcast or video sources.
+   - `insight` — the KB grows by exploration, not only by sources the user
+     already has.
+   - `architecture` — the user wants diagrams of the KB kept current, or will
+     explain it to other people.
+   - `mcp-server` — other repos' agent sessions will read this KB.
 5. **Page-type taxonomy**: propose domain-appropriate types —
    `concepts/people/syntheses` for a research KB, `books/authors/themes` for a
    reading library, `projects/experiments/notes` for a lab KB — plus "keep the
    default". The chosen types become the `wiki/` subfolders and the `type:`
    values in the frontmatter schema. Archetype pre-fills: second-brain proposes
    the default `concepts/people/syntheses`; playbook proposes
-   `concepts/decisions/playbooks/roles` (decision pages live in the `product`
-   feature's top-level `decisions/`; `playbooks/` and `roles/` are `wiki/`
-   subfolders).
+   `concepts/decisions/playbooks/roles` (decision pages live in the top-level
+   `decisions/`, which every instance keeps; `playbooks/` and `roles/` are
+   `wiki/` subfolders).
 
 ## Phase 2 — Dry run + confirm
 
@@ -97,10 +97,26 @@ Now your half. All of it must obey the schema in `AGENTS.md`:
    instance description, the `type:` list in the frontmatter section, any
    domain-specific workflow notes from the interview. Keep the template contract
    section intact (markers are gone, but the kb.toml discipline still applies).
-2. **Wiki reset**: delete the example wiki pages (`wiki/concepts/`, `wiki/people/`,
-   `wiki/syntheses/` contents), the example raw source in `raw/articles/`, and —
-   if `product` was kept — the example ADRs in `decisions/` and the example page
-   in `product/software/`. Create the taxonomy's empty subfolders.
+2. **Example reset**: the template ships its author's live KB as the example.
+   Delete all of it that survived the prune, leaving each folder in place:
+   - every page under `wiki/concepts/`, `wiki/people/`, `wiki/syntheses/`
+   - every source under `raw/articles/`, `raw/papers/`, `raw/podcasts/`
+   - every ADR in `decisions/` that no surviving file cites. List the cited
+     ones with
+     `grep -rhoE 'ADR-[0-9]{3}' AGENTS.md .agents/skills scripts mcp kb.toml 2>/dev/null | sort -u`
+     and keep those: they hold the reasons for rules this instance inherits. In
+     each kept ADR, turn wikilinks to deleted pages into plain text and drop
+     the `sources:` / `raw:` entries for deleted sources.
+   - `product/MVP.md` and the example page in `product/software/` (if `product`
+     was kept)
+   - `images/mycoforge-logo.png`
+   - every page under `architecture/` and every folder under
+     `architecture/diagrams/` (if `architecture` was kept; the first
+     `/architecture-guide` run rebuilds them for the new wiki)
+   - the rows in `staging/ingest.md` and the run sections in `staging/scout.md`
+     (if `insight` was kept)
+
+   Then create the taxonomy's empty subfolders.
 3. **Seed pages**: fresh `wiki/overview.md` (domain, purpose, where to start),
    `wiki/index.md` (empty catalog with the taxonomy's sections), `wiki/log.md`
    (one genuine `schema |` entry recording the onboarding; if the user brings
@@ -145,11 +161,21 @@ Now your half. All of it must obey the schema in `AGENTS.md`:
 
    The second-brain archetype adds nothing here — it uses the standard seed set
    with the default taxonomy.
-4. **Config**: refresh `kb.toml` — `[kb]` description; `[lint]`
-   `concept_candidate_terms` seeded with 3–5 terms likely to recur in this
-   domain; `intentional_forward_links` for pages the user already knows they
-   want; `[snippet].glossary` starters (domain jargon ASR will get wrong) if
-   media-capture was kept.
+4. **Config**: refresh `kb.toml` — `[kb]` description; `[scout]` `topics` and
+   `watch` replaced with the new domain's (if `insight` was kept). Replace,
+   never append to, the template's own values in `[lint]`
+   `concept_candidate_terms` (3–5 terms likely to recur in this domain),
+   `intentional_forward_links` (pages the user already knows they want, or
+   empty) and, if media-capture was kept, `[snippet].glossary` (domain jargon
+   ASR will get wrong, or empty).
+5. **README**: rewrite `README.md` for the instance — what this KB is about,
+   the three layers, the workflows and skills that survived the prune, and how
+   to attach it over MCP if `mcp-server` was kept. Every path and command it
+   names exists in the pruned tree.
+
+Phase 4 is done when every file `find raw wiki decisions product architecture
+staging images -type f 2>/dev/null` lists is one this phase wrote or emptied, a kept ADR,
+or a `.gitkeep`.
 
 ## Phase 5 — Lint
 
@@ -172,6 +198,6 @@ the next steps (drop a first source into `raw/` and say "ingest"). Keep it short
 
 - Read feature names from `python3 .template/onboard.py --list`; never hardcode.
 - Always dry-run and show the plan before `--apply`.
-- **The script owns pruning and renaming (never do it by hand); the skill owns
+- **The script owns feature pruning and renaming (never do it by hand); the skill owns
   interview, generation, and prose.**
 - Everything you generate must pass `scripts/lint.py` — indexed, linked, logged.

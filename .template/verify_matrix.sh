@@ -14,7 +14,7 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 EXCLUDES=(
   --exclude .git --exclude __pycache__ --exclude '*.pyc'
   --exclude .pytest_cache --exclude .ruff_cache --exclude .obsidian
-  --exclude BUILD_SPEC.md
+  --exclude BUILD_SPEC.md --exclude .archify
 )
 
 fail=0
@@ -22,7 +22,8 @@ fail=0
 # Post-prune consistency the linter can't see:
 #   1. CLAUDE.md -> AGENTS.md and .claude/skills -> .agents/skills symlinks intact
 #   2. no surviving file references a pruned skill directory
-#   3. .mcp.json present iff mcp/server.py present (the mcp-server feature seam)
+#   3. .mcp.json present, and .codex/config.toml registering the server, iff
+#      mcp/server.py present (the mcp-server feature seam)
 #   4. every surviving skill dir still has its SKILL.md
 check_consistency() {
   python3 - "$1" <<'PY'
@@ -51,6 +52,10 @@ has_json = (root / ".mcp.json").exists()
 has_server = (root / "mcp/server.py").exists()
 if has_json != has_server:
     problems.append(f".mcp.json present={has_json} but mcp/server.py present={has_server}")
+codex = root / ".codex/config.toml"
+has_codex = codex.exists() and "mcp/server.py" in codex.read_text(encoding="utf-8")
+if has_codex != has_server:
+    problems.append(f".codex/config.toml registers the server={has_codex} but mcp/server.py present={has_server}")
 
 skills_dir = root / ".agents/skills"
 if skills_dir.exists():
@@ -121,7 +126,7 @@ run_case() {
 }
 
 run_case "full + rename"  --keep product,orchestrator,media-capture,mcp-server,insight,architecture --slug testkb --brand TestKB
-run_case "research-only"  --keep orchestrator,media-capture,mcp-server
+run_case "no product"     --keep orchestrator,media-capture,mcp-server
 run_case "leaf"           --keep product,media-capture,mcp-server,insight,architecture
 run_case "minimal"        --keep ""
 # the [archetypes] preset combos from features.toml (defaults; optionals dropped)
