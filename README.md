@@ -37,15 +37,13 @@ markdown in a git repo you own.
 
 ## How it works
 
-```mermaid
-flowchart LR
-    you([You]) -->|curate| raw[("raw/<br/>immutable sources")]
-    raw -->|ingest, one source per session| wiki[("wiki/<br/>agent-maintained pages")]
-    you -->|ask| wiki
-    wiki -->|answers with citations| you
-    wiki -->|read-only MCP| products["Product repos<br/>and other agents"]
-    checks["Lint · audit · decisions"] -->|keep it honest| wiki
-    schema["AGENTS.md + kb.toml"] -.->|the rules| wiki
+```text
+  you curate          the agent compiles         everything reads
+  ──────────          ──────────────────         ────────────────
+     raw/      ──▶          wiki/         ──▶    your questions
+    sources                 pages                product repos (MCP)
+
+  AGENTS.md sets the rules · lint and audit check them
 ```
 
 Three layers, one ownership rule:
