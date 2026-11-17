@@ -1,7 +1,7 @@
 <div align="center">
   <img src="images/mycoforge-logo.png" alt="MycoForge" width="140" />
   <h1>MycoForge</h1>
-  <p>Grow a knowledge base that compounds. A template for Karpathy-pattern LLM wikis — an AI agent tends a markdown knowledge base over your curated sources, with a schema, deterministic lint, capture skills, and a read-only MCP feed.</p>
+  <p>Grow a knowledge base that compounds. A template for Karpathy-pattern LLM wikis: you curate the sources, an AI agent keeps the wiki, and everything you build reads from it.</p>
 
   [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
   [![Python: stdlib only](https://img.shields.io/badge/Python-stdlib_only-3776AB.svg)](scripts/lint.py)
@@ -9,63 +9,93 @@
   [![MCP](https://img.shields.io/badge/MCP-read--only_server-black.svg)](mcp/server.py)
 </div>
 
-## What is MycoForge?
+## Why
 
-MycoForge is a starting point, not a product. It packages the
+Most AI setups start every question from zero: search the documents again,
+answer, forget. MycoForge packages the
 [LLM wiki pattern](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
-— a persistent, compounding markdown knowledge base maintained by an LLM agent —
-as a **template you instantiate per domain**: a research topic, a personal
-project, a books library, a whole-vault orchestrator.
+so the work adds up instead.
+
+- **Knowledge is compiled once and kept current.** Each source is read in full
+  and folded into pages that already exist, so the tenth source lands in a wiki
+  that knows the first nine.
+  ([Why LLM Wikis Beat RAG](wiki/syntheses/Why%20LLM%20Wikis%20Beat%20RAG.md))
+- **The context is the part you keep.** Software built on top can be thrown away
+  and regenerated; the decisions, playbooks and sources behind it can't.
+  ([Company Brain](wiki/concepts/Company%20Brain.md))
+- **You curate and decide; the agent does the upkeep.** Summarizing,
+  cross-linking, indexing, logging and linting are the agent's job, every time.
+  ([Three-Layer Architecture](wiki/concepts/Three-Layer%20Architecture.md))
+- **The rules that matter are checked, not just requested.** Conventions live in
+  a schema; a linter and an audit script check them.
+  ([Advisory and Deterministic Controls](wiki/concepts/Advisory%20and%20Deterministic%20Controls.md))
+
+It fits two shapes: a **personal second brain** (your research and reading,
+compounding) and a **company playbook** (the decisions, processes and roles an
+AI-native team's agents work from). Either way the knowledge base is plain
+markdown in a git repo you own.
+
+## How it works
+
+```mermaid
+flowchart LR
+    you([You]) -->|curate| raw[("raw/<br/>immutable sources")]
+    raw -->|ingest, one source per session| wiki[("wiki/<br/>agent-maintained pages")]
+    you -->|ask| wiki
+    wiki -->|answers with citations| you
+    wiki -->|read-only MCP| products["Product repos<br/>and other agents"]
+    checks["Lint · audit · decisions"] -->|keep it honest| wiki
+    schema["AGENTS.md + kb.toml"] -.->|the rules| wiki
+```
 
 Three layers, one ownership rule:
 
-- **`raw/`** — your curated sources (papers, articles, transcripts). Immutable;
-  the LLM reads but never modifies them.
-- **`wiki/`** — LLM-owned markdown: concept and entity pages, syntheses, an
+- **`raw/`** holds your curated sources (papers, articles, transcripts). The
+  agent reads them and never modifies them.
+- **`wiki/`** is agent-owned markdown: concept and people pages, syntheses, an
   `index.md` catalog, an append-only `log.md`. Obsidian is the IDE; the LLM is
   the programmer; the wiki is the codebase.
-- **`AGENTS.md`** — the schema: the contract that makes the LLM a disciplined
-  wiki maintainer instead of a generic chatbot.
+- **`AGENTS.md`** is the schema: the contract that makes the agent a disciplined
+  wiki maintainer instead of a generic chatbot. `CLAUDE.md` is a symlink to it,
+  so it works in Claude Code and Codex alike.
+
+The full picture, with every workflow on it, is in [The Machinery](architecture/The%20Machinery.md). <!-- sf:keep-if(architecture) -->
 
 MycoForge is the KB sibling of
 [sporeforge](https://github.com/LukeMainwaring/sporeforge), the full-stack
-AI-app template. Where sporeforge grows fruiting bodies — software products —
-MycoForge is the mycelial network that feeds them: products come and go as
-separate sporeforge instances, while **the knowledge base is the part you always
-keep**, feeding them over MCP.
+AI-app template. Products come and go as separate sporeforge instances; the
+knowledge base feeds them over MCP and outlives them.
 
-## The example you replace, and the meta-layer you keep
+## What's in the box
 
-The shipped wiki is **self-referential**: it documents the LLM-wiki pattern
-itself, with Karpathy's gist as its one raw source, four concept pages, a
-synthesis with its claims marked, and the template's own design decisions as
-real ADRs. It exists to be the worked example — every page obeys the schema, so
-CI has real content to lint and you learn the conventions by reading them.
+| Job | What does it |
+|---|---|
+| **Capture** sources into `raw/` | `/transcript`, `/snippet` (podcasts and video), `/research` (find sources for a question), `/scout` (standing watch for fresh ones) |
+| **Compound** them into the wiki | Ingest, Query, `/connect` (bridges between weakly-linked pages) |
+| **Keep it honest** | `scripts/lint.py`, `/audit` (one health report, never edits), claim callouts with a status, ADRs in `decisions/` |
+| **Explain it** | `/architecture-guide` keeps diagrams of the machinery and of the content current |
+| **Feed** other repos | Read-only MCP server: `search_kb`, `read_page`, `get_index` |
+| **Maintain** the tooling | `/onboard`, `/sync-upstream` (template updates), `/sync-skills` (vendored skills) |
+
+Plus a few utility skills: `/grill-me`, `/handoff`, `/teach`, `/pr`. Skills live
+in `.agents/skills/`; the tooling is Python stdlib; every per-instance setting
+is in `kb.toml`.
+
+## The example you replace
+
+The wiki in this repo is a live knowledge base, not a toy: it covers the
+LLM-wiki pattern itself and AI-native ways of working, built up source by source
+with the same workflows you'll use, and the template's own design decisions are
+its ADRs. Read it to learn the conventions; every page obeys the schema.
 Onboarding deletes it and seeds your domain in its place.
-
-What you keep is the meta-layer:
-
-- **The schema** (`AGENTS.md`, with `CLAUDE.md` symlinked) — conventions,
-  frontmatter, claim callouts, and the Ingest / Query / Lint workflows. Works in
-  Claude Code and Codex alike.
-- **The linter** (`scripts/lint.py`, pure stdlib) — index audits, wikilink
-  resolution, provenance checks, orphan/stale detection, concept-candidate
-  promotion hints. Every knob reads from `kb.toml`.
-- **Skills** (`.agents/skills/`) — `/transcript` and `/snippet` capture
-  spoken-word sources into `raw/`; `/research` finds and lands new sources;
-  `/connect` files novel bridges between weakly-linked pages;
-  `/sync-upstream` ports template updates; `/onboard` runs the whole setup
-  interview.
-- **The MCP server** (`mcp/server.py`) — read-only `search_kb` / `read_page` /
-  `get_index` so other repos' agent sessions can consult the KB.
 
 ## Quick start
 
-No stack to install — the KB is markdown plus Python stdlib. You need
+No stack to install: the KB is markdown plus Python stdlib. You need
 [uv](https://docs.astral.sh/uv/) only if you keep the MCP server, and
 [yt-dlp](https://github.com/yt-dlp/yt-dlp) only if you keep media capture.
 
-MycoForge is a GitHub template repository — create a new KB from it (a fresh
+MycoForge is a GitHub template repository. Create a new KB from it (a fresh
 repo with its own history, not a fork):
 
 ```bash
@@ -75,69 +105,59 @@ cd my-kb
 
 Or click **Use this template → Create a new repository** on GitHub, then clone.
 
-Then onboard. The guided way: open an agent session (Claude Code or Codex) and
-say **"onboard"** — the `/onboard` skill interviews you for domain, identity,
-features, and page-type taxonomy, runs the deterministic prune, seeds your wiki,
-and cleans up after itself.
+Then open an agent session (Claude Code or Codex) and type **`/onboard`**. The
+skill interviews you for domain, identity, features and page types, runs the
+deterministic prune, seeds your wiki, and cleans up after itself.
 
 ## Onboarding
 
-The scaffold ships every feature on, then you **cut down** to what you want —
-pruning is subtractive, deterministic, and verified. The five cuttable features
-(the wiki core is the trunk and always stays):
+The scaffold ships every feature on, then you **cut down** to what you want.
+Six features can be cut; the wiki core always stays.
 
 | Feature | What it is |
 |---|---|
-| `product` | Spec pages, roadmap, Home dashboard — for KBs that feed software (ADRs in `decisions/` are trunk) |
+| `product` | Spec pages, roadmap, Home dashboard, for KBs that feed software (ADRs in `decisions/` always stay) |
 | `orchestrator` | Parent-KB federation: children manifest, routing workflow, child-aware lint |
-| `media-capture` | `/transcript` + `/snippet` skills for podcast/video sources |
-| `insight` | `/research` (web source discovery into `raw/`) + `/connect` (novel-connection syntheses) |
+| `media-capture` | `/transcript` + `/snippet` for podcast and video sources |
+| `insight` | `/research`, `/scout` and `/connect`, plus the `staging/` queues |
+| `architecture` | `/architecture-guide` and the `architecture/` pages and diagrams |
 | `mcp-server` | The read-only MCP feed |
 
-The raw CLI underneath the skill lives in [`.template/`](.template/README.md):
+`/onboard` opens by asking which shape you want, and a preset pre-fills the
+features, page types and seed pages (every answer still overridable):
+
+- **Personal second brain** keeps `media-capture` + `insight`; `mcp-server` and
+  `architecture` are optional. Default `concepts/people/syntheses` page types.
+- **Company playbook** keeps `product` + `mcp-server` + `insight` +
+  `architecture`; `orchestrator` is optional, for multi-venture federation.
+  Page types are `concepts/decisions/playbooks/roles`, seeded with a
+  lifecycle-stage frame, a playbook template and a role template.
+- **Custom** is the plain interview.
+
+The CLI underneath the skill lives in [`.template/`](.template/README.md):
 
 ```bash
 python3 .template/onboard.py --list                            # the cuttable features
-python3 .template/onboard.py --keep orchestrator,media-capture,mcp-server
-                                                               # preview: research-only KB
+python3 .template/onboard.py --keep media-capture,insight      # preview: second-brain preset
 python3 .template/onboard.py --keep media-capture,mcp-server \
         --slug mykb --brand MyKB --apply                       # apply + rename
 ```
 
-Feature-specific content is marked inline (HTML comments in markdown, hash
-comments in code), so pruning is mechanical — and `.template/verify_matrix.sh`
-proves every representative combo still lints clean with zero leftovers. Delete
-`.template/` once you've onboarded (the `/onboard` skill does).
+Feature-specific content is marked inline, so pruning is mechanical.
+`.template/verify_matrix.sh` prunes six representative combinations and checks
+each one lints clean, has no leftover markers, and passes the tooling tests.
+`/onboard` deletes `.template/` when it's done.
 
-Instances **vendor** their tooling (copy-and-own). All per-instance data lives
-in `kb.toml`, so the code stays byte-identical across instances and the
-`/sync-upstream` skill can port template updates against the pinned
+Instances **vendor** their tooling (copy and own). Because per-instance data
+lives in `kb.toml`, the code stays byte-identical across instances and
+`/sync-upstream` can port template updates against the pinned
 `template.version`.
-
-### Two archetypes, one substrate
-
-The template's identity is the substrate — a compounding LLM wiki, whatever the
-domain. But two instance shapes recur, so `/onboard` offers them as **presets**:
-its first question is *personal second-brain / company playbook / custom*, and a
-preset pre-fills the feature keep-set, taxonomy, and seed pages — every answer
-still overridable, and "custom" is the plain interview.
-
-- **Personal second-brain** — an individual's compounding research/reading KB.
-  Keeps `media-capture` + `insight` (`mcp-server` optional); default taxonomy
-  and seeds.
-- **Company playbook** — a venture's durable context layer: the decisions,
-  playbooks, and roles that outlive any feature plan. Keeps `product` +
-  `mcp-server` + `insight` (`orchestrator` optional, for multi-venture
-  federation); a `concepts/decisions/playbooks/roles` taxonomy; seed
-  scaffolding — a lifecycle-stage frame with exit criteria, a loop-anatomy
-  playbook template, and role pages on three axes (what it owns, why a human,
-  how it reshapes around orchestration).
 
 ## Feeding a product repo over MCP
 
-This repo's `.mcp.json` already registers the server for sessions opened in the
-KB. To attach the KB from a *product* repo (or anywhere else), add one entry to
-that repo's `.mcp.json`, pointing at the KB by absolute path:
+`.mcp.json` (Claude Code) and `.codex/config.toml` (Codex) already register the
+server for sessions opened in the KB. To attach the KB from a *product* repo,
+add one entry to that repo's `.mcp.json`, pointing at the KB by absolute path:
 
 ```json
 {
@@ -147,27 +167,32 @@ that repo's `.mcp.json`, pointing at the KB by absolute path:
 }
 ```
 
-The product session can then `search_kb`, `read_page`, and `get_index` — and
+The product session can then `search_kb`, `read_page` and `get_index`, and
 never write: ingestion stays an interactive workflow inside the KB, by design
 (see `decisions/ADR-004 Read-Only MCP in v1.md`).
 
-The server's dependencies are pinned in `mcp/server.py.lock`; run
-`uv lock --script mcp/server.py --upgrade` to bump them.
+`uv` handles the server's Python and dependencies, pinned in
+`mcp/server.py.lock`; run `uv lock --script mcp/server.py --upgrade` to bump
+them.
 
-## Operating the KB
+## Day to day
 
-Day to day, everything runs through the schema's workflows — drop a source in
-`raw/` and say "ingest"; ask questions; say "lint" now and then. The linter is
-also a plain command:
+Everything runs through the schema's workflows, in plain language:
 
-```bash
-python3 scripts/lint.py
-```
+- Drop a source in `raw/` and say **"ingest"**. Pending sources queue in
+  `staging/ingest.md`.
+- **Ask questions.** Answers cite wiki pages; say so if one is worth filing.
+- Say **"lint"** now and then, or run `python3 scripts/lint.py` yourself.
+- Type **`/audit`** for one report across lint, vendored-skill drift, stale
+  diagrams and the scout ledger. It reports and never fixes.
+- Type **`/scout`** to look for fresh sources on the topics in `kb.toml`.
+- Say **"we decided…"** to record an ADR in `decisions/`.
+
+Knowledge commits straight to `main`, one commit per workflow run. Changes to
+the schema, tooling or skills go on a branch with a PR.
 
 ## Roadmap
 
-Tracked in `roadmap.md` (instances that keep the `product` feature). For the
-template itself: a vault-level orchestrator instance, retrofitting pre-template
-KBs via `/sync-upstream`, a books-library instance, and — as graduations if the
-simple thing stops sufficing — MCP write tools, embeddings, and an installable
-`kb-lint` package.
+Tracked in `roadmap.md`. Next: dogfooding the company-playbook preset. Later,
+only if the simple thing stops being enough: MCP write tools, embeddings, an
+installable `kb-lint` package, and briefing generation from wiki pages.

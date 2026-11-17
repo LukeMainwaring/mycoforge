@@ -24,7 +24,7 @@ it by hand. **Delete this whole directory once you've onboarded.**
 ```bash
 python3 .template/onboard.py --list                            # show features
 python3 .template/onboard.py --keep orchestrator,media-capture,mcp-server
-                                                               # preview: research KB
+                                                               # preview: no product layer
 python3 .template/onboard.py --keep media-capture,mcp-server \
         --slug mykb --brand MyKB --apply                       # apply + rename
 python3 .template/onboard.py --keep "" --apply                 # minimal wiki core

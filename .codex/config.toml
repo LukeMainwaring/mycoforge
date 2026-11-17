@@ -1,6 +1,8 @@
+# sf:begin(mcp-server)
 [mcp_servers.mycoforge]
 command = "uv"
 args = [
     "run",
     "mcp/server.py",
 ]
+# sf:end(mcp-server)
