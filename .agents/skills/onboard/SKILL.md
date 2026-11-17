@@ -101,17 +101,22 @@ Now your half. All of it must obey the schema in `AGENTS.md`:
    Delete all of it that survived the prune, leaving each folder in place:
    - every page under `wiki/concepts/`, `wiki/people/`, `wiki/syntheses/`
    - every source under `raw/articles/`, `raw/papers/`, `raw/podcasts/`
-   - every ADR in `decisions/`
-   - `product/software/` example page (if `product` was kept)
+   - every ADR in `decisions/` that no surviving file cites. List the cited
+     ones with
+     `grep -rhoE 'ADR-[0-9]{3}' AGENTS.md .agents/skills scripts mcp kb.toml 2>/dev/null | sort -u`
+     and keep those: they hold the reasons for rules this instance inherits. In
+     each kept ADR, turn wikilinks to deleted pages into plain text and drop
+     the `sources:` / `raw:` entries for deleted sources.
+   - `product/MVP.md` and the example page in `product/software/` (if `product`
+     was kept)
+   - `images/mycoforge-logo.png`
    - every page under `architecture/` and every folder under
      `architecture/diagrams/` (if `architecture` was kept; the first
      `/architecture-guide` run rebuilds them for the new wiki)
    - the rows in `staging/ingest.md` and the run sections in `staging/scout.md`
      (if `insight` was kept)
 
-   Then create the taxonomy's empty subfolders. Done when
-   `git ls-files raw wiki decisions architecture staging` lists only files this
-   phase wrote or emptied.
+   Then create the taxonomy's empty subfolders.
 3. **Seed pages**: fresh `wiki/overview.md` (domain, purpose, where to start),
    `wiki/index.md` (empty catalog with the taxonomy's sections), `wiki/log.md`
    (one genuine `schema |` entry recording the onboarding; if the user brings
@@ -157,15 +162,20 @@ Now your half. All of it must obey the schema in `AGENTS.md`:
    The second-brain archetype adds nothing here — it uses the standard seed set
    with the default taxonomy.
 4. **Config**: refresh `kb.toml` — `[kb]` description; `[scout]` `topics` and
-   `watch` replaced with the new domain's (if `insight` was kept); `[lint]`
-   `concept_candidate_terms` seeded with 3–5 terms likely to recur in this
-   domain; `intentional_forward_links` for pages the user already knows they
-   want; `[snippet].glossary` starters (domain jargon ASR will get wrong) if
-   media-capture was kept.
+   `watch` replaced with the new domain's (if `insight` was kept). Replace,
+   never append to, the template's own values in `[lint]`
+   `concept_candidate_terms` (3–5 terms likely to recur in this domain),
+   `intentional_forward_links` (pages the user already knows they want, or
+   empty) and, if media-capture was kept, `[snippet].glossary` (domain jargon
+   ASR will get wrong, or empty).
 5. **README**: rewrite `README.md` for the instance — what this KB is about,
    the three layers, the workflows and skills that survived the prune, and how
    to attach it over MCP if `mcp-server` was kept. Every path and command it
    names exists in the pruned tree.
+
+Phase 4 is done when every file `find raw wiki decisions product architecture
+staging images -type f 2>/dev/null` lists is one this phase wrote or emptied, a kept ADR,
+or a `.gitkeep`.
 
 ## Phase 5 — Lint
 
@@ -188,6 +198,6 @@ the next steps (drop a first source into `raw/` and say "ingest"). Keep it short
 
 - Read feature names from `python3 .template/onboard.py --list`; never hardcode.
 - Always dry-run and show the plan before `--apply`.
-- **The script owns pruning and renaming (never do it by hand); the skill owns
+- **The script owns feature pruning and renaming (never do it by hand); the skill owns
   interview, generation, and prose.**
 - Everything you generate must pass `scripts/lint.py` — indexed, linked, logged.
