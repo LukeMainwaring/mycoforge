@@ -1,7 +1,7 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-11-02
+updated: 2026-11-17
 sources:
   - "[[2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up]]"
   - "[[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]"
@@ -12,6 +12,7 @@ sources:
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
   - "[[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]"
   - "[[2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn)]]"
+  - "[[2026-11-17 The AI Daily Brief - 7 Things AI-Native Companies Do Differently]]"
 raw:
   - raw/podcasts/2026-04-24 Y Combinator - How To Build A Company With AI From The Ground Up.md
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
@@ -22,6 +23,7 @@ raw:
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
   - raw/articles/2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn).md
   - raw/podcasts/2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn).md
+  - raw/podcasts/2026-11-17 The AI Daily Brief - 7 Things AI-Native Companies Do Differently.md
 related:
   - "[[AI-Native Startup Lifecycle]]"
   - "[[Founder as Orchestrator]]"
@@ -42,6 +44,7 @@ related:
   - "[[Token Efficiency]]"
   - "[[Progressive Disclosure]]"
   - "[[Stigmergic Coordination]]"
+  - "[[Agent Fleets, Not Teammates]]"
 confidence: medium
 tags: [ai-native, org-design]
 ---
@@ -55,7 +58,7 @@ The umbrella concept for the cluster: [[Self-Improving AI Loop]],
 [[Just-in-Time Planning]], [[Everyone Ships]], [[Build for Rebuilding]],
 [[Prototype, Dogfood, Productionize]], [[Fix the Principle, Not the Example]],
 [[AI-Native SDLC]], [[Advisory and Deterministic Controls]], [[Tiered Autonomy]],
-[[Token Efficiency]], [[Progressive Disclosure]].
+[[Token Efficiency]], [[Progressive Disclosure]], [[Agent Fleets, Not Teammates]].
 
 The cluster now has its first first-party practitioner source: the Claude Code
 team's own account of running this way
@@ -90,6 +93,31 @@ feature to where it lives. Two ideas were new enough to get pages:
 [[Token Efficiency]] and [[Progressive Disclosure]]. The host's framing of the
 year: in 2025 companies counted AI use cases; in 2026 "everything, it turns
 out, is a use case for AI" and the shift to agentic AI "actually began."
+
+An eighth source, [[2026-11-17 The AI Daily Brief - 7 Things AI-Native Companies Do Differently]], is the same host's round-up of what the most
+aggressive adopters (Stripe, Shopify, Uber, Ramp, Cloudflare and smaller
+startups) have published about running agents in production. It boils down to
+seven practices, summed up as "the company becomes a system." All of it is
+secondhand through the host, so medium at best. The seven, with where each
+lives in this KB:
+
+1. Give agents everything an employee can see → [[Company Brain]].
+2. Put agents in every function, not just engineering → [[Everyone Ships]].
+3. Let a signal, not a prompt, start the work, such as a customer message,
+   an invoice, a renewal or an alert → no page yet. At Uber, most agent
+   sessions are now started by other agents.
+4. Run one orchestrator that spins up sub-agents → [[Agent Fleets, Not Teammates]].
+5. Have agents check each other's work and show proof → [[Verification Bottleneck]].
+6. Scale review to risk and keep a named owner → [[Tiered Autonomy]].
+7. Run one shared system instead of everyone's own setup. Examples: shared
+   skills libraries (Ramp has 350 workflows; Uber has 3,600 skills run more
+   than 30,000 times a day); Shopify's coding agent works only in public Slack
+   channels, so every session is a searchable transcript; Warp's scoring
+   agents ([[Self-Improving AI Loop]]); and Shopify measures revert rate
+   rather than lines of AI code.
+
+His caveat is that most of the examples come from software, because code "has
+tests, verifiability, done has a clear definition."
 
 Both sources reject the **productivity framing** (copilots making engineers 20%
 faster) as "a more powerful engine bolted onto the old way of working"

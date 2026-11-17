@@ -1,7 +1,7 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-11-02
+updated: 2026-11-17
 sources:
   - "[[2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI]]"
   - "[[2026-05-06 The Founders Playbook (Anthropic)]]"
@@ -10,6 +10,7 @@ sources:
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
   - "[[2026-10-15 gbrain Belief Ledger Design (Garry Tan)]]"
   - "[[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]"
+  - "[[2026-11-17 The AI Daily Brief - 7 Things AI-Native Companies Do Differently]]"
 raw:
   - raw/podcasts/2026-05-21 Y Combinator - How to Build a Self-Improving Company with AI.md
   - raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf
@@ -18,6 +19,7 @@ raw:
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
   - raw/articles/2026-10-15 gbrain Belief Ledger Design (Garry Tan).md
   - raw/articles/2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn).md
+  - raw/podcasts/2026-11-17 The AI Daily Brief - 7 Things AI-Native Companies Do Differently.md
 related:
   - "[[AI-Native Company]]"
   - "[[Organizational Legibility]]"
@@ -109,6 +111,30 @@ the enterprise skills play below, said by a non-Anthropic source. The brain
 also has to be *shaped* for agents, not just filled: metadata at the top of
 every file so an agent loads only what it needs ([[Progressive Disclosure]],
 the [[Token Efficiency]] side of the brain).
+
+## Context maxing
+
+A November 2026 round-up on The AI Daily Brief adds what several companies have
+published about their context layers. All of it is secondhand, reported by the host
+([[2026-11-17 The AI Daily Brief - 7 Things AI-Native Companies Do Differently]]):
+
+- One AI-native company gives agents MCP or CLI access to "every meeting
+  recording, Slack, email, drive, and every tool the company uses" and calls
+  this "context maxing." Its agents also keep a clean shared document current
+  for every decision.
+- Ramp runs a daily pipeline that pulls Slack, Notion, Linear and calendar into
+  persistent memory "so agent sessions never have to start cold."
+- Uber built a context graph from more than 30 internal systems.
+- Shopify keeps code, skills, conventions, runbooks and agent instruction files
+  in one monorepo.
+
+> [!claim] A neglected context layer makes agents worse, and staff may withhold context to protect their jobs
+> confidence: low · status: supported
+> evidence: Ramp's analyst agent "gets absolutely worse when its context
+> layer gets out of date or is neglected"; a founder the host cites (the name
+> is garbled in the auto captions) found "employees who are unsure about their
+> future are starting to hoard context as job security" — [[2026-11-17 The AI Daily Brief - 7 Things AI-Native Companies Do Differently]].
+> The host's retelling of other people's posts, from auto captions; low.
 
 ## What a practitioner's brain looks like
 

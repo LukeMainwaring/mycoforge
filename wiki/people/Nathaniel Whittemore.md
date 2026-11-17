@@ -1,19 +1,22 @@
 ---
 type: person
 created: 2026-09-06
-updated: 2026-11-02
+updated: 2026-11-17
 sources:
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
   - "[[2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn)]]"
+  - "[[2026-11-17 The AI Daily Brief - 7 Things AI-Native Companies Do Differently]]"
 raw:
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
   - raw/podcasts/2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn).md
+  - raw/podcasts/2026-11-17 The AI Daily Brief - 7 Things AI-Native Companies Do Differently.md
 related:
   - "[[Alex Lieberman]]"
   - "[[AI-Native Company]]"
   - "[[Stigmergic Coordination]]"
   - "[[Organizational Legibility]]"
   - "[[Founder as Orchestrator]]"
+  - "[[Agent Fleets, Not Teammates]]"
 confidence: medium
 tags: [person]
 ---
@@ -50,3 +53,11 @@ make results observable; turn decisions into precedent
 "ambition and long horizon views do not come natural to agents"
 ([[Founder as Orchestrator]]). The clip's retelling of the article before
 that point misstates several figures and is not cited.
+
+In [[2026-11-17 The AI Daily Brief - 7 Things AI-Native Companies Do Differently]] he rounds up seven practices from companies' published accounts
+([[AI-Native Company]]). He also argues that the agent-as-teammate model is
+wrong, a model he used to run himself as a team of OpenClaw agents under a
+chief-of-staff agent. His own work is now organized as repositories of shared
+context that agents get dropped into ([[Agent Fleets, Not Teammates]]). The
+episode sits alongside his Spawn takeaway to "give agents ongoing
+responsibility" and does not retract it.

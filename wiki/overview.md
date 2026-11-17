@@ -60,5 +60,8 @@ which added [[Stigmergic Coordination]] and contested the production gate in
 turned [[AI Software Factory]] from a division of labor into infrastructure
 a platform team runs, and gave cost per PR its first numbers; Warp's own
 video ([[2026-11-02 Warp - How to build an agentic self improvement loop]])
-showed how its scorers are built ([[Self-Improving AI Loop]]). The catalog
+showed how its scorers are built ([[Self-Improving AI Loop]]). The same
+AI Daily Brief host's round-up of seven practices from companies' published
+accounts ([[2026-11-17 The AI Daily Brief - 7 Things AI-Native Companies Do Differently]]) is secondhand and lightly filed; its
+one new idea is [[Agent Fleets, Not Teammates]]. The catalog
 lives in [[index]]; the history in [[log]].

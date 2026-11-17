@@ -36,6 +36,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[Provenance Tags]] — obsidian-wiki's extracted / inferred / ambiguous mark on every claim, with lint for speculative drift; origin vs standing against this KB's callouts; why the lint does not transfer
 - [[Unattended Agent State]] — Anthropic's daily-brief pattern: read-only preferences vs read-write state, per-source bookmarks, append-only ledger, verify then confirm then record; what `/scout` has and lacks
 - [[Stigmergic Coordination]] — agents coordinate through the code, not messages: Spawn's no-PR, fix-forward, hourly-convergence engineering; the gate moves to irreversibility
+- [[Agent Fleets, Not Teammates]] — one host's case that agents organize as an orchestrator plus disposable sub-agents over shared context, not a roster of named teammates; low confidence
 
 ## People
 
@@ -76,6 +77,7 @@ The catalog: every wiki page, one line each. Updated on every ingest.
 - [[2026-10-31 The AI Daily Brief - How the Most AI Pilled Company in the World Works (clip - Spawn)]] — host retells the Spawn article and adds two doubts and five takeaways; only the commentary is cited (podcast clip, 2026-10-31)
 - [[2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd]] — Warp's Zach Lloyd on the software factory as infrastructure: factory as code, the stack, scorers, benchmarks, cost per PR (podcast, 2026-11-03)
 - [[2026-11-02 Warp - How to build an agentic self improvement loop]] — Warp's DevEx lead on how scorers are built: traces, 0–1 rubrics, failure isolation, a daily self-improvement agent, Skill Doctor (video, 2026-11-02)
+- [[2026-11-17 The AI Daily Brief - 7 Things AI-Native Companies Do Differently]] — AI Daily Brief host's round-up of seven practices from companies' published agent accounts, plus his case against agents as teammates; secondhand (podcast, 2026-11-17)
 
 <!-- sf:begin(architecture) -->
 ## Architecture

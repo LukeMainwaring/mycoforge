@@ -1,7 +1,7 @@
 ---
 type: concept
 created: 2026-07-23
-updated: 2026-11-05
+updated: 2026-11-17
 sources:
   - "[[2026-06-03 Running an AI-native Engineering Org (Anthropic)]]"
   - "[[2026-05-06 The Founders Playbook (Anthropic)]]"
@@ -10,6 +10,7 @@ sources:
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
   - "[[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]"
   - "[[2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd]]"
+  - "[[2026-11-17 The AI Daily Brief - 7 Things AI-Native Companies Do Differently]]"
 raw:
   - raw/articles/2026-06-03 Running an AI-native Engineering Org (Anthropic).md
   - raw/articles/2026-05-06 The Founders Playbook (Anthropic).pdf
@@ -18,6 +19,7 @@ raw:
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
   - raw/articles/2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn).md
   - raw/podcasts/2026-11-03 Latent Space - The 2026 Software Factory Infra Stack - Zach Lloyd.md
+  - raw/podcasts/2026-11-17 The AI Daily Brief - 7 Things AI-Native Companies Do Differently.md
 related:
   - "[[AI Software Factory]]"
   - "[[AI-Native Role Archetypes]]"
@@ -31,6 +33,7 @@ related:
   - "[[Token Efficiency]]"
   - "[[Stigmergic Coordination]]"
   - "[[Zach Lloyd]]"
+  - "[[Agent Fleets, Not Teammates]]"
 confidence: medium
 tags: [ai-native, software-engineering]
 ---
@@ -126,6 +129,29 @@ every contribution compounds" (Dan Shiebler). Verification infrastructure is
 the precondition for speed, not a tax on it — which is also why rebuilding is
 cheap for these teams ([[Build for Rebuilding]]: run evals against v1 and v2,
 merge the winner).
+
+> [!claim] Verification is a job of its own: findings must be proven, and a different agent or model checks the work
+> confidence: medium · status: supported
+> evidence: the host's framing is that "the bottleneck across pretty much all
+> types of knowledge work has moved from producing the work to verifying it."
+> Shopify's security system "treats every finding as a claim that has to be
+> proven. If it can't write a test that actually exploits the bug, the
+> finding is rejected or downgraded. And the model that checks the finding is
+> different from the model that found it." At Runlayer (as heard), a second
+> agent reviews each fix adversarially and a QA agent tries to break it in
+> production — [[2026-11-17 The AI Daily Brief - 7 Things AI-Native Companies Do Differently]].
+> Secondhand through the host. Medium because it agrees with the review
+> agents above and the separation of duties in [[Tiered Autonomy]].
+
+> [!claim] Calling an AI a teammate lowers the scrutiny its work gets
+> confidence: low · status: supported
+> evidence: in an HBR study with BCG researchers (May 2026), managers reviewed
+> documents with planted errors that were labeled as written by an AI tool, a
+> human colleague, or a named "AI team member." They checked the AI
+> teammate's work less carefully, and at companies that already treat AI as
+> employees scrutiny dropped about 16%. This is as the host reported it; he
+> adds "it was one study. It happened very early on" — [[2026-11-17 The AI Daily Brief - 7 Things AI-Native Companies Do Differently]].
+> The study itself has not been read. See [[Agent Fleets, Not Teammates]].
 
 ## Verification after merge
 

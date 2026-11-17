@@ -1,17 +1,19 @@
 ---
 type: concept
 created: 2026-09-02
-updated: 2026-11-02
+updated: 2026-11-17
 sources:
   - "[[2026-08-21 The AI-Native SDLC Playbook (Anthropic)]]"
   - "[[2026-08-20 The Claude Code Guide For Startups]]"
   - "[[2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today]]"
   - "[[2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn)]]"
+  - "[[2026-11-17 The AI Daily Brief - 7 Things AI-Native Companies Do Differently]]"
 raw:
   - raw/articles/2026-08-21 The AI-Native SDLC Playbook (Anthropic).md
   - raw/articles/2026-08-20 The Claude Code Guide For Startups.pdf
   - raw/podcasts/2026-09-06 The AI Daily Brief - How to Build an AI-Native Company Today.md
   - raw/articles/2026-10-28 How I Built the Most AI-Pilled Company in the World (Spawn).md
+  - raw/podcasts/2026-11-17 The AI Daily Brief - 7 Things AI-Native Companies Do Differently.md
 related:
   - "[[AI-Native SDLC]]"
   - "[[Advisory and Deterministic Controls]]"
@@ -117,3 +119,24 @@ feel, and it is what the policy layer in a [[Self-Improving AI Loop]] looks
 like when written down. The enforcement mechanics are in
 [[Advisory and Deterministic Controls]]. At founder scale the same shift shows
 up as [[Founder as Orchestrator]]: direct less, gate more.
+
+## Review scaled to risk, one owner
+
+A November 2026 AI Daily Brief round-up states the same idea as practice
+six: "AI-native companies neither review everything nor do they review
+nothing… they always know which human owns the result." Its cases, all
+secondhand ([[2026-11-17 The AI Daily Brief - 7 Things AI-Native Companies Do Differently]]), cover the whole range:
+
+- Stripe has a human reviewer on every merge.
+- Runlayer (as heard) lets small, low-risk changes merge on their own, and
+  humans step in when asked. This is the end of the range that
+  [[Stigmergic Coordination]] sits at.
+- Ramp sells finance agents, and each customer sets how much they can
+  approve alone.
+- On every agent-to-agent call, Uber carries a record of the whole chain, so
+  a long handoff "traces back to that responsible person"
+  ([[Organizational Legibility]]).
+- Snap reportedly puts more than half its agent investment into guardrails.
+
+The cases agree that someone has to own the result. They do not agree on where
+the review gate sits.
