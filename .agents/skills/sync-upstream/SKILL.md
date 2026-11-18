@@ -28,14 +28,30 @@ someone hard-coded instance data where it doesn't belong.
    - the schema boilerplate sections of `AGENTS.md` (template contract, workflow
      scaffolding — *not* the instance's domain-specific prose)
    - `.mcp.json` + `mcp/` if this instance kept the MCP server
+
+   Also list every file a kept surface holds here that upstream no longer has:
+   those are **upstream deletions**, unless the user says the file is their own.
 4. **Present the plan.** Summarize each upstream change in a sentence and whether
-   it applies here. Instance config in `kb.toml` is never overwritten; new config
-   *keys* upstream introduced get added with their default values and a comment.
+   it applies here, and list the upstream deletions. Instance config in `kb.toml`
+   is never overwritten; new config *keys* upstream introduced get added with a
+   comment. A key whose upstream value is the template KB's own data (`[scout]`
+   `topics` and `watch`, a glossary, lint terms) is added empty for the user to
+   fill.
 5. **Port what the user approves.** Copy upstream file contents over the vendored
    copies. If a vendored file has local edits (it shouldn't — that violates
-   copy-and-own), show the conflict and let the user pick.
-6. **Verify.** Run `python3 scripts/lint.py` and the tooling tests
-   (`pytest scripts/` if pytest is available). Fix or revert anything red.
+   copy-and-own), show the conflict and let the user pick. Three kinds of file
+   are not a plain copy:
+   - **Upstream deletions**: delete the ones the user approved.
+   - **Ledgers** (`staging/ingest.md`, `staging/scout.md`): a new one gets the
+     upstream header only, down to the first row or run section; an existing
+     one keeps its rows and takes the new header.
+   - **Identity** (`.mcp.json`, `.codex/config.toml`): after copying, replace
+     the upstream `kb.toml` `[kb].slug` with this instance's.
+6. **Verify.** Run `python3 scripts/lint.py` and the tooling tests:
+   `uvx --with pytest pytest -q scripts`. With `mcp/` present the tests import
+   the server's dependencies, so run
+   `uv export --script mcp/server.py --no-hashes --quiet > "$TMPDIR/mcp-reqs.txt" && uvx --with pytest --with-requirements "$TMPDIR/mcp-reqs.txt" pytest -q scripts`.
+   Fix or revert anything red.
 7. **Record it.** In `kb.toml`, bump `[template].version` to upstream's version
    and set `[template].commit` to the upstream HEAD SHA you synced from, then
    append a `schema |` entry to `wiki/log.md` naming what was ported.

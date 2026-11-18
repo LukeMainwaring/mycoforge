@@ -180,7 +180,9 @@ or a `.gitkeep`.
 ## Phase 5 — Lint
 
 Run `python3 scripts/lint.py` and fix every error (a fresh KB should also have
-zero warnings). Run the tooling tests if pytest is available: `pytest scripts/`.
+zero warnings). Run the tooling tests: `uvx --with pytest pytest -q scripts`, or
+with `mcp/` kept,
+`uv export --script mcp/server.py --no-hashes --quiet > "$TMPDIR/mcp-reqs.txt" && uvx --with pytest --with-requirements "$TMPDIR/mcp-reqs.txt" pytest -q scripts`.
 
 ## Phase 6 — Cleanup
 
