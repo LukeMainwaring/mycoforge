@@ -9,12 +9,14 @@ Checks:
   * wikilink resolution — code blocks stripped first; piped links and section
     anchors supported; ``intentional_forward_links`` suppressed
   * ``raw:`` frontmatter references point at existing files
+  * ``sources:`` frontmatter entries are wikilinks — warning otherwise
   * orphan pages (no inbound link outside index.md/log.md) — warning
   * stale pages — file mtime more than ``stale_after_days`` newer than ``updated:``
   * claim shape — every ``[!claim]`` callout has one confidence, one status from
     ``claim_statuses``, and an evidence line with a resolving wikilink
-  * raw dates — a raw file's filename date matches ``published``/``retrieved``,
-    and capture date is never ``created`` (warn-only: raw is the user's layer)
+  * raw dates — every raw source filename carries a ``YYYY-MM-DD `` prefix, a
+    raw markdown file's filename date matches ``published``/``retrieved``, and
+    capture date is never ``created`` (warn-only: raw is the user's layer)
   * concept candidates — configured terms recurring without a page of their own
   * child KBs exist and carry their own kb.toml; cross-KB links are warnings
 
@@ -249,6 +251,20 @@ def check_raw_refs(root: Path, targets: set[str], issues: Issues) -> None:
                 issues.error(rel(root, page), f"raw: reference not found: {ref}")
 
 
+def check_sources(root: Path, issues: Issues) -> None:
+    """`sources:` frontmatter entries are wikilinks to raw sources. An entry in
+    any other form (a citation string) is a warning; whether a wikilink resolves
+    is check_wikilinks' job, since frontmatter is part of the scanned text."""
+    for page in scannable(root):
+        meta = parse_frontmatter(page.read_text(encoding="utf-8"))
+        refs = meta.get("sources", [])
+        if isinstance(refs, str):
+            refs = [refs]
+        for ref in refs:
+            if not WIKILINK_RE.fullmatch(ref.strip()):
+                issues.warn(rel(root, page), f"sources: entry is not a wikilink: {ref}")
+
+
 def check_orphans(root: Path, issues: Issues) -> None:
     structural = {"index.md", "log.md", "overview.md"}
     inbound: set[str] = set()
@@ -332,9 +348,16 @@ def check_raw_dates(root: Path, issues: Issues) -> None:
     raw = root / "raw"
     if not raw.is_dir():
         return
-    for p in sorted(raw.rglob("*.md")):
+    for p in sorted(raw.rglob("*")):
+        # Sources only: assets/ holds images and attachments, not dated sources.
+        if not p.is_file() or p.name.startswith(".") \
+                or "assets" in p.relative_to(raw).parts:
+            continue
         m = RAW_DATE_RE.match(p.name)
         if not m:
+            issues.warn(rel(root, p), "raw filename has no `YYYY-MM-DD ` date prefix")
+            continue
+        if p.suffix != ".md":
             continue
         meta = parse_frontmatter(p.read_text(encoding="utf-8"))
         if "created" in meta:
@@ -381,6 +404,7 @@ def run(root: Path) -> Issues:
     check_index(root, targets, issues)
     check_wikilinks(root, config, targets, issues)
     check_raw_refs(root, targets, issues)
+    check_sources(root, issues)
     check_orphans(root, issues)
     check_stale(root, config, issues)
     check_claims(root, config, targets, issues)

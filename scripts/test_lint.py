@@ -156,6 +156,38 @@ def test_raw_created_field_warns(tmp_path):
     assert not any("Fetch.md" in w for w in issues.warnings)
 
 
+def test_raw_filename_without_date_prefix_warns(tmp_path):
+    (tmp_path / "raw/papers").mkdir(parents=True)
+    (tmp_path / "raw/assets").mkdir(parents=True)
+    (tmp_path / "raw/papers/Undated Paper.pdf").write_bytes(b"%PDF-1.4\n")
+    (tmp_path / "raw/papers/2026-01-01 Dated Paper.pdf").write_bytes(b"%PDF-1.4\n")
+    (tmp_path / "raw/assets/figure.png").write_bytes(b"x")
+    (tmp_path / "raw/papers/.gitkeep").write_text("", encoding="utf-8")
+    make_kb(tmp_path)
+    issues = lint.run(tmp_path)
+    undated = [w for w in issues.warnings if "date prefix" in w]
+    assert len(undated) == 1 and "Undated Paper.pdf" in undated[0]
+
+
+def test_sources_citation_string_warns(tmp_path):
+    (tmp_path / "raw/articles").mkdir(parents=True)
+    (tmp_path / "raw/articles/2026-01-01 Real.md").write_text("src\n", encoding="utf-8")
+    make_kb(tmp_path, pages={
+        "wiki/index.md": "- [[Alpha]] - [[Beta]]\n",
+        "wiki/overview.md": "hub [[Alpha]] [[Beta]]\n",
+        "wiki/Alpha.md": (
+            '---\ntype: concept\nsources:\n  - "[[2026-01-01 Real]]"\n---\nok\n'
+        ),
+        "wiki/Beta.md": (
+            '---\ntype: concept\nsources:\n  - "Smith, 2011 — A Paper"\n---\nbad\n'
+        ),
+    })
+    issues = lint.run(tmp_path)
+    flagged = [w for w in issues.warnings if "sources: entry is not a wikilink" in w]
+    assert len(flagged) == 1 and "Beta" in flagged[0] and "Smith, 2011" in flagged[0]
+    assert not issues.errors
+
+
 def test_overview_not_required_in_index(tmp_path):
     make_kb(tmp_path, pages={
         "wiki/index.md": "- [[Alpha]]\n",       # overview.md deliberately absent
